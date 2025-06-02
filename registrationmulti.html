@@ -1,0 +1,2507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GITEX NIGERIA</title>
+    <link rel="icon" type="image/png" href="assets/img/fav-icon.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/new-style-visitor.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/fonts/webfont/stylesheet.css">
+</head>
+
+<body>
+
+    <!-- loader -->
+      <div id="loader-wrapper">
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <circle id="test" cx="40" cy="40" r="32"></circle>
+            </svg>
+        </div>
+        <div class="loader triangle">
+            <svg viewBox="0 0 86 80">
+                <polygon points="43 8 79 72 7 72"></polygon>
+            </svg>
+        </div>
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <rect x="8" y="8" width="64" height="64"></rect>
+            </svg>
+        </div>
+    </div>
+    <!-- loader -->
+    
+    <div class="width-container">
+
+    <div class="inner-banner">
+            <a href="index.html">
+                <img src="assets/img/ni-header.png" class="img-fluid">
+            </a>
+
+            <div>
+                <div class="registration-text">GITEX NIGERIA TECH EXPO +  <br> FUTURE ECONOMY SUMMIT</div>
+            <a href="login.html"><button class="btn-main"><i class="animation"></i>
+                                        Login<i class="animation"></i>
+                                    </button></a>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="row px-1">
+                <div class="col-md-12 ">
+                <form class="">
+                    <div id="attendee-forms-container">
+             
+                    </div>
+                   
+                    <!-- Registration Summary -->
+                    <div class="registration-summary">
+                        <div class="summary-header">
+                            <h4>Registration Summary</h4>
+                        </div>
+                        <div id="ticket-summary-container">
+                            <div class="promo-code-section">
+                    <div class="promo-code-header">
+                        <h5>Have a promo code?</h5>
+                    </div>
+                    <div class="promo-code-input">
+                        <input type="text" id="promoCodeInput" class="form-control" placeholder="Enter promo code">
+                        <button id="applyPromoBtn" class="buy-btn">Apply</button>
+                    </div>
+                    <div id="promoCodeMessage" class="mt-2"></div>
+                    <div id="promoCodeApplied" class="applied-promo" style="display: none;">
+                        <div class="applied-promo-details">
+                            <div>
+                                <span class="promo-label">Promo code applied:</span>
+                                <span class="promo-value" id="appliedPromoValue"></span>
+                            </div>
+                            <div>
+                                <span class="promo-label">Discount:</span>
+                                <span class="promo-value" id="appliedPromoDiscount"></span>
+                            </div>
+                            <div>
+                                <span class="promo-label">Applied to:</span>
+                                <span class="promo-value" id="appliedPromoTickets"></span>
+                            </div>
+                        </div>
+                        <button id="removePromoBtn" class="btn btn-sm btn-outline-danger">Remove</button>
+                    </div>
+                </div>
+                        </div>
+                        <div class="total-row">
+                            <div>
+                                <span>Total:</span>
+                            <span id="summary-total">EUR 0</span>
+                            </div>
+                            <div class="summury-button">
+                                <button class="back-btn" type="submit" class="btn btn-primary"
+                                    onclick="location.href='index.html'">
+                                    Back</button>
+                                <button type="submit" style="margin-top: 0;" class="buy-btn">Submit & Continue to Payment</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            </div>
+        </div>
+
+
+    <section class="footer">
+        <div class="container">
+            <img src="assets/img/logo.png" alt="" class="logo-width">
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+        </div>
+    </section>
+    </div>
+
+
+    <!-- The Modal -->
+    <div class="modal fade" id="solutionsModal" tabindex="-1" aria-labelledby="solutionsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header premium-header">
+                    <h5 class="modal-title" id="solutionsModalLabel">SELECT SOLUTIONS/PRODUCTS</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="searchInput" class="form-control mb-3" placeholder="Try product/service">
+                    <label><strong>I am interested in sourcing the following solutions/products? (Select Top
+                                    5)</strong>
+                                <em>* Please ensure you have chosen at least one category in each section</em></label>
+                    <div class="row gx-4 mt-2">
+                        <!-- Products List -->
+                        <div class="col-md-6">
+                            <ul class="list-group categories-list" id="categoriesList">
+                                <!-- Products will be dynamically generated here -->
+                            </ul>
+                        </div>
+                        
+                        <!-- Services List -->
+                        <div class="col-md-6">
+                            <ul class="list-group subitems-list" id="subitemsList">
+                                <li class="list-group-item text-muted"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="tags-container" id="tagsContainer"></div>
+                    <button type="button" class="back-btn" data-bs-dismiss="modal">CANCEL</button>
+                    <button type="button" class="buy-btn" id="applyBtn" disabled>APPLY</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="assets/js/font-awsome.js"></script>
+    <script src="assets/js/script.js"></script>
+
+    <script>
+        // Page loader functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show loader
+            const loader = document.getElementById('page-loader');
+            const mainContent = document.querySelector('.width-container');
+            
+            // Hide main content initially
+
+            
+            // Function to hide loader and show content
+            function hideLoader() {
+                // First make sure all scripts and resources are loaded
+                if (document.readyState === 'complete') {
+                    // Add a minimum delay to show the loader
+                    setTimeout(function() {
+                        // Hide loader
+                        loader.classList.add('page-loaded');
+                        
+                        // Show main content
+                        if (mainContent) {
+                            mainContent.style.opacity = '1';
+                        }
+                        
+                        // After transition completes, remove loader from DOM for better performance
+                        setTimeout(function() {
+                            loader.style.display = 'none';
+                        }, 500);
+                    }, 800); // Minimum loader display time (ms)
+                } else {
+                    // If page is not fully loaded, check again after a short delay
+                    setTimeout(hideLoader, 100);
+                }
+            }
+            
+            // Start checking if page is loaded
+            window.addEventListener('load', hideLoader);
+            
+            // Fallback - if load event never fires, hide loader after 5 seconds
+            setTimeout(function() {
+                hideLoader();
+            }, 5000);
+        });
+    </script>
+ 
+    <script>
+
+        const countryList = [
+                { code: "AF", name: "Afghanistan", phoneCode: "93" },
+                { code: "AL", name: "Albania", phoneCode: "355" },
+                { code: "DZ", name: "Algeria", phoneCode: "213" },
+                { code: "AS", name: "American Samoa", phoneCode: "1-684" },
+                { code: "AD", name: "Andorra", phoneCode: "376" },
+                { code: "AO", name: "Angola", phoneCode: "244" },
+                { code: "AI", name: "Anguilla", phoneCode: "1-264" },
+                { code: "AQ", name: "Antarctica", phoneCode: "672" },
+                { code: "AG", name: "Antigua and Barbuda", phoneCode: "1-268" },
+                { code: "AR", name: "Argentina", phoneCode: "54" },
+                { code: "AM", name: "Armenia", phoneCode: "374" },
+                { code: "AW", name: "Aruba", phoneCode: "297" },
+                { code: "AU", name: "Australia", phoneCode: "61" },
+                { code: "AT", name: "Austria", phoneCode: "43" },
+                { code: "AZ", name: "Azerbaijan", phoneCode: "994" },
+                { code: "BS", name: "Bahamas", phoneCode: "1-242" },
+                { code: "BH", name: "Bahrain", phoneCode: "973" },
+                { code: "BD", name: "Bangladesh", phoneCode: "880" },
+                { code: "BB", name: "Barbados", phoneCode: "1-246" },
+                { code: "BY", name: "Belarus", phoneCode: "375" },
+                { code: "BE", name: "Belgium", phoneCode: "32" },
+                { code: "BZ", name: "Belize", phoneCode: "501" },
+                { code: "BJ", name: "Benin", phoneCode: "229" },
+                { code: "BM", name: "Bermuda", phoneCode: "1-441" },
+                { code: "BT", name: "Bhutan", phoneCode: "975" },
+                { code: "BO", name: "Bolivia", phoneCode: "591" },
+                { code: "BA", name: "Bosnia and Herzegovina", phoneCode: "387" },
+                { code: "BW", name: "Botswana", phoneCode: "267" },
+                { code: "BR", name: "Brazil", phoneCode: "55" },
+                { code: "IO", name: "British Indian Ocean Territory", phoneCode: "246" },
+                { code: "VG", name: "British Virgin Islands", phoneCode: "1-284" },
+                { code: "BN", name: "Brunei", phoneCode: "673" },
+                { code: "BG", name: "Bulgaria", phoneCode: "359" },
+                { code: "BF", name: "Burkina Faso", phoneCode: "226" },
+                { code: "BI", name: "Burundi", phoneCode: "257" },
+                { code: "KH", name: "Cambodia", phoneCode: "855" },
+                { code: "CM", name: "Cameroon", phoneCode: "237" },
+                { code: "CA", name: "Canada", phoneCode: "1" },
+                { code: "CV", name: "Cape Verde", phoneCode: "238" },
+                { code: "KY", name: "Cayman Islands", phoneCode: "1-345" },
+                { code: "CF", name: "Central African Republic", phoneCode: "236" },
+                { code: "TD", name: "Chad", phoneCode: "235" },
+                { code: "CL", name: "Chile", phoneCode: "56" },
+                { code: "CN", name: "China", phoneCode: "86" },
+                { code: "CX", name: "Christmas Island", phoneCode: "61" },
+                { code: "CC", name: "Cocos Islands", phoneCode: "61" },
+                { code: "CO", name: "Colombia", phoneCode: "57" },
+                { code: "KM", name: "Comoros", phoneCode: "269" },
+                { code: "CK", name: "Cook Islands", phoneCode: "682" },
+                { code: "CR", name: "Costa Rica", phoneCode: "506" },
+                { code: "HR", name: "Croatia", phoneCode: "385" },
+                { code: "CU", name: "Cuba", phoneCode: "53" },
+                { code: "CW", name: "Curacao", phoneCode: "599" },
+                { code: "CY", name: "Cyprus", phoneCode: "357" },
+                { code: "CZ", name: "Czech Republic", phoneCode: "420" },
+                { code: "CD", name: "Democratic Republic of the Congo", phoneCode: "243" },
+                { code: "DK", name: "Denmark", phoneCode: "45" },
+                { code: "DJ", name: "Djibouti", phoneCode: "253" },
+                { code: "DM", name: "Dominica", phoneCode: "1-767" },
+                { code: "DO", name: "Dominican Republic", phoneCode: "1-809" },
+                { code: "TL", name: "East Timor", phoneCode: "670" },
+                { code: "EC", name: "Ecuador", phoneCode: "593" },
+                { code: "EG", name: "Egypt", phoneCode: "20" },
+                { code: "SV", name: "El Salvador", phoneCode: "503" },
+                { code: "GQ", name: "Equatorial Guinea", phoneCode: "240" },
+                { code: "ER", name: "Eritrea", phoneCode: "291" },
+                { code: "EE", name: "Estonia", phoneCode: "372" },
+                { code: "ET", name: "Ethiopia", phoneCode: "251" },
+                { code: "FK", name: "Falkland Islands", phoneCode: "500" },
+                { code: "FO", name: "Faroe Islands", phoneCode: "298" },
+                { code: "FJ", name: "Fiji", phoneCode: "679" },
+                { code: "FI", name: "Finland", phoneCode: "358" },
+                { code: "FR", name: "France", phoneCode: "33" },
+                { code: "GF", name: "French Guiana", phoneCode: "594" },
+                { code: "PF", name: "French Polynesia", phoneCode: "689" },
+                { code: "GA", name: "Gabon", phoneCode: "241" },
+                { code: "GM", name: "Gambia", phoneCode: "220" },
+                { code: "GE", name: "Georgia", phoneCode: "995" },
+                { code: "DE", name: "Germany", phoneCode: "49" },
+                { code: "GH", name: "Ghana", phoneCode: "233" },
+                { code: "GI", name: "Gibraltar", phoneCode: "350" },
+                { code: "GR", name: "Greece", phoneCode: "30" },
+                { code: "GL", name: "Greenland", phoneCode: "299" },
+                { code: "GD", name: "Grenada", phoneCode: "1-473" },
+                { code: "GP", name: "Guadeloupe", phoneCode: "590" },
+                { code: "GU", name: "Guam", phoneCode: "1-671" },
+                { code: "GT", name: "Guatemala", phoneCode: "502" },
+                { code: "GG", name: "Guernsey", phoneCode: "44-1481" },
+                { code: "GN", name: "Guinea", phoneCode: "224" },
+                { code: "GW", name: "Guinea-Bissau", phoneCode: "245" },
+                { code: "GY", name: "Guyana", phoneCode: "592" },
+                { code: "HT", name: "Haiti", phoneCode: "509" },
+                { code: "HN", name: "Honduras", phoneCode: "504" },
+                { code: "HK", name: "Hong Kong", phoneCode: "852" },
+                { code: "HU", name: "Hungary", phoneCode: "36" },
+                { code: "IS", name: "Iceland", phoneCode: "354" },
+                { code: "IN", name: "India", phoneCode: "91" },
+                { code: "ID", name: "Indonesia", phoneCode: "62" },
+                { code: "IR", name: "Iran", phoneCode: "98" },
+                { code: "IQ", name: "Iraq", phoneCode: "964" },
+                { code: "IE", name: "Ireland", phoneCode: "353" },
+                { code: "IM", name: "Isle of Man", phoneCode: "44-1624" },
+                { code: "IL", name: "Israel", phoneCode: "972" },
+                { code: "IT", name: "Italy", phoneCode: "39" },
+                { code: "CI", name: "Ivory Coast", phoneCode: "225" },
+                { code: "JM", name: "Jamaica", phoneCode: "1-876" },
+                { code: "JP", name: "Japan", phoneCode: "81" },
+                { code: "JE", name: "Jersey", phoneCode: "44-1534" },
+                { code: "JO", name: "Jordan", phoneCode: "962" },
+                { code: "KZ", name: "Kazakhstan", phoneCode: "7" },
+                { code: "KE", name: "Kenya", phoneCode: "254" },
+                { code: "KI", name: "Kiribati", phoneCode: "686" },
+                { code: "XK", name: "Kosovo", phoneCode: "383" },
+                { code: "KW", name: "Kuwait", phoneCode: "965" },
+                { code: "KG", name: "Kyrgyzstan", phoneCode: "996" },
+                { code: "LA", name: "Laos", phoneCode: "856" },
+                { code: "LV", name: "Latvia", phoneCode: "371" },
+                { code: "LB", name: "Lebanon", phoneCode: "961" },
+                { code: "LS", name: "Lesotho", phoneCode: "266" },
+                { code: "LR", name: "Liberia", phoneCode: "231" },
+                { code: "LY", name: "Libya", phoneCode: "218" },
+                { code: "LI", name: "Liechtenstein", phoneCode: "423" },
+                { code: "LT", name: "Lithuania", phoneCode: "370" },
+                { code: "LU", name: "Luxembourg", phoneCode: "352" },
+                { code: "MO", name: "Macau", phoneCode: "853" },
+                { code: "MK", name: "Macedonia", phoneCode: "389" },
+                { code: "MG", name: "Madagascar", phoneCode: "261" },
+                { code: "MW", name: "Malawi", phoneCode: "265" },
+                { code: "MY", name: "Malaysia", phoneCode: "60" },
+                { code: "MV", name: "Maldives", phoneCode: "960" },
+                { code: "ML", name: "Mali", phoneCode: "223" },
+                { code: "MT", name: "Malta", phoneCode: "356" },
+                { code: "MH", name: "Marshall Islands", phoneCode: "692" },
+                { code: "MQ", name: "Martinique", phoneCode: "596" },
+                { code: "MR", name: "Mauritania", phoneCode: "222" },
+                { code: "MU", name: "Mauritius", phoneCode: "230" },
+                { code: "YT", name: "Mayotte", phoneCode: "262" },
+                { code: "MX", name: "Mexico", phoneCode: "52" },
+                { code: "FM", name: "Micronesia", phoneCode: "691" },
+                { code: "MD", name: "Moldova", phoneCode: "373" },
+                { code: "MC", name: "Monaco", phoneCode: "377" },
+                { code: "MN", name: "Mongolia", phoneCode: "976" },
+                { code: "ME", name: "Montenegro", phoneCode: "382" },
+                { code: "MS", name: "Montserrat", phoneCode: "1-664" },
+                { code: "MA", name: "Morocco", phoneCode: "212" },
+                { code: "MZ", name: "Mozambique", phoneCode: "258" },
+                { code: "MM", name: "Myanmar", phoneCode: "95" },
+                { code: "NA", name: "Namibia", phoneCode: "264" },
+                { code: "NR", name: "Nauru", phoneCode: "674" },
+                { code: "NP", name: "Nepal", phoneCode: "977" },
+                { code: "NL", name: "Netherlands", phoneCode: "31" },
+                { code: "AN", name: "Netherlands Antilles", phoneCode: "599" },
+                { code: "NC", name: "New Caledonia", phoneCode: "687" },
+                { code: "NZ", name: "New Zealand", phoneCode: "64" },
+                { code: "NI", name: "Nicaragua", phoneCode: "505" },
+                { code: "NE", name: "Niger", phoneCode: "227" },
+                { code: "NG", name: "Nigeria", phoneCode: "234" },
+                { code: "NU", name: "Niue", phoneCode: "683" },
+                { code: "KP", name: "North Korea", phoneCode: "850" },
+                { code: "MP", name: "Northern Mariana Islands", phoneCode: "1-670" },
+                { code: "NO", name: "Norway", phoneCode: "47" },
+                { code: "OM", name: "Oman", phoneCode: "968" },
+                { code: "PK", name: "Pakistan", phoneCode: "92" },
+                { code: "PW", name: "Palau", phoneCode: "680" },
+                { code: "PS", name: "Palestine", phoneCode: "970" },
+                { code: "PA", name: "Panama", phoneCode: "507" },
+                { code: "PG", name: "Papua New Guinea", phoneCode: "675" },
+                { code: "PY", name: "Paraguay", phoneCode: "595" },
+                { code: "PE", name: "Peru", phoneCode: "51" },
+                { code: "PH", name: "Philippines", phoneCode: "63" },
+                { code: "PN", name: "Pitcairn", phoneCode: "64" },
+                { code: "PL", name: "Poland", phoneCode: "48" },
+                { code: "PT", name: "Portugal", phoneCode: "351" },
+                { code: "PR", name: "Puerto Rico", phoneCode: "1-787" },
+                { code: "QA", name: "Qatar", phoneCode: "974" },
+                { code: "CG", name: "Republic of the Congo", phoneCode: "242" },
+                { code: "RE", name: "Reunion", phoneCode: "262" },
+                { code: "RO", name: "Romania", phoneCode: "40" },
+                { code: "RU", name: "Russia", phoneCode: "7" },
+                { code: "RW", name: "Rwanda", phoneCode: "250" },
+                { code: "BL", name: "Saint Barthelemy", phoneCode: "590" },
+                { code: "SH", name: "Saint Helena", phoneCode: "290" },
+                { code: "KN", name: "Saint Kitts and Nevis", phoneCode: "1-869" },
+                { code: "LC", name: "Saint Lucia", phoneCode: "1-758" },
+                { code: "MF", name: "Saint Martin", phoneCode: "590" },
+                { code: "PM", name: "Saint Pierre and Miquelon", phoneCode: "508" },
+                { code: "VC", name: "Saint Vincent and the Grenadines", phoneCode: "1-784" },
+                { code: "WS", name: "Samoa", phoneCode: "685" },
+                { code: "SM", name: "San Marino", phoneCode: "378" },
+                { code: "ST", name: "Sao Tome and Principe", phoneCode: "239" },
+                { code: "SA", name: "Saudi Arabia", phoneCode: "966" },
+                { code: "SN", name: "Senegal", phoneCode: "221" },
+                { code: "RS", name: "Serbia", phoneCode: "381" },
+                { code: "SC", name: "Seychelles", phoneCode: "248" },
+                { code: "SL", name: "Sierra Leone", phoneCode: "232" },
+                { code: "SG", name: "Singapore", phoneCode: "65" },
+                { code: "SX", name: "Sint Maarten", phoneCode: "1-721" },
+                { code: "SK", name: "Slovakia", phoneCode: "421" },
+                { code: "SI", name: "Slovenia", phoneCode: "386" },
+                { code: "SB", name: "Solomon Islands", phoneCode: "677" },
+                { code: "SO", name: "Somalia", phoneCode: "252" },
+                { code: "ZA", name: "South Africa", phoneCode: "27" },
+                { code: "KR", name: "South Korea", phoneCode: "82" },
+                { code: "SS", name: "South Sudan", phoneCode: "211" },
+                { code: "ES", name: "Spain", phoneCode: "34" },
+                { code: "LK", name: "Sri Lanka", phoneCode: "94" },
+                { code: "SD", name: "Sudan", phoneCode: "249" },
+                { code: "SR", name: "Suriname", phoneCode: "597" },
+                { code: "SJ", name: "Svalbard and Jan Mayen", phoneCode: "47" },
+                { code: "SZ", name: "Swaziland", phoneCode: "268" },
+                { code: "SE", name: "Sweden", phoneCode: "46" },
+                { code: "CH", name: "Switzerland", phoneCode: "41" },
+                { code: "SY", name: "Syria", phoneCode: "963" },
+                { code: "TW", name: "Taiwan", phoneCode: "886" },
+                { code: "TJ", name: "Tajikistan", phoneCode: "992" },
+                { code: "TZ", name: "Tanzania", phoneCode: "255" },
+                { code: "TH", name: "Thailand", phoneCode: "66" },
+                { code: "TG", name: "Togo", phoneCode: "228" },
+                { code: "TK", name: "Tokelau", phoneCode: "690" },
+                { code: "TO", name: "Tonga", phoneCode: "676" },
+                { code: "TT", name: "Trinidad and Tobago", phoneCode: "1-868" },
+                { code: "TN", name: "Tunisia", phoneCode: "216" },
+                { code: "TR", name: "Turkey", phoneCode: "90" },
+                { code: "TM", name: "Turkmenistan", phoneCode: "993" },
+                { code: "TC", name: "Turks and Caicos Islands", phoneCode: "1-649" },
+                { code: "TV", name: "Tuvalu", phoneCode: "688" },
+                { code: "VI", name: "U.S. Virgin Islands", phoneCode: "1-340" },
+                { code: "UG", name: "Uganda", phoneCode: "256" },
+                { code: "UA", name: "Ukraine", phoneCode: "380" },
+                { code: "AE", name: "United Arab Emirates", phoneCode: "971" },
+                { code: "GB", name: "United Kingdom", phoneCode: "44" },
+                { code: "US", name: "United States", phoneCode: "1" },
+                { code: "UY", name: "Uruguay", phoneCode: "598" },
+                { code: "UZ", name: "Uzbekistan", phoneCode: "998" },
+                { code: "VU", name: "Vanuatu", phoneCode: "678" },
+                { code: "VA", name: "Vatican", phoneCode: "379" },
+                { code: "VE", name: "Venezuela", phoneCode: "58" },
+                { code: "VN", name: "Vietnam", phoneCode: "84" },
+                { code: "WF", name: "Wallis and Futuna", phoneCode: "681" },
+                { code: "EH", name: "Western Sahara", phoneCode: "212" },
+                { code: "YE", name: "Yemen", phoneCode: "967" },
+                { code: "ZM", name: "Zambia", phoneCode: "260" },
+                { code: "ZW", name: "Zimbabwe", phoneCode: "263" }
+            ];
+
+
+        const regionList = [
+            { code: "MOW", name: "Moscow" },
+            { code: "SPE", name: "Saint Petersburg" },
+            { code: "MOS", name: "Moscow Oblast" },
+            { code: "KDA", name: "Krasnodar Krai" },
+            { code: "KYA", name: "Krasnoyarsk Krai" },
+            { code: "TA", name: "Republic of Tatarstan" },
+            { code: "SVE", name: "Sverdlovsk Oblast" },
+            { code: "ROS", name: "Rostov Oblast" },
+            { code: "NVS", name: "Novosibirsk Oblast" },
+            { code: "PRI", name: "Primorsky Krai" },
+            { code: "BA", name: "Bashkortostan" },
+            { code: "CHE", name: "Chelyabinsk Oblast" },
+            { code: "NIZ", name: "Nizhny Novgorod Oblast" },
+            { code: "SAM", name: "Samara Oblast" },
+            { code: "IRK", name: "Irkutsk Oblast" },
+            { code: "VGG", name: "Volgograd Oblast" },
+            { code: "KHA", name: "Khabarovsk Krai" },
+            { code: "OMS", name: "Omsk Oblast" },
+            { code: "PER", name: "Perm Krai" },
+            { code: "DA", name: "Republic of Dagestan" }
+        ];
+
+ 
+        // Company types list
+        const companyTypeList = [
+            { code: "CORP", name: "Corporation" },
+            { code: "LLC", name: "Limited Liability Company" },
+            { code: "PLLC", name: "Professional Limited Liability Company" },
+            { code: "PC", name: "Professional Corporation" },
+            { code: "LLP", name: "Limited Liability Partnership" },
+            { code: "LP", name: "Limited Partnership" },
+            { code: "SP", name: "Sole Proprietorship" },
+            { code: "JV", name: "Joint Venture" },
+            { code: "NGO", name: "Non-Governmental Organization" },
+            { code: "NPO", name: "Non-Profit Organization" },
+            { code: "GOV", name: "Government Entity" },
+            { code: "EDU", name: "Educational Institution" },
+            { code: "PUB", name: "Public Company" },
+            { code: "PRI", name: "Private Company" },
+            { code: "COOP", name: "Cooperative" },
+            { code: "BANK", name: "Banking Institution" },
+            { code: "INS", name: "Insurance Company" },
+            { code: "MEDIA", name: "Media Company" },
+            { code: "TECH", name: "Technology Company" },
+            { code: "RETAIL", name: "Retail Business" },
+            { code: "MFG", name: "Manufacturing Company" },
+            { code: "SVC", name: "Service Provider" },
+            { code: "FREE", name: "Freelancer/Self-employed" },
+            { code: "OTHER", name: "Other" }
+        ];
+
+
+        const IndustryList = [
+            { code: "AGR", name: "Agriculture" },
+            { code: "AUTO", name: "Automotive" },
+            { code: "AVI", name: "Aviation & Space" },
+            { code: "FIN", name: "Banking, Finance & Insurance" },
+            { code: "CONS", name: "Construction & Infrastructure" },
+            { code: "COS", name: "Cosmetics" },
+            { code: "DEF", name: "Defense" },
+            { code: "EDU", name: "Education" },
+            { code: "ENE", name: "Energy & Utilities" },
+            { code: "ENT", name: "Entertainment" },
+            { code: "ENV", name: "Environment & Sustainability" },
+            { code: "FASH", name: "Fashion & Apparel" },
+            { code: "FMCG", name: "FMCG" },
+            { code: "GAM", name: "Gaming" },
+            { code: "TRA", name: "General Trading" },
+            { code: "GOV", name: "Government" },
+            { code: "HLTH", name: "Healthcare" },
+            { code: "HOSP", name: "Hospitality" },
+            { code: "JEW", name: "Jewellery & Luxury Goods" },
+            { code: "LEG", name: "Legal" },
+            { code: "LOG", name: "Logistics & Supply Chain" },
+            { code: "MNF", name: "Manufacturing" },
+            { code: "MEDIA", name: "Media & Advertising" },
+            { code: "MIN", name: "Mining" },
+            { code: "REAL", name: "Real Estate & Property Developers" },
+            { code: "RD", name: "Research & Development" },
+            { code: "RETAIL", name: "Retail" },
+            { code: "TECH", name: "Technology" },
+            { code: "TEL", name: "Telecoms" },
+            { code: "TOUR", name: "Travel & Tourism" },
+            { code: "OTH", name: "Other - Please specify" }
+        ];
+
+
+
+        // Updated function to initialize phone inputs with intl-tel-input
+        function initializePhoneInputs() {
+            const phoneInputs = document.querySelectorAll('.phone-number');
+            const phoneInstances = [];
+            
+            phoneInputs.forEach(input => {
+                // Initialize with intl-tel-input
+                const iti = window.intlTelInput(input, {
+                    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+                    preferredCountries: ['sa', 'ae', 'in', 'us'],
+                    separateDialCode: true,
+                    initialCountry: 'ng' // Default to Saudi Arabia or whatever default you want
+                });
+                
+                // Store the iti instance on the input element for later use
+                input.iti = iti;
+                
+                // Add validation on blur
+                input.addEventListener('blur', function() {
+                    if (input.value.trim()) {
+                        if (iti.isValidNumber()) {
+                            input.classList.remove('is-invalid');
+                        } else {
+                            input.classList.add('is-invalid');
+                        }
+                    }
+                });
+                
+                phoneInstances.push(iti);
+            });
+            
+            return phoneInstances;
+        }
+
+
+        // Function to update phone fields when we modify the DOM
+        function updatePhoneFields() {
+            setTimeout(() => {
+                initializePhoneInputs();
+            }, 100);
+        }
+
+
+        // Add validation for phone numbers
+        function validatePhoneNumbers() {
+            const phoneInputs = document.querySelectorAll('.phone-number');
+            let allValid = true;
+            
+            phoneInputs.forEach(input => {
+                const iti = window.intlTelInputGlobals.getInstance(input);
+                if (iti) {
+                    if (!iti.isValidNumber()) {
+                        input.classList.add('is-invalid');
+                        // Get or create error message
+                        let errorMsg = input.nextElementSibling;
+                        if (!errorMsg || !errorMsg.classList.contains('invalid-feedback')) {
+                            errorMsg = document.createElement('div');
+                            errorMsg.className = 'invalid-feedback';
+                            input.parentNode.insertBefore(errorMsg, input.nextSibling);
+                        }
+                        errorMsg.textContent = 'Please enter a valid phone number';
+                        allValid = false;
+                    } else {
+                        input.classList.remove('is-invalid');
+                        const errorMsg = input.nextElementSibling;
+                        if (errorMsg && errorMsg.classList.contains('invalid-feedback')) {
+                            errorMsg.textContent = '';
+                        }
+                    }
+                }
+            });
+            
+            return allValid;
+        }
+
+        // Function to populate country dropdowns
+        function populateCountryDropdowns() {
+            // Get all country dropdowns
+            const countrySelects = document.querySelectorAll('select[name="country"]');
+            const nationalitySelects = document.querySelectorAll('select[name="Nationality"]');
+            const countryCodeSelects = document.querySelectorAll('select[name="countryCode"]');
+
+            
+            // Create options HTML for countries
+            let countryOptionsHTML = '<option value="">Please Select</option>';
+            
+            // Sort countries alphabetically by name
+            countryList.sort((a, b) => a.name.localeCompare(b.name));
+            
+            countryList.forEach(country => {
+                countryOptionsHTML += `<option value="${country.code}">${country.name}</option>`;
+            });
+            
+            // Populate country of residence dropdowns
+            countrySelects.forEach(select => {
+                select.innerHTML = countryOptionsHTML;
+            });
+            
+            // Populate nationality dropdowns with same options
+            nationalitySelects.forEach(select => {
+                select.innerHTML = countryOptionsHTML;
+            });
+            
+            // Create options HTML for country codes
+            let phoneCodeOptionsHTML = '';
+            countryList.forEach(country => {
+                phoneCodeOptionsHTML += `<option value="+${country.phoneCode}">${country.name} (+${country.phoneCode})</option>`;
+            });
+            
+            // Populate country code dropdowns
+            countryCodeSelects.forEach(select => {
+                select.innerHTML = phoneCodeOptionsHTML;
+                // Set default to Saudi Arabia since user is in SA
+                const saudiOption = Array.from(select.options).find(option => option.value === '+966');
+                if (saudiOption) {
+                    saudiOption.selected = true;
+                }
+            });
+
+            
+        }
+        
+
+        // Function to populate all dropdown lists
+        function populateAllDropdowns() {
+            // Get all dropdown selects
+            const companyTypeSelects = document.querySelectorAll('select[name="companytype"]');
+            const industrySelects = document.querySelectorAll('select[name="industry"]');
+            
+            // Populate company type dropdowns
+            populateDropdowns(companyTypeSelects, companyTypeList, 'code', 'name');
+
+            // Populate industry dropdowns
+            populateDropdowns(industrySelects, IndustryList, 'code', 'name');
+        }
+
+
+        // Helper function to populate any dropdown list
+        function populateDropdowns(selectElements, dataList, valueField, textField) {
+            if (!selectElements || !selectElements.length) return;
+            
+            // Create options HTML
+            let optionsHTML = '<option value="">Please Select</option>';
+
+            // Add options from the data list
+            dataList.forEach(item => {
+                optionsHTML += `<option value="${item[valueField]}">${item[textField]}</option>`;
+            });
+            
+            // Populate all matching select elements
+            selectElements.forEach(select => {
+                select.innerHTML = optionsHTML;
+            });
+        }
+
+        // Function to synchronize country selection with phone code
+
+        
+        function syncCountryWithPhoneCode() {
+            const forms = document.querySelectorAll('.attendee-form');
+            
+            forms.forEach(form => {
+                const countrySelect = form.querySelector('select[name="country"]');
+                // Look for telephone input with intl-tel-input
+                const phoneInput = form.querySelector('.phone-number');
+                
+                if (countrySelect && phoneInput) {
+                    // Store the phone input's iti instance if it exists
+                    const itiInstance = phoneInput.iti;
+                    
+                    // Handle both native select change and select2 change events
+                    // 1. Add native select change event (may work for non-select2)
+                    countrySelect.addEventListener('change', function() {
+                        updatePhoneCountry(this.value, phoneInput, itiInstance);
+                    });
+                    
+                    // 2. Add select2 specific event
+                    $(countrySelect).on('select2:select', function(e) {
+                        const selectedCountryCode = e.params.data.id;
+                        updatePhoneCountry(selectedCountryCode, phoneInput, itiInstance);
+                    });
+                }
+            });
+            
+            // Helper function to update the phone country based on selected country
+            function updatePhoneCountry(countryCode, phoneInput, itiInstance) {
+                // If we have a valid country code
+                if (countryCode) {
+                    // Option 1: If using intl-tel-input directly
+                    if (window.intlTelInputGlobals && phoneInput) {
+                        // Get the intl-tel-input instance for this input
+                        const iti = itiInstance || window.intlTelInputGlobals.getInstance(phoneInput);
+                        if (iti) {
+                            // Set the country
+                            iti.setCountry(countryCode.toLowerCase());
+                            return;
+                        }
+                    }
+                    
+                    // Option 2: If using a separate country code dropdown
+                    const phoneCodeSelect = phoneInput.closest('.attendee-form').querySelector('select[name="countryCode"]');
+                    if (phoneCodeSelect) {
+                        // Find the country data from the countryList array
+                        const selectedCountry = countryList.find(country => country.code === countryCode);
+                        
+                        // If we found the country data
+                        if (selectedCountry) {
+                            const correspondingPhoneCode = '+' + selectedCountry.phoneCode;
+                            
+                            // If using regular select element
+                            for (let i = 0; i < phoneCodeSelect.options.length; i++) {
+                                const optionValue = phoneCodeSelect.options[i].value;
+                                const mainPhoneCode = correspondingPhoneCode.split('-')[0];
+                                
+                                if (optionValue === correspondingPhoneCode || 
+                                    (correspondingPhoneCode.includes('-') && optionValue === mainPhoneCode)) {
+                                    phoneCodeSelect.selectedIndex = i;
+                                    
+                                    // If phoneCodeSelect is also enhanced with select2, update it
+                                    if ($.fn.select2 && $(phoneCodeSelect).data('select2')) {
+                                        $(phoneCodeSelect).val(optionValue).trigger('change');
+                                    }
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        // Updated function to add badges to each attendee form with new design
+        function addAttendeeFormBadges() {
+            const forms = document.querySelectorAll('.attendee-form');
+            
+            forms.forEach((form, index) => {
+                // Create the row and columns for the form layout
+                const badgeRow = document.createElement('div');
+                badgeRow.className = 'row';
+                
+                const formCol = document.createElement('div');
+                formCol.className = 'col-md-8';
+                
+                const badgeCol = document.createElement('div');
+                badgeCol.className = 'col-md-4';
+                
+                // Move the existing form content to the form column
+                const formContent = form.innerHTML;
+                form.innerHTML = '';
+                formCol.innerHTML = formContent;
+                
+                // Create badge elements with the new design
+                const badge = document.createElement('div');
+                badge.className = 'card';
+                badge.innerHTML = `
+                    <div class="card-header min-height-77">
+                        <img src="assets/img/ni-header.png"" width="100%">
+                    </div>
+                    <div class="ticket-info-to">
+                         <h4 class="badge_name">Registration Information ${index}</h4>
+                        <h4 id="badge-fullname-${index}" class="badge-fullname">Full Name</h4>
+                        <h6 id="badge-jobtitle-${index}" class="badge-jobtitle">JOB TITLE</h6>
+                        <h6 id="badge-companyname-${index}" class="badge-companyname">COMPANY NAME</h6>
+                        <h6 id="badge-country-${index}" class="badge-country">Country of residence</h6>
+                    </div>
+                    <div class="ticket-info-ft">
+                        <h6>BADGE CATEGORY</h6>
+                        <h4>Delegate</h4>
+                    </div>
+                `;
+                
+                // Add the badge to the badge column
+                badgeCol.appendChild(badge);
+                
+                // Add the columns to the row
+                badgeRow.appendChild(formCol);
+                badgeRow.appendChild(badgeCol);
+                
+                // Add the row to the form
+                form.appendChild(badgeRow);
+                
+                const firstNameInput = formCol.querySelector('input[name="firstname"]');
+                const lastNameInput = formCol.querySelector('input[name="lastname"]');
+                const companyInput = formCol.querySelector('input[name="companyname"]');
+                const jobTitleInput = formCol.querySelector('input[name="jobtitle"]');
+              
+                
+                const updateBadgeName = () => {
+                    
+                    const firstName = firstNameInput ? firstNameInput.value.trim() : '';
+                    const lastName = lastNameInput ? lastNameInput.value.trim() : '';
+                    const fullName = [firstName, lastName].filter(Boolean).join(' ');
+                    const badgeFullname = document.getElementById(`badge-fullname-${index}`);
+                    if (badgeFullname) {
+                        badgeFullname.textContent = fullName || 'Full Name';
+                    }
+                };
+                
+                const updateBadgeCompany = () => {
+                    const badgeCompany = document.getElementById(`badge-companyname-${index}`);
+                    if (badgeCompany && companyInput) {
+                        badgeCompany.textContent = companyInput.value.trim() || 'COMPANY NAME';
+                    }
+                };
+                
+                const updateBadgeTitle = () => {
+                    const badgeTitle = document.getElementById(`badge-jobtitle-${index}`);
+                    if (badgeTitle && jobTitleInput) {
+                        badgeTitle.textContent = jobTitleInput.value.trim() || 'JOB TITLE';
+                    }
+                };
+            
+                
+                // Add input event listeners with null checks
+                if (firstNameInput) firstNameInput.addEventListener('input', updateBadgeName);
+                if (lastNameInput) lastNameInput.addEventListener('input', updateBadgeName);
+                if (companyInput) companyInput.addEventListener('input', updateBadgeCompany);
+                if (jobTitleInput) jobTitleInput.addEventListener('input', updateBadgeTitle);
+          
+            
+            });
+
+        }
+
+
+        // Add this for badge Country of Residence
+        function initializeSelect2BadgeUpdates() {
+            $('.attendee-form').each(function(index) {
+                const form = $(this);
+                const countrySelect = form.find('select[name="country"]');
+                
+                countrySelect.on('select2:select', function(e) {
+                    const badgeCountry = document.getElementById(`badge-country-${index}`);
+                    if (badgeCountry) {
+                        badgeCountry.textContent = e.params.data.text || 'Country of residence';
+                    }
+                });
+            });
+        }
+
+
+
+        // Start of Promo code functionality for registration
+        
+        // Function to update VAT information after applying discount
+        function updateVATInformation(newTotal) {
+            // Find existing VAT element (if any)
+            const vatElement = $('.vat-info');
+            
+            if (vatElement.length > 0) {
+                // If VAT information exists, update it based on the new total
+                const vatText = vatElement.text();
+                const vatPercentage = extractVATPercentage(vatText);
+                
+                if (vatPercentage) {
+                    // Calculate VAT amount based on the new total
+                    const vatAmount = (newTotal * vatPercentage / 100).toFixed(2);
+                    const currencySymbol = $('#summary-total').text().split(' ')[0];
+                    
+                    // Update the VAT text while preserving the format
+                    const newVatText = vatText.replace(/[\d.]+(?=\s*included)/, vatAmount);
+                    vatElement.text(newVatText);
+                }
+            }
+        }
+
+        // Helper function to extract the VAT percentage from the VAT text
+        function extractVATPercentage(vatText) {
+            // Try to find a percentage value in the VAT text
+            const percentageMatch = vatText.match(/(\d+)(?:\.\d+)?%/);
+            if (percentageMatch && percentageMatch[1]) {
+                return parseFloat(percentageMatch[0]);
+            }
+            return null;
+        }// Promo code functionality for registration
+        const promoCodeConfig = {
+            maxTickets: 2,          // Maximum tickets that can receive promo discount
+            discountPercent: 15,    // Discount percentage (15%)
+            validCodes: ['EXPO25', 'GITEX15', 'EVENT2025'], // List of valid promo codes
+            applyToLowestPriced: true, // Apply to lowest-priced tickets instead of highest
+            defaultVAT: 19          // Default VAT percentage if not found in page
+        };
+
+        // Global variable to track promo code application
+        let promoCodeApplied = false;
+        let appliedPromoCode = '';
+        let discountedTicketsCount = 0;
+        let discountAmount = 0;
+
+        // Function to add promo code section to the summary
+        function addPromoCodeSection() {
+            const promoCodeHTML = `
+                <div class="promo-code-section">
+                    <div class="promo-code-header">
+                        <h5>Have a promo code?</h5>
+                    </div>
+                    <div class="promo-code-input">
+                        <input type="text" id="promoCodeInput" class="form-control" placeholder="Enter promo code">
+                        <button id="applyPromoBtn" class="buy-btn">Apply</button>
+                    </div>
+                    <div id="promoCodeMessage" class="mt-2"></div>
+                    <div id="promoCodeApplied" class="applied-promo" style="display: none;">
+                        <div class="applied-promo-details">
+                            <div>
+                                <span class="promo-label">Promo code applied:</span>
+                                <span class="promo-value" id="appliedPromoValue"></span>
+                            </div>
+                            <div>
+                                <span class="promo-label">Discount:</span>
+                                <span class="promo-value" id="appliedPromoDiscount"></span>
+                            </div>
+                            <div>
+                                <span class="promo-label">Applied to:</span>
+                                <span class="promo-value" id="appliedPromoTickets"></span>
+                            </div>
+                        </div>
+                        <button id="removePromoBtn" class="btn btn-sm btn-outline-danger">Remove</button>
+                    </div>
+                </div>
+            `;
+            
+            // Insert the promo code section before the total row
+            $('.total-row').before(promoCodeHTML);
+        }
+
+        // Function to apply a promo code
+        function applyPromoCode(promoCode) {
+            // Clear previous messages
+            $('#promoCodeMessage').empty();
+            
+            // Validate the promo code
+            if (!promoCode) {
+                showPromoMessage('Please enter a promo code.', 'error');
+                return;
+            }
+            
+            // Check if the promo code is valid
+            if (!promoCodeConfig.validCodes.includes(promoCode)) {
+                showPromoMessage('Invalid promo code. Please try again.', 'error');
+                return;
+            }
+            
+            // Get the ticket selections from localStorage
+            const ticketSelectionsJSON = localStorage.getItem('ticketSelections');
+            if (!ticketSelectionsJSON) {
+                showPromoMessage('No tickets selected.', 'error');
+                return;
+            }
+            
+            const ticketSelections = JSON.parse(ticketSelectionsJSON);
+            
+            // Extract the VAT percentage from any existing VAT information
+            const vatPercentage = extractVATPercentage($('.vat-info').text()) || promoCodeConfig.defaultVAT;
+            
+            // Count total tickets
+            let totalTickets = 0;
+            ticketSelections.forEach(ticket => {
+                totalTickets += ticket.quantity;
+            });
+            
+            // Calculate number of tickets to apply discount to
+            discountedTicketsCount = Math.min(totalTickets, promoCodeConfig.maxTickets);
+            
+            // Get the ticket prices to calculate discount (pre-VAT amounts)
+            discountAmount = 0;
+            let totalDiscountWithVAT = 0;
+            
+            // Sort tickets by price (ascending) to apply discount to lowest-priced tickets
+            const sortedTickets = [...ticketSelections].sort((a, b) => {
+                const priceA = parseTicketPrice(a.price);
+                const priceB = parseTicketPrice(b.price);
+                // Sort by price ascending (lowest first)
+                return priceA - priceB;
+            });
+            
+            // Calculate discount for up to maxTickets and track which tickets are discounted
+            let ticketsDiscounted = 0;
+            const discountedTickets = [];
+            
+            for (const ticket of sortedTickets) {
+                if (ticketsDiscounted >= promoCodeConfig.maxTickets) break;
+                
+                const priceWithVAT = parseTicketPrice(ticket.price);
+                if (priceWithVAT <= 0) continue; // Skip free tickets
+                
+                // Calculate pre-VAT price
+                const priceBeforeVAT = priceWithVAT / (1 + (vatPercentage / 100));
+                
+                const ticketsToDiscount = Math.min(ticket.quantity, promoCodeConfig.maxTickets - ticketsDiscounted);
+                
+                // Calculate discount on pre-VAT amount
+                const discountBeforeVAT = (priceBeforeVAT * promoCodeConfig.discountPercent / 100) * ticketsToDiscount;
+                
+                // Calculate the discount including VAT
+                const discountWithVAT = discountBeforeVAT * (1 + (vatPercentage / 100));
+                
+                discountAmount += discountBeforeVAT;
+                totalDiscountWithVAT += discountWithVAT;
+                ticketsDiscounted += ticketsToDiscount;
+                
+                // Calculate new prices after discount
+                const discountedPriceBeforeVAT = priceBeforeVAT - (priceBeforeVAT * promoCodeConfig.discountPercent / 100);
+                const discountedPriceWithVAT = discountedPriceBeforeVAT * (1 + (vatPercentage / 100));
+                
+                // Track the discounted ticket for highlighting
+                discountedTickets.push({
+                    type: ticket.type,
+                    quantity: ticketsToDiscount,
+                    originalPrice: priceWithVAT,
+                    discountedPrice: discountedPriceWithVAT,
+                    totalDiscount: discountWithVAT,
+                    vatPercentage: vatPercentage
+                });
+            }
+            
+            // Round to 2 decimal places
+            discountAmount = Math.round(discountAmount * 100) / 100;
+            totalDiscountWithVAT = Math.round(totalDiscountWithVAT * 100) / 100;
+            
+            // Store promo code state
+            promoCodeApplied = true;
+            appliedPromoCode = promoCode;
+            
+            // Update the total with the discount (using the VAT-inclusive discount amount)
+            updateTotalWithDiscount(totalDiscountWithVAT, vatPercentage);
+            
+            // Highlight the discounted tickets in the summary
+            highlightDiscountedTickets(discountedTickets);
+            
+            // Show success message
+            const appliedToMessage = ticketsDiscounted > 0 
+                ? `Applied to ${discountedTicketsCount} lowest-priced ticket${discountedTicketsCount !== 1 ? 's' : ''}!` 
+                : '';
+            showPromoMessage(`Promo code "${promoCode}" applied successfully! ${appliedToMessage}`, 'success');
+            
+            // Update the applied promo section
+            $('#appliedPromoValue').text(promoCode);
+            
+            // Show the discount amount including VAT
+            const currencySymbol = $('.total-row').text().split(' ')[1] || 'EUR';
+            $('#appliedPromoDiscount').text(`${promoCodeConfig.discountPercent}% (${currencySymbol} ${totalDiscountWithVAT.toFixed(2)} incl. VAT)`);
+            $('#appliedPromoTickets').text(`${discountedTicketsCount} lowest-priced ticket${discountedTicketsCount !== 1 ? 's' : ''}`);
+            $('#promoCodeApplied').show();
+            
+            // Disable the input and apply button
+            $('#promoCodeInput').prop('disabled', true);
+            $('#applyPromoBtn').prop('disabled', true);
+        }
+
+        // Helper function to parse ticket price
+        function parseTicketPrice(priceStr) {
+            // Remove any non-numeric characters except for decimal point
+            const priceValue = priceStr.replace(/[^\d.-]/g, '');
+            return parseFloat(priceValue) || 0;
+        }
+
+        // Function to highlight discounted tickets in the summary
+        function highlightDiscountedTickets(discountedTickets) {
+            // Get all ticket summary items
+            const ticketItems = document.querySelectorAll('.ticket-summary-item');
+            
+            // Keep track of remaining discounted tickets to apply
+            let remainingDiscountedTickets = [...discountedTickets];
+            
+            // Process each ticket item in the summary
+            ticketItems.forEach(item => {
+                const ticketInfo = item.querySelector('div:first-child').textContent;
+                const ticketPriceElement = item.querySelector('div:last-child');
+                
+                // Try to match this ticket with one in our discounted list
+                for (let i = 0; i < remainingDiscountedTickets.length; i++) {
+                    const discountedTicket = remainingDiscountedTickets[i];
+                    
+                    // Check if this is one of our discounted tickets (by type)
+                    if (ticketInfo.includes(discountedTicket.type)) {
+                        // Highlight the row
+                        item.classList.add('discounted-ticket');
+                        
+                        // Get the currency symbol from the original price
+                        const currencySymbol = ticketPriceElement.textContent.trim().split(' ')[0];
+                        
+                        // Format the original and discounted prices
+                        const originalPriceFormatted = `${currencySymbol} ${discountedTicket.originalPrice.toFixed(2)}`;
+                        const discountedPriceFormatted = `${currencySymbol} ${discountedTicket.discountedPrice.toFixed(2)}`;
+                        
+                        // Calculate the discount amount for display
+                        const discountAmountValue = discountedTicket.originalPrice - discountedTicket.discountedPrice;
+                        
+                        // Update the price display
+                        if (discountedTicket.quantity < parseInt(ticketInfo.match(/x\s*(\d+)/)[1])) {
+                            // If only some tickets are discounted, show a more detailed breakdown
+                            const discountedQty = discountedTicket.quantity;
+                            const originalQty = parseInt(ticketInfo.match(/x\s*(\d+)/)[1]) - discountedQty;
+                            
+                            ticketPriceElement.innerHTML = `
+                                <div class="ticket-price-breakdown">
+                                    <div class="original-price-line">${originalPriceFormatted} x ${originalQty}</div>
+                                    <div class="discounted-price-line">
+                                        ${discountedPriceFormatted} x ${discountedQty} 
+                                        <span class="discount-badge">-${promoCodeConfig.discountPercent}%</span>
+                                        <span class="vat-note">Incl. ${discountedTicket.vatPercentage}% VAT</span>
+                                    </div>
+                                </div>
+                            `;
+                        } else {
+                            // If all tickets of this type are discounted
+                            ticketPriceElement.innerHTML = `
+                                <div class="ticket-price-breakdown">
+                                    <div class="original-price-line"><s>${originalPriceFormatted}</s></div>
+                                    <div class="discounted-price-line">
+                                        ${discountedPriceFormatted} 
+                                        <span class="discount-badge">-${promoCodeConfig.discountPercent}%</span>
+                                        <span class="vat-note">Incl. ${discountedTicket.vatPercentage}% VAT</span>
+                                    </div>
+                                </div>
+                            `;
+                        }
+                        
+                        // Remove this ticket from our remaining list so we don't apply it again
+                        remainingDiscountedTickets.splice(i, 1);
+                        break;
+                    }
+                }
+            });
+        }
+
+        // Function to remove an applied promo code
+        function removePromoCode() {
+            // Reset promo code state
+            promoCodeApplied = false;
+            appliedPromoCode = '';
+            discountedTicketsCount = 0;
+            discountAmount = 0;
+            
+            // Reset UI
+            $('#promoCodeInput').val('').prop('disabled', false);
+            $('#applyPromoBtn').prop('disabled', false);
+            $('#promoCodeApplied').hide();
+            $('#promoCodeMessage').empty();
+            
+            // Reset the ticket summary items
+            const ticketItems = document.querySelectorAll('.ticket-summary-item');
+            ticketItems.forEach(item => {
+                // Remove the discounted ticket class
+                item.classList.remove('discounted-ticket');
+                
+                // Reset the price display
+                const ticketInfo = item.querySelector('div:first-child').textContent;
+                const ticketPriceElement = item.querySelector('div:last-child');
+                
+                // Get the ticket data from localStorage
+                const ticketSelectionsJSON = localStorage.getItem('ticketSelections');
+                if (ticketSelectionsJSON) {
+                    const ticketSelections = JSON.parse(ticketSelectionsJSON);
+                    
+                    // Find this ticket in the selections
+                    for (const ticket of ticketSelections) {
+                        if (ticketInfo.includes(ticket.type)) {
+                            // Reset to original price display
+                            ticketPriceElement.textContent = ticket.price;
+                            break;
+                        }
+                    }
+                }
+            });
+            
+            // Reset the total price
+            resetTotalPrice();
+        }
+
+        // Function to show promo code messages
+        function showPromoMessage(message, type) {
+            const messageElement = $('#promoCodeMessage');
+            messageElement.removeClass('text-success text-danger');
+            
+            if (type === 'success') {
+                messageElement.addClass('text-success');
+            } else if (type === 'error') {
+                messageElement.addClass('text-danger');
+            }
+            
+            messageElement.text(message);
+        }
+
+        // Function to update the total price with discount
+        function updateTotalWithDiscount(discountAmount) {
+            const currentTotalElement = $('#summary-total');
+            const currentTotalText = currentTotalElement.text();
+            const currency = currentTotalText.split(' ')[0];
+            const currentAmount = parseFloat(currentTotalText.replace(/[^\d.-]/g, '')) || 0;
+            
+            // Calculate new total after discount
+            const newTotal = Math.max(0, currentAmount - discountAmount);
+            
+            // Update the total display
+            currentTotalElement.text(`${currency} ${newTotal.toFixed(2)}`);
+            
+            // Add a strikethrough original price if there's a discount
+            if (discountAmount > 0) {
+                const originalPriceHTML = `<span class="original-price">${currency} ${currentAmount.toFixed(2)}</span>`;
+                $('.original-price').remove(); // Remove any existing one first
+                currentTotalElement.before(originalPriceHTML);
+            }
+            
+            // Find any VAT information displayed and ensure it stays visible and accurate
+            updateVATInformation(newTotal);
+        }
+
+        // Function to reset the total price to original
+        function resetTotalPrice() {
+            // Remove the strikethrough original price
+            $('.original-price').remove();
+            
+            // Get the original total from localStorage
+            const ticketTotal = localStorage.getItem('ticketTotal');
+            if (ticketTotal) {
+                $('#summary-total').text(ticketTotal);
+            }
+        }
+
+        // Initialize promo code functionality
+        function initializePromoCode() {
+            // Add the promo code section to the DOM
+            addPromoCodeSection();
+            
+            // Handle promo code application
+            $(document).on('click', '#applyPromoBtn', function() {
+                const promoCode = $('#promoCodeInput').val().trim().toUpperCase();
+                applyPromoCode(promoCode);
+            });
+            
+            // Handle "Remove" button click
+            $(document).on('click', '#removePromoBtn', function() {
+                removePromoCode();
+            });
+            
+            // Add enter key event listener for promo code input
+            $(document).on('keypress', '#promoCodeInput', function(e) {
+                if (e.which === 13) { // Enter key
+                    e.preventDefault();
+                    const promoCode = $(this).val().trim().toUpperCase();
+                    applyPromoCode(promoCode);
+                }
+            });
+        }
+
+
+
+        // END of Promo code functionality for registration
+
+
+
+       
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // Load ticket selections from localStorage
+            const ticketSelectionsJSON = localStorage.getItem('ticketSelections');
+            const ticketTotal = localStorage.getItem('ticketTotal') || 'EUR 0';
+            
+            
+            if (!ticketSelectionsJSON) {
+                // No tickets selected, redirect back to tickets page
+                alert('Please select tickets before proceeding to registration.');
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            const ticketSelections = JSON.parse(ticketSelectionsJSON);
+            
+            // Generate attendee forms
+            const formsContainer = document.getElementById('attendee-forms-container');
+            let formHtml = '';
+            let j = 0;
+            
+            ticketSelections.forEach((ticket, ticketIndex) => {
+                // Generate a form for each attendee based on ticket quantity
+                for (let i = 0; i < ticket.quantity; i++) {
+                    const attendeeIndex = j++;
+
+                    formHtml += `
+                        <div class="attendee-form" data-ticket-type="${ticket.type}" data-ticket-index="${ticketIndex}" data-attendee-index="${i}">
+                            <div class="attendee-header min-height-77" onclick="toggleForm(this)">
+                                <div class="header-content">
+                                    <h4>Registration Information ${attendeeIndex}</h4>
+                                    
+                                </div>
+                                <div class="ticket-form-collaps">
+                                    <div class="attendee-header-ticket-info">${ticket.type} - ${ticket.price}</div>
+                                <button type="button" class="toggle-btn" aria-label="Toggle form">
+                                    <i class="fas fa-chevron-up"></i>
+                                </button>
+                                    </div>
+                            </div>
+                        <div class="form-content show">
+                            <form id="employeeForm_${attendeeIndex}">
+                                <div class="card form-card">
+                                    <div class="card-body">
+                                        <!-- First Name & Last Name -->
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="input-box">
+                                                    <label class="form-label required-field" for="firstname_${attendeeIndex}">First Name</label>
+                                                    <input autocomplete="off" class="form-control" type="text" id="firstname_${attendeeIndex}" name="firstname">
+                                                    <span class="error" id="firstnameError_${attendeeIndex}"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="input-box">
+                                                    <label class="form-label required-field" for="lastname_${attendeeIndex}">Last Name</label>
+                                                    <input id="lastname_${attendeeIndex}" name="lastname" type="text" class="form-control">
+                                                    <span class="error" id="lastnameError_${attendeeIndex}"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Country & Region -->
+                                        <div class="row">
+                                            <div id="countryCol" class="col-md-12">
+                                                <div class="input-box">
+                                                    <label for="country_${attendeeIndex}" class="form-label required-field">Country of residence</label>
+                                                    <select id="country_${attendeeIndex}" name="country" class="form-control select2-dropdown">
+                                                        <option value="">Please Select</option>
+                                                        <!-- Will be populated by JavaScript -->
+                                                    </select>
+                                                    <span class="error" id="countryresidenceError_${attendeeIndex}"></span>
+                                                </div>
+                                            </div>
+                                            <div id="regionCol" class="col-md-6" style="display: none;">
+                                                <div class="input-box">
+                                                    <label for="region_${attendeeIndex}" class="form-label required-field">Region</label>
+                                                    <select id="region_${attendeeIndex}" name="region" class="form-control select2-dropdown">
+                                                        <option value="">Please Select</option>
+                                                        <!-- Will be populated by JavaScript -->
+                                                    </select>
+                                                    <span class="error" id="regionError_${attendeeIndex}"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Email & Confirm Email -->
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="input-box">
+                                                    <label class="form-label required-field" for="emailid_${attendeeIndex}">Email address</label>
+                                                    <input id="emailid_${attendeeIndex}" name="emailid" type="email" class="form-control" autocomplete="off">
+                                                    <span class="error" id="EmailError_${attendeeIndex}"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="input-box">
+                                                    <label class="form-label" for="Confirmemail_${attendeeIndex}">Confirm Email address</label>
+                                                    <input id="Confirmemail_${attendeeIndex}" name="Confirmemail" type="email" class="form-control">
+                                                    <span class="error" id="ConfirmemailError_${attendeeIndex}"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Nationality & Phone -->
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="input-box">
+                                                    <label for="Nationality_${attendeeIndex}" class="form-label required-field">Nationality</label>
+                                                    <select id="Nationality_${attendeeIndex}" name="Nationality" class="form-control select2-dropdown">
+                                                        <option value="">Please Select</option>
+                                                        <!-- Will be populated by JavaScript -->
+                                                    </select>
+                                                    <span class="error" id="NationalityError_${attendeeIndex}"></span>
+                                                </div>
+                                            </div>
+                                             <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-label">Phone Number<span class="required-asterisk">*</span></label>
+                                                    <input type="tel" class="form-control phone-number" name="phoneNumber" required>
+                                                    <div class="invalid-feedback">Please enter a valid phone number</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Company Name & Job Title -->
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="input-box">
+                                                    <label for="companyname_${attendeeIndex}" class="form-label required-field">Company name</label>
+                                                    <input id="companyname_${attendeeIndex}" name="companyname" type="text" class="form-control">
+                                                    <span class="error" id="companynameError_${attendeeIndex}"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="input-box">
+                                                    <label for="jobtitle_${attendeeIndex}" class="form-label required-field">Job Title</label>
+                                                    <input id="jobtitle_${attendeeIndex}" name="jobtitle" type="text" class="form-control">
+                                                    <span class="error" id="jobtitleError_${attendeeIndex}"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Company Type & Industry -->
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="input-box">
+                                                    <label for="companytype_${attendeeIndex}" class="form-label required-field">Company Type</label>
+                                                    <select id="companytype_${attendeeIndex}" name="companytype" class="form-control select2-dropdown">
+                                                        <option value="">Please Select</option>
+                                                        <!-- Will be populated by JavaScript -->
+                                                    </select>
+                                                    <span class="error" id="companytypeError_${attendeeIndex}"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="input-box">
+                                                    <label for="Industry_${attendeeIndex}" class="form-label required-field">Industry</label>
+                                                    <select id="industry_${attendeeIndex}" name="industry" class="form-control select2-dropdown">
+                                                        <option value="">Please Select</option>
+                                                        <!-- Will be populated by JavaScript -->
+                                                    </select>
+                                                    <span class="error" id="IndustryError_${attendeeIndex}"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Areas of Interest -->
+                                        <div class="row">
+                                            <div class="form-end-btn">
+                                                <label class="form-label required-field">Select Your Areas of Interest</label>
+                                                <div>
+                                                    <button type="button" class="buy-btn solution-btn" data-bs-toggle="modal" data-bs-target="#solutionsModal">
+                                                        Select solution/Products <span class="arrow-right">→</span>
+                                                    </button>
+                                                    <span class="error" id="solutionsError_${attendeeIndex}"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Selected Categories Display -->
+                                        <div class="selected-data-container">
+                                            <div class="selected-categories">
+                                                <!-- Main categories -->
+                                                <div class="main-selections">
+                                                    <h6>Main Categories:</h6>
+                                                    <div class="main-selected-tags"></div>
+                                                </div>
+                                                <!-- Sub categories -->
+                                                <div class="sub-selections">
+                                                    <h6>Sub Categories:</h6>
+                                                    <div class="sub-selected-tags"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+
+            formsContainer.innerHTML = formHtml;
+
+            
+            // Generate ticket summary
+            const summaryContainer = document.getElementById('ticket-summary-container');
+            let summaryHtml = `<!-- Terms & Conditions -->
+                            <div class="iagree">
+                                <div class="row mb-4">
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="termsCheck" name="termsCheck">
+                                            <label class="form-check-label" for="termsCheck" style="font-size: 14px;">
+                                                I have read an accept the <a href="https://www.gitex-europe.com/terms-and-conditions" style="color: #d21f18;">Terms and conditions</a>,
+                                                <a href="https://www.gitex-europe.com/privacy-policy" style="color: #d21f18;">Privacy Policy</a>, and consent that: <br>
+                                                Visitors under the age of 21 will not be admitted, and admission to the exhibition is restricted to trade and business professionals only. <br>
+                                                Students above 16 and below 18 can attend only if accompanied by school or faculty member. Students over 18 can attend with a Student Delegate Ticket. *
+                                            </label>
+                                            <div class="invalid-feedback" style="color: red;">
+                                                You must agree to the terms and conditions
+                                            </div>
+                                        </div>
+                    
+                                        <div class="form-check mt-3">
+                                            <input class="form-check-input" type="checkbox" id="termsCheck1">
+                                            <label class="form-check-label" for="termsCheck1" style="font-size: 14px;">
+                                                Would you like to receive updates about GITEX EUROPE and future events provided by Kaoun International and Dubai World Trade Centre?
+                                                Your details will not be shared with third parties. You accept that your information will be used in accordance with our <a href="https://www.gitex-europe.com/privacy-policy" style="color: #d21f18;">Privacy Policy,</a>
+                                                and that you may withdraw your consent to receive communications from us at any time.
+                                            </label>
+                                            <div class="invalid-feedback" style="color: red;">
+                                                You must agree to the terms and conditions
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>`;
+            
+            ticketSelections.forEach(ticket => {
+                const ticketPrice = ticket.price.includes('FREE') ? 'FREE' : ticket.price;
+                summaryHtml += `
+                    <div class="ticket-summary-item">
+                        <div>
+                            <strong>${ticket.type}</strong> x ${ticket.quantity}
+                        </div>
+                        <div>${ticketPrice}</div>
+                    </div>
+                `;
+            });
+            
+            summaryContainer.innerHTML = summaryHtml;
+            
+            // Set total amount
+            document.getElementById('summary-total').textContent = ticketTotal;
+
+
+            // Update your validateAndContinue function to include phone validation
+            window.validateAndContinue = function() {
+                let isValid = true;
+                
+                // ... your existing validation code ...
+                
+                // Add phone validation
+                if (!validatePhoneNumbers()) {
+                    isValid = false;
+                }
+                
+                if (isValid) {
+                    // ... your success code ...
+                } else {
+                    // ... your error handling code ...
+                }
+            };
+
+            // Initialize Select2 on all dropdowns
+            setTimeout(() => {
+                addAttendeeFormBadges();
+                updatePhoneFields();
+                populateCountryDropdowns();
+                populateAllDropdowns();
+                syncCountryWithPhoneCode(); // Keep the existing functionality
+
+                
+                $('.select2-dropdown').select2({
+                    placeholder: "Please Select",
+                    allowClear: true
+                });
+
+                // Add this new code right after - don't modify anything above
+                $(document).on('select2:open', function() {
+                    setTimeout(function() {
+                        document.querySelector('.select2-container--open .select2-search__field').focus();
+                    }, 0);
+                });
+
+                
+                initializePromoCode();
+                initializeSelect2BadgeUpdates();
+
+
+            }, 200);
+
+
+
+
+            
+
+        });
+
+        // Add event listeners to remove validation errors when user corrects them
+        document.addEventListener('input', function(e) {
+            if (e.target.classList.contains('form-control')) {
+                if (e.target.value.trim()) {
+                    e.target.classList.remove('is-invalid');
+                }
+            }
+        });
+
+    </script>
+    
+    <script>
+
+        // Update the service count for a specific product
+function updateServiceCount(productId) {
+    if (!activeFormElement) return;
+    
+    const formId = activeFormElement.attr('id');
+    if (!formSelections[formId] || !formSelections[formId][productId]) return;
+    
+    const product = productsData[productId];
+    const selectedServiceCount = formSelections[formId][productId].services.length;
+    const totalServiceCount = product.services.length;
+    
+    // Find the product header in the services list
+    const $productHeader = $('#subitemsList li').filter(function() {
+        return $(this).text().trim().startsWith(product.name);
+    });
+    
+    if ($productHeader.length > 0 && totalServiceCount > 0) {
+        // Update the service count text
+        const serviceCountText = ` (${selectedServiceCount}/${totalServiceCount} services selected)`;
+        
+        // Remove any existing count text
+        let headerText = $productHeader.text().split('(')[0].trim();
+        
+        // Add updated count text
+        $productHeader.html(`
+            ${headerText} 
+            <small class="text-muted">${serviceCountText}</small>
+        `);
+    }
+}/**
+ * Solutions Modal - Complete Working Version
+ * With product and service limits
+ * Dynamic product and service generation
+ * Enhanced features and UI
+ */
+
+
+const productsData = {
+    "5G & Telecommunications": {
+        name: "5G & Telecommunications",
+        services: [
+            "Access Points",
+            "RTK & Telematics",
+            "5G Routers",
+            "Network Infrastructure",
+            "Mobile Network Solutions"
+        ]
+    },
+    "Artificial Intelligence & Robotics": {
+        name: "Artificial Intelligence & Robotics",
+        services: [
+            "Autonomous Mobile Robots (AMRs)",
+            "Cognitive Computing",
+            "Machine Learning Platforms",
+            "Neural Networks",
+            "Computer Vision Systems"
+        ]
+    },
+    "Cloud Services": {
+        name: "Cloud Services",
+        services: [
+            "Cloud Storage",
+            "Cloud Computing",
+            "Cloud Security",
+            "Edge Computing",
+            "Hybrid Cloud Solutions"
+        ]
+    },
+    "Cloud Services 5": {
+        name: "Cloud Services 5",
+        services: [
+            "Cloud Storage",
+            "Cloud Computing",
+            "Cloud Security",
+            "Edge Computing",
+            "Hybrid Cloud Solutions",
+            "Cloud Storage",
+            "Cloud Computing",
+            "Cloud Security",
+            "Edge Computing",
+            "Hybrid Cloud Solutions"
+        ]
+    },
+    "Cloud Services 6": {
+        name: "Cloud Services 6",
+        services: [
+            "Cloud Storage",
+            "Cloud Computing",
+            "Cloud Security",
+            "Edge Computing",
+            "Hybrid Cloud Solutions",
+            "Cloud Storage",
+            "Cloud Computing",
+            "Cloud Security",
+            "Edge Computing",
+            "Hybrid Cloud Solutions"
+        ]
+    },
+    "Cloud Services 7": {
+        name: "Cloud Services 7",
+        services: [
+            "Cloud Storage",
+            "Cloud Computing",
+            "Cloud Security",
+            "Edge Computing",
+            "Hybrid Cloud Solutions",
+            "Cloud Storage",
+            "Cloud Computing",
+            "Cloud Security",
+            "Edge Computing",
+            "Hybrid Cloud Solutions"
+        ]
+    },
+    
+    
+
+    
+    
+};
+
+// Set maximum limits
+const MAX_PRODUCTS = 5;
+const MAX_SERVICES_PER_PRODUCT = 5;
+const MIN_PRODUCTS = 1;
+const MIN_SERVICES_PER_PRODUCT = 1;
+
+// Store which form is currently active
+let activeFormElement = null;
+
+// Store selections for each form
+let formSelections = {};
+
+// Initialize everything when document is ready
+$(document).ready(function() {
+    // Assign IDs to each form if they don't have one
+    $('.attendee-form').each(function(index) {
+        if (!$(this).attr('id')) {
+            $(this).attr('id', 'attendee-form-' + index);
+        }
+    });
+    
+    // Generate the products list dynamically
+    generateProductsList();
+    
+    // Modal button click handler - record which form opened it
+    $(document).on('click', '.solution-btn', function() {
+        // Get the form that contains this button
+        activeFormElement = $(this).closest('.attendee-form');
+        const formId = activeFormElement.attr('id');
+        
+        // Initialize selections object if it doesn't exist
+        if (!formSelections[formId]) {
+            formSelections[formId] = {};
+        }
+        
+        // Reset the modal UI
+        resetModal();
+        
+        // Load any existing selections for this form
+        updateModalWithFormSelections(formId);
+    });
+    
+    // Product checkbox change handler
+    $(document).on('change', '.category-checkbox', function() {
+        if (!activeFormElement) return;
+        
+        const formId = activeFormElement.attr('id');
+        const productId = $(this).val();
+        const isChecked = $(this).prop('checked');
+        
+        if (isChecked) {
+            // Check if we've reached the product limit
+            if (Object.keys(formSelections[formId]).length >= MAX_PRODUCTS) {
+                // Uncheck the checkbox
+                $(this).prop('checked', false);
+                
+                // Show alert
+                alert(`You can select a maximum of ${MAX_PRODUCTS} products.`);
+                return;
+            }
+            
+            // Add the product to selections
+            formSelections[formId][productId] = {
+                name: productsData[productId].name,
+                services: []
+            };
+            
+            // Highlight the selected product
+            $(this).closest('li').addClass('selected-product');
+        } else {
+            // Remove the product from selections
+            delete formSelections[formId][productId];
+            
+            // Remove highlight
+            $(this).closest('li').removeClass('selected-product');
+        }
+        
+        // Update the UI
+        updateServicesList();
+        updateModalTags();
+        updateApplyButton();
+    });
+    
+    // Service checkbox change handler
+    $(document).on('change', '.service-checkbox', function() {
+        if (!activeFormElement) return;
+        
+        const formId = activeFormElement.attr('id');
+        const productId = $(this).data('product');
+        const serviceName = $(this).data('service-name');
+        const isChecked = $(this).prop('checked');
+        
+        // Make sure the product exists in selections
+        if (!formSelections[formId][productId]) return;
+        
+        if (isChecked) {
+            // Check if we've reached the service limit for this product
+            if (formSelections[formId][productId].services.length >= MAX_SERVICES_PER_PRODUCT) {
+                // Uncheck the checkbox
+                $(this).prop('checked', false);
+                
+                // Show alert
+                alert(`You can select a maximum of ${MAX_SERVICES_PER_PRODUCT} services for each product.`);
+                return;
+            }
+            
+            // Add service to the product
+            if (!formSelections[formId][productId].services.includes(serviceName)) {
+                formSelections[formId][productId].services.push(serviceName);
+            }
+            
+            // Highlight the selected service
+            $(this).closest('li').addClass('selected-service');
+        } else {
+            // Remove service from the product
+            const index = formSelections[formId][productId].services.indexOf(serviceName);
+            if (index > -1) {
+                formSelections[formId][productId].services.splice(index, 1);
+            }
+            
+            // Remove highlight
+            $(this).closest('li').removeClass('selected-service');
+        }
+        
+        // Update the service count in the product header
+        updateServiceCount(productId);
+        
+        // Update the UI
+        updateModalTags();
+    });
+    
+    // Search functionality
+    $(document).on('input', '#searchInput', function() {
+        const searchText = $(this).val().toLowerCase();
+        
+        // Show/hide products based on search
+        $('#categoriesList li').each(function() {
+            const productText = $(this).text().toLowerCase();
+            $(this).toggle(productText.includes(searchText));
+        });
+    });
+    
+    // Remove tag in modal
+    $(document).on('click', '.tag-close', function() {
+        const tagType = $(this).data('type');
+        const productId = $(this).data('product');
+        const serviceName = $(this).data('service');
+        
+        if (tagType === 'product') {
+            // Uncheck product checkbox
+            $(`input.category-checkbox[value="${productId}"]`).prop('checked', false).trigger('change');
+        } else if (tagType === 'service') {
+            // Uncheck service checkbox
+            $(`input.service-checkbox[data-product="${productId}"][data-service-name="${serviceName}"]`)
+                .prop('checked', false).trigger('change');
+        }
+    });
+    
+    // Apply button click handler
+    $(document).on('click', '#applyBtn', function() {
+        if (!activeFormElement) return;
+        
+        const formId = activeFormElement.attr('id');
+        
+        // Check if minimum product requirement is met
+        if (Object.keys(formSelections[formId]).length < MIN_PRODUCTS) {
+            alert(`You must select at least ${MIN_PRODUCTS} product.`);
+            return;
+        }
+        
+        // Check if at least one service is selected for each product with services
+        let servicesValid = true;
+        let productWithMissingServices = '';
+        
+        for (const productId in formSelections[formId]) {
+            const product = formSelections[formId][productId];
+            // Only check if product has services and none are selected
+            if (productsData[productId].services.length > 0 && 
+                product.services.length < MIN_SERVICES_PER_PRODUCT) {
+                servicesValid = false;
+                productWithMissingServices = product.name;
+                break;
+            }
+        }
+        
+        if (!servicesValid) {
+            alert(`You must select at least ${MIN_SERVICES_PER_PRODUCT} service for ${productWithMissingServices}.`);
+            return;
+        }
+        
+        // Update the form with current selections
+        updateFormDisplay(formId);
+        
+        // Close the modal
+        $('#solutionsModal').modal('hide');
+    });
+    
+    // Remove tag on form
+    $(document).on('click', '.remove-tag', function() {
+        const form = $(this).closest('.attendee-form');
+        const formId = form.attr('id');
+        const tagType = $(this).data('type');
+        const productId = $(this).data('product');
+        const serviceName = $(this).data('service');
+        
+        if (!formSelections[formId]) return;
+        
+        if (tagType === 'product') {
+            // Remove product and its services
+            delete formSelections[formId][productId];
+        } else if (tagType === 'service') {
+            // Remove just the service
+            const index = formSelections[formId][productId].services.indexOf(serviceName);
+            if (index > -1) {
+                formSelections[formId][productId].services.splice(index, 1);
+            }
+        }
+        
+        // Update the form display
+        updateFormDisplay(formId);
+    });
+});
+
+// Add custom styles for highlighting
+function addCustomStyles() {
+    const styleElement = document.createElement('style');
+    styleElement.textContent = `
+        .selected-product {
+            background-color: #e7f3ff;
+            border-color: #b8daff;
+        }
+        
+        .selected-service {
+            background-color: #f0f8ff;
+            border-color: #d1e7ff;
+        }
+        
+        .service-count {
+            display: inline-block;
+            margin-left: 8px;
+            background-color: #6c757d;
+            color: white;
+            border-radius: 10px;
+            padding: 0 8px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+    `;
+    document.head.appendChild(styleElement);
+}
+
+// Generate products list dynamically
+function generateProductsList() {
+    const $categoriesList = $('#categoriesList');
+    
+    // Clear existing list items
+    $categoriesList.empty();
+    
+    // Generate list items for each product
+    for (const productId in productsData) {
+        const product = productsData[productId];
+        const serviceCount = product.services.length;
+        
+        // Create service count badge if there are services
+        const serviceCountBadge = serviceCount > 0 
+            ? `<span class="service-count">${serviceCount}</span>` 
+            : '';
+        
+        $categoriesList.append(`
+            <li class="list-group-item">
+                <label>
+                    <input type="checkbox" class="category-checkbox me-2" value="${productId}">
+                    ${product.name} ${serviceCountBadge}
+                </label>
+            </li>
+        `);
+    }
+}
+
+// Reset the modal UI
+function resetModal() {
+    // Uncheck all checkboxes and remove highlights
+    $('.category-checkbox').prop('checked', false);
+    $('#categoriesList li').removeClass('selected-product');
+    
+    // Clear service list
+    $('#subitemsList').empty().html('<li class="list-group-item text-muted"></li>');
+    
+    // Clear tags
+    $('#tagsContainer').empty();
+    
+    // Disable apply button
+    $('#applyBtn').prop('disabled', true);
+}
+
+// Update modal with existing form selections
+function updateModalWithFormSelections(formId) {
+    if (!formSelections[formId]) return;
+    
+    // Check the appropriate product checkboxes and add highlights
+    for (const productId in formSelections[formId]) {
+        const checkbox = $(`input.category-checkbox[value="${productId}"]`);
+        checkbox.prop('checked', true);
+        checkbox.closest('li').addClass('selected-product');
+    }
+    
+    // Update services and tags
+    updateServicesList();
+    updateModalTags();
+    updateApplyButton();
+}
+
+// Update services list in modal
+function updateServicesList() {
+    if (!activeFormElement) return;
+    
+    const formId = activeFormElement.attr('id');
+    const selections = formSelections[formId];
+    const $subitemsList = $('#subitemsList');
+    
+    // Clear the list
+    $subitemsList.empty();
+    
+    // If no products selected, show default message
+    if (Object.keys(selections).length === 0) {
+        $subitemsList.html('<li class="list-group-item text-muted"></li>');
+        return;
+    }
+    
+    // Add services for each selected product
+    for (const productId in selections) {
+        const product = productsData[productId];
+        const selectedServiceCount = selections[productId].services.length;
+        const totalServiceCount = product.services.length;
+        
+        // Add product header with service count
+        let serviceCountText = "";
+        if (totalServiceCount > 0) {
+            serviceCountText = ` <small class="text-muted">(${selectedServiceCount}/${totalServiceCount} services selected)</small>`;
+        }
+        
+        $subitemsList.append(`
+            <li class="list-group-item bg-light fw-bold pop-serv-list-headed">
+                ${product.name}${serviceCountText}
+            </li>
+        `);
+        
+        // Add services
+        if (product.services.length === 0) {
+            $subitemsList.append(`
+                <li class="list-group-item text-muted">
+                    No services available for this product
+                </li>
+            `);
+        } else {
+            product.services.forEach(service => {
+                const isChecked = selections[productId].services.includes(service);
+                const selectedClass = isChecked ? 'selected-service' : '';
+                
+                $subitemsList.append(`
+                    <li class="list-group-item ${selectedClass}">
+                        <label>
+                            <input type="checkbox" class="service-checkbox me-2" 
+                                data-product="${productId}" 
+                                data-service-name="${service}" 
+                                ${isChecked ? 'checked' : ''}>
+                            ${service}
+                        </label>
+                    </li>
+                `);
+            });
+        }
+    }
+}
+
+// Update tags in modal
+function updateModalTags() {
+    if (!activeFormElement) return;
+    
+    const formId = activeFormElement.attr('id');
+    const selections = formSelections[formId];
+    const $tagsContainer = $('#tagsContainer');
+    
+    // Clear the container
+    $tagsContainer.empty();
+    
+    // Add tags for products and services
+    for (const productId in selections) {
+        const product = selections[productId];
+        
+        // Add product tag
+        $tagsContainer.append(`
+            <span class="badge select-main-tag me-2 mb-2">
+                ${product.name}
+                <span  data-type="product" data-product="${productId}">&times;</span>
+            </span>
+        `);
+        
+        // Add service tags
+        product.services.forEach(service => {
+            $tagsContainer.append(`
+                <span class="badge select-sub-tag me-2 mb-2">
+                    ${service}
+                    <span  data-type="service" data-product="${productId}" data-service="${service}">&times;</span>
+                </span>
+            `);
+        });
+    }
+}
+
+// Update apply button state
+function updateApplyButton() {
+    if (!activeFormElement) {
+        $('#applyBtn').prop('disabled', true);
+        return;
+    }
+    
+    const formId = activeFormElement.attr('id');
+    const selections = formSelections[formId];
+    
+    // Enable button if there are selections
+    const hasSelections = Object.keys(selections).length > 0;
+    $('#applyBtn').prop('disabled', !hasSelections);
+}
+
+// Update the form display
+function updateFormDisplay(formId) {
+    const $form = $('#' + formId);
+    if (!$form.length) return;
+    
+    const selections = formSelections[formId];
+    const $mainTags = $form.find('.main-selected-tags');
+    const $subTags = $form.find('.sub-selected-tags');
+    const $container = $form.find('.selected-data-container');
+    
+    // Clear existing tags
+    $mainTags.empty();
+    $subTags.empty();
+    
+    // Hide container if no selections
+    if (Object.keys(selections).length === 0) {
+        $container.hide();
+        return;
+    }
+    
+    // Add tags for products
+    for (const productId in selections) {
+        const product = selections[productId];
+        
+        $mainTags.append(`
+            <span class="badge select-main-tag me-2 mb-2">
+                ${product.name}
+                <span class="remove-tag" data-type="product" data-product="${productId}">&times;</span>
+            </span>
+        `);
+        
+        // Add tags for services
+        product.services.forEach(service => {
+            $subTags.append(`
+                <span class="badge select-sub-tag me-2 mb-2">
+                    ${service}
+                    <span class="remove-tag" data-type="service" data-product="${productId}" data-service="${service}">&times;</span>
+                </span>
+            `);
+        });
+    }
+    
+    // Show the container
+    $container.show();
+}
+    </script>
+
+    <script>
+        // Add this JavaScript function
+function toggleForm(header) {
+    const form = header.closest('.attendee-form');
+    const content = form.querySelector('.form-content');
+    const isCollapsed = content.classList.contains('show');
+    
+    if (isCollapsed) {
+        content.classList.remove('show');
+        form.classList.add('collapsed');
+    } else {
+        content.classList.add('show');
+        form.classList.remove('collapsed');
+    }
+}
+
+// Optional: Add this to collapse other forms when one is expanded
+function collapseOtherForms(currentForm) {
+    document.querySelectorAll('.attendee-form').forEach(form => {
+        if (form !== currentForm) {
+            const content = form.querySelector('.form-content');
+            content.classList.remove('show');
+            form.classList.add('collapsed');
+        }
+    });
+}
+    </script>
+
+    <script>
+        // Update the toggle function
+function toggleForm(header) {
+    const form = header.closest('.attendee-form');
+    const content = form.querySelector('.form-content');
+    const icon = header.querySelector('.toggle-btn i');
+    
+    // Toggle collapse state with transition
+    if (content.classList.contains('collapsed')) {
+        // Expanding
+        content.classList.remove('collapsed');
+        form.classList.remove('collapsed');
+        icon.style.transform = 'rotate(0deg)';
+    } else {
+        // Collapsing
+        content.classList.add('collapsed');
+        form.classList.add('collapsed');
+        icon.style.transform = 'rotate(180deg)';
+    }
+    
+    // Store collapse state
+    const formId = form.getAttribute('data-attendee-index');
+    localStorage.setItem(`form_${formId}_collapsed`, content.classList.contains('collapsed'));
+    
+    // Prevent event bubbling
+    event.stopPropagation();
+}
+
+// Update the initialization code
+document.addEventListener('DOMContentLoaded', function() {
+    // Restore collapse states with transition
+    document.querySelectorAll('.attendee-form').forEach(form => {
+        const formId = form.getAttribute('data-attendee-index');
+        const isCollapsed = localStorage.getItem(`form_${formId}_collapsed`) === 'true';
+        
+        if (isCollapsed) {
+            const content = form.querySelector('.form-content');
+            const icon = form.querySelector('.toggle-btn i');
+            
+            // Add collapsed class immediately without transition
+            content.style.transition = 'none';
+            content.classList.add('collapsed');
+            form.classList.add('collapsed');
+            icon.style.transform = 'rotate(180deg)';
+            
+            // Force reflow
+            content.offsetHeight;
+            
+            // Re-enable transitions
+            content.style.transition = '';
+        }
+    });
+});
+    </script>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Initialize form validation
+    initFormValidation();
+});
+
+function initFormValidation() {
+    const submitButtons = document.querySelectorAll('.buy-btn[type="submit"]');
+    
+    submitButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const formId = this.closest('form').id;
+            validateAndSubmitForm(formId);
+        });
+    });
+}
+
+function validateAndSubmitForm(formId) {
+    const form = document.getElementById(formId);
+    const formData = new FormData(form);
+    let isValid = true;
+    
+    // Clear previous errors
+    clearAllErrors(form);
+
+    // Validate required fields
+    const requiredFields = [
+        { id: 'firstname', label: 'First Name' },
+        { id: 'lastname', label: 'Last Name' },
+        { id: 'country', label: 'Country of residence' },
+        { id: 'emailid', label: 'Email address' },
+        { id: 'Nationality', label: 'Nationality' },
+        { id: 'companyname', label: 'Company name' },
+        { id: 'jobtitle', label: 'Job Title' },
+        { id: 'companytype', label: 'Company Type' },
+        { id: 'industry', label: 'Industry' }
+    ];
+
+    const formIndex = formId.split('_')[1];
+
+    requiredFields.forEach(field => {
+        const fieldId = `${field.id}_${formIndex}`;
+        const element = form.querySelector(`#${fieldId}`);
+        
+        if (!element) return;
+
+        const value = element.value.trim();
+        if (!value) {
+            showError(fieldId, `${field.label} is required`);
+            isValid = false;
+        }
+    });
+
+    // Validate email format
+    const emailField = form.querySelector(`#emailid_${formIndex}`);
+    if (emailField && emailField.value.trim()) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailField.value.trim())) {
+            showError(`emailid_${formIndex}`, 'Please enter a valid email address');
+            isValid = false;
+        }
+    }
+
+    // Validate email confirmation match
+    const confirmEmailField = form.querySelector(`#Confirmemail_${formIndex}`);
+    if (confirmEmailField && emailField && confirmEmailField.value.trim()) {
+        if (confirmEmailField.value.trim() !== emailField.value.trim()) {
+            showError(`Confirmemail_${formIndex}`, 'Email addresses do not match');
+            isValid = false;
+        }
+    }
+
+    // Validate phone number
+    const phoneInput = form.querySelector('.phone-number');
+    if (phoneInput && phoneInput.iti) {
+        if (!phoneInput.iti.isValidNumber()) {
+            phoneInput.classList.add('is-invalid');
+            const errorMsg = phoneInput.nextElementSibling;
+            if (errorMsg && errorMsg.classList.contains('invalid-feedback')) {
+                errorMsg.style.display = 'block';
+            }
+            isValid = false;
+        }
+    }
+
+    // Validate solutions selection
+    if (!formSelections[formId] || Object.keys(formSelections[formId]).length === 0) {
+        const solutionsError = document.getElementById(`solutionsError_${formIndex}`);
+        if (solutionsError) {
+            solutionsError.textContent = 'Please select at least one solution';
+            solutionsError.style.display = 'block';
+        }
+        isValid = false;
+    }
+
+    // Terms and conditions validation
+    const termsCheck = document.getElementById('termsCheck');
+    if (!termsCheck.checked) {
+        termsCheck.classList.add('is-invalid');
+        const termsError = termsCheck.nextElementSibling.nextElementSibling;
+        if (termsError) {
+            termsError.style.display = 'block';
+        }
+        isValid = false;
+    }
+
+    if (isValid) {
+        submitForm(formId);
+    } else {
+        // Scroll to first error
+        const firstError = form.querySelector('.is-invalid');
+        if (firstError) {
+            firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }
+}
+
+function submitForm(formId) {
+    const form = document.getElementById(formId);
+    const submitButton = form.querySelector('.buy-btn[type="submit"]');
+    const originalText = submitButton.textContent;
+
+    // Show loading state
+    submitButton.disabled = true;
+    submitButton.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Processing...';
+
+    // Collect form data
+    const formData = new FormData(form);
+    
+    // Add selections data
+    if (formSelections[formId]) {
+        formData.append('solutions', JSON.stringify(formSelections[formId]));
+    }
+
+    // Simulate API call (replace with your actual submission endpoint)
+    setTimeout(() => {
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalText;
+        
+        // Show success message and redirect
+        alert('Form submitted successfully!');
+        window.location.href = 'success.html';
+    }, 1500);
+}
+
+function showError(elementId, message) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+
+    element.classList.add('is-invalid');
+    const errorSpan = document.getElementById(`${elementId}Error`);
+    if (errorSpan) {
+        errorSpan.textContent = message;
+        errorSpan.style.display = 'block';
+    }
+}
+
+function clearAllErrors(form) {
+    const errorElements = form.getElementsByClassName('error');
+    const invalidInputs = form.getElementsByClassName('is-invalid');
+
+    Array.from(errorElements).forEach(element => {
+        element.textContent = '';
+        element.style.display = 'none';
+    });
+
+    Array.from(invalidInputs).forEach(input => {
+        input.classList.remove('is-invalid');
+    });
+}
+
+// Clear errors on input
+document.addEventListener('input', function(e) {
+    if (e.target.classList.contains('form-control') || e.target.classList.contains('form-check-input')) {
+        e.target.classList.remove('is-invalid');
+        const errorElement = document.getElementById(`${e.target.id}Error`);
+        if (errorElement) {
+            errorElement.textContent = '';
+            errorElement.style.display = 'none';
+        }
+    }
+});
+</script>
+
+    
+   
+
+</body>
+</html>

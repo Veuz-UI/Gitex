@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GITEX NIGERIA</title>
+  <link rel="stylesheet" href="assets/css/aos.css">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/font-awesome.css">
+  <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="assets/css/style-old.css">
+  <link rel="stylesheet" href="assets/css/new-style-visitor.css">
+  <link rel="stylesheet" href="assets/fonts/webfont/stylesheet.css">
+  <link rel="icon" href="assets/img/fav-icon.png" type="image/p">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/img/fav-icon.png">
+
+  <style>
+
+  </style>
+</head>
+
+<body>
+
+  <!-- loader -->
+  <div id="loader-wrapper">
+    <div class="loader">
+      <svg viewBox="0 0 80 80">
+        <circle id="test" cx="40" cy="40" r="32"></circle>
+      </svg>
+    </div>
+    <div class="loader triangle">
+      <svg viewBox="0 0 86 80">
+        <polygon points="43 8 79 72 7 72"></polygon>
+      </svg>
+    </div>
+    <div class="loader">
+      <svg viewBox="0 0 80 80">
+        <rect x="8" y="8" width="64" height="64"></rect>
+      </svg>
+    </div>
+  </div>
+  <!-- loader -->
+
+
+  <div class="inner-banner">
+    <a href="index.html"><img src="assets/img/ni-header.png" class="img-fluid"></a>
+    <div>
+      <div class="registration-text">GITEX NIGERIA TECH EXPO + <br> FUTURE ECONOMY SUMMIT</div>
+    </div>
+  </div>
+
+
+
+
+  <section class="content height-content">
+    <div class="custom-container">
+      <div class="sub-wrapper">
+        <img src="assets/img/login-img.png" alt="">
+        <h4>OTP Verification</h4>
+        <div class="sub-wrapper-cntnt">
+          <p>Enter the OTP sent to <span>demo@demo.com</span></p>
+
+          <form class="otp-inputs-form">
+            <div class="otp-inputs otp-input">
+              <input id="input1" type="text" maxlength="1" autofocus>
+              <input id="input2" type="text" maxlength="1">
+              <input id="input3" type="text" maxlength="1">
+              <input id="input4" type="text" maxlength="1">
+          </div>
+          </form>
+
+          <h6 class="resend-otp">
+              Didn't you receive the OTP? <br>
+              <span id="timer">Time remaining: <span id="countdown">02:00</span></span>
+              <span id="resend-section" style="display: none;">
+                  <a href="#" id="resend-link">Resend OTP</a>
+              </span>
+          </h6>
+          <a href="view-ticket.html"><button class="secondary-btn" id="verify-btn">Verify</button></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="footer">
+    <div class="container">
+      <img src="assets/img/logo.png" alt="" class="logo-width">
+      <div class="social-icons">
+        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+  <script src="assets/js/animation.js"></script>
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/aos.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.js"></script>
+  <script src="assets/js/popper.min.js"></script>
+  <script src="assets/js/owl.carousel.min.js"></script>
+  <script src="assets/js/font-awsome.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // OTP input handling
+    const inputs = document.querySelectorAll('.otp-inputs input');
+    
+    inputs.forEach((input, index) => {
+        input.addEventListener('keyup', (e) => {
+            if (e.key >= 0 && e.key <= 9) {
+                if (index < inputs.length - 1) {
+                    inputs[index + 1].focus();
+                }
+            } else if (e.key === 'Backspace') {
+                if (index > 0) {
+                    inputs[index - 1].focus();
+                }
+            }
+        });
+    });
+
+    // Timer functionality
+    let timeLeft = 30; // 2 minutes in seconds
+    const countdownEl = document.getElementById('countdown');
+    const timerEl = document.getElementById('timer');
+    const resendSection = document.getElementById('resend-section');
+    const resendLink = document.getElementById('resend-link');
+
+    function updateTimer() {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        countdownEl.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        
+        if (timeLeft === 0) {
+            clearInterval(timerInterval);
+            timerEl.style.display = 'none';
+            resendSection.style.display = 'inline';
+        } else {
+            timeLeft--;
+        }
+    }
+
+    let timerInterval = setInterval(updateTimer, 1000);
+    updateTimer();
+
+    // Resend OTP functionality
+    resendLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Reset inputs
+        inputs.forEach(input => input.value = '');
+        inputs[0].focus();
+        
+        // Reset timer
+        timeLeft = 30;
+        timerEl.style.display = 'inline';
+        resendSection.style.display = 'none';
+        timerInterval = setInterval(updateTimer, 1000);
+        
+        // Show resend confirmation
+        alert('New OTP has been sent!');
+    });
+});
+</script>
+
+
+
+
+
+
+</body>
+
+</html>

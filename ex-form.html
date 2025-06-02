@@ -1,0 +1,1795 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GITEX NIGERIA</title>
+    <link rel="stylesheet" href="assets/css/aos.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/fonts/webfont/stylesheet.css">
+    <link rel="icon" href="assets/img/fav-icon.png" type="image/png" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/css/intlTelInput.css" />
+    <style>
+        body, html{
+            scroll-behavior: smooth !important;
+        }
+    </style>
+   
+</head>
+
+<body>
+
+     <!-- loader -->
+      <div id="loader-wrapper">
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <circle id="test" cx="40" cy="40" r="32"></circle>
+            </svg>
+        </div>
+        <div class="loader triangle">
+            <svg viewBox="0 0 86 80">
+                <polygon points="43 8 79 72 7 72"></polygon>
+            </svg>
+        </div>
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <rect x="8" y="8" width="64" height="64"></rect>
+            </svg>
+        </div>
+    </div>
+    <!-- loader -->
+
+    <section class="banner">
+        <div class="container">
+            <div class="bannercntnt">
+                <div class="banner-logo">
+                <a href="index.html"><img src="assets/img/banner-img.png" alt=""></a>
+            </div>
+            <div style="display: flex;justify-content: end;">
+                <h2 class="banner-head">GITEX NIGERIA TECH EXPO + FUTURE ECONOMY SUMMIT</h2>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="form-section">
+        <div class="container">
+             <div class="form-container">
+                <h4 class="form-head">About Your Company</h4>
+            <div class="progress-bar">
+            <div class="progress-step active" id="step-1">
+                <div> 1</div>
+            </div>
+            <div class="progress-step" id="step-2">
+                <div> 2</div>
+            </div>
+        </div>
+
+        <div class="form-content">
+            <!-- Step 1: Personal Information -->
+            <div class="step active" id="step1">   
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="companyname">Company Name <span>*</span></label>
+                        <input type="text" id="companyname" name="companyname" required>
+                        <div class="error" id="companynameError">This field is required</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="companybrand">Company/Brand Name <span class="label-hint">(to be displayed on Stand, Website & APP)</span> <span>*</span></label>
+                        <input type="text" id="companybrand" name="companybrand" required>
+                        <div class="error" id="companybrandError">This field is required</div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fileUpload">Company Logo <span>*</span></label>
+                        <div class="file-uploader">
+                            <input type="file" id="fileUpload" name="fileUpload" accept=".jpg,.png,.pdf" />
+                        </div>
+                        <div class="error" id="fileUploadError">This field is required</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Headquarters">Company Headquarters Country <span>*</span></label>
+                         <select id="Headquarters" >
+                            <option></option> <!-- This enables the placeholder -->
+                            <option value="af">Afghanistan</option><option value="al">Albania</option><option value="dz">Algeria</option><option value="ad">Andorra</option><option value="ao">Angola</option><option value="ag">Antigua and Barbuda</option><option value="ar">Argentina</option><option value="am">Armenia</option><option value="au">Australia</option><option value="at">Austria</option><option value="az">Azerbaijan</option><option value="bs">Bahamas</option><option value="bh">Bahrain</option><option value="bd">Bangladesh</option><option value="bb">Barbados</option><option value="by">Belarus</option><option value="be">Belgium</option><option value="bz">Belize</option><option value="bj">Benin</option><option value="bt">Bhutan</option><option value="bo">Bolivia</option><option value="ba">Bosnia and Herzegovina</option><option value="bw">Botswana</option><option value="br">Brazil</option><option value="bn">Brunei</option><option value="bg">Bulgaria</option><option value="bf">Burkina Faso</option><option value="bi">Burundi</option><option value="cv">Cabo Verde</option><option value="kh">Cambodia</option><option value="cm">Cameroon</option><option value="ca">Canada</option><option value="cf">Central African Republic</option><option value="td">Chad</option><option value="cl">Chile</option><option value="cn">China</option><option value="co">Colombia</option><option value="km">Comoros</option><option value="cd">Congo (Congo-Brazzaville)</option><option value="cr">Costa Rica</option><option value="hr">Croatia</option><option value="cu">Cuba</option><option value="cy">Cyprus</option><option value="cz">Czechia</option><option value="dk">Denmark</option><option value="dj">Djibouti</option><option value="dm">Dominica</option><option value="do">Dominican Republic</option><option value="ec">Ecuador</option><option value="eg">Egypt</option><option value="sv">El Salvador</option><option value="gq">Equatorial Guinea</option><option value="er">Eritrea</option><option value="ee">Estonia</option><option value="sz">Eswatini</option><option value="et">Ethiopia</option><option value="fj">Fiji</option><option value="fi">Finland</option><option value="fr">France</option><option value="ga">Gabon</option><option value="gm">Gambia</option><option value="ge">Georgia</option><option value="de">Germany</option><option value="gh">Ghana</option><option value="gr">Greece</option><option value="gd">Grenada</option><option value="gt">Guatemala</option><option value="gn">Guinea</option><option value="gw">Guinea-Bissau</option><option value="gy">Guyana</option><option value="ht">Haiti</option><option value="hn">Honduras</option><option value="hu">Hungary</option><option value="is">Iceland</option><option value="in">India</option><option value="id">Indonesia</option><option value="ir">Iran</option><option value="iq">Iraq</option><option value="ie">Ireland</option><option value="il">Israel</option><option value="it">Italy</option><option value="jm">Jamaica</option><option value="jp">Japan</option><option value="jo">Jordan</option><option value="kz">Kazakhstan</option><option value="ke">Kenya</option><option value="ki">Kiribati</option><option value="kp">North Korea</option><option value="kr">South Korea</option><option value="kw">Kuwait</option><option value="kg">Kyrgyzstan</option><option value="la">Laos</option><option value="lv">Latvia</option><option value="lb">Lebanon</option><option value="ls">Lesotho</option><option value="lr">Liberia</option><option value="ly">Libya</option><option value="li">Liechtenstein</option><option value="lt">Lithuania</option><option value="lu">Luxembourg</option><option value="mg">Madagascar</option><option value="mw">Malawi</option><option value="my">Malaysia</option><option value="mv">Maldives</option><option value="ml">Mali</option><option value="mt">Malta</option><option value="mh">Marshall Islands</option><option value="mr">Mauritania</option><option value="mu">Mauritius</option><option value="mx">Mexico</option><option value="fm">Micronesia</option><option value="md">Moldova</option><option value="mc">Monaco</option><option value="mn">Mongolia</option><option value="me">Montenegro</option><option value="ma">Morocco</option><option value="mz">Mozambique</option><option value="mm">Myanmar</option><option value="na">Namibia</option><option value="nr">Nauru</option><option value="np">Nepal</option><option value="nl">Netherlands</option><option value="nz">New Zealand</option><option value="ni">Nicaragua</option><option value="ne">Niger</option><option value="ng">Nigeria</option><option value="no">Norway</option><option value="om">Oman</option><option value="pk">Pakistan</option><option value="pw">Palau</option><option value="ps">Palestine</option><option value="pa">Panama</option><option value="pg">Papua New Guinea</option><option value="py">Paraguay</option><option value="pe">Peru</option><option value="ph">Philippines</option><option value="pl">Poland</option><option value="pt">Portugal</option><option value="qa">Qatar</option><option value="ro">Romania</option><option value="ru">Russia</option><option value="rw">Rwanda</option><option value="kn">Saint Kitts and Nevis</option><option value="lc">Saint Lucia</option><option value="vc">Saint Vincent and the Grenadines</option><option value="ws">Samoa</option><option value="sm">San Marino</option><option value="st">Sao Tome and Principe</option><option value="sa">Saudi Arabia</option><option value="sn">Senegal</option><option value="rs">Serbia</option><option value="sc">Seychelles</option><option value="sl">Sierra Leone</option><option value="sg">Singapore</option><option value="sk">Slovakia</option><option value="si">Slovenia</option><option value="sb">Solomon Islands</option><option value="so">Somalia</option><option value="za">South Africa</option><option value="ss">South Sudan</option><option value="es">Spain</option><option value="lk">Sri Lanka</option><option value="sd">Sudan</option><option value="sr">Suriname</option><option value="se">Sweden</option><option value="ch">Switzerland</option><option value="sy">Syria</option><option value="tj">Tajikistan</option><option value="tz">Tanzania</option><option value="th">Thailand</option><option value="tl">Timor-Leste</option><option value="tg">Togo</option><option value="to">Tonga</option><option value="tt">Trinidad and Tobago</option><option value="tn">Tunisia</option><option value="tr">Turkey</option><option value="tm">Turkmenistan</option><option value="tv">Tuvalu</option><option value="ug">Uganda</option><option value="ua">Ukraine</option><option value="ae">United Arab Emirates</option><option value="gb">United Kingdom</option><option value="us">United States</option><option value="uy">Uruguay</option><option value="uz">Uzbekistan</option><option value="vu">Vanuatu</option><option value="ve">Venezuela</option><option value="vn">Vietnam</option><option value="ye">Yemen</option><option value="zm">Zambia</option><option value="zw">Zimbabwe</option>
+                        </select>
+                        <div class="error" id="HeadquartersError">This field is required</div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="companywebsite">Company Website <span>*</span></label>
+                        <input type="text" id="companywebsite" name="companywebsite" required>
+                        <div class="error" id="companywebsiteError">This field is required</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="comDesc">Short Company Description <span>*</span></label>
+                         <textarea name="" id="comDesc"></textarea>
+                        <div class="error" id="ComDescError">This field is required</div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="companyProfile">Full Company Profile <span>*</span></label>
+                        <input type="text" id="companyProfile" name="companyProfile" required>
+                        <div class="error" id="companyProfileError">This field is required</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Hallname">Your Hall Name <span>*</span></label>
+                         <input type="text" id="Hallname" name="Hallname" required>
+                        <div class="error" id="HallnameError">This field is required</div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="standNumber">Your Stand Number <span>*</span></label>
+                        <input type="text" id="standNumber" name="standNumber" required>
+                        <div class="error" id="standNumberError">This field is required</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="companyType">What type of company are you? <span>*</span></label>
+                          <select id="companyType" >
+                            <option></option>
+                           <option value="academia">Academia</option>
+                            <option value="accelerator">Accelerator / Incubator</option>
+                            <option value="corporate">Corporate</option>
+                            <option value="freezone">Freezone</option>
+                            <option value="distributor">Distributor</option>
+                            <option value="government">Government</option>
+                            <option value="association">Industry Association</option>
+                            <option value="investment">Investment Fund</option>
+                            <option value="media">Media</option>
+                            <option value="nonprofit">Non-Profit</option>
+                            <option value="sme">SME</option>
+                            <option value="startup">Startup</option>
+                            <option value="other">Other</option>  
+                        </select>
+                        <div id="otherCompanyType" style="display: none; margin-top: 5px;">
+                            <input type="text" 
+                                id="otherCompanyTypeInput" 
+                                name="otherCompanyType" 
+                                placeholder="Please specify your company type"
+                                class="form-control">
+                            <div class="error" id="otherCompanyTypeError">This field is required</div>
+                        </div>
+                        <div class="error" id="companyTypeError">This field is required</div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="Products">What kind of products or services do you offer? <span>*</span></label>
+                        <input type="text" id="Products" name="Products" required>
+                        <div class="error" id="ProductsError">This field is required</div>
+                    </div>
+                    <div class="form-group"></div>
+                </div>
+
+                <h4 class="form-head-inner">Company Social Media</h4>
+
+              <div class="form-row social-media">
+                    <div class="form-group">
+                        <label for="facebook"><i class="fab fa-facebook-f colored-icon"></i> Facebook</label>
+                        <input type="text" id="facebook" name="facebook" required >
+                    </div>
+                    <div class="form-group">
+                        <label for="Instagram"><i class="fab fa-instagram colored-icon"></i> Instagram</label>
+                        <input type="text" id="Instagram" name="Instagram" required >
+                    </div>
+                    <div class="form-group">
+                        <label for="Linkedin"><i class="fab fa-linkedin-in colored-icon"></i> LinkedIn</label>
+                        <input type="text" id="Linkedin" name="Linkedin" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="X"><i class="fab fa-x-twitter colored-icon"></i> X</label>
+                        <input type="text" id="X" name="X" required >
+                    </div>
+                    <div class="form-group">
+                        <label for="Youtube"><i class="fab fa-youtube colored-icon"></i> YouTube</label>
+                        <input type="text" id="Youtube" name="Youtube" >
+                    </div>
+                    </div>
+
+                <h4 class="form-head-inner">Meetings POC</h4>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="meetingfullName">Full Name <span>*</span></label>
+                        <input type="text" id="meetingfullName" name="meetingfullName" required>
+                        <div class="error" id="meetingfullNameError">This field is required</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="meetingEmail">Email <span>*</span></label>
+                         <input type="text" id="meetingEmail" name="meetingEmail" required>
+                        <div class="error" id="meetingEmailError">This field is required</div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="meetingPhone">Phone Number <span>*</span></label>
+                        <input type="tel" id="meetingPhone" name="meetingPhone" required>
+                        <input type="hidden" id="countryCode" name="countryCode" />
+                        <div class="error" id="meetingPhoneError">This field is required</div>
+                    </div>
+                    <div class="form-group"></div>
+                </div>
+
+
+
+                <div class="form-navigation">
+                    <div></div>
+
+                           <button type="button" class="btn btn-primary" onclick="nextStep()">Next</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Contact Information -->
+            <div class="step" id="step2">
+
+                <div class="form-row">
+                    <div class="form-group">
+                    <label for="companyTypes">What type of company do you want to meet?</label>
+                    <select id="companyTypes" name="companyTypes[]" multiple="multiple" style="width: 100%;">
+                        <option value="academia">Academia</option>
+                                <option value="accelerator">Accelerator / Incubator</option>
+                                <option value="corporate">Corporate</option>
+                                <option value="freezone">Freezone</option>
+                                <option value="distributor">Distributor</option>
+                                <option value="government">Government</option>
+                                <option value="association">Industry Association</option>
+                                <option value="investment">Investment Fund</option>
+                                <option value="media">Media</option>
+                                <option value="nonprofit">Non-Profit</option>
+                                <option value="sme">SME</option>
+                                <option value="startup">Startup</option>
+                                <option value="other">Other</option>  
+                    </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="meetIndustry">Which industry sector do you want to meet?</label>
+                    <select id="meetIndustry" name="meetIndustry[]" multiple="multiple" style="width: 100%;">
+                        <option value="academia">Academia</option>
+                        <option value="agriculture">Agriculture</option>
+                        <option value="automotive">Automotive</option>
+                        <option value="aviation_space">Aviation & Space</option>
+                        <option value="banking_finance_insurance">Banking, Finance & Insurance</option>
+                        <option value="construction_infrastructure">Construction & Infrastructure</option>
+                        <option value="cosmetics">Cosmetics</option>
+                        <option value="defense">Defense</option>
+                        <option value="education">Education</option>
+                        <option value="energy_utilities">Energy & Utilities</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="environment_sustainability">Environment & Sustainability</option>
+                        <option value="fashion_apparel">Fashion & Apparel</option>
+                        <option value="fmcg">FMCG</option>
+                        <option value="gaming">Gaming</option>
+                        <option value="general_trading">General Trading</option>
+                        <option value="government">Government</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="hospitality">Hospitality</option>
+                        <option value="jewellery_luxury">Jewellery & Luxury Goods</option>
+                        <option value="legal">Legal</option>
+                        <option value="logistics_supply_chain">Logistics & Supply Chain</option>
+                        <option value="manufacturing">Manufacturing</option>
+                        <option value="media_advertising">Media & Advertising</option>
+                        <option value="mining">Mining</option>
+                        <option value="real_estate">Real Estate & Property Developers</option>
+                        <option value="research_development">Research & Development</option>
+                        <option value="retail">Retail</option>
+
+                    </select>
+                    </div>
+                </div>
+
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="Region">Which regions does your organisation operate in? <span>*</span></label>
+                    <select id="Regiontype" name="Regiontype[]" multiple="multiple" style="width: 100%;">
+                        <option value="Middle East">Middle East</option>
+                        <option value="Central Africa">Central Africa</option>
+                        <option value="North Africa">North Africa</option>
+                        <option value="Southern Africa">Southern Africa</option>
+                        <option value="Western Africa">Western Africa</option>
+                        <option value="Eastern Africa">Eastern Africa</option>
+                        <option value="Europe">Europe</option>
+                        <option value="North America">North America</option>
+                        <option value="South America">South America</option>
+                        <option value="Australasia">Australasia</option>
+                        <option value="Asia">Asia</option>
+                    </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="foundYear">Year Founded</label>
+                          <select id="foundYear" >
+                            <option></option>
+                           <option value="1900">1900</option><option value="1901">1901</option><option value="1902">1902</option><option value="1903">1903</option><option value="1904">1904</option><option value="1905">1905</option><option value="1906">1906</option><option value="1907">1907</option><option value="1908">1908</option><option value="1909">1909</option><option value="1910">1910</option><option value="1911">1911</option><option value="1912">1912</option><option value="1913">1913</option><option value="1914">1914</option><option value="1915">1915</option><option value="1916">1916</option><option value="1917">1917</option><option value="1918">1918</option><option value="1919">1919</option><option value="1920">1920</option><option value="1921">1921</option><option value="1922">1922</option><option value="1923">1923</option><option value="1924">1924</option><option value="1925">1925</option><option value="1926">1926</option><option value="1927">1927</option><option value="1928">1928</option><option value="1929">1929</option><option value="1930">1930</option><option value="1931">1931</option><option value="1932">1932</option><option value="1933">1933</option><option value="1934">1934</option><option value="1935">1935</option><option value="1936">1936</option><option value="1937">1937</option><option value="1938">1938</option><option value="1939">1939</option><option value="1940">1940</option><option value="1941">1941</option><option value="1942">1942</option><option value="1943">1943</option><option value="1944">1944</option><option value="1945">1945</option><option value="1946">1946</option><option value="1947">1947</option><option value="1948">1948</option><option value="1949">1949</option><option value="1950">1950</option><option value="1951">1951</option><option value="1952">1952</option><option value="1953">1953</option><option value="1954">1954</option><option value="1955">1955</option><option value="1956">1956</option><option value="1957">1957</option><option value="1958">1958</option><option value="1959">1959</option><option value="1960">1960</option><option value="1961">1961</option><option value="1962">1962</option><option value="1963">1963</option><option value="1964">1964</option><option value="1965">1965</option><option value="1966">1966</option><option value="1967">1967</option><option value="1968">1968</option><option value="1969">1969</option><option value="1970">1970</option><option value="1971">1971</option><option value="1972">1972</option><option value="1973">1973</option><option value="1974">1974</option><option value="1975">1975</option><option value="1976">1976</option><option value="1977">1977</option><option value="1978">1978</option><option value="1979">1979</option><option value="1980">1980</option><option value="1981">1981</option><option value="1982">1982</option><option value="1983">1983</option><option value="1984">1984</option><option value="1985">1985</option><option value="1986">1986</option><option value="1987">1987</option><option value="1988">1988</option><option value="1989">1989</option><option value="1990">1990</option><option value="1991">1991</option><option value="1992">1992</option><option value="1993">1993</option><option value="1994">1994</option><option value="1995">1995</option><option value="1996">1996</option><option value="1997">1997</option><option value="1998">1998</option><option value="1999">1999</option><option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option><option value="2025">2025</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="foundStage">Funding Stage</label>
+                          <select id="foundStage" >
+                            <option></option>
+                             <option value="Idea Stage/Bootstrapping">Idea Stage/Bootstrapping</option>
+                            <option value="Pre-Seed">Pre-Seed</option>
+                            <option value="Seed/Early">Seed/Early</option>
+                            <option value="Series A">Series A</option>
+                            <option value="Series B">Series B</option>
+                            <option value="Series C and beyond">Series C and beyond</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="valuation">What is your company's most recent valuation?</label>
+                          <select id="valuation" >
+                                <option></option>
+                                <option value="0-5">0–5</option>
+                                <option value="06-10">06–10</option>
+                                <option value="11-50">11–50</option>
+                                <option value="51-100">51–100</option>
+                                <option value="101-500">101–500</option>
+                                <option value="501-1,000">501–1,000</option>
+                                <option value="I'm not sure">I'm not sure</option>
+                                <option value="Prefer not to say">Prefer not to say</option>
+                        </select>
+                    </div>
+                </div>
+
+
+
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="hasInvestors">Do you currently have any investors?</label>
+                          <div class="radio-group">
+                                <label class="radio-button">
+                                    <input type="radio" name="hasInvestors" value="yes" class="radio-button__input">
+                                    <span class="radio-button__label">
+                                        <span class="radio-button__custom"></span>
+                                        Yes
+                                    </span>
+                                </label>
+                                
+                                <label class="radio-button">
+                                    <input type="radio" name="hasInvestors" value="no" class="radio-button__input">
+                                    <span class="radio-button__label">
+                                        <span class="radio-button__custom"></span>
+                                        No
+                                    </span>
+                                </label>
+                            </div>
+                    </div>
+
+                    <div class="form-group">
+                       <div id="investorDetails" style="display: none;">
+                        <div class="form-group">
+                            <label for="investorName">Please name your investors. </label>
+                            <textarea type="text" id="investorName" name="investorName" class="form-control"></textarea>
+                            <!-- <div class="error" id="investorNameError">This field is required</div> -->
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="currentMember">Are you currently a member of an Accelerator or Incubator?</label>
+                          <div class="radio-group">
+                                <label class="radio-button">
+                                    <input type="radio" name="currentMember" value="yes" class="radio-button__input">
+                                    <span class="radio-button__label">
+                                        <span class="radio-button__custom"></span>
+                                        Yes
+                                    </span>
+                                </label>
+                                
+                                <label class="radio-button">
+                                    <input type="radio" name="currentMember" value="no" class="radio-button__input">
+                                    <span class="radio-button__label">
+                                        <span class="radio-button__custom"></span>
+                                        No
+                                    </span>
+                                </label>
+                            </div>
+                    </div>
+
+                    <div class="form-group">
+                       <div id="acceleratorsIncubatorDetails" style="display: none;">
+                        <div class="form-group">
+                            <label for="acceleratorsIncubator">Please name the accelerators / incubators. </label>
+                            <textarea type="text" id="acceleratorsIncubator" name="acceleratorsIncubator" class="form-control"></textarea>
+                            <!-- <div class="error" id="acceleratorsIncubatorError">This field is required</div> -->
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+
+
+                 <div class="form-row">
+                    <div class="form-group">
+                        <label for="wonAwards">Have you won any awards?</label>
+                          <div class="radio-group">
+                                <label class="radio-button">
+                                    <input type="radio" name="wonAwards" value="yes" class="radio-button__input">
+                                    <span class="radio-button__label">
+                                        <span class="radio-button__custom"></span>
+                                        Yes
+                                    </span>
+                                </label>
+                                
+                                <label class="radio-button">
+                                    <input type="radio" name="wonAwards" value="no" class="radio-button__input">
+                                    <span class="radio-button__label">
+                                        <span class="radio-button__custom"></span>
+                                        No
+                                    </span>
+                                </label>
+                            </div>
+                    </div>
+
+                    <div class="form-group">
+                       <div id="wonAwardsDetails" style="display: none;">
+                        <div class="form-group">
+                            <label for="awardName">Please name the awards.</label>
+                            <textarea type="text" id="awardName" name="awardName" class="form-control"></textarea>
+                            <!-- <div class="error" id="awardNameError">This field is required</div> -->
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+
+
+                    <div class="form-row">
+                        <div class="form-group">
+                        <label for="firstTime">Is this your first time exhibiting at this event?</label>
+                        <div class="radio-group">
+                            <label class="radio-button">
+                                <input type="radio" name="firstTime" value="yes" class="radio-button__input">
+                                <span class="radio-button__label">
+                                    <span class="radio-button__custom"></span>
+                                    Yes
+                                </span>
+                            </label>
+                            
+                            <label class="radio-button">
+                                <input type="radio" name="firstTime" value="no" class="radio-button__input">
+                                <span class="radio-button__label">
+                                    <span class="radio-button__custom"></span>
+                                    No
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                   <div class="form-group">
+                            <div id="firstTimeDetails" style="display: none;">
+                                <label>Is this your first time exhibiting in an event in the region?</label>
+                                <div class="radio-group">
+                                    <label class="radio-button">
+                                        <input type="radio" name="hearAbout" value="yes" class="radio-button__input">
+                                        <span class="radio-button__label">
+                                            <span class="radio-button__custom"></span>
+                                            Yes
+                                        </span>
+                                    </label>
+                                    
+                                    <label class="radio-button">
+                                        <input type="radio" name="hearAbout" value="no" class="radio-button__input">
+                                        <span class="radio-button__label">
+                                            <span class="radio-button__custom"></span>
+                                            No
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <div id="previousEvents" style="display: none;">
+                                    <label for="eventListCountry">Options in a tree/hierarchy format to choose from country <span>*</span></label>
+                                    <select id="eventListCountry" multiple="multiple" style="width: 100%;">
+                                        <option value="af">Afghanistan</option><option value="al">Albania</option><option value="dz">Algeria</option><option value="ad">Andorra</option><option value="ao">Angola</option><option value="ag">Antigua and Barbuda</option><option value="ar">Argentina</option><option value="am">Armenia</option><option value="au">Australia</option><option value="at">Austria</option><option value="az">Azerbaijan</option><option value="bs">Bahamas</option><option value="bh">Bahrain</option><option value="bd">Bangladesh</option><option value="bb">Barbados</option><option value="by">Belarus</option><option value="be">Belgium</option><option value="bz">Belize</option><option value="bj">Benin</option><option value="bt">Bhutan</option><option value="bo">Bolivia</option><option value="ba">Bosnia and Herzegovina</option><option value="bw">Botswana</option><option value="br">Brazil</option><option value="bn">Brunei</option><option value="bg">Bulgaria</option><option value="bf">Burkina Faso</option><option value="bi">Burundi</option><option value="cv">Cabo Verde</option><option value="kh">Cambodia</option><option value="cm">Cameroon</option><option value="ca">Canada</option><option value="cf">Central African Republic</option><option value="td">Chad</option><option value="cl">Chile</option><option value="cn">China</option><option value="co">Colombia</option><option value="km">Comoros</option><option value="cd">Congo (Congo-Brazzaville)</option><option value="cr">Costa Rica</option><option value="hr">Croatia</option><option value="cu">Cuba</option><option value="cy">Cyprus</option><option value="cz">Czechia</option><option value="dk">Denmark</option><option value="dj">Djibouti</option><option value="dm">Dominica</option><option value="do">Dominican Republic</option><option value="ec">Ecuador</option><option value="eg">Egypt</option><option value="sv">El Salvador</option><option value="gq">Equatorial Guinea</option><option value="er">Eritrea</option><option value="ee">Estonia</option><option value="sz">Eswatini</option><option value="et">Ethiopia</option><option value="fj">Fiji</option><option value="fi">Finland</option><option value="fr">France</option><option value="ga">Gabon</option><option value="gm">Gambia</option><option value="ge">Georgia</option><option value="de">Germany</option><option value="gh">Ghana</option><option value="gr">Greece</option><option value="gd">Grenada</option><option value="gt">Guatemala</option><option value="gn">Guinea</option><option value="gw">Guinea-Bissau</option><option value="gy">Guyana</option><option value="ht">Haiti</option><option value="hn">Honduras</option><option value="hu">Hungary</option><option value="is">Iceland</option><option value="in">India</option><option value="id">Indonesia</option><option value="ir">Iran</option><option value="iq">Iraq</option><option value="ie">Ireland</option><option value="il">Israel</option><option value="it">Italy</option><option value="jm">Jamaica</option><option value="jp">Japan</option><option value="jo">Jordan</option><option value="kz">Kazakhstan</option><option value="ke">Kenya</option><option value="ki">Kiribati</option><option value="kp">North Korea</option><option value="kr">South Korea</option><option value="kw">Kuwait</option><option value="kg">Kyrgyzstan</option><option value="la">Laos</option><option value="lv">Latvia</option><option value="lb">Lebanon</option><option value="ls">Lesotho</option><option value="lr">Liberia</option><option value="ly">Libya</option><option value="li">Liechtenstein</option><option value="lt">Lithuania</option><option value="lu">Luxembourg</option><option value="mg">Madagascar</option><option value="mw">Malawi</option><option value="my">Malaysia</option><option value="mv">Maldives</option><option value="ml">Mali</option><option value="mt">Malta</option><option value="mh">Marshall Islands</option><option value="mr">Mauritania</option><option value="mu">Mauritius</option><option value="mx">Mexico</option><option value="fm">Micronesia</option><option value="md">Moldova</option><option value="mc">Monaco</option><option value="mn">Mongolia</option><option value="me">Montenegro</option><option value="ma">Morocco</option><option value="mz">Mozambique</option><option value="mm">Myanmar</option><option value="na">Namibia</option><option value="nr">Nauru</option><option value="np">Nepal</option><option value="nl">Netherlands</option><option value="nz">New Zealand</option><option value="ni">Nicaragua</option><option value="ne">Niger</option><option value="ng">Nigeria</option><option value="no">Norway</option><option value="om">Oman</option><option value="pk">Pakistan</option><option value="pw">Palau</option><option value="ps">Palestine</option><option value="pa">Panama</option><option value="pg">Papua New Guinea</option><option value="py">Paraguay</option><option value="pe">Peru</option><option value="ph">Philippines</option><option value="pl">Poland</option><option value="pt">Portugal</option><option value="qa">Qatar</option><option value="ro">Romania</option><option value="ru">Russia</option><option value="rw">Rwanda</option><option value="kn">Saint Kitts and Nevis</option><option value="lc">Saint Lucia</option><option value="vc">Saint Vincent and the Grenadines</option><option value="ws">Samoa</option><option value="sm">San Marino</option><option value="st">Sao Tome and Principe</option><option value="sa">Saudi Arabia</option><option value="sn">Senegal</option><option value="rs">Serbia</option><option value="sc">Seychelles</option><option value="sl">Sierra Leone</option><option value="sg">Singapore</option><option value="sk">Slovakia</option><option value="si">Slovenia</option><option value="sb">Solomon Islands</option><option value="so">Somalia</option><option value="za">South Africa</option><option value="ss">South Sudan</option><option value="es">Spain</option><option value="lk">Sri Lanka</option><option value="sd">Sudan</option><option value="sr">Suriname</option><option value="se">Sweden</option><option value="ch">Switzerland</option><option value="sy">Syria</option><option value="tj">Tajikistan</option><option value="tz">Tanzania</option><option value="th">Thailand</option><option value="tl">Timor-Leste</option><option value="tg">Togo</option><option value="to">Tonga</option><option value="tt">Trinidad and Tobago</option><option value="tn">Tunisia</option><option value="tr">Turkey</option><option value="tm">Turkmenistan</option><option value="tv">Tuvalu</option><option value="ug">Uganda</option><option value="ua">Ukraine</option><option value="ae">United Arab Emirates</option><option value="gb">United Kingdom</option><option value="us">United States</option><option value="uy">Uruguay</option><option value="uz">Uzbekistan</option><option value="vu">Vanuatu</option><option value="ve">Venezuela</option><option value="vn">Vietnam</option><option value="ye">Yemen</option><option value="zm">Zambia</option><option value="zw">Zimbabwe</option>
+                                    </select>
+                                </div>
+                        </div>
+                    </div>
+
+
+                    
+
+
+                    <div class="form-row">
+                        <div class="form-group">
+                        <label for="NigFounder">Are any of your founders or co-founders Nigerian nationals?</label>
+                        <div class="radio-group">
+                            <label class="radio-button">
+                                <input type="radio" name="NigFounder" value="yes" class="radio-button__input">
+                                <span class="radio-button__label">
+                                    <span class="radio-button__custom"></span>
+                                    Yes
+                                </span>
+                            </label>
+                            
+                            <label class="radio-button">
+                                <input type="radio" name="NigFounder" value="no" class="radio-button__input">
+                                <span class="radio-button__label">
+                                    <span class="radio-button__custom"></span>
+                                    No
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="afrFounder">Are any of your founders or co-founders from Africa?</label>
+                        <div class="radio-group">
+                            <label class="radio-button">
+                                <input type="radio" name="afrFounder" value="yes" class="radio-button__input">
+                                <span class="radio-button__label">
+                                    <span class="radio-button__custom"></span>
+                                    Yes
+                                </span>
+                            </label>
+                            
+                            <label class="radio-button">
+                                <input type="radio" name="afrFounder" value="no" class="radio-button__input">
+                                <span class="radio-button__label">
+                                    <span class="radio-button__custom"></span>
+                                    No
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    </div>
+
+                      <div class="form-row">
+                        <div class="form-group">
+                            <label for="womFounder">Are any of your founders or co-founders women?</label>
+                            <div class="radio-group">
+                                <label class="radio-button">
+                                    <input type="radio" name="womFounder" value="yes" class="radio-button__input">
+                                    <span class="radio-button__label">
+                                        <span class="radio-button__custom"></span>
+                                        Yes
+                                    </span>
+                                </label>
+                                
+                                <label class="radio-button">
+                                    <input type="radio" name="womFounder" value="no" class="radio-button__input">
+                                    <span class="radio-button__label">
+                                        <span class="radio-button__custom"></span>
+                                        No
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nigBusiness">Is it your first time doing business in Nigeria?</label>
+                            <div class="radio-group">
+                                <label class="radio-button">
+                                    <input type="radio" name="nigBusiness" value="yes" class="radio-button__input">
+                                    <span class="radio-button__label">
+                                        <span class="radio-button__custom"></span>
+                                        Yes
+                                    </span>
+                                </label>
+                                
+                                <label class="radio-button">
+                                    <input type="radio" name="nigBusiness" value="no" class="radio-button__input">
+                                    <span class="radio-button__label">
+                                        <span class="radio-button__custom"></span>
+                                        No
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                         
+                    </div>
+
+                     <div class="form-row">
+                        <div class="form-group">
+                            <label for="nigOffice">Are you looking to set up office in Nigeria?</label>
+                            <div class="radio-group">
+                                <label class="radio-button">
+                                    <input type="radio" name="nigOffice" value="yes" class="radio-button__input">
+                                    <span class="radio-button__label">
+                                        <span class="radio-button__custom"></span>
+                                        Yes
+                                    </span>
+                                </label>
+                                
+                                <label class="radio-button">
+                                    <input type="radio" name="nigOffice" value="no" class="radio-button__input">
+                                    <span class="radio-button__label">
+                                        <span class="radio-button__custom"></span>
+                                        No
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="FisBusiness">Is it your first time doing business in Africa?</label>
+                            <div class="radio-group">
+                                <label class="radio-button">
+                                    <input type="radio" name="FisBusiness" value="yes" class="radio-button__input">
+                                    <span class="radio-button__label">
+                                        <span class="radio-button__custom"></span>
+                                        Yes
+                                    </span>
+                                </label>
+                                
+                                <label class="radio-button">
+                                    <input type="radio" name="FisBusiness" value="no" class="radio-button__input">
+                                    <span class="radio-button__label">
+                                        <span class="radio-button__custom"></span>
+                                        No
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                            <div class="form-group">
+                            <label for="ofcAfrica">Are you looking to set up office in Africa?</label>
+                            <div class="radio-group">
+                                <label class="radio-button">
+                                    <input type="radio" name="ofcAfrica" value="yes" class="radio-button__input">
+                                    <span class="radio-button__label">
+                                        <span class="radio-button__custom"></span>
+                                        Yes
+                                    </span>
+                                </label>
+                                
+                                <label class="radio-button">
+                                    <input type="radio" name="ofcAfrica" value="no" class="radio-button__input">
+                                    <span class="radio-button__label">
+                                        <span class="radio-button__custom"></span>
+                                        No
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-head-inner">
+                        Company type Selections
+                    </div>
+
+                    <div class="form-row">
+                    <div class="form-group">
+                    <label for="secondcompanyTypes">What type of company do you want to meet?</label>
+                    <select id="secondcompanyTypes" name="secondcompanyTypes[]" multiple="multiple" style="width: 100%;">
+                        <option value="academia">Academia</option>
+                                <option value="accelerator">Accelerator / Incubator</option>
+                                <option value="corporate">Corporate</option>
+                                <option value="freezone">Freezone</option>
+                                <option value="distributor">Distributor</option>
+                                <option value="government">Government</option>
+                                <option value="association">Industry Association</option>
+                                <option value="investment">Investment Fund</option>
+                                <option value="media">Media</option>
+                                <option value="nonprofit">Non-Profit</option>
+                                <option value="sme">SME</option>
+                                <option value="startup">Startup</option>
+                                <option value="other">Other</option>  
+                    </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="secondIndustry">Which industry sector do you want to meet?</label>
+                    <select id="secondIndustry" name="secondIndustry[]" multiple="multiple" style="width: 100%;">
+                        <option value="academia">Academia</option>
+                        <option value="agriculture">Agriculture</option>
+                        <option value="automotive">Automotive</option>
+                        <option value="aviation_space">Aviation & Space</option>
+                        <option value="banking_finance_insurance">Banking, Finance & Insurance</option>
+                        <option value="construction_infrastructure">Construction & Infrastructure</option>
+                        <option value="cosmetics">Cosmetics</option>
+                        <option value="defense">Defense</option>
+                        <option value="education">Education</option>
+                        <option value="energy_utilities">Energy & Utilities</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="environment_sustainability">Environment & Sustainability</option>
+                        <option value="fashion_apparel">Fashion & Apparel</option>
+                        <option value="fmcg">FMCG</option>
+                        <option value="gaming">Gaming</option>
+                        <option value="general_trading">General Trading</option>
+                        <option value="government">Government</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="hospitality">Hospitality</option>
+                        <option value="jewellery_luxury">Jewellery & Luxury Goods</option>
+                        <option value="legal">Legal</option>
+                        <option value="logistics_supply_chain">Logistics & Supply Chain</option>
+                        <option value="manufacturing">Manufacturing</option>
+                        <option value="media_advertising">Media & Advertising</option>
+                        <option value="mining">Mining</option>
+                        <option value="real_estate">Real Estate & Property Developers</option>
+                        <option value="research_development">Research & Development</option>
+                        <option value="retail">Retail</option>
+
+                    </select>
+                    </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="secondnigBusiness">Is it your first time doing business in Nigeria?</label>
+                            <div class="radio-group">
+                                <label class="radio-button">
+                                    <input type="radio" name="secondnigBusiness" value="yes" class="radio-button__input">
+                                    <span class="radio-button__label">
+                                        <span class="radio-button__custom"></span>
+                                        Yes
+                                    </span>
+                                </label>
+                                
+                                <label class="radio-button">
+                                    <input type="radio" name="secondnigBusiness" value="no" class="radio-button__input">
+                                    <span class="radio-button__label">
+                                        <span class="radio-button__custom"></span>
+                                        No
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="secondOfcNigeria">Are you looking to set up office in Nigeria?</label>
+                            <div class="radio-group">
+                                <label class="radio-button">
+                                    <input type="radio" name="secondOfcNigeria" value="yes" class="radio-button__input">
+                                    <span class="radio-button__label">
+                                        <span class="radio-button__custom"></span>
+                                        Yes
+                                    </span>
+                                </label>
+                                
+                                <label class="radio-button">
+                                    <input type="radio" name="secondOfcNigeria" value="no" class="radio-button__input">
+                                    <span class="radio-button__label">
+                                        <span class="radio-button__custom"></span>
+                                        No
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="secondafcBusiness">Is it your first time doing business in Africa?</label>
+                            <div class="radio-group">
+                                <label class="radio-button">
+                                    <input type="radio" name="secondafcBusiness" value="yes" class="radio-button__input">
+                                    <span class="radio-button__label">
+                                        <span class="radio-button__custom"></span>
+                                        Yes
+                                    </span>
+                                </label>
+                                
+                                <label class="radio-button">
+                                    <input type="radio" name="secondafcBusiness" value="no" class="radio-button__input">
+                                    <span class="radio-button__label">
+                                        <span class="radio-button__custom"></span>
+                                        No
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="secondOfcaffrica">Are you looking to set up office in Africa?</label>
+                            <div class="radio-group">
+                                <label class="radio-button">
+                                    <input type="radio" name="secondOfcaffrica" value="yes" class="radio-button__input">
+                                    <span class="radio-button__label">
+                                        <span class="radio-button__custom"></span>
+                                        Yes
+                                    </span>
+                                </label>
+                                
+                                <label class="radio-button">
+                                    <input type="radio" name="secondOfcaffrica" value="no" class="radio-button__input">
+                                    <span class="radio-button__label">
+                                        <span class="radio-button__custom"></span>
+                                        No
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                    <div class="form-group">
+                    <label for="orgnaizecompanyTypes">Which countries does your organisation operate in?</label>
+                    <select id="orgnaizecompanyTypes" name="orgnaizecompanyTypes[]" multiple="multiple" style="width: 100%;" autocomplete="off">
+                        <option value="af">Afghanistan</option><option value="al">Albania</option><option value="dz">Algeria</option><option value="ad">Andorra</option><option value="ao">Angola</option><option value="ag">Antigua and Barbuda</option><option value="ar">Argentina</option><option value="am">Armenia</option><option value="au">Australia</option><option value="at">Austria</option><option value="az">Azerbaijan</option><option value="bs">Bahamas</option><option value="bh">Bahrain</option><option value="bd">Bangladesh</option><option value="bb">Barbados</option><option value="by">Belarus</option><option value="be">Belgium</option><option value="bz">Belize</option><option value="bj">Benin</option><option value="bt">Bhutan</option><option value="bo">Bolivia</option><option value="ba">Bosnia and Herzegovina</option><option value="bw">Botswana</option><option value="br">Brazil</option><option value="bn">Brunei</option><option value="bg">Bulgaria</option><option value="bf">Burkina Faso</option><option value="bi">Burundi</option><option value="cv">Cabo Verde</option><option value="kh">Cambodia</option><option value="cm">Cameroon</option><option value="ca">Canada</option><option value="cf">Central African Republic</option><option value="td">Chad</option><option value="cl">Chile</option><option value="cn">China</option><option value="co">Colombia</option><option value="km">Comoros</option><option value="cd">Congo (Congo-Brazzaville)</option><option value="cr">Costa Rica</option><option value="hr">Croatia</option><option value="cu">Cuba</option><option value="cy">Cyprus</option><option value="cz">Czechia</option><option value="dk">Denmark</option><option value="dj">Djibouti</option><option value="dm">Dominica</option><option value="do">Dominican Republic</option><option value="ec">Ecuador</option><option value="eg">Egypt</option><option value="sv">El Salvador</option><option value="gq">Equatorial Guinea</option><option value="er">Eritrea</option><option value="ee">Estonia</option><option value="sz">Eswatini</option><option value="et">Ethiopia</option><option value="fj">Fiji</option><option value="fi">Finland</option><option value="fr">France</option><option value="ga">Gabon</option><option value="gm">Gambia</option><option value="ge">Georgia</option><option value="de">Germany</option><option value="gh">Ghana</option><option value="gr">Greece</option><option value="gd">Grenada</option><option value="gt">Guatemala</option><option value="gn">Guinea</option><option value="gw">Guinea-Bissau</option><option value="gy">Guyana</option><option value="ht">Haiti</option><option value="hn">Honduras</option><option value="hu">Hungary</option><option value="is">Iceland</option><option value="in">India</option><option value="id">Indonesia</option><option value="ir">Iran</option><option value="iq">Iraq</option><option value="ie">Ireland</option><option value="il">Israel</option><option value="it">Italy</option><option value="jm">Jamaica</option><option value="jp">Japan</option><option value="jo">Jordan</option><option value="kz">Kazakhstan</option><option value="ke">Kenya</option><option value="ki">Kiribati</option><option value="kp">North Korea</option><option value="kr">South Korea</option><option value="kw">Kuwait</option><option value="kg">Kyrgyzstan</option><option value="la">Laos</option><option value="lv">Latvia</option><option value="lb">Lebanon</option><option value="ls">Lesotho</option><option value="lr">Liberia</option><option value="ly">Libya</option><option value="li">Liechtenstein</option><option value="lt">Lithuania</option><option value="lu">Luxembourg</option><option value="mg">Madagascar</option><option value="mw">Malawi</option><option value="my">Malaysia</option><option value="mv">Maldives</option><option value="ml">Mali</option><option value="mt">Malta</option><option value="mh">Marshall Islands</option><option value="mr">Mauritania</option><option value="mu">Mauritius</option><option value="mx">Mexico</option><option value="fm">Micronesia</option><option value="md">Moldova</option><option value="mc">Monaco</option><option value="mn">Mongolia</option><option value="me">Montenegro</option><option value="ma">Morocco</option><option value="mz">Mozambique</option><option value="mm">Myanmar</option><option value="na">Namibia</option><option value="nr">Nauru</option><option value="np">Nepal</option><option value="nl">Netherlands</option><option value="nz">New Zealand</option><option value="ni">Nicaragua</option><option value="ne">Niger</option><option value="ng">Nigeria</option><option value="no">Norway</option><option value="om">Oman</option><option value="pk">Pakistan</option><option value="pw">Palau</option><option value="ps">Palestine</option><option value="pa">Panama</option><option value="pg">Papua New Guinea</option><option value="py">Paraguay</option><option value="pe">Peru</option><option value="ph">Philippines</option><option value="pl">Poland</option><option value="pt">Portugal</option><option value="qa">Qatar</option><option value="ro">Romania</option><option value="ru">Russia</option><option value="rw">Rwanda</option><option value="kn">Saint Kitts and Nevis</option><option value="lc">Saint Lucia</option><option value="vc">Saint Vincent and the Grenadines</option><option value="ws">Samoa</option><option value="sm">San Marino</option><option value="st">Sao Tome and Principe</option><option value="sa">Saudi Arabia</option><option value="sn">Senegal</option><option value="rs">Serbia</option><option value="sc">Seychelles</option><option value="sl">Sierra Leone</option><option value="sg">Singapore</option><option value="sk">Slovakia</option><option value="si">Slovenia</option><option value="sb">Solomon Islands</option><option value="so">Somalia</option><option value="za">South Africa</option><option value="ss">South Sudan</option><option value="es">Spain</option><option value="lk">Sri Lanka</option><option value="sd">Sudan</option><option value="sr">Suriname</option><option value="se">Sweden</option><option value="ch">Switzerland</option><option value="sy">Syria</option><option value="tj">Tajikistan</option><option value="tz">Tanzania</option><option value="th">Thailand</option><option value="tl">Timor-Leste</option><option value="tg">Togo</option><option value="to">Tonga</option><option value="tt">Trinidad and Tobago</option><option value="tn">Tunisia</option><option value="tr">Turkey</option><option value="tm">Turkmenistan</option><option value="tv">Tuvalu</option><option value="ug">Uganda</option><option value="ua">Ukraine</option><option value="ae">United Arab Emirates</option><option value="gb">United Kingdom</option><option value="us">United States</option><option value="uy">Uruguay</option><option value="uz">Uzbekistan</option><option value="vu">Vanuatu</option><option value="ve">Venezuela</option><option value="vn">Vietnam</option><option value="ye">Yemen</option><option value="zm">Zambia</option><option value="zw">Zimbabwe</option>
+                    </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="organaizeCountry">What countries is your organisation interested to expand into?</label>
+                    <select id="organaizeCountry" name="organaizeCountry[]" multiple="multiple" style="width: 100%;" autocomplete="off">
+                         <option value="af">Afghanistan</option><option value="al">Albania</option><option value="dz">Algeria</option><option value="ad">Andorra</option><option value="ao">Angola</option><option value="ag">Antigua and Barbuda</option><option value="ar">Argentina</option><option value="am">Armenia</option><option value="au">Australia</option><option value="at">Austria</option><option value="az">Azerbaijan</option><option value="bs">Bahamas</option><option value="bh">Bahrain</option><option value="bd">Bangladesh</option><option value="bb">Barbados</option><option value="by">Belarus</option><option value="be">Belgium</option><option value="bz">Belize</option><option value="bj">Benin</option><option value="bt">Bhutan</option><option value="bo">Bolivia</option><option value="ba">Bosnia and Herzegovina</option><option value="bw">Botswana</option><option value="br">Brazil</option><option value="bn">Brunei</option><option value="bg">Bulgaria</option><option value="bf">Burkina Faso</option><option value="bi">Burundi</option><option value="cv">Cabo Verde</option><option value="kh">Cambodia</option><option value="cm">Cameroon</option><option value="ca">Canada</option><option value="cf">Central African Republic</option><option value="td">Chad</option><option value="cl">Chile</option><option value="cn">China</option><option value="co">Colombia</option><option value="km">Comoros</option><option value="cd">Congo (Congo-Brazzaville)</option><option value="cr">Costa Rica</option><option value="hr">Croatia</option><option value="cu">Cuba</option><option value="cy">Cyprus</option><option value="cz">Czechia</option><option value="dk">Denmark</option><option value="dj">Djibouti</option><option value="dm">Dominica</option><option value="do">Dominican Republic</option><option value="ec">Ecuador</option><option value="eg">Egypt</option><option value="sv">El Salvador</option><option value="gq">Equatorial Guinea</option><option value="er">Eritrea</option><option value="ee">Estonia</option><option value="sz">Eswatini</option><option value="et">Ethiopia</option><option value="fj">Fiji</option><option value="fi">Finland</option><option value="fr">France</option><option value="ga">Gabon</option><option value="gm">Gambia</option><option value="ge">Georgia</option><option value="de">Germany</option><option value="gh">Ghana</option><option value="gr">Greece</option><option value="gd">Grenada</option><option value="gt">Guatemala</option><option value="gn">Guinea</option><option value="gw">Guinea-Bissau</option><option value="gy">Guyana</option><option value="ht">Haiti</option><option value="hn">Honduras</option><option value="hu">Hungary</option><option value="is">Iceland</option><option value="in">India</option><option value="id">Indonesia</option><option value="ir">Iran</option><option value="iq">Iraq</option><option value="ie">Ireland</option><option value="il">Israel</option><option value="it">Italy</option><option value="jm">Jamaica</option><option value="jp">Japan</option><option value="jo">Jordan</option><option value="kz">Kazakhstan</option><option value="ke">Kenya</option><option value="ki">Kiribati</option><option value="kp">North Korea</option><option value="kr">South Korea</option><option value="kw">Kuwait</option><option value="kg">Kyrgyzstan</option><option value="la">Laos</option><option value="lv">Latvia</option><option value="lb">Lebanon</option><option value="ls">Lesotho</option><option value="lr">Liberia</option><option value="ly">Libya</option><option value="li">Liechtenstein</option><option value="lt">Lithuania</option><option value="lu">Luxembourg</option><option value="mg">Madagascar</option><option value="mw">Malawi</option><option value="my">Malaysia</option><option value="mv">Maldives</option><option value="ml">Mali</option><option value="mt">Malta</option><option value="mh">Marshall Islands</option><option value="mr">Mauritania</option><option value="mu">Mauritius</option><option value="mx">Mexico</option><option value="fm">Micronesia</option><option value="md">Moldova</option><option value="mc">Monaco</option><option value="mn">Mongolia</option><option value="me">Montenegro</option><option value="ma">Morocco</option><option value="mz">Mozambique</option><option value="mm">Myanmar</option><option value="na">Namibia</option><option value="nr">Nauru</option><option value="np">Nepal</option><option value="nl">Netherlands</option><option value="nz">New Zealand</option><option value="ni">Nicaragua</option><option value="ne">Niger</option><option value="ng">Nigeria</option><option value="no">Norway</option><option value="om">Oman</option><option value="pk">Pakistan</option><option value="pw">Palau</option><option value="ps">Palestine</option><option value="pa">Panama</option><option value="pg">Papua New Guinea</option><option value="py">Paraguay</option><option value="pe">Peru</option><option value="ph">Philippines</option><option value="pl">Poland</option><option value="pt">Portugal</option><option value="qa">Qatar</option><option value="ro">Romania</option><option value="ru">Russia</option><option value="rw">Rwanda</option><option value="kn">Saint Kitts and Nevis</option><option value="lc">Saint Lucia</option><option value="vc">Saint Vincent and the Grenadines</option><option value="ws">Samoa</option><option value="sm">San Marino</option><option value="st">Sao Tome and Principe</option><option value="sa">Saudi Arabia</option><option value="sn">Senegal</option><option value="rs">Serbia</option><option value="sc">Seychelles</option><option value="sl">Sierra Leone</option><option value="sg">Singapore</option><option value="sk">Slovakia</option><option value="si">Slovenia</option><option value="sb">Solomon Islands</option><option value="so">Somalia</option><option value="za">South Africa</option><option value="ss">South Sudan</option><option value="es">Spain</option><option value="lk">Sri Lanka</option><option value="sd">Sudan</option><option value="sr">Suriname</option><option value="se">Sweden</option><option value="ch">Switzerland</option><option value="sy">Syria</option><option value="tj">Tajikistan</option><option value="tz">Tanzania</option><option value="th">Thailand</option><option value="tl">Timor-Leste</option><option value="tg">Togo</option><option value="to">Tonga</option><option value="tt">Trinidad and Tobago</option><option value="tn">Tunisia</option><option value="tr">Turkey</option><option value="tm">Turkmenistan</option><option value="tv">Tuvalu</option><option value="ug">Uganda</option><option value="ua">Ukraine</option><option value="ae">United Arab Emirates</option><option value="gb">United Kingdom</option><option value="us">United States</option><option value="uy">Uruguay</option><option value="uz">Uzbekistan</option><option value="vu">Vanuatu</option><option value="ve">Venezuela</option><option value="vn">Vietnam</option><option value="ye">Yemen</option><option value="zm">Zambia</option><option value="zw">Zimbabwe</option>
+                    </select>
+                    </div>
+                    </div>
+
+                   
+                    <div class="form-row">
+                        <div class="form-group">
+                        <label for="radDistribute">Are you looking for a distributor?</label>
+                        <div class="radio-group">
+                            <label class="radio-button">
+                                <input type="radio" name="radDistribute" value="yes" class="radio-button__input">
+                                <span class="radio-button__label">
+                                    <span class="radio-button__custom"></span>
+                                    Yes
+                                </span>
+                            </label>
+                            
+                            <label class="radio-button">
+                                <input type="radio" name="radDistribute" value="no" class="radio-button__input">
+                                <span class="radio-button__label">
+                                    <span class="radio-button__custom"></span>
+                                    No
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div id="distributorRegions" style="display: none;">
+                            <label for="distributorRegionSelect">Which regions are you looking for distributors in?</label>
+                            <select id="distributorRegionSelect" multiple="multiple" style="width: 100%;">
+                                <option value="Middle East">Middle East</option>
+                                <option value="Central Africa">Central Africa</option>
+                                <option value="North Africa">North Africa</option>
+                                <option value="Southern Africa">Southern Africa</option>
+                                <option value="Western Africa">Western Africa</option>
+                                <option value="Eastern Africa">Eastern Africa</option>
+                                <option value="Europe">Europe</option>
+                                <option value="North America">North America</option>
+                                <option value="South America">South America</option>
+                                <option value="Australasia">Australasia</option>
+                                <option value="Asia">Asia</option>
+                            </select>
+                        </div>
+                   </div>
+                    </div>
+                
+                
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-secondary" onclick="prevStep()">Previous</button>
+                    <button type="button" class="btn btn-primary" onclick="submitForm()">Next</button>
+                </div>
+            </div>
+            <!-- Success Message -->
+            <div class="step" id="success">
+                <div class="success-animation">
+                    <div class="success-icon">✓</div>
+                    <h2 class="success-title">Success!</h2>
+                    <p class="success-message">Your form has been submitted successfully. Thank you for providing your information.</p>
+                </div>
+            </div>
+        </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="footer">
+        <div class="container">
+            <img src="assets/img/logo.png" alt="" class="logo-width">
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+        </div>
+    </section>
+
+
+
+    <script src="assets/js/aos.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/font-awsome.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/js/intlTelInput.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>     
+
+
+
+
+
+ <script>
+        let currentStep = 1;
+        const totalSteps = 4;
+        let formData = {};
+
+        function showStep(step) {
+            // Hide all steps
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.progress-step').forEach(s => {
+                s.classList.remove('active');
+                s.classList.remove('completed');
+            });
+
+            // Show current step
+            document.getElementById(`step${step}`).classList.add('active');
+            
+            // Update progress bar
+            for (let i = 1; i <= totalSteps; i++) {
+                const stepElement = document.getElementById(`step-${i}`);
+                if (i < step) {
+                    stepElement.classList.add('completed');
+                } else if (i === step) {
+                    stepElement.classList.add('active');
+                }
+            }
+        }
+
+        function validateStep(step) {
+            let isValid = true;
+            const errors = document.querySelectorAll('.error');
+            errors.forEach(error => error.style.display = 'none');
+
+            if (step === 1) {
+                // const companyname = document.getElementById('companyname').value.trim();
+                // const companybrand = document.getElementById('companybrand').value.trim();
+                // const Headquarters = document.getElementById('Headquarters').value.trim();
+                // const companywebsite = document.getElementById('companywebsite').value.trim();
+                // const comDesc = document.getElementById('comDesc').value.trim();
+
+                // if (!companyname) {
+                //     document.getElementById('companynameError').style.display = 'block';
+                //     isValid = false;
+                // }
+                // if (!companybrand) {
+                //     document.getElementById('companybrandError').style.display = 'block';
+                //     isValid = false;
+                // }
+                // if (!companywebsite) {
+                //     document.getElementById('companywebsiteError').style.display = 'block';
+                //     isValid = false;
+                // }
+                // if (!comDesc) {
+                //     document.getElementById('comDescError').style.display = 'block';
+                //     isValid = false;
+                // }
+                // if (!Headquarters) {
+                //     document.getElementById('HeadquartersError').style.display = 'block';
+                //     isValid = false;
+                // }
+                // if (!fileUpload) {
+                //     document.getElementById('fileUploadError').style.display = 'block';
+                //     isValid = false;
+                // }
+                //     const companyType = document.getElementById('companyType').value;
+                // if (companyType === 'other') {
+                //     const otherType = document.getElementById('otherCompanyTypeInput').value.trim();
+                //     if (!otherType) {
+                //         document.getElementById('otherCompanyTypeError').style.display = 'block';
+                //         isValid = false;
+                //     }
+                // }
+                // } else if (step === 2) {
+                // const email = document.getElementById('email').value.trim();
+                // const phone = document.getElementById('phone').value.trim();
+
+                // if (!email || !isValidEmail(email)) {
+                //     document.getElementById('emailError').style.display = 'block';
+                //     isValid = false;
+                // }
+                // if (!phone) {
+                //     document.getElementById('phoneError').style.display = 'block';
+                //     isValid = false;
+                // }
+                // } else if (step === 3) {
+                // const profilePicture = document.getElementById('profilePicture').files[0];
+                // if (!profilePicture) {
+                //     document.getElementById('profilePictureError').style.display = 'block';
+                //     isValid = false;
+                // }
+            }
+
+            return isValid;
+        }
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function nextStep() {
+            if (validateStep(currentStep)) {
+                collectStepData(currentStep);
+                currentStep++;
+                if (currentStep === 4) {
+                    populatePreview();
+                }
+                showStep(currentStep);
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+            }
+        }
+
+        function collectStepData(step) {
+            // if (step === 1) {
+            //     formData.companyname = document.getElementById('companyname').value.trim();
+            //     formData.companybrand = document.getElementById('companybrand').value.trim();
+            //     formData.companywebsite = document.getElementById('companywebsite').value.trim();
+            //     formData.Headquarters = document.getElementById('Headquarters').value;
+            //     formData.fileUpload = document.getElementById('fileUpload').value;
+            // } else if (step === 2) {
+            //     formData.email = document.getElementById('email').value.trim();
+            //     formData.phone = document.getElementById('phone').value.trim();
+            //     formData.address = document.getElementById('address').value.trim();
+            //     formData.city = document.getElementById('city').value.trim();
+            //     formData.zipCode = document.getElementById('zipCode').value.trim();
+            // } else if (step === 3) {
+            //     formData.profilePicture = document.getElementById('profilePicture').files[0];
+            // }
+        }
+
+        function populatePreview() {
+            document.getElementById('previewName').textContent = `${formData.companyname} ${formData.companybrand}`;
+            document.getElementById('previewDob').textContent = formData.Headquarters || 'Not provided';
+            document.getElementById('previewGender').textContent = formData.gender || 'Not specified';
+            document.getElementById('previewEmail').textContent = formData.email;
+            document.getElementById('previewPhone').textContent = formData.phone;
+            
+            const fullAddress = [formData.address, formData.city, formData.zipCode]
+                .filter(item => item)
+                .join(', ');
+            document.getElementById('previewAddress').textContent = fullAddress || 'Not provided';
+
+            // Show profile picture preview
+            const previewImageContainer = document.getElementById('previewImage');
+            if (formData.profilePicture) {
+                const img = document.createElement('img');
+                img.src = URL.createObjectURL(formData.profilePicture);
+                img.className = 'preview-image';
+                img.alt = 'Profile Picture';
+                previewImageContainer.innerHTML = '';
+                previewImageContainer.appendChild(img);
+            }
+        }
+
+        function submitForm() {
+            collectStepData(currentStep);
+            
+            // Simulate form submission
+            setTimeout(() => {
+                document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+                document.getElementById('success').classList.add('active');
+                
+                // Update progress bar to show completion
+                document.querySelectorAll('.progress-step').forEach(s => {
+                    s.classList.remove('active');
+                    s.classList.add('completed');
+                });
+            }, 500);
+        }
+
+        function resetForm() {
+            currentStep = 1;
+            formData = {};
+            document.querySelectorAll('input, select, textarea').forEach(input => {
+                input.value = '';
+            });
+            document.querySelectorAll('.error').forEach(error => {
+                error.style.display = 'none';
+            });
+            document.getElementById('imagePreview').innerHTML = '';
+            showStep(1);
+        }
+
+        // File upload preview
+        document.getElementById('profilePicture').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            const previewContainer = document.getElementById('imagePreview');
+            
+            if (file) {
+                if (file.size > 10 * 1024 * 1024) { // 10MB limit
+                    alert('File size must be less than 10MB');
+                    this.value = '';
+                    previewContainer.innerHTML = '';
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    previewContainer.innerHTML = `
+                        <img src="${e.target.result}" alt="Preview" class="preview-image">
+                        <p style="margin-top: 10px; color: #28a745; font-weight: 600;">✓ Image uploaded successfully</p>
+                    `;
+                };
+                reader.readAsDataURL(file);
+            } else {
+                previewContainer.innerHTML = '';
+            }
+        });
+
+        // Drag and drop functionality
+        const fileUpload = document.querySelector('.file-upload');
+        
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            fileUpload.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            fileUpload.addEventListener(eventName, highlight, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            fileUpload.addEventListener(eventName, unhighlight, false);
+        });
+
+        function highlight(e) {
+            fileUpload.querySelector('.file-upload-label').style.borderColor = '#667eea';
+            fileUpload.querySelector('.file-upload-label').style.background = '#f0f4ff';
+        }
+
+        function unhighlight(e) {
+            fileUpload.querySelector('.file-upload-label').style.borderColor = '#d1d5db';
+            fileUpload.querySelector('.file-upload-label').style.background = '#f9fafb';
+        }
+
+        fileUpload.addEventListener('drop', handleDrop, false);
+
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            
+            if (files.length > 0) {
+                document.getElementById('profilePicture').files = files;
+                document.getElementById('profilePicture').dispatchEvent(new Event('change'));
+            }
+        }
+    </script>
+
+
+
+
+
+<!-- select2 select box -->
+  <script>
+
+    //  Company Headquarters Country 
+    $(document).ready(function() {
+      $('#Headquarters').select2({
+      });
+
+       $('#Headquarters').on('select2:open', function() {
+            setTimeout(function() {
+                document.querySelector('.select2-container--open .select2-search__field').focus();
+            }, 0);
+        });
+    });
+    //  Company Headquarters Country 
+
+
+    // What type of company 
+    $(document).ready(function() {
+      $('#companyType').select2({
+      });
+
+       $('#companyType').on('select2:open', function() {
+            setTimeout(function() {
+                document.querySelector('.select2-container--open .select2-search__field').focus();
+            }, 0);
+        });
+    });
+    //  What type of company
+
+
+    //  Year Founded
+    $(document).ready(function() {
+      $('#foundYear').select2({
+      });
+
+      $('#foundYear').on('select2:open', function() {
+            setTimeout(function() {
+                document.querySelector('.select2-container--open .select2-search__field').focus();
+            }, 0);
+        });
+    });
+    // Year Founded
+
+    // Funding Stage
+    $(document).ready(function() {
+      $('#foundStage').select2({
+      });
+
+      $('#foundStage').on('select2:open', function() {
+            setTimeout(function() {
+                document.querySelector('.select2-container--open .select2-search__field').focus();
+            }, 0);
+        });
+    });
+    // Funding Stage
+
+
+    // What is your company's most recent valuation
+    $(document).ready(function() {
+    // Initialize Select2
+    $('#valuation').select2({
+        width: '100%'
+    });
+
+        $('#valuation').on('select2:open', function() {
+            setTimeout(function() {
+                document.querySelector('.select2-container--open .select2-search__field').focus();
+            }, 0);
+        });
+    });
+    // What is your company's most recent valuation
+    
+  </script>
+  <!-- select2 select box -->
+
+  <script>
+    $(document).ready(function() {
+    $('#companyType').select2().on('change', function() {
+        const selectedValue = $(this).val();
+        const otherInput = $('#otherCompanyType');
+        
+        if (selectedValue === 'other') {
+            otherInput.slideDown();
+            $('#otherCompanyTypeInput').prop('required', true);
+        } else {
+            otherInput.slideUp();
+            $('#otherCompanyTypeInput').prop('required', false);
+            $('#otherCompanyTypeInput').val('');
+        }
+    });
+});
+  </script>
+
+
+<!-- multiple select -->
+        <script>
+                $(document).ready(function() {
+                    // Initialize Select2 with search functionality
+                    $('#companyTypes').select2({
+                        placeholder: "Search and select company types...",
+                        allowClear: true,
+                        closeOnSelect: false,
+                        minimumInputLength: 0,
+                        language: {
+                            searching: function () {
+                                return "Searching...";
+                            },
+                            noResults: function () {
+                                return "No matching company types found";
+                            }
+                        }
+                    });
+                });
+
+                $(document).ready(function() {
+                    // Initialize Select2 with search functionality
+                    $('#meetIndustry').select2({
+                        placeholder: "Search and select Industry types...",
+                        allowClear: true,
+                        closeOnSelect: false,
+                        minimumInputLength: 0,
+                        language: {
+                            searching: function () {
+                                return "Searching...";
+                            },
+                            noResults: function () {
+                                return "No matching company types found";
+                            }
+                        }
+                    });
+                });
+
+                $(document).ready(function() {
+                    // Initialize Select2 with search functionality
+                    $('#Regiontype').select2({
+                        placeholder: "Search and select Region...",
+                        allowClear: true,
+                        closeOnSelect: false,
+                        minimumInputLength: 0,
+                        language: {
+                            searching: function () {
+                                return "Searching...";
+                            },
+                            noResults: function () {
+                                return "No matching company types found";
+                            }
+                        }
+                    });
+                });
+
+
+
+                $(document).ready(function() {
+                    // Initialize Select2 with search functionality
+                    $('#secondcompanyTypes').select2({
+                        placeholder: "Search and select company types...",
+                        allowClear: true,
+                        closeOnSelect: false,
+                        minimumInputLength: 0,
+                        language: {
+                            searching: function () {
+                                return "Searching...";
+                            },
+                            noResults: function () {
+                                return "No matching company types found";
+                            }
+                        }
+                    });
+                });
+
+                $(document).ready(function() {
+                    // Initialize Select2 with search functionality
+                    $('#secondIndustry').select2({
+                        placeholder: "Search and select Industry...",
+                        allowClear: true,
+                        closeOnSelect: false,
+                        minimumInputLength: 0,
+                        language: {
+                            searching: function () {
+                                return "Searching...";
+                            },
+                            noResults: function () {
+                                return "No matching company types found";
+                            }
+                        }
+                    });
+                });
+
+
+                $(document).ready(function() {
+                    // Initialize Select2 with search functionality
+                    $('#orgnaizecompanyTypes').select2({
+                        placeholder: "Which countries does your organisation operate in...",
+                        allowClear: true,
+                        closeOnSelect: false,
+                        minimumInputLength: 0,
+                        language: {
+                            searching: function () {
+                                return "Searching...";
+                            },
+                            noResults: function () {
+                                return "No matching company types found";
+                            }
+                        }
+                    });
+                });
+
+
+                $(document).ready(function() {
+                    // Initialize Select2 with search functionality
+                    $('#organaizeCountry').select2({
+                        placeholder: "What countries is your organisation interested to expand into?...",
+                        allowClear: true,
+                        closeOnSelect: false,
+                        minimumInputLength: 0,
+                        language: {
+                            searching: function () {
+                                return "Searching...";
+                            },
+                            noResults: function () {
+                                return "No matching company types found";
+                            }
+                        }
+                    });
+                });
+
+                $(document).ready(function() {
+                    // Initialize Select2 with search functionality
+                    $('#eventListCountry').select2({
+                        placeholder: "",
+                        allowClear: true,
+                        closeOnSelect: false,
+                        minimumInputLength: 0,
+                        language: {
+                            searching: function () {
+                                return "Searching...";
+                            },
+                            noResults: function () {
+                                return "No matching company types found";
+                            }
+                        }
+                    });
+                });
+        </script>
+<!-- multiple select -->
+
+
+    <script>
+        $(document).ready(function() {
+    // Initialize all Select2 dropdowns with common configuration
+    const select2Config = {
+        width: '100%',
+        placeholder: 'Please select...',
+        allowClear: true
+    };
+
+    $('#Headquarters, #companyType, #foundYear, #foundStage, #valuation').select2(select2Config);
+
+    // Common focus handler for all Select2 dropdowns
+    $('.select2').on('select2:open', function() {
+        setTimeout(() => {
+            $('.select2-search__field').focus();
+        }, 0);
+    });
+
+    // Form validation and navigation
+    let currentStep = 1;
+    const totalSteps = 2; // Adjust based on your total steps
+
+    function validateStep(step) {
+        let isValid = true;
+        $('.error').hide(); // Hide all error messages initially
+
+        if (step === 1) {
+            // Validate Step 1 fields
+            const requiredFields = {
+                'companyname': 'Company Name',
+                'companybrand': 'Company Brand',
+                'Headquarters': 'Headquarters',
+                'companywebsite': 'Company Website',
+                'comDesc': 'Company Description',
+                'companyProfile': 'Company Profile',
+                'Hallname': 'Hall Name',
+                'standNumber': 'Stand Number',
+                'companyType': 'Company Type'
+            };
+
+            Object.keys(requiredFields).forEach(fieldId => {
+                const value = $(`#${fieldId}`).val();
+                if (!value || value.trim() === '') {
+                    $(`#${fieldId}Error`).show();
+                    isValid = false;
+                }
+            });
+
+            // Special validation for file upload
+            const fileUpload = $('#fileUpload')[0].files[0];
+            if (!fileUpload) {
+                $('#fileUploadError').show();
+                isValid = false;
+            }
+        }
+
+        if (step === 2) {
+            // Validate Step 2 fields
+            const requiredSelects = [
+                'companyTypes',
+                'meetIndustry',
+                'Regiontype'
+            ];
+
+            requiredSelects.forEach(selectId => {
+                const value = $(`#${selectId}`).val();
+                if (!value || value.length === 0) {
+                    $(`#${selectId}Error`).show();
+                    isValid = false;
+                }
+            });
+        }
+
+        return isValid;
+    }
+
+    // Navigation functions
+    function nextStep() {
+        if (validateStep(currentStep)) {
+            if (currentStep < totalSteps) {
+                currentStep++;
+                showStep(currentStep);
+            }
+        } else {
+            // Scroll to first error
+            const firstError = $('.error:visible').first();
+            if (firstError.length) {
+                $('html, body').animate({
+                    scrollTop: firstError.offset().top - 100
+                }, 500);
+            }
+        }
+    }
+
+    function prevStep() {
+        if (currentStep > 1) {
+            currentStep--;
+            showStep(currentStep);
+        }
+    }
+
+    function showStep(step) {
+        // Hide all steps
+        $('.step').removeClass('active');
+        // Show current step
+        $(`#step${step}`).addClass('active');
+        // Update progress bar
+        updateProgress(step);
+    }
+
+    function updateProgress(step) {
+        $('.progress-step').removeClass('active completed');
+        for (let i = 1; i <= totalSteps; i++) {
+            const stepElement = $(`#step-${i}`);
+            if (i < step) {
+                stepElement.addClass('completed');
+            } else if (i === step) {
+                stepElement.addClass('active');
+            }
+        }
+    }
+
+    // Button click handlers
+    $('.btn-next').click(nextStep);
+    $('.btn-prev').click(prevStep);
+
+    // Form submission
+    $('#submitForm').click(function(e) {
+        e.preventDefault();
+        if (validateStep(currentStep)) {
+            // Collect all form data
+            const formData = new FormData($('form')[0]);
+            
+            // Submit form using AJAX
+            $.ajax({
+                url: 'your-submission-endpoint',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    // Show success message
+                    $('#success').addClass('active');
+                    $('.step').removeClass('active');
+                },
+                error: function(xhr, status, error) {
+                    alert('Error submitting form. Please try again.');
+                }
+            });
+        }
+    });
+});
+    </script>
+
+
+
+
+<!-- step 1 phone input -->
+    <script>
+            const input = document.querySelector("#meetingPhone");
+        const iti = window.intlTelInput(input, {
+        // separateDialCode: true,
+        initialCountry: "ng",
+        autoPlaceholder:false,
+        utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/js/utils.js",
+        });
+
+        // store the instance variable so we can access it in the console e.g. window.iti.getNumber()
+        window.iti = iti;
+    </script>
+
+
+<!-- step 1 phone input -->
+
+
+<!-- if investor yes click time -->
+
+ <script>
+$(document).ready(function() {
+    // Handle radio button change
+    $('input[name="hasInvestors"]').change(function() {
+        const investorDetails = $('#investorDetails');
+        
+        if ($(this).val() === 'yes') {
+            investorDetails.slideDown(300);
+            $('#investorName, #investorNameMain').prop('required', true);
+        } else {
+            investorDetails.slideUp(300);
+            $('#investorName, #investorNameMain').prop('required', false);
+            // Clear the fields when hiding
+            $('#investorName, #investorNameMain').val('');
+            // Hide any error messages
+            $('#investorNameError, #investorNameMainError').hide();
+        }
+    });
+
+    $('input[name="currentMember"]').change(function() {
+        const acceleratorsIncubatorDetails = $('#acceleratorsIncubatorDetails');
+        
+        if ($(this).val() === 'yes') {
+            acceleratorsIncubatorDetails.slideDown(300);
+            $('#acceleratorsIncubator, #acceleratorsIncubatorMain').prop('required', true);
+        } else {
+            acceleratorsIncubatorDetails.slideUp(300);
+            $('#acceleratorsIncubator, #acceleratorsIncubatorMain').prop('required', false);
+            // Clear the fields when hiding
+            $('#acceleratorsIncubator, #acceleratorsIncubatorMain').val('');
+            // Hide any error messages
+            $('#acceleratorsIncubatorError, #acceleratorsIncubatorMainError').hide();
+        }
+    });
+
+     $('input[name="wonAwards"]').change(function() {
+        const wonAwardsDetails = $('#wonAwardsDetails');
+        
+        if ($(this).val() === 'yes') {
+            wonAwardsDetails.slideDown(300);
+            $('#wonAwardsDetails, #wonAwardsDetailsMain').prop('required', true);
+        } else {
+            wonAwardsDetails.slideUp(300);
+            $('#wonAwardsDetails, #wonAwardsDetailsMain').prop('required', false);
+            // Clear the fields when hiding
+            $('#wonAwardsDetails, #wonAwardsDetailsMain').val('');
+            // Hide any error messages
+            $('#wonAwardsDetailsError, #wonAwardsDetailsMainError').hide();
+        }
+    });
+});
+</script>
+<!-- if investor yes click time -->
+
+<!-- show distributer -->
+
+<script>
+    $(document).ready(function() {
+    // Initialize Select2 for the distributor regions
+    $('#distributorRegionSelect').select2({
+        placeholder: "Select regions for distributors...",
+        allowClear: true,
+        closeOnSelect: false,
+        minimumInputLength: 0,
+        language: {
+            searching: function () {
+                return "Searching...";
+            },
+            noResults: function () {
+                return "No matching regions found";
+            }
+        }
+    });
+
+    // Handle radio button change for distributor question
+    $('input[name="radDistribute"]').change(function() {
+        const distributorRegions = $('#distributorRegions');
+        
+        if ($(this).val() === 'yes') {
+            distributorRegions.slideDown(300);
+            $('#distributorRegionSelect').prop('required', true);
+        } else {
+            distributorRegions.slideUp(300);
+            $('#distributorRegionSelect').prop('required', false);
+            $('#distributorRegionSelect').val(null).trigger('change'); // Clear selection
+        }
+    });
+});
+</script>
+<!-- show distributer -->
+
+<script>
+    $(document).ready(function() {
+    // Handle radio button change for first time exhibitor
+    $('input[name="firstTime"]').change(function() {
+        const firstTimeDetails = $('#firstTimeDetails');
+        const previousEvents = $('#previousEvents');
+        
+        if ($(this).val() === 'yes') {
+            // Show the first time details section
+            firstTimeDetails.slideDown(300);
+            // Hide the previous events section
+            previousEvents.slideUp(300);
+            // Clear the select2 values
+            $('#eventListCountry').val(null).trigger('change');
+        } else if ($(this).val() === 'no') {
+            // Hide both sections
+            firstTimeDetails.slideUp(300);
+            previousEvents.slideUp(300);
+            // Clear all related inputs
+            $('input[name="hearAbout"]').prop('checked', false);
+            $('#eventListCountry').val(null).trigger('change');
+            // Remove any "Other" input if it exists
+            $('#otherEventContainer').remove();
+        }
+    });
+
+    // Reset everything when switching back to unselected state
+    $('input[name="firstTime"]').on('beforeChange', function() {
+        $('#firstTimeDetails').slideUp(300);
+        $('#previousEvents').slideUp(300);
+        $('input[name="hearAbout"]').prop('checked', false);
+        $('#eventListCountry').val(null).trigger('change');
+        $('#otherEventContainer').remove();
+    });
+});
+</script>
+
+<script>
+    $(document).ready(function() {
+    // Initialize Select2 for the events list
+    $('#eventList').select2({
+        placeholder: "Select previous events",
+        allowClear: true,
+        closeOnSelect: false
+    });
+
+    // Handle radio button change for first time question
+    $('input[name="hearAbout"]').change(function() {
+        const previousEvents = $('#previousEvents');
+        
+        if ($(this).val() === 'no') {
+            previousEvents.slideDown(300);
+            $('#eventList').prop('required', true);
+        } else {
+            previousEvents.slideUp(300);
+            $('#eventList').prop('required', false);
+            $('#eventList').val(null).trigger('change'); // Clear selection
+        }
+    });
+
+    // Handle "Other" option
+    $('#eventList').on('change', function() {
+        const selectedValues = $(this).val() || [];
+        const otherSelected = selectedValues.includes('other');
+        
+        if (otherSelected && !$('#otherEventInput').length) {
+            $('<div class="mt-3" id="otherEventContainer">' +
+              '<input type="text" id="otherEventInput" class="form-control" ' +
+              'placeholder="Please specify other events">' +
+              '</div>').insertAfter('#eventList');
+        } else if (!otherSelected) {
+            $('#otherEventContainer').remove();
+        }
+    });
+});
+</script>
+
+
+</body>
+</html>
+

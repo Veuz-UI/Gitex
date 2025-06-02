@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GITEX NIGERIA</title>
+    <link rel="stylesheet" href="assets/css/new-style-visitor.css">
+    <link rel="stylesheet" href="assets/fonts/webfont/stylesheet.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="assets/img/fav-icon.png">
+
+    <style>
+        body {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- loader -->
+    <div id="loader-wrapper">
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <circle id="test" cx="40" cy="40" r="32"></circle>
+            </svg>
+        </div>
+        <div class="loader triangle">
+            <svg viewBox="0 0 86 80">
+                <polygon points="43 8 79 72 7 72"></polygon>
+            </svg>
+        </div>
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <rect x="8" y="8" width="64" height="64"></rect>
+            </svg>
+        </div>
+    </div>
+    <!-- loader -->
+
+    <div class="inner-banner">
+        <a href="index.html"><img src="assets/img/ni-header.png" class="img-fluid sm-hide-logo"></a>
+
+        <div>
+            <div class="registration-text">GITEX NIGERIA TECH EXPO + <br> FUTURE ECONOMY SUMMIT</div>
+            <a href="login.html"><button class="btn-main"><i class="animation"></i>
+                    Login<i class="animation"></i>
+                </button></a>
+        </div>
+    </div>
+
+
+    <div class="content">
+        <section class="matchmakingsection">
+            <h4 class="page-section-title">Total Users</h4>
+            <div class="row gy-3">
+                <div class="col-lg-3">
+                    <div class="match-profile-card">
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-1.jpg" alt="">
+                        </div>
+                        <div>
+                        <h5>Maria John</h5>
+                        <h6>maria@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="75">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                               <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-lg-3">
+                    <div class="match-profile-card">
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-2.jpg" alt="">
+                        </div>
+                        <div>
+                            <h5>Mohammed Navab</h5>
+                        <h6>navab@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="75">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                                <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-lg-3">
+                    <div class="match-profile-card">
+                        <a href="chat.html">
+                            <div class="chat-icon">
+                            <i class="far fa-comment-dots"></i>
+                        </div>
+                        </a>
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-3.jpeg" alt="">
+                        </div>
+                        <div>
+                            <h5>Ahmed Bazil</h5>
+                        <h6>bazil@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>50%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="50">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                                <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
+                                <button class="purple-btn ready-frnd" data-bs-toggle="modal" data-bs-target="#remove_friend">
+                                <span><i class="fas fa-user-check"></i></span> Friend
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-lg-3">
+                    <div class="match-profile-card">
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-4.jpg" alt="">
+                        </div>
+                        <div>
+                            <h5>Nishida</h5>
+                        <h6>nishida@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>50%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="50">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                               <button type="button" data-bs-toggle="modal" data-bs-target="#profileModal">
+                                    <i class="fas fa-user-circle"></i> View Profile
+                                    </button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                  <div class="col-lg-3">
+                    <div class="match-profile-card">
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-4.jpg" alt="">
+                        </div>
+                        <div>
+                            <h5>Nishida</h5>
+                        <h6>nishida@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>50%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="50">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                               <button type="button" data-bs-toggle="modal" data-bs-target="#profileModal">
+                                    <i class="fas fa-user-circle"></i> View Profile
+                                    </button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="match-profile-card">
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-1.jpg" alt="">
+                        </div>
+                        <div>
+                        <h5>Maria John</h5>
+                        <h6>maria@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="75">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                               <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="match-profile-card">
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-2.jpg" alt="">
+                        </div>
+                        <div>
+                            <h5>Mohammed Navab</h5>
+                        <h6>navab@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="75">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                                <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-lg-3">
+                    <div class="match-profile-card">
+                       <a href="chat.html">
+                            <div class="chat-icon">
+                            <i class="far fa-comment-dots"></i>
+                        </div>
+                        </a>
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-3.jpeg" alt="">
+                        </div>
+                        <div>
+                            <h5>Ahmed Bazil</h5>
+                        <h6>bazil@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>50%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="50">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                                <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
+                                <button class="purple-btn ready-frnd" data-bs-toggle="modal" data-bs-target="#remove_friend">
+                                <span><i class="fas fa-user-check"></i></span> Friend
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="match-profile-card">
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-1.jpg" alt="">
+                        </div>
+                        <div>
+                        <h5>Maria John</h5>
+                        <h6>maria@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="75">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                               <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-lg-3">
+                    <div class="match-profile-card">
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-2.jpg" alt="">
+                        </div>
+                        <div>
+                            <h5>Mohammed Navab</h5>
+                        <h6>navab@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="75">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                                <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-lg-3">
+                    <div class="match-profile-card">
+                        <a href="chat.html">
+                            <div class="chat-icon">
+                            <i class="far fa-comment-dots"></i>
+                        </div>
+                        </a>
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-3.jpeg" alt="">
+                        </div>
+                        <div>
+                            <h5>Ahmed Bazil</h5>
+                        <h6>bazil@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>50%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="50">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                                <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
+                                <button class="purple-btn ready-frnd" data-bs-toggle="modal" data-bs-target="#remove_friend">
+                                <span><i class="fas fa-user-check"></i></span> Friend
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-lg-3">
+                    <div class="match-profile-card">
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-4.jpg" alt="">
+                        </div>
+                        <div>
+                            <h5>Nishida</h5>
+                        <h6>nishida@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>50%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="50">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                               <button type="button" data-bs-toggle="modal" data-bs-target="#profileModal">
+                                    <i class="fas fa-user-circle"></i> View Profile
+                                    </button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                  <div class="col-lg-3">
+                    <div class="match-profile-card">
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-4.jpg" alt="">
+                        </div>
+                        <div>
+                            <h5>Nishida</h5>
+                        <h6>nishida@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>50%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="50">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                               <button type="button" data-bs-toggle="modal" data-bs-target="#profileModal">
+                                    <i class="fas fa-user-circle"></i> View Profile
+                                    </button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="match-profile-card">
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-1.jpg" alt="">
+                        </div>
+                        <div>
+                        <h5>Maria John</h5>
+                        <h6>maria@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="75">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                               <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="match-profile-card">
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-2.jpg" alt="">
+                        </div>
+                        <div>
+                            <h5>Mohammed Navab</h5>
+                        <h6>navab@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="75">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                                <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-lg-3">
+                    <div class="match-profile-card">
+                       <a href="chat.html">
+                            <div class="chat-icon">
+                            <i class="far fa-comment-dots"></i>
+                        </div>
+                        </a>
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-3.jpeg" alt="">
+                        </div>
+                        <div>
+                            <h5>Ahmed Bazil</h5>
+                        <h6>bazil@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>50%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="50">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                                <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
+                                <button class="purple-btn ready-frnd" data-bs-toggle="modal" data-bs-target="#remove_friend">
+                                <span><i class="fas fa-user-check"></i></span> Friend
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+               
+
+                
+
+                 
+            </div>
+        </section>
+    </div>
+
+
+    <section class="footer">
+        <div class="container">
+            <img src="assets/img/logo.png" alt="" class="logo-width">
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </section>
+
+
+     <div class="modal fade" id="followModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center p-4">
+            <div class="modal-body">
+                <!-- Confirmation Content -->
+                <div class="confirmation-content">
+                    <h5 class="modal-title modal-title-head mb-4">Are you sure you want to connect?</h5>
+                    <div class="d-flex justify-content-center gap-3">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                        <button type="button" class="btn btn-success" id="confirmConnect">Yes</button>
+                    </div>
+                </div>
+                
+                <!-- Success Content (Initially Hidden) -->
+                <div class="success-content" style="display: none;">
+                    <div class="checkmark-animation mb-3">
+                        <svg class="checkmark" viewBox="0 0 52 52">
+                            <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                            <path class="checkmark-check" fill="none" d="M14 27l7 7 16-16"/>
+                        </svg>
+                    </div>
+                    <h5 class="modal-title">Follow Request Successful</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+  <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+
+      <!-- Modal Header (optional) -->
+      <div class="modal-header premium-header">
+        <h5 class="modal-title" id="profileModalLabel">Profile Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <!-- Modal Body -->
+      <!-- Replace the existing profile info section with this -->
+    <div class="modal-body p-0">
+        <div class="modal-profile-body">
+            <div class="text-center bg-light position-relative user-inner">
+                <img src="assets/img/user-2.jpg" alt="Cover">
+            </div>
+
+            <div class="profile-info">
+                <h5>Mohammed Navab</h5>
+                <div class="contact-info">
+                    <div class="profile-content">
+                        <i class="fas fa-envelope"></i>
+                        <h6>navab@gmail.com</h6>
+                    </div>
+                    <div class="profile-content">
+                        <i class="fas fa-phone"></i>
+                        <h6>+966 313-249-5473</h6>
+                    </div>
+                    <div class="profile-content">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h6>56 Market Street, 25 Lakehurst, NJ 15835, United States</h6>
+                    </div>
+                    <button type="button" class="buy-btn" style="width: fit-content;">Match Profile</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="remove_friend" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center p-4">
+            <div class="modal-body">
+                <!-- Confirmation Content -->
+                <div class="unfollow-confirmation">
+                    <h5 class="modal-title modal-title-head mb-4">Are you sure you want to unfollow friend?</h5>
+                    <div class="d-flex justify-content-center gap-3">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                        <button type="button" class="btn btn-danger" id="confirmUnfollow">Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/font-awsome.js"></script>
+
+
+    <script>
+        function createProgressBar(container, percentage, tooltipText) {
+            const progressBar = container.querySelector('.progress-bar');
+            const tooltip = container.querySelector('.tooltip');
+            
+            // Add yellow class if percentage is below 70%
+            if (percentage < 70) {
+                progressBar.classList.add('yellow');
+            } else {
+                progressBar.classList.remove('yellow');
+            }
+            
+            // Set tooltip text
+            if (tooltipText) {
+                tooltip.textContent = tooltipText;
+            } else {
+                tooltip.textContent = `${percentage}% Complete`;
+            }
+            
+            // Animate the progress bar
+            setTimeout(() => {
+                progressBar.style.width = percentage + '%';
+            }, 100);
+        }
+
+        function animateAllBars() {
+            const containers = document.querySelectorAll('.progress-container');
+            
+            containers.forEach((container, index) => {
+                const percentage = parseInt(container.getAttribute('data-percentage'));
+                const progressBar = container.querySelector('.progress-bar');
+                
+                // Reset animation first
+                progressBar.style.width = '0%';
+                
+                // Add appropriate color class
+                if (percentage < 70) {
+                    progressBar.classList.add('yellow');
+                } else {
+                    progressBar.classList.remove('yellow');
+                }
+                
+                // Animate after a short delay (staggered for each bar)
+                setTimeout(() => {
+                    progressBar.style.width = percentage + '%';
+                }, 300 + (index * 100));
+            });
+        }
+
+        // Initialize tooltips for all progress containers
+        function initializeTooltips() {
+            document.querySelectorAll('.progress-container').forEach(container => {
+                const tooltip = container.querySelector('.tooltip');
+                
+                container.addEventListener('mouseenter', function(e) {
+                    tooltip.style.opacity = '1';
+                });
+                
+                container.addEventListener('mouseleave', function(e) {
+                    tooltip.style.opacity = '0';
+                });
+                
+                container.addEventListener('mousemove', function(e) {
+                    const rect = container.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    tooltip.style.left = Math.max(0, Math.min(x, rect.width)) + 'px';
+                });
+            });
+        }
+
+        // Initialize all progress bars on page load
+        window.addEventListener('load', function() {
+            // Set initial colors based on percentage
+            document.querySelectorAll('.progress-container').forEach(container => {
+                const percentage = parseInt(container.getAttribute('data-percentage'));
+                const progressBar = container.querySelector('.progress-bar');
+                
+                if (percentage < 70) {
+                    progressBar.classList.add('yellow');
+                }
+            });
+            
+            // Then animate bars
+            setTimeout(() => {
+                animateAllBars();
+            }, 500);
+        });
+
+        // Example of how to create a new progress bar dynamically
+        function addNewProgressBar(containerId, percentage, label, tooltipText) {
+            const container = document.getElementById(containerId);
+            if (container) {
+                container.setAttribute('data-percentage', percentage);
+                createProgressBar(container, percentage, tooltipText);
+            }
+        }
+    </script>
+    
+ <script>
+let lastClickedBtn = null;
+let modalInstance = null;
+
+document.addEventListener('DOMContentLoaded', () => {
+    const followModalEl = document.getElementById('followModal');
+    const confirmationContent = followModalEl.querySelector('.confirmation-content');
+    const successContent = followModalEl.querySelector('.success-content');
+
+    // Ensure modal element exists before initializing
+    if (!followModalEl) return;
+
+    // Initialize modal only once
+    modalInstance = new bootstrap.Modal(followModalEl, {
+        backdrop: 'static',
+        keyboard: false
+    });
+
+    // Ensure clean modal each time it's shown
+    followModalEl.addEventListener('show.bs.modal', () => {
+        // Reset modal content
+        confirmationContent.style.display = 'block';
+        successContent.style.display = 'none';
+
+        // 🛡 Remove stale backdrops before showing
+        document.querySelectorAll('.modal-backdrop').forEach(b => b.remove());
+
+        // 🛡 Restore body state
+        document.body.classList.remove('modal-open');
+        document.body.style.paddingRight = '';
+        document.body.style.overflow = '';
+    });
+
+    // Button click opens modal
+    document.querySelectorAll('.connect-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            lastClickedBtn = btn;
+            setTimeout(() => {
+                modalInstance.show(); // Slight delay ensures stable animation stack
+            }, 10); // delay avoids race with backdrop removal
+        });
+    });
+
+    // Confirm click inside modal
+    document.getElementById('confirmConnect').addEventListener('click', () => {
+        confirmationContent.style.display = 'none';
+        successContent.style.display = 'block';
+
+        if (lastClickedBtn) {
+            lastClickedBtn.innerHTML = '<span><i class="fas fa-clock"></i></span> Pending';
+            lastClickedBtn.style.backgroundColor = '#ffc107';
+            lastClickedBtn.style.borderColor = '#ffc107';
+            lastClickedBtn.style.color = '#000';
+        }
+
+        setTimeout(() => {
+            if (lastClickedBtn) {
+                lastClickedBtn.classList.remove('purple-btn');
+                lastClickedBtn.disabled = true;
+                lastClickedBtn = null;
+            }
+
+            modalInstance.hide();
+        }, 1500);
+    });
+
+    // Modal cleanup
+    followModalEl.addEventListener('hidden.bs.modal', () => {
+        confirmationContent.style.display = 'block';
+        successContent.style.display = 'none';
+
+        // Final cleanup
+        document.querySelectorAll('.modal-backdrop').forEach(b => b.remove());
+        document.body.classList.remove('modal-open');
+        document.body.style.paddingRight = '';
+        document.body.style.overflow = '';
+    });
+});
+</script>
+
+
+
+
+
+
+<script>
+let lastFriendBtn = null;
+
+// Track which friend button was clicked
+document.querySelectorAll('.ready-frnd').forEach(btn => {
+    btn.addEventListener('click', () => {
+        lastFriendBtn = btn;
+    });
+});
+
+// Handle unfollow confirmation
+document.getElementById('confirmUnfollow').addEventListener('click', function() {
+    const modal = document.getElementById('remove_friend');
+    
+    if (lastFriendBtn) {
+        // Change button appearance
+        lastFriendBtn.classList.remove('ready-frnd');
+        lastFriendBtn.classList.add('purple-btn', 'connect-btn');
+        lastFriendBtn.innerHTML = '<span><i class="fas fa-user-plus"></i></span> Connect';
+        lastFriendBtn.setAttribute('data-bs-target', '#followModal');
+        
+        // Reset the button reference
+        lastFriendBtn = null;
+    }
+    
+    // Hide modal
+    const modalInstance = bootstrap.Modal.getInstance(modal);
+    modalInstance.hide();
+    
+    // Cleanup
+    setTimeout(() => {
+        document.body.classList.remove('modal-open');
+        const backdrop = document.querySelector('.modal-backdrop');
+        if (backdrop) {
+            backdrop.remove();
+        }
+    }, 300);
+});
+</script>
+
+
+
+
+
+</body>
+
+</html>

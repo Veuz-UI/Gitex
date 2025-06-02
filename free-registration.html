@@ -1,0 +1,2072 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GITEX NIGERIA</title>
+    <link rel="icon" type="image/png" href="assets/img/fav-icon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/new-style.css">
+    <link rel="stylesheet" href="assets/fonts/webfont/stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <style>
+        /* Image-Matching Country Dropdown Styling */
+        .custom-dropdown {
+            position: relative;
+            width: 100%;
+        }
+
+        .selected-display {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            cursor: pointer;
+            height: 43px;
+            font-size: 16px;
+            color: #333;
+            height: 50px;
+        }
+
+        .dropdown-icon {
+            width: 7px;
+            height: 7px;
+            border: solid #666;
+            border-width: 0 2px 2px 0;
+            display: inline-block;
+            padding: 3px;
+            transform: rotate(45deg);
+            transition: transform 0.2s ease;
+        }
+
+        .dropdown-icon.open {
+            transform: rotate(-135deg);
+        }
+
+        .dropdown-list {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            max-height: 300px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: none;
+            overflow: hidden;
+            margin-top: -1px;
+        }
+
+        .dropdown-list.open {
+            display: block;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #000;
+            border-radius: 0;
+            font-size: 14px;
+            outline: none;
+            box-shadow: none;
+            height: 33px;
+        }
+
+        .search-box input:focus {
+            outline: none;
+        }
+
+        .dropdown-items {
+            max-height: 250px;
+            overflow-y: auto;
+            padding: 0;
+            scrollbar-width: thin;
+            scrollbar-color: #9c9c9c transparent;
+        }
+
+        .dropdown-item {
+            padding: 12px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #333;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .dropdown-item:hover, .dropdown-item.highlighted {
+            background-color: #7899ea;
+             color: white;
+        }
+
+        .dropdown-item.selected {
+            background-color: #efefef;
+            color: rgb(37, 37, 37);
+        }
+
+        /* Special styling for the Select option */
+        .dropdown-item[data-value=""] {
+            background-color: #7899ea;
+            color: white;
+            font-weight: normal;
+        }
+
+        .dropdown-item[data-value=""]:hover {
+            background-color: #6389e7;
+        }
+
+        /* Custom scrollbar styling */
+        .dropdown-items::-webkit-scrollbar {
+            width: 10px;
+            height: 6px;
+        }
+
+        .dropdown-items::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .dropdown-items::-webkit-scrollbar-thumb {
+            background: #a5a5a5;
+            border-radius: 3px;
+        }
+
+        .dropdown-items::-webkit-scrollbar-thumb:hover {
+            background: #aaa;
+        }
+
+        /* Empty state styling */
+        .empty-results {
+            padding: 20px;
+            text-align: center;
+            color: #888;
+            display: none;
+        }
+
+        .empty-results.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="width-container">
+
+        <div class="inner-banner">
+            <a href="index.html"><img src="assets/img/banner.png" class="img-fluid sm-hide-logo"></a>
+        </div>
+
+        <div class="registration-bar d-flex justify-content-between align-items-center">
+            <div class="registration-text fw-bold">COMPLETE YOUR REGISTRATION IN 2 SIMPLE STEPS</div>
+            <a href="login.html"><button class="login-btn">
+                    <span class="login-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="29"
+                            viewBox="0 0 28 29" fill="none">
+                            <path
+                                d="M14 0.359375C6.272 0.359375 0 6.63137 0 14.3594C0 22.0874 6.272 28.3594 14 28.3594C21.728 28.3594 28 22.0874 28 14.3594C28 6.63137 21.728 0.359375 14 0.359375ZM14 4.55937C16.324 4.55937 18.2 6.43537 18.2 8.75937C18.2 11.0834 16.324 12.9594 14 12.9594C11.676 12.9594 9.8 11.0834 9.8 8.75937C9.8 6.43537 11.676 4.55937 14 4.55937ZM14 24.4394C10.5 24.4394 7.406 22.6474 5.6 19.9314C5.642 17.1454 11.2 15.6194 14 15.6194C16.786 15.6194 22.358 17.1454 22.4 19.9314C20.594 22.6474 17.5 24.4394 14 24.4394Z"
+                                fill="white"></path>
+                        </svg></span>
+                    LOGIN
+                </button></a>
+        </div>
+
+        <div class="content">
+            <div class="col-md-12">
+                <div class="row">
+                    <!-- Left Column -->
+                    <div class="col-md-4">
+                        <!-- Ticket Card -->
+                        <div class="card" style="overflow: hidden !important;">
+                            <div class="card-header">Your Selected Ticket</div>
+                            <div class="ticket-info">
+                                <strong style="font-weight: bold;">Visitor 3 Day Access Ticket</strong>
+                                <span style="font-weight: bold;">FREE</span>
+                            </div>
+                            <div class="ticket-btn-cntnt">
+                                <h6>Promo Code Redeemed</h6>
+                                <button type="button" class="free-promo-btn">
+                                    GE25TKT3COMP
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Promo Code Card -->
+                        <div class="card promocard">
+                            <div class="card-header">If you have PROMO CODE use it here</div>
+                            <div class="promo-input">
+                                <input type="text" class="form-control" placeholder="ENTER YOUR PROMO CODE"
+                                    style="font-size: 15px;">
+                                <button class="buy-btn"
+                                    style="border-radius: 10px;
+                                            background: linear-gradient(91deg, #1F2383 -0.01%, #0B0442 99.99%) !important;margin: 0px;">Validate</button>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <img src="assets/img/footer-banner.png" width="100%">
+
+                            </div>
+
+                            <div class="ticket-info-to">
+                                <h4 id="badge-fullname"
+                                    style="font-weight: bold;font-size:16px;color: #8f959e; text-transform: uppercase;margin-bottom: 30px;">
+                                    Full Name</h4>
+
+                                <h6 id="badge-jobtitle"
+                                    style="font-weight: 400;color: #a4aab3;text-transform: uppercase;margin-bottom: 15px;">
+                                    JOB TITLE</h6>
+                                <h6 id="badge-companyname"
+                                    style="font-weight: 400;color: #a4aab3;text-transform: uppercase;margin-bottom: 15px;">
+                                    COMPANY NAME</h6>
+                                <h6 id="badge-country"
+                                    style="font-weight: 400;color: #000000;text-transform: uppercase;">Country of
+                                    residence</h6>
+                            </div>
+
+                            <div class="ticket-info-ft" style="box-shadow: 0px -5px 40px #e8e8e8ba;padding: 20px;
+      text-align: center;">
+                                <h6
+                                    style="font-weight: 400;color: #a4aab3;text-transform: uppercase;margin-bottom: 15px;margin-bottom: 10px;">
+                                    BADGE CATEGORY</h6>
+                                <h4
+                                    style="font-size: 24px;font-weight: 700;color: #000000;text-transform: uppercase;margin-bottom: 15px;margin-bottom: 0px;letter-spacing: 3.84px;">
+                                    Delegate</h4>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!-- Right Column -->
+                    <div class="col-md-8">
+                        <div class="card form-card">
+                            <div class="card-header no-header-bg">Attendee information</div>
+                            <div class="card-body">
+                                <form id="employeeForm">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="input-box">
+                                                <label class="form-label required-field" for="firstname">First Name</label>
+                                            <input autocomplete="off" class="form-control" type="text" id="firstname" name="firstname">
+                                            <span class="error" id="firstnameError"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                           <div class="input-box">
+                                             <label class="form-label required-field" for="lastname">Last Name</label>
+                                            <input id="lastname" name="lastname" type="text" class="form-control" >
+                                            <span class="error" id="lastnameError"></span>
+                                           </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="input-box">
+                                                <label for="country" class="form-label required-field">Country of residence</label>
+                                            <div class="custom-dropdown">
+                                                <div class="selected-display" id="country-display">
+                                                    <span id="selected-country-text">Please Select</span>
+                                                    <i class="dropdown-icon"></i>
+                                                </div>
+                                                <div class="dropdown-list" id="country-dropdown-list">
+                                                    <div class="search-box">
+                                                        <input type="text" id="country-search" autocomplete="off">
+                                                    </div>
+                                                    <div class="dropdown-items" id="country-items">
+                                                       
+                                                    </div>
+                                                    <div class="empty-results">No countries found</div>
+                                                </div>
+                                                <input type="hidden" id="country" name="country" value="">
+                                                <span class="error" id="countryresidenceError"></span>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="col-md-6">
+                                            <div class="input-box">
+                                                <label for="region" class="form-label required-field">Region</label>
+                                            <div class="custom-dropdown">
+                                                <div class="selected-display" id="region-display">
+                                                    <span id="selected-region-text">Please Select</span>
+                                                    <i class="dropdown-icon"></i>
+                                                </div>
+                                                <div class="dropdown-list" id="region-dropdown-list">
+                                                    <div class="search-box">
+                                                        <input type="text" id="region-search" placeholder="Search region..." autocomplete="off">
+                                                    </div>
+                                                    <div class="dropdown-items" id="region-items">
+                                                        <!-- Will be populated by JavaScript -->
+                                                    </div>
+                                                    <div class="empty-results">No regions found</div>
+                                                </div>
+                                                <input type="hidden" id="region" name="region" value="">
+                                                <span class="error" id="regionError"></span>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="input-box">
+                                             <label class="form-label required-field" for="emailid">Email address</label>
+                                            <input id="emailid" name="emailid" type="email" class="form-control">
+                                            <span class="error" id="EmailError"></span>
+                                           </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="input-box">
+                                            <label class="form-label" for="Confirmemail">Confirm Email address</label>
+                                            <input id="Confirmemail" name="Confirmemail" type="email" class="form-control" >
+                                            <span class="error" id="ConfirmemailError"></span>
+                                           </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                           <div class="input-box">
+                                             <label for="Nationality" class="form-label required-field">Nationality</label>
+                                            <div class="custom-dropdown">
+                                                <div class="selected-display" id="Nationality-display">
+                                                    <span id="selected-Nationality-text">Please Select</span>
+                                                    <i class="dropdown-icon"></i>
+                                                </div>
+                                                <div class="dropdown-list" id="Nationality-dropdown-list">
+                                                    <div class="search-box">
+                                                        <input type="text" id="Nationality-search" placeholder="Search nationality..." autocomplete="off">
+                                                    </div>
+                                                    <div class="dropdown-items" id="Nationality-items">
+                                                        <!-- Will be populated by JavaScript -->
+                                                    </div>
+                                                    <div class="empty-results">No countries found</div>
+                                                </div>
+                                                <input type="hidden" id="Nationality" name="Nationality" value="">
+                                                <span class="error" id="NationalityError"></span>
+                                            </div>
+                                           </div>
+                                        </div>
+                                        
+                                        <div class="col-md-6">
+                                            <div class="input-box">
+                                                <label for="phone" class="form-label required-field">Phone</label>
+                                            <input type="number" id="phone" name="phone" class="form-control">
+                                            <input type="hidden" id="fullPhone" name="fullPhone" value="">
+                                            <span class="error" id="PhoneError"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                           <div class="input-box">
+                                             <label for="companyname" class="form-label required-field">Company name</label>
+                                            <input id="companyname" name="companyname" type="text" class="form-control">
+                                            <span class="error" id="companynameError"></span>
+                                           </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="input-box">
+                                            <label for="jobtitle" class="form-label required-field">Job Title</label>
+                                            <input id="jobtitle" name="jobtitle" type="text" class="form-control" >
+                                            <span class="error" id="jobtitleError"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="input-box">
+                                                <label for="companytype" class="form-label required-field">Company Type</label>
+                                            <div class="custom-dropdown">
+                                                <div class="selected-display" id="companytype-display">
+                                                    <span id="selected-companytype-text">Please Select</span>
+                                                    <i class="dropdown-icon"></i>
+                                                </div>
+                                                <div class="dropdown-list" id="companytype-dropdown-list">
+                                                    <div class="search-box">
+                                                        <input type="text" id="companytype-search" placeholder="Search company type..." autocomplete="off">
+                                                    </div>
+                                                    <div class="dropdown-items" id="companytype-items">
+                                                        <!-- Will be populated by JavaScript -->
+                                                    </div>
+                                                    <div class="empty-results">No company types found</div>
+                                                </div>
+                                                <input type="hidden" id="companytype" name="companytype" value="">
+                                                <span class="error" id="companytypeError"></span>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="input-box">
+                                                <label for="Industry" class="form-label required-field">Industry</label>
+                                            <div class="custom-dropdown">
+                                                <div class="selected-display" id="Industry-display">
+                                                    <span id="selected-Industry-text">Please Select</span>
+                                                    <i class="dropdown-icon"></i>
+                                                </div>
+                                                <div class="dropdown-list" id="Industry-dropdown-list">
+                                                    <div class="search-box">
+                                                        <input type="text" id="Industry-search" placeholder="Search industry..." autocomplete="off">
+                                                    </div>
+                                                    <div class="dropdown-items" id="Industry-items">
+                                                        <!-- Will be populated by JavaScript -->
+                                                    </div>
+                                                    <div class="empty-results">No industry found</div>
+                                                </div>
+                                                <input type="hidden" id="Industry" name="Industry" value="">
+                                                <span class="error" id="IndustryError"></span>
+                                            </div>
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-end-btn">
+                                            <label class="form-label required-field">Select Your Areas of
+                                                Interest</label>
+                                            <div>
+                                                <button type="button" class="buy-btn solution-btn" data-bs-toggle="modal"
+                                                data-bs-target="#solutionsModal">
+                                                Select solution/Products <span class="arrow-right">→</span>
+                                            </button>
+                                            <span class="error" id="solutionsError"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="selected-data-container">
+                                       
+                                        <div class="selected-categories">
+                                            <!-- Main categories -->
+                                            <div class="main-selections">
+                                                <h6>Main Categories:</h6>
+                                                <div class="main-selected-tags"></div>
+                                            </div>
+                                            <!-- Sub categories -->
+                                            <div class="sub-selections">
+                                                <h6>Sub Categories:</h6>
+                                                <div class="sub-selected-tags"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="iagree">
+                            <div class="row mb-4">
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="termsCheck" name="termsCheck">
+                                        <label class="form-check-label" for="termsCheck" style="font-size: 14px;">
+                                            I have read an accept the <a
+                                                href="https://www.gitex-europe.com/terms-and-conditions"
+                                                style="color: #d21f18;">Terms and conditions </a> ,
+                                            <a href="https://www.gitex-europe.com/privacy-policy"
+                                                style="color: #d21f18;">Privacy Policy</a>, and consent that: <br>
+                                            Visitors under the age of 21 will not be admitted, and admission to the
+                                            exhibition is restricted to trade and business professionals only. <br>
+                                            Students above 16 and below 18 can attend only if accompanied by school or
+                                            faculty member. Students over 18 can attend with a Student Delegate Ticket.
+                                            *
+                                        </label>
+                                        <div class="invalid-feedback" style="color: red;" >
+                                            You must agree to the terms and conditions
+                                        </div>
+                                    </div>
+
+                                    <div class="form-check mt-3">
+                                        <input class="form-check-input" type="checkbox" id="termsCheck1">
+                                        <label class="form-check-label" for="termsCheck1" style="font-size: 14px;">
+                                            Would you like to receive updates about GITEX Nigeria and future events
+                                            provided by Kaoun International and Dubai World Trade Centre?
+                                            Your details will not be shared with third parties. You accept that your
+                                            information will be used in accordance with our <a
+                                                href="#"
+                                                style="color: #272f9c;">Privacy Policy, </a>
+                                            and that you may withdraw your consent to receive communications from us at
+                                            any time.
+                                        </label>
+                                        <div class="invalid-feedback" style="color: red;" >
+                                            
+                                            You must agree to the terms and conditions
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-0 summury-card">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="summury-row">
+                                        <div class="ttl1" style="font-weight: bold;color: #000000;">Total:
+                                            <span style="font-weight: bold;color: #d21f18;text-transform: uppercase;">
+                                                EUR
+                                                40.00 </span>
+                                            <span style="font-weight: 300;color: #777777;">Incl.19% VAT </span></div>
+                                        <div class="summury-button">
+                                            <button class="back-btn" type="submit" class="btn btn-primary"
+                                                onclick="location.href='index.html'">
+                                                Back</button>
+                                                <button type="submit" class="buy-btn"
+                                                style="border-radius: 10px;
+                                            background: linear-gradient(91deg, #1F2383 -0.01%, #0B0442 99.99%) !important;margin: 0px;"
+                                               >Submit & Continue to
+                                                Payment</button>
+                                            </form>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+ <section class="footer">
+        <div class="container">
+            <img src="assets/img/logo.png" alt="" class="logo-width">
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+        </div>
+    </section>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <div class="modal fade" id="solutionsModal" tabindex="-1" aria-labelledby="solutionsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="premium-card">
+                    <div class="premium-header d-flex justify-content-between align-items-center">
+                        3D Printing & Printing Services (61)
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="popup-search-cntnt">
+                            <input type="search" placeholder="Search...." class="check-search form-control">
+                            <label><strong>I am interested in sourcing the following solutions/products? (Select Top
+                                    5)</strong>
+                                <em>* Please ensure you have chosen at least one category in each section</em></label>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="checkbox-grid checkbox-grid-2" id="modal-checkbox">
+                                <label for="3d"><input id="3d" type="checkbox" name="services"> 3D Printing & Printing Services (61)</label>
+                                <label><input type="checkbox" name="services"> Billing / OSS / BSS</label>
+                                <label><input type="checkbox" name="services"> Broadband Services</label>
+                                <label><input type="checkbox" name="services"> Cabling</label>
+                                <label><input type="checkbox" name="services"> Communication Equipment</label>
+                                <label><input type="checkbox" name="services"> Converged / Unified Communications</label>
+                                <label><input type="checkbox" name="services"> Data Centres</label>
+                                <label><input type="checkbox" name="services"> Fixed Line Telecommunications</label>
+                                <label><input type="checkbox" name="services"> Geospatial Solutions & Services</label>
+                                <label><input type="checkbox" name="services"> IP Communications & Applications</label>
+                                <label><input type="checkbox" name="services"> Marine Communication Equipment & Services</label>
+                            </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div id="show-checkbox">
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                          
+
+                            
+
+
+                            <div class="selected-items-container">
+                                <div class="selected-items-box">
+                                    <!-- Selected items will appear here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                        <span id="apply-error" style="color: red; display: none;">Please select at least one option before proceeding.</span>
+                        <div class="d-flex justify-content-md-end justify-content-center gap-2 w-100">
+                            <button type="button" class="back-btn" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="buy-btn" onclick="applyFunction()">Apply</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        
+
+// Country data for both dropdowns
+        const countryList = [
+            { code: "AF", name: "Afghanistan", phoneCode: "93" },
+            { code: "AL", name: "Albania", phoneCode: "355" },
+            { code: "DZ", name: "Algeria", phoneCode: "213" },
+            { code: "AS", name: "American Samoa", phoneCode: "1-684" },
+            { code: "AD", name: "Andorra", phoneCode: "376" },
+            { code: "AO", name: "Angola", phoneCode: "244" },
+            { code: "AI", name: "Anguilla", phoneCode: "1-264" },
+            { code: "AQ", name: "Antarctica", phoneCode: "672" },
+            { code: "AG", name: "Antigua and Barbuda", phoneCode: "1-268" },
+            { code: "AR", name: "Argentina", phoneCode: "54" },
+            { code: "AM", name: "Armenia", phoneCode: "374" },
+            { code: "AW", name: "Aruba", phoneCode: "297" },
+            { code: "AU", name: "Australia", phoneCode: "61" },
+            { code: "AT", name: "Austria", phoneCode: "43" },
+            { code: "AZ", name: "Azerbaijan", phoneCode: "994" },
+            { code: "BS", name: "Bahamas", phoneCode: "1-242" },
+            { code: "BH", name: "Bahrain", phoneCode: "973" },
+            { code: "BD", name: "Bangladesh", phoneCode: "880" },
+            { code: "BB", name: "Barbados", phoneCode: "1-246" },
+            { code: "BY", name: "Belarus", phoneCode: "375" },
+            { code: "BE", name: "Belgium", phoneCode: "32" },
+            { code: "BZ", name: "Belize", phoneCode: "501" },
+            { code: "BJ", name: "Benin", phoneCode: "229" },
+            { code: "BM", name: "Bermuda", phoneCode: "1-441" },
+            { code: "BT", name: "Bhutan", phoneCode: "975" },
+            { code: "BO", name: "Bolivia", phoneCode: "591" },
+            { code: "BA", name: "Bosnia and Herzegovina", phoneCode: "387" },
+            { code: "BW", name: "Botswana", phoneCode: "267" },
+            { code: "BR", name: "Brazil", phoneCode: "55" },
+            { code: "IO", name: "British Indian Ocean Territory", phoneCode: "246" },
+            { code: "VG", name: "British Virgin Islands", phoneCode: "1-284" },
+            { code: "BN", name: "Brunei", phoneCode: "673" },
+            { code: "BG", name: "Bulgaria", phoneCode: "359" },
+            { code: "BF", name: "Burkina Faso", phoneCode: "226" },
+            { code: "BI", name: "Burundi", phoneCode: "257" },
+            { code: "KH", name: "Cambodia", phoneCode: "855" },
+            { code: "CM", name: "Cameroon", phoneCode: "237" },
+            { code: "CA", name: "Canada", phoneCode: "1" },
+            { code: "CV", name: "Cape Verde", phoneCode: "238" },
+            { code: "KY", name: "Cayman Islands", phoneCode: "1-345" },
+            { code: "CF", name: "Central African Republic", phoneCode: "236" },
+            { code: "TD", name: "Chad", phoneCode: "235" },
+            { code: "CL", name: "Chile", phoneCode: "56" },
+            { code: "CN", name: "China", phoneCode: "86" },
+            { code: "CX", name: "Christmas Island", phoneCode: "61" },
+            { code: "CC", name: "Cocos Islands", phoneCode: "61" },
+            { code: "CO", name: "Colombia", phoneCode: "57" },
+            { code: "KM", name: "Comoros", phoneCode: "269" },
+            { code: "CK", name: "Cook Islands", phoneCode: "682" },
+            { code: "CR", name: "Costa Rica", phoneCode: "506" },
+            { code: "HR", name: "Croatia", phoneCode: "385" },
+            { code: "CU", name: "Cuba", phoneCode: "53" },
+            { code: "CW", name: "Curacao", phoneCode: "599" },
+            { code: "CY", name: "Cyprus", phoneCode: "357" },
+            { code: "CZ", name: "Czech Republic", phoneCode: "420" },
+            { code: "CD", name: "Democratic Republic of the Congo", phoneCode: "243" },
+            { code: "DK", name: "Denmark", phoneCode: "45" },
+            { code: "DJ", name: "Djibouti", phoneCode: "253" },
+            { code: "DM", name: "Dominica", phoneCode: "1-767" },
+            { code: "DO", name: "Dominican Republic", phoneCode: "1-809" },
+            { code: "TL", name: "East Timor", phoneCode: "670" },
+            { code: "EC", name: "Ecuador", phoneCode: "593" },
+            { code: "EG", name: "Egypt", phoneCode: "20" },
+            { code: "SV", name: "El Salvador", phoneCode: "503" },
+            { code: "GQ", name: "Equatorial Guinea", phoneCode: "240" },
+            { code: "ER", name: "Eritrea", phoneCode: "291" },
+            { code: "EE", name: "Estonia", phoneCode: "372" },
+            { code: "ET", name: "Ethiopia", phoneCode: "251" },
+            { code: "FK", name: "Falkland Islands", phoneCode: "500" },
+            { code: "FO", name: "Faroe Islands", phoneCode: "298" },
+            { code: "FJ", name: "Fiji", phoneCode: "679" },
+            { code: "FI", name: "Finland", phoneCode: "358" },
+            { code: "FR", name: "France", phoneCode: "33" },
+            { code: "GF", name: "French Guiana", phoneCode: "594" },
+            { code: "PF", name: "French Polynesia", phoneCode: "689" },
+            { code: "GA", name: "Gabon", phoneCode: "241" },
+            { code: "GM", name: "Gambia", phoneCode: "220" },
+            { code: "GE", name: "Georgia", phoneCode: "995" },
+            { code: "DE", name: "Germany", phoneCode: "49" },
+            { code: "GH", name: "Ghana", phoneCode: "233" },
+            { code: "GI", name: "Gibraltar", phoneCode: "350" },
+            { code: "GR", name: "Greece", phoneCode: "30" },
+            { code: "GL", name: "Greenland", phoneCode: "299" },
+            { code: "GD", name: "Grenada", phoneCode: "1-473" },
+            { code: "GP", name: "Guadeloupe", phoneCode: "590" },
+            { code: "GU", name: "Guam", phoneCode: "1-671" },
+            { code: "GT", name: "Guatemala", phoneCode: "502" },
+            { code: "GG", name: "Guernsey", phoneCode: "44-1481" },
+            { code: "GN", name: "Guinea", phoneCode: "224" },
+            { code: "GW", name: "Guinea-Bissau", phoneCode: "245" },
+            { code: "GY", name: "Guyana", phoneCode: "592" },
+            { code: "HT", name: "Haiti", phoneCode: "509" },
+            { code: "HN", name: "Honduras", phoneCode: "504" },
+            { code: "HK", name: "Hong Kong", phoneCode: "852" },
+            { code: "HU", name: "Hungary", phoneCode: "36" },
+            { code: "IS", name: "Iceland", phoneCode: "354" },
+            { code: "IN", name: "India", phoneCode: "91" },
+            { code: "ID", name: "Indonesia", phoneCode: "62" },
+            { code: "IR", name: "Iran", phoneCode: "98" },
+            { code: "IQ", name: "Iraq", phoneCode: "964" },
+            { code: "IE", name: "Ireland", phoneCode: "353" },
+            { code: "IM", name: "Isle of Man", phoneCode: "44-1624" },
+            { code: "IL", name: "Israel", phoneCode: "972" },
+            { code: "IT", name: "Italy", phoneCode: "39" },
+            { code: "CI", name: "Ivory Coast", phoneCode: "225" },
+            { code: "JM", name: "Jamaica", phoneCode: "1-876" },
+            { code: "JP", name: "Japan", phoneCode: "81" },
+            { code: "JE", name: "Jersey", phoneCode: "44-1534" },
+            { code: "JO", name: "Jordan", phoneCode: "962" },
+            { code: "KZ", name: "Kazakhstan", phoneCode: "7" },
+            { code: "KE", name: "Kenya", phoneCode: "254" },
+            { code: "KI", name: "Kiribati", phoneCode: "686" },
+            { code: "XK", name: "Kosovo", phoneCode: "383" },
+            { code: "KW", name: "Kuwait", phoneCode: "965" },
+            { code: "KG", name: "Kyrgyzstan", phoneCode: "996" },
+            { code: "LA", name: "Laos", phoneCode: "856" },
+            { code: "LV", name: "Latvia", phoneCode: "371" },
+            { code: "LB", name: "Lebanon", phoneCode: "961" },
+            { code: "LS", name: "Lesotho", phoneCode: "266" },
+            { code: "LR", name: "Liberia", phoneCode: "231" },
+            { code: "LY", name: "Libya", phoneCode: "218" },
+            { code: "LI", name: "Liechtenstein", phoneCode: "423" },
+            { code: "LT", name: "Lithuania", phoneCode: "370" },
+            { code: "LU", name: "Luxembourg", phoneCode: "352" },
+            { code: "MO", name: "Macau", phoneCode: "853" },
+            { code: "MK", name: "Macedonia", phoneCode: "389" },
+            { code: "MG", name: "Madagascar", phoneCode: "261" },
+            { code: "MW", name: "Malawi", phoneCode: "265" },
+            { code: "MY", name: "Malaysia", phoneCode: "60" },
+            { code: "MV", name: "Maldives", phoneCode: "960" },
+            { code: "ML", name: "Mali", phoneCode: "223" },
+            { code: "MT", name: "Malta", phoneCode: "356" },
+            { code: "MH", name: "Marshall Islands", phoneCode: "692" },
+            { code: "MQ", name: "Martinique", phoneCode: "596" },
+            { code: "MR", name: "Mauritania", phoneCode: "222" },
+            { code: "MU", name: "Mauritius", phoneCode: "230" },
+            { code: "YT", name: "Mayotte", phoneCode: "262" },
+            { code: "MX", name: "Mexico", phoneCode: "52" },
+            { code: "FM", name: "Micronesia", phoneCode: "691" },
+            { code: "MD", name: "Moldova", phoneCode: "373" },
+            { code: "MC", name: "Monaco", phoneCode: "377" },
+            { code: "MN", name: "Mongolia", phoneCode: "976" },
+            { code: "ME", name: "Montenegro", phoneCode: "382" },
+            { code: "MS", name: "Montserrat", phoneCode: "1-664" },
+            { code: "MA", name: "Morocco", phoneCode: "212" },
+            { code: "MZ", name: "Mozambique", phoneCode: "258" },
+            { code: "MM", name: "Myanmar", phoneCode: "95" },
+            { code: "NA", name: "Namibia", phoneCode: "264" },
+            { code: "NR", name: "Nauru", phoneCode: "674" },
+            { code: "NP", name: "Nepal", phoneCode: "977" },
+            { code: "NL", name: "Netherlands", phoneCode: "31" },
+            { code: "AN", name: "Netherlands Antilles", phoneCode: "599" },
+            { code: "NC", name: "New Caledonia", phoneCode: "687" },
+            { code: "NZ", name: "New Zealand", phoneCode: "64" },
+            { code: "NI", name: "Nicaragua", phoneCode: "505" },
+            { code: "NE", name: "Niger", phoneCode: "227" },
+            { code: "NG", name: "Nigeria", phoneCode: "234" },
+            { code: "NU", name: "Niue", phoneCode: "683" },
+            { code: "KP", name: "North Korea", phoneCode: "850" },
+            { code: "MP", name: "Northern Mariana Islands", phoneCode: "1-670" },
+            { code: "NO", name: "Norway", phoneCode: "47" },
+            { code: "OM", name: "Oman", phoneCode: "968" },
+            { code: "PK", name: "Pakistan", phoneCode: "92" },
+            { code: "PW", name: "Palau", phoneCode: "680" },
+            { code: "PS", name: "Palestine", phoneCode: "970" },
+            { code: "PA", name: "Panama", phoneCode: "507" },
+            { code: "PG", name: "Papua New Guinea", phoneCode: "675" },
+            { code: "PY", name: "Paraguay", phoneCode: "595" },
+            { code: "PE", name: "Peru", phoneCode: "51" },
+            { code: "PH", name: "Philippines", phoneCode: "63" },
+            { code: "PN", name: "Pitcairn", phoneCode: "64" },
+            { code: "PL", name: "Poland", phoneCode: "48" },
+            { code: "PT", name: "Portugal", phoneCode: "351" },
+            { code: "PR", name: "Puerto Rico", phoneCode: "1-787" },
+            { code: "QA", name: "Qatar", phoneCode: "974" },
+            { code: "CG", name: "Republic of the Congo", phoneCode: "242" },
+            { code: "RE", name: "Reunion", phoneCode: "262" },
+            { code: "RO", name: "Romania", phoneCode: "40" },
+            { code: "RU", name: "Russia", phoneCode: "7" },
+            { code: "RW", name: "Rwanda", phoneCode: "250" },
+            { code: "BL", name: "Saint Barthelemy", phoneCode: "590" },
+            { code: "SH", name: "Saint Helena", phoneCode: "290" },
+            { code: "KN", name: "Saint Kitts and Nevis", phoneCode: "1-869" },
+            { code: "LC", name: "Saint Lucia", phoneCode: "1-758" },
+            { code: "MF", name: "Saint Martin", phoneCode: "590" },
+            { code: "PM", name: "Saint Pierre and Miquelon", phoneCode: "508" },
+            { code: "VC", name: "Saint Vincent and the Grenadines", phoneCode: "1-784" },
+            { code: "WS", name: "Samoa", phoneCode: "685" },
+            { code: "SM", name: "San Marino", phoneCode: "378" },
+            { code: "ST", name: "Sao Tome and Principe", phoneCode: "239" },
+            { code: "SA", name: "Saudi Arabia", phoneCode: "966" },
+            { code: "SN", name: "Senegal", phoneCode: "221" },
+            { code: "RS", name: "Serbia", phoneCode: "381" },
+            { code: "SC", name: "Seychelles", phoneCode: "248" },
+            { code: "SL", name: "Sierra Leone", phoneCode: "232" },
+            { code: "SG", name: "Singapore", phoneCode: "65" },
+            { code: "SX", name: "Sint Maarten", phoneCode: "1-721" },
+            { code: "SK", name: "Slovakia", phoneCode: "421" },
+            { code: "SI", name: "Slovenia", phoneCode: "386" },
+            { code: "SB", name: "Solomon Islands", phoneCode: "677" },
+            { code: "SO", name: "Somalia", phoneCode: "252" },
+            { code: "ZA", name: "South Africa", phoneCode: "27" },
+            { code: "KR", name: "South Korea", phoneCode: "82" },
+            { code: "SS", name: "South Sudan", phoneCode: "211" },
+            { code: "ES", name: "Spain", phoneCode: "34" },
+            { code: "LK", name: "Sri Lanka", phoneCode: "94" },
+            { code: "SD", name: "Sudan", phoneCode: "249" },
+            { code: "SR", name: "Suriname", phoneCode: "597" },
+            { code: "SJ", name: "Svalbard and Jan Mayen", phoneCode: "47" },
+            { code: "SZ", name: "Swaziland", phoneCode: "268" },
+            { code: "SE", name: "Sweden", phoneCode: "46" },
+            { code: "CH", name: "Switzerland", phoneCode: "41" },
+            { code: "SY", name: "Syria", phoneCode: "963" },
+            { code: "TW", name: "Taiwan", phoneCode: "886" },
+            { code: "TJ", name: "Tajikistan", phoneCode: "992" },
+            { code: "TZ", name: "Tanzania", phoneCode: "255" },
+            { code: "TH", name: "Thailand", phoneCode: "66" },
+            { code: "TG", name: "Togo", phoneCode: "228" },
+            { code: "TK", name: "Tokelau", phoneCode: "690" },
+            { code: "TO", name: "Tonga", phoneCode: "676" },
+            { code: "TT", name: "Trinidad and Tobago", phoneCode: "1-868" },
+            { code: "TN", name: "Tunisia", phoneCode: "216" },
+            { code: "TR", name: "Turkey", phoneCode: "90" },
+            { code: "TM", name: "Turkmenistan", phoneCode: "993" },
+            { code: "TC", name: "Turks and Caicos Islands", phoneCode: "1-649" },
+            { code: "TV", name: "Tuvalu", phoneCode: "688" },
+            { code: "VI", name: "U.S. Virgin Islands", phoneCode: "1-340" },
+            { code: "UG", name: "Uganda", phoneCode: "256" },
+            { code: "UA", name: "Ukraine", phoneCode: "380" },
+            { code: "AE", name: "United Arab Emirates", phoneCode: "971" },
+            { code: "GB", name: "United Kingdom", phoneCode: "44" },
+            { code: "US", name: "United States", phoneCode: "1" },
+            { code: "UY", name: "Uruguay", phoneCode: "598" },
+            { code: "UZ", name: "Uzbekistan", phoneCode: "998" },
+            { code: "VU", name: "Vanuatu", phoneCode: "678" },
+            { code: "VA", name: "Vatican", phoneCode: "379" },
+            { code: "VE", name: "Venezuela", phoneCode: "58" },
+            { code: "VN", name: "Vietnam", phoneCode: "84" },
+            { code: "WF", name: "Wallis and Futuna", phoneCode: "681" },
+            { code: "EH", name: "Western Sahara", phoneCode: "212" },
+            { code: "YE", name: "Yemen", phoneCode: "967" },
+            { code: "ZM", name: "Zambia", phoneCode: "260" },
+            { code: "ZW", name: "Zimbabwe", phoneCode: "263" }
+        ];
+
+
+        const regionList = [
+            { code: "MOW", name: "Moscow" },
+            { code: "SPE", name: "Saint Petersburg" },
+            { code: "MOS", name: "Moscow Oblast" },
+            { code: "KDA", name: "Krasnodar Krai" },
+            { code: "KYA", name: "Krasnoyarsk Krai" },
+            { code: "TA", name: "Republic of Tatarstan" },
+            { code: "SVE", name: "Sverdlovsk Oblast" },
+            { code: "ROS", name: "Rostov Oblast" },
+            { code: "NVS", name: "Novosibirsk Oblast" },
+            { code: "PRI", name: "Primorsky Krai" },
+            { code: "BA", name: "Bashkortostan" },
+            { code: "CHE", name: "Chelyabinsk Oblast" },
+            { code: "NIZ", name: "Nizhny Novgorod Oblast" },
+            { code: "SAM", name: "Samara Oblast" },
+            { code: "IRK", name: "Irkutsk Oblast" },
+            { code: "VGG", name: "Volgograd Oblast" },
+            { code: "KHA", name: "Khabarovsk Krai" },
+            { code: "OMS", name: "Omsk Oblast" },
+            { code: "PER", name: "Perm Krai" },
+            { code: "DA", name: "Republic of Dagestan" }
+        ];
+
+        // Company types list
+        const companyTypeList = [
+            { code: "CORP", name: "Corporation" },
+            { code: "LLC", name: "Limited Liability Company" },
+            { code: "PLLC", name: "Professional Limited Liability Company" },
+            { code: "PC", name: "Professional Corporation" },
+            { code: "LLP", name: "Limited Liability Partnership" },
+            { code: "LP", name: "Limited Partnership" },
+            { code: "SP", name: "Sole Proprietorship" },
+            { code: "JV", name: "Joint Venture" },
+            { code: "NGO", name: "Non-Governmental Organization" },
+            { code: "NPO", name: "Non-Profit Organization" },
+            { code: "GOV", name: "Government Entity" },
+            { code: "EDU", name: "Educational Institution" },
+            { code: "PUB", name: "Public Company" },
+            { code: "PRI", name: "Private Company" },
+            { code: "COOP", name: "Cooperative" },
+            { code: "BANK", name: "Banking Institution" },
+            { code: "INS", name: "Insurance Company" },
+            { code: "MEDIA", name: "Media Company" },
+            { code: "TECH", name: "Technology Company" },
+            { code: "RETAIL", name: "Retail Business" },
+            { code: "MFG", name: "Manufacturing Company" },
+            { code: "SVC", name: "Service Provider" },
+            { code: "FREE", name: "Freelancer/Self-employed" },
+            { code: "OTHER", name: "Other" }
+        ];
+
+
+            const IndustryList = [
+            { code: "AGR", name: "Agriculture" },
+            { code: "AUTO", name: "Automotive" },
+            { code: "AVI", name: "Aviation & Space" },
+            { code: "FIN", name: "Banking, Finance & Insurance" },
+            { code: "CONS", name: "Construction & Infrastructure" },
+            { code: "COS", name: "Cosmetics" },
+            { code: "DEF", name: "Defense" },
+            { code: "EDU", name: "Education" },
+            { code: "ENE", name: "Energy & Utilities" },
+            { code: "ENT", name: "Entertainment" },
+            { code: "ENV", name: "Environment & Sustainability" },
+            { code: "FASH", name: "Fashion & Apparel" },
+            { code: "FMCG", name: "FMCG" },
+            { code: "GAM", name: "Gaming" },
+            { code: "TRA", name: "General Trading" },
+            { code: "GOV", name: "Government" },
+            { code: "HLTH", name: "Healthcare" },
+            { code: "HOSP", name: "Hospitality" },
+            { code: "JEW", name: "Jewellery & Luxury Goods" },
+            { code: "LEG", name: "Legal" },
+            { code: "LOG", name: "Logistics & Supply Chain" },
+            { code: "MNF", name: "Manufacturing" },
+            { code: "MEDIA", name: "Media & Advertising" },
+            { code: "MIN", name: "Mining" },
+            { code: "REAL", name: "Real Estate & Property Developers" },
+            { code: "RD", name: "Research & Development" },
+            { code: "RETAIL", name: "Retail" },
+            { code: "TECH", name: "Technology" },
+            { code: "TEL", name: "Telecoms" },
+            { code: "TOUR", name: "Travel & Tourism" },
+            { code: "OTH", name: "Other - Please specify" }
+            ];
+
+
+
+       document.addEventListener('DOMContentLoaded', function() {
+    const phoneInput = document.querySelector("#phone");
+    
+    // Initialize with auto country detection
+    const iti = window.intlTelInput(phoneInput, {
+        initialCountry: "auto",
+        separateDialCode: true,
+        geoIpLookup: function(callback) {
+            // Use multiple geolocation services for better reliability
+            Promise.any([
+                // Try ipapi.co first
+                fetch('https://ipapi.co/json/')
+                    .then(response => response.json())
+                    .then(data => data.country_code),
+                // Fallback to ipapi.com
+                fetch('https://api.ipapi.com/api/check?access_key=YOUR_API_KEY')
+                    .then(response => response.json())
+                    .then(data => data.country_code),
+                // Last resort - use browser's geolocation API
+                new Promise((resolve) => {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(
+                            position => {
+                                fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`)
+                                    .then(response => response.json())
+                                    .then(data => resolve(data.countryCode));
+                            },
+                            () => resolve(null)
+                        );
+                    } else {
+                        resolve(null);
+                    }
+                })
+            ]).then(countryCode => {
+                callback(countryCode || '');
+            }).catch(() => {
+                callback('');
+            });
+        },
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        customPlaceholder: function() { return ""; },
+        nationalMode: false,
+        formatOnDisplay: true
+    });
+
+    // Update hidden input with full number on change
+    phoneInput.addEventListener('change', function() {
+        const fullPhoneField = document.querySelector("#fullPhone");
+        if (fullPhoneField) {
+            fullPhoneField.value = iti.getNumber();
+        }
+    });
+
+    // Also update on country change
+    phoneInput.addEventListener('countrychange', function() {
+        const fullPhoneField = document.querySelector("#fullPhone");
+        if (fullPhoneField) {
+            fullPhoneField.value = iti.getNumber();
+        }
+    });
+
+    // Store iti instance globally
+    window.iti = iti;
+
+    
+    // Initialize all custom dropdowns
+    initAllDropdowns();
+    
+    // Initialize badge updates
+    initBadgeUpdates();
+    
+    // Solutions modal functionality (if exists)
+    initSolutionsModal();
+});
+
+        function initAllDropdowns() {
+            // Define all dropdown types and their data
+            const dropdowns = [
+                {
+                    type: 'country',
+                    dataList: countryList,
+                    dataAttribute: 'data-code',
+                    callback: function(selectedValue) {
+                        // When country changes, update region dropdown if needed
+                        updateRegionsByCountry(selectedValue);
+                        
+                        // Update phone country if country was selected
+                        if (window.iti && selectedValue) {
+                            window.iti.setCountry(selectedValue);
+                        }
+                        
+                        // Update badge country if it exists
+                        updateBadgeCountry(
+                            document.getElementById('selected-country-text').textContent,
+                            selectedValue
+                        );
+                    }
+                },
+                {
+                    type: 'Nationality',
+                    dataList: countryList
+                },
+                {
+                    type: 'region',
+                    // Region list will be populated by updateRegionsByCountry
+                },
+                {
+                    type: 'companytype',
+                    dataList: companyTypeList,
+                    callback: function(selectedValue, selectedText) {
+                        // Update badge company type if it exists
+                        const badgeCompanyType = document.getElementById('badge-companytype');
+                        if (badgeCompanyType && selectedValue) {
+                            badgeCompanyType.textContent = selectedText.toUpperCase();
+                            badgeCompanyType.style.color = '#333';
+                        }
+                    }
+                },
+                {
+                    type: 'Industry',
+                    dataList: IndustryList,
+                    callback: function(selectedValue, selectedText) {
+                        // Update badge industry if it exists
+                        const badgeIndustry = document.getElementById('badge-industry');
+                        if (badgeIndustry && selectedValue) {
+                            badgeIndustry.textContent = selectedText.toUpperCase();
+                            badgeIndustry.style.color = '#333';
+                        }
+                    }
+                },
+
+            ];
+            
+            // Initialize each dropdown
+            dropdowns.forEach(dropdown => {
+                if (dropdown.type !== 'region') { // Region is handled separately
+                    initDropdown(dropdown.type, dropdown.dataList, dropdown.dataAttribute, dropdown.callback);
+                }
+            });
+            
+            // Initialize region dropdown (special case)
+            updateRegionsByCountry();
+        }
+
+        function initDropdown(type, dataList, dataAttribute, callback) {
+            const container = document.getElementById(`${type}-items`);
+            
+            // If container doesn't exist, exit early
+            if (!container) return;
+            
+            // Clear container first
+            container.innerHTML = '';
+            
+            // Add items if data list is provided
+            if (dataList && Array.isArray(dataList)) {
+                dataList.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'dropdown-item';
+                    div.setAttribute('data-value', item.code);
+                    
+                    // Add additional data attribute if specified
+                    if (dataAttribute) {
+                        div.setAttribute(dataAttribute, item.phoneCode || '');
+                    }
+                    
+                    div.textContent = item.name;
+                    container.appendChild(div);
+                });
+            }
+            
+            // Setup dropdown functionality
+            setupDropdown(type, callback);
+        }
+
+        function updateRegionsByCountry(countryCode) {
+            const regionContainer = document.getElementById('region-items');
+            const regionInput = document.getElementById('region');
+            const selectedRegionText = document.getElementById('selected-region-text');
+            
+            if (!regionContainer) return;
+            
+            // Clear container first
+            regionContainer.innerHTML = '';
+            
+            // Reset region value
+            if (regionInput) regionInput.value = '';
+            if (selectedRegionText) selectedRegionText.textContent = 'Please Select';
+            
+            // If Russia is selected or no country code is provided, show Russian regions
+            if (!countryCode || countryCode === 'RU') {
+                regionList.forEach(region => {
+                    const div = document.createElement('div');
+                    div.className = 'dropdown-item';
+                    div.setAttribute('data-value', region.code);
+                    div.textContent = region.name;
+                    regionContainer.appendChild(div);
+                });
+            } else {
+                // Otherwise create a note saying to select Russia for regions
+                const div = document.createElement('div');
+                div.className = 'dropdown-item disabled';
+                div.textContent = 'Regions are available for Russia only';
+                div.style.color = '#999';
+                div.style.fontStyle = 'italic';
+                div.style.cursor = 'default';
+                regionContainer.appendChild(div);
+            }
+            
+            // Setup the region dropdown after updating its items
+            setupDropdown('region');
+        }
+
+        function setupDropdown(type, onSelectCallback) {
+            const display = document.getElementById(`${type}-display`);
+            const dropdownList = document.getElementById(`${type}-dropdown-list`);
+            const searchInput = document.getElementById(`${type}-search`);
+            const dropdownItems = document.querySelectorAll(`#${type}-items .dropdown-item:not(.disabled)`);
+            const selectedText = document.getElementById(`selected-${type}-text`);
+            const hiddenInput = document.getElementById(type);
+            const emptyResults = dropdownList ? dropdownList.querySelector('.empty-results') : null;
+            const dropdownIcon = display ? display.querySelector('.dropdown-icon') : null;
+            
+            // If any required element is missing, exit early
+            if (!display || !dropdownList || !searchInput || !selectedText || !hiddenInput) return;
+            
+            // Toggle dropdown
+            display.addEventListener('click', function(e) {
+                e.stopPropagation();
+                
+                // Close any other open dropdowns first
+                document.querySelectorAll('.dropdown-list.open').forEach(dl => {
+                    if (dl !== dropdownList) {
+                        dl.classList.remove('open');
+                        const otherIcon = dl.parentElement.querySelector('.dropdown-icon');
+                        if (otherIcon) otherIcon.classList.remove('open');
+                    }
+                });
+                
+                // Toggle this dropdown
+                dropdownList.classList.toggle('open');
+                if (dropdownIcon) dropdownIcon.classList.toggle('open');
+                
+                if (dropdownList.classList.contains('open')) {
+                    // Clear search when opening
+                    searchInput.value = '';
+                    // Show all options
+                    dropdownItems.forEach(item => {
+                        item.style.display = 'block';
+                    });
+                    // Hide empty message
+                    if (emptyResults) emptyResults.classList.remove('show');
+                    // Focus search
+                    setTimeout(() => searchInput.focus(), 50);
+                }
+            });
+            
+            // Search functionality
+            let highlightedIndex = -1;
+            
+            searchInput.addEventListener('input', function() {
+                const searchValue = this.value.toLowerCase();
+                let visibleCount = 0;
+                
+                dropdownItems.forEach(item => {
+                    const text = item.textContent.toLowerCase();
+                    
+                    if (text.includes(searchValue)) {
+                        item.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+                
+                // Show/hide empty message
+                if (emptyResults) {
+                    emptyResults.classList.toggle('show', visibleCount === 0 && searchValue.length > 0);
+                }
+                
+                // Reset highlight
+                highlightedIndex = -1;
+                dropdownItems.forEach(item => item.classList.remove('highlighted'));
+            });
+            
+            // Keyboard navigation
+            searchInput.addEventListener('keydown', function(e) {
+                const visibleItems = Array.from(dropdownItems).filter(
+                    item => item.style.display !== 'none'
+                );
+                
+                switch (e.key) {
+                    case 'ArrowDown':
+                        e.preventDefault();
+                        highlightedIndex = Math.min(highlightedIndex + 1, visibleItems.length - 1);
+                        updateHighlight(visibleItems);
+                        break;
+                    case 'ArrowUp':
+                        e.preventDefault();
+                        highlightedIndex = Math.max(highlightedIndex - 1, 0);
+                        updateHighlight(visibleItems);
+                        break;
+                    case 'Enter':
+                        if (highlightedIndex >= 0 && visibleItems[highlightedIndex]) {
+                            e.preventDefault();
+                            visibleItems[highlightedIndex].click();
+                        }
+                        break;
+                    case 'Escape':
+                        e.preventDefault();
+                        dropdownList.classList.remove('open');
+                        if (dropdownIcon) dropdownIcon.classList.remove('open');
+                        break;
+                }
+            });
+            
+            function updateHighlight(visibleItems) {
+                dropdownItems.forEach(item => item.classList.remove('highlighted'));
+                if (highlightedIndex >= 0 && visibleItems[highlightedIndex]) {
+                    visibleItems[highlightedIndex].classList.add('highlighted');
+                    visibleItems[highlightedIndex].scrollIntoView({
+                        block: 'nearest'
+                    });
+                }
+            }
+            
+            // Select item
+            dropdownItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const value = this.getAttribute('data-value');
+                    const text = this.textContent;
+                    
+                    selectedText.textContent = text;
+                    hiddenInput.value = value;
+                    
+                    // Update selected styling
+                    dropdownItems.forEach(di => di.classList.remove('selected'));
+                    this.classList.add('selected');
+                    
+                    // Close dropdown
+                    dropdownList.classList.remove('open');
+                    if (dropdownIcon) dropdownIcon.classList.remove('open');
+                    
+                    // Execute callback if provided
+                    if (typeof onSelectCallback === 'function') {
+                        onSelectCallback(value, text);
+                    }
+                });
+            });
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function() {
+            document.querySelectorAll('.dropdown-list').forEach(list => {
+                list.classList.remove('open');
+            });
+            document.querySelectorAll('.dropdown-icon').forEach(icon => {
+                icon.classList.remove('open');
+            });
+        });
+
+        function updateBadgeCountry(text, value) {
+            const badgeCountry = document.getElementById('badge-country');
+            if (!badgeCountry) return;
+            
+            if (value) {
+                badgeCountry.textContent = text.toUpperCase();
+                badgeCountry.style.color = '#000000';
+            } else {
+                badgeCountry.textContent = 'Country of residence';
+                badgeCountry.style.color = '#cdd1d7';
+            }
+        }
+
+        function initBadgeUpdates() {
+            const badgeElements = {
+                fullname: {
+                    badge: document.getElementById('badge-fullname'),
+                    inputs: [
+                        document.getElementById('firstname'),
+                        document.getElementById('lastname')
+                    ],
+                    updateFn: function(inputs, badge) {
+                        const firstName = inputs[0]?.value.trim() || '';
+                        const lastName = inputs[1]?.value.trim() || '';
+                        
+                        if (firstName || lastName) {
+                            badge.textContent = `${firstName} ${lastName}`.trim().toUpperCase();
+                            badge.style.color = '#1F2383';
+                        } else {
+                            badge.textContent = 'Full Name';
+                            badge.style.color = '#cdd1d7';
+                        }
+                    }
+                },
+                jobtitle: {
+                    badge: document.getElementById('badge-jobtitle'),
+                    inputs: [document.getElementById('jobtitle')],
+                    updateFn: function(inputs, badge) {
+                        const value = inputs[0]?.value.trim() || '';
+                        
+                        if (value) {
+                            badge.textContent = value.toUpperCase();
+                            badge.style.color = '#333';
+                        } else {
+                            badge.textContent = 'JOB TITLE';
+                            badge.style.color = '#cdd1d7';
+                        }
+                    }
+                },
+                companyname: {
+                    badge: document.getElementById('badge-companyname'),
+                    inputs: [document.getElementById('companyname')],
+                    updateFn: function(inputs, badge) {
+                        const value = inputs[0]?.value.trim() || '';
+                        
+                        if (value) {
+                            badge.textContent = value.toUpperCase();
+                            badge.style.color = '#333';
+                        } else {
+                            badge.textContent = 'COMPANY NAME';
+                            badge.style.color = '#cdd1d7';
+                        }
+                    }
+                }
+            };
+            
+            // Set up event listeners for all badge elements
+            Object.values(badgeElements).forEach(({badge, inputs, updateFn}) => {
+                if (!badge || !inputs.every(input => input)) return;
+                
+                // Initial update
+                updateFn(inputs, badge);
+                
+                // Listen for changes
+                inputs.forEach(input => {
+                    input.addEventListener('input', () => updateFn(inputs, badge));
+                });
+            });
+        }
+    </script>
+
+
+
+
+    <script>
+        // Apply function for the solutions modal
+        function applyFunction() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"][name="services"]');
+            let isChecked = false;
+
+            checkboxes.forEach(function(checkbox) {
+                if (checkbox.checked) {
+                    isChecked = true;
+                }
+            });
+            
+            const errorMessage = document.getElementById('apply-error');
+            
+            if (isChecked) {
+                errorMessage.style.display = 'none'; // Hide error message
+                const modalEl = document.getElementById('solutionsModal');
+                const modalInstance = bootstrap.Modal.getInstance(modalEl);
+                modalInstance.hide();
+            } else {
+                errorMessage.style.display = 'inline';
+            }
+        }
+    </script>
+    
+    <script>
+
+        // Form validation
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('employeeForm');
+
+            form.addEventListener('submit', function (e) {
+                
+                e.preventDefault();
+                
+                let isValid = true;
+
+                // Clear all errors
+                document.querySelectorAll('.error').forEach(span => span.textContent = '');
+                document.querySelectorAll('.invalid-feedback').forEach(div => div.style.display = 'none');
+               
+                // Get form values
+                const firstname = document.getElementById('firstname').value.trim();
+                const lastname = document.getElementById('lastname').value.trim();
+                const country = document.getElementById('country').value.trim();
+                const region = document.getElementById('region').value.trim();
+                const Nationality = document.getElementById('Nationality').value.trim();
+                const companyname = document.getElementById('companyname').value.trim();
+                const jobtitle = document.getElementById('jobtitle').value.trim();
+                const companytype = document.getElementById('companytype').value.trim();
+                const Industry = document.getElementById('Industry').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const emailid = document.getElementById('emailid').value.trim();
+                const Confirmemail = document.getElementById('Confirmemail').value.trim();
+                
+                // Validate selected services
+                const selectedServicesCount = document.querySelectorAll('.checkbox-grid input[type="checkbox"]:checked').length;
+                
+                if (selectedServicesCount === 0) {
+                    document.getElementById('solutionsError').textContent = "Please select at least one solution/product.";
+                    isValid = false;
+                }
+   
+
+                // First name validation
+                if (firstname === '') {
+                    document.getElementById('firstnameError').textContent = "First name is required.";
+                    isValid = false;
+                }
+
+                
+     
+
+                // Last name validation
+                if (lastname === '') {
+                    document.getElementById('lastnameError').textContent = "Last name is required.";
+                    isValid = false;
+                }
+
+                // Country of residence validation
+                if (country === '') {
+                    document.getElementById('countryresidenceError').textContent = "Country of residence is required.";
+                    isValid = false;
+                }
+
+                // Region validation
+                if (region === '') {
+                    document.getElementById('regionError').textContent = "Region is required.";
+                    isValid = false;
+                }
+
+                // Nationality validation
+                if (Nationality === '') {
+                    document.getElementById('NationalityError').textContent = "Nationality is required.";
+                    isValid = false;
+                }
+
+                // Phone validation
+                if (phone === '') {
+                    document.getElementById('PhoneError').textContent = "Phone number is required.";
+                    isValid = false;
+                }
+
+                // Company Name validation
+                if (companyname === '') {
+                    document.getElementById('companynameError').textContent = "Company name is required.";
+                    isValid = false;
+                }
+
+                // Job title validation
+                if (jobtitle === '') {
+                    document.getElementById('jobtitleError').textContent = "Job title is required.";
+                    isValid = false;
+                }
+
+                // Company Type validation
+                if (companytype === '') {
+                    document.getElementById('companytypeError').textContent = "Company type is required.";
+                    isValid = false;
+                }
+
+                // Industry validation
+                if (Industry === '') {
+                    document.getElementById('IndustryError').textContent = "Industry is required.";
+                    isValid = false;
+                }
+
+                 // Mail validation
+                if (Industry === '') {
+                    document.getElementById('EmailError').textContent = " Email address is required.";
+                    isValid = false;
+                }
+
+                 // Mail validation
+                if (Industry === '') {
+                    document.getElementById('ConfirmemailError').textContent = "Confirm Email address is required.";
+                    isValid = false
+                }
+
+                // Check if validation failed
+                if (!isValid) return;
+
+                // Terms and conditions validation
+                const termsCheck = document.getElementById('termsCheck');
+                const termsCheck1 = document.getElementById('termsCheck1');
+
+                if (!termsCheck.checked) {
+                    termsCheck.parentElement.querySelector('.invalid-feedback').style.display = 'block';
+                    isValid = false;
+                }
+
+                // Check if any validation failed
+                if (!isValid) return;
+
+                // If all validations pass, redirect to the congrats page
+                window.location.href = "congrats.html";
+            });
+        });
+
+       
+    </script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const checkboxLabels = document.querySelectorAll('.checkbox-grid label');
+    
+    checkboxLabels.forEach(label => {
+        label.addEventListener('click', function(e) {
+            // Get the checkbox within this label
+            const checkbox = this.querySelector('input[type="checkbox"]');
+            
+            // Only toggle if the click wasn't directly on the checkbox
+            if (e.target !== checkbox) {
+                // Toggle the checkbox
+                checkbox.checked = !checkbox.checked;
+                
+                // Trigger the change event
+                const event = new Event('change');
+                checkbox.dispatchEvent(event);
+            }
+        });
+    });
+
+    // Optional: Add visual feedback for label hover
+    const style = document.createElement('style');
+    document.head.appendChild(style);
+});
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Initialize elements
+    const mainCheckboxes = document.querySelectorAll('#modal-checkbox input[type="checkbox"]');
+    const showCheckboxDiv = document.getElementById('show-checkbox');
+    const mainSelectedTags = document.querySelector('.main-selected-tags');
+    const subSelectedTags = document.querySelector('.sub-selected-tags');
+    const maxSelections = 5;
+
+    
+    
+
+    // Define related options
+    const relatedOptions = {
+        '3D Printing & Printing Services (61)': [
+            '3D Printers',
+            'Printing Materials',
+            'Scanning Solutions',
+            'Software Solutions',
+            'Post-Processing Equipment'
+        ],
+        'Billing / OSS / BSS': [
+            'Billing Systems',
+            'Customer Management',
+            'Revenue Management',
+            'Order Processing',
+            'Payment Solutions'
+        ],
+        // Add more options as needed
+    };
+
+    // Track selected options
+    const selectedOptions = {
+        main: new Set(),
+        sub: new Map(), // Map parent to array of sub-options
+        total: 0 // Track total selections
+    };
+
+     function loadSavedSelections() {
+        const savedSelections = localStorage.getItem('checkboxSelections');
+        if (savedSelections) {
+            const parsed = JSON.parse(savedSelections);
+            selectedOptions.main = new Set(parsed.main);
+            selectedOptions.sub = new Map(parsed.sub.map(([key, value]) => [key, value]));
+            selectedOptions.total = parsed.total;
+
+            // Restore checkbox states
+            mainCheckboxes.forEach(checkbox => {
+                const mainOption = checkbox.parentElement.textContent.trim();
+                checkbox.checked = selectedOptions.main.has(mainOption);
+            });
+
+            updateSubOptionsDisplay();
+            updateTags();
+        }
+    }
+
+    function saveSelections() {
+        const toSave = {
+            main: Array.from(selectedOptions.main),
+            sub: Array.from(selectedOptions.sub.entries()),
+            total: selectedOptions.total
+        };
+        localStorage.setItem('checkboxSelections', JSON.stringify(toSave));
+    }
+
+    
+    function handleMainCheckboxChange(checkbox) {
+        const mainOption = checkbox.parentElement.textContent.trim();
+        
+        if (checkbox.checked) {
+            if (selectedOptions.total >= maxSelections) {
+                checkbox.checked = false;
+                alert(`You can only select up to ${maxSelections} options.`);
+                return;
+            }
+            
+            selectedOptions.main.add(mainOption);
+            selectedOptions.total++;
+            
+            if (!selectedOptions.sub.has(mainOption)) {
+                selectedOptions.sub.set(mainOption, []);
+            }
+        } else {
+            selectedOptions.main.delete(mainOption);
+            const subOptionsCount = selectedOptions.sub.get(mainOption)?.length || 0;
+            selectedOptions.total -= (1 + subOptionsCount);
+            selectedOptions.sub.delete(mainOption);
+            removeMainTagAndRelated(mainOption);
+        }
+        
+        updateSubOptionsDisplay();
+        updateTags();
+        saveSelections(); // Save after changes
+    }
+
+    function handleSubOptionChange(subOption) {
+        const parentText = subOption.getAttribute('data-parent');
+        const subText = subOption.parentElement.textContent.trim();
+        
+        if (subOption.checked) {
+            if (selectedOptions.total >= maxSelections) {
+                subOption.checked = false;
+                alert(`You can only select up to ${maxSelections} options.`);
+                return;
+            }
+            
+            if (!selectedOptions.sub.has(parentText)) {
+                selectedOptions.sub.set(parentText, []);
+            }
+            
+            const subOptions = selectedOptions.sub.get(parentText);
+            if (!subOptions.includes(subText)) {
+                subOptions.push(subText);
+                selectedOptions.total++;
+            }
+        } else {
+            const subOptions = selectedOptions.sub.get(parentText);
+            const index = subOptions.indexOf(subText);
+            if (index > -1) {
+                subOptions.splice(index, 1);
+                selectedOptions.total--;
+            }
+        }
+        
+        updateTags();
+        updateSubOptionsDisplay();
+        saveSelections(); // Save after changes
+    }
+
+
+    
+    function updateTotalCount() {
+    // Count main selections and sub-selections separately
+    const mainCount = selectedOptions.main.size;
+    let subCount = 0;
+    selectedOptions.sub.forEach((subOptions) => {
+        subCount += subOptions.length;
+    });
+    
+    selectedOptions.total = mainCount + subCount;
+    return selectedOptions.total;
+}
+
+
+   
+function updateSubOptionsDisplay() {
+    showCheckboxDiv.innerHTML = '';
+    
+    // Add selection counter at the top
+    const counterDiv = document.createElement('div');
+    counterDiv.className = 'selection-counter';
+    const total = updateTotalCount();
+    counterDiv.textContent = `Selected: ${total}/${maxSelections}`;
+    counterDiv.classList.toggle('limit-reached', total >= maxSelections);
+    showCheckboxDiv.appendChild(counterDiv);
+    
+    // Create containers for each selected main option
+    selectedOptions.main.forEach(mainOption => {
+        if (relatedOptions[mainOption]) {
+            const optionContainer = document.createElement('div');
+            optionContainer.className = 'related-options mb-4';
+            optionContainer.innerHTML = `
+                <h6 class="mb-3">${mainOption}</h6>
+                <div class="checkbox-grid checkbox-grid-2">
+                    ${relatedOptions[mainOption].map(option => `
+                        <label>
+                            <input type="checkbox" 
+                                name="sub-services" 
+                                class="sub-option" 
+                                data-parent="${mainOption}"
+                                ${selectedOptions.sub.get(mainOption)?.includes(option) ? 'checked' : ''}
+                                ${total >= maxSelections ? 'disabled' : ''}>
+                            ${option}
+                        </label>
+                    `).join('')}
+                </div>
+            `;
+            showCheckboxDiv.appendChild(optionContainer);
+
+            // Add event listeners for sub-options
+            const subOptions = optionContainer.querySelectorAll('.sub-option');
+            subOptions.forEach(subOption => {
+                subOption.addEventListener('change', () => handleSubOptionChange(subOption));
+            });
+        }
+    });
+}
+
+function handleMainCheckboxChange(checkbox) {
+    const mainOption = checkbox.parentElement.textContent.trim();
+    
+    if (checkbox.checked) {
+        // Check if adding this would exceed the limit
+        if (updateTotalCount() >= maxSelections) {
+            checkbox.checked = false;
+            alert(`You can only select up to ${maxSelections} options in total (including main and sub-options).`);
+            return;
+        }
+        
+        selectedOptions.main.add(mainOption);
+        if (!selectedOptions.sub.has(mainOption)) {
+            selectedOptions.sub.set(mainOption, []);
+        }
+    } else {
+        // Remove main option and its sub-options
+        removeMainTagAndRelated(mainOption);
+    }
+    
+    updateTotalCount();
+    updateSubOptionsDisplay();
+    updateTags();
+}
+
+
+    function handleMainCheckboxChange(checkbox) {
+    const mainOption = checkbox.parentElement.textContent.trim();
+    
+    if (checkbox.checked) {
+        // Check if adding this would exceed the limit
+        if (selectedOptions.total >= maxSelections) {
+            checkbox.checked = false;
+            alert(`You can only select up to ${maxSelections} options.`);
+            return;
+        }
+        
+        selectedOptions.main.add(mainOption);
+        selectedOptions.total++;
+        
+        if (!selectedOptions.sub.has(mainOption)) {
+            selectedOptions.sub.set(mainOption, []);
+        }
+    } else {
+        // Remove main option and its sub-options
+        removeMainTagAndRelated(mainOption);
+    }
+    
+    updateSubOptionsDisplay();
+    updateTags();
+}
+
+    function handleSubOptionChange(subOption) {
+    const parentText = subOption.getAttribute('data-parent');
+    const subText = subOption.parentElement.textContent.trim();
+    
+    if (subOption.checked) {
+        // Check if adding this would exceed the limit
+        if (updateTotalCount() >= maxSelections) {
+            subOption.checked = false;
+            alert(`You can only select up to ${maxSelections} options in total (including main and sub-options).`);
+            return;
+        }
+        
+        if (!selectedOptions.sub.has(parentText)) {
+            selectedOptions.sub.set(parentText, []);
+        }
+        
+        const subOptions = selectedOptions.sub.get(parentText);
+        if (!subOptions.includes(subText)) {
+            subOptions.push(subText);
+        }
+    } else {
+        const subOptions = selectedOptions.sub.get(parentText);
+        const index = subOptions.indexOf(subText);
+        if (index > -1) {
+            subOptions.splice(index, 1);
+        }
+    }
+    
+    updateTotalCount();
+    updateTags();
+    updateSubOptionsDisplay();
+}
+
+    function updateTags() {
+        // Clear existing tags
+        mainSelectedTags.innerHTML = '';
+        subSelectedTags.innerHTML = '';
+        
+        // Add main tags
+        selectedOptions.main.forEach(mainOption => {
+            addMainTag(mainOption);
+        });
+        
+        // Add sub tags
+        selectedOptions.sub.forEach((subOptions, parent) => {
+            subOptions.forEach(subOption => {
+                addSubTag(subOption, parent);
+            });
+        });
+    }
+
+    function addMainTag(text) {
+        const mainTag = document.createElement('div');
+        mainTag.className = 'selected-tag';
+        mainTag.setAttribute('data-main', text);
+        mainTag.innerHTML = `
+            ${text}
+            <span class="remove-tag">×</span>
+        `;
+        
+        mainTag.querySelector('.remove-tag').addEventListener('click', (e) => {
+            e.stopPropagation();
+            const checkbox = [...mainCheckboxes].find(cb => 
+                cb.parentElement.textContent.trim() === text
+            );
+            if (checkbox) {
+                checkbox.checked = false;
+                handleMainCheckboxChange(checkbox);
+            }
+        });
+        
+        mainSelectedTags.appendChild(mainTag);
+    }
+
+   function addSubTag(text, parentText) {
+    const subTag = document.createElement('div');
+    subTag.className = 'selected-tag';
+    subTag.setAttribute('data-sub', text);
+    subTag.setAttribute('data-parent', parentText);
+    subTag.innerHTML = `
+        ${text}
+        <span class="remove-tag">×</span>
+    `;
+    
+    subTag.querySelector('.remove-tag').addEventListener('click', (e) => {
+        e.stopPropagation();
+        
+        // Find and uncheck the sub-option checkbox
+        const subOption = document.querySelector(`input.sub-option[data-parent="${parentText}"]`);
+        if (subOption) {
+            subOption.checked = false;
+        }
+
+        // Remove from selectedOptions
+        const subOptions = selectedOptions.sub.get(parentText);
+        if (subOptions) {
+            const index = subOptions.indexOf(text);
+            if (index > -1) {
+                subOptions.splice(index, 1);
+                selectedOptions.total--; // Decrement total count
+            }
+        }
+
+        // Remove the tag
+        subTag.remove();
+
+        // Update the display
+        updateSubOptionsDisplay();
+    });
+    
+    subSelectedTags.appendChild(subTag);
+}
+
+    function removeMainTagAndRelated(mainOption) {
+        const mainTag = mainSelectedTags.querySelector(`[data-main="${mainOption}"]`);
+        if (mainTag) mainTag.remove();
+        
+        const relatedSubTags = subSelectedTags.querySelectorAll(`[data-parent="${mainOption}"]`);
+        relatedSubTags.forEach(tag => tag.remove());
+
+        selectedOptions.main.delete(mainOption);
+        selectedOptions.sub.delete(mainOption);
+        updateTotalCount();
+        saveSelections(); // Save after removing
+    }
+
+    // Initialize event listeners for main checkboxes
+     mainCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', () => handleMainCheckboxChange(checkbox));
+    });
+
+    loadSavedSelections();
+
+    // Add clear function if needed
+    window.clearSavedSelections = function() {
+        localStorage.removeItem('checkboxSelections');
+        selectedOptions.main.clear();
+        selectedOptions.sub.clear();
+        selectedOptions.total = 0;
+        mainCheckboxes.forEach(checkbox => checkbox.checked = false);
+        updateSubOptionsDisplay();
+        updateTags();
+    };
+
+    // Initial counter update
+    updateSelectionCounter();
+});
+</script>
+
+
+
+<script>
+     // Form data persistence in localStorage
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get all form inputs that need to be saved
+            const formInputs = [
+                'firstname',
+                'lastname',
+                'country',
+                'region',
+                'Nationality',
+                'phone',
+                'companyname',
+                'jobtitle',
+                'companytype',
+                'Industry',
+                'country-items',
+                'emailid',
+                'Confirmemail',
+            ];
+        
+            // Load saved data when page loads
+            formInputs.forEach(inputId => {
+                const savedValue = localStorage.getItem(inputId);
+                const element = document.getElementById(inputId);
+                
+                if (savedValue && element) {
+                    if (element.tagName === 'SELECT') {
+                        element.value = savedValue;
+                        // Trigger change event to update badge and phone country
+                        const event = new Event('change');
+                        element.dispatchEvent(event);
+                    } else {
+                        element.value = savedValue;
+                        // Trigger input event to update badge
+                        const event = new Event('input');
+                        element.dispatchEvent(event);
+                    }
+                }
+            });
+        
+            // Save form data when input changes
+            formInputs.forEach(inputId => {
+                const element = document.getElementById(inputId);
+                
+                if (element) {
+                    element.addEventListener('change', function() {
+                        localStorage.setItem(inputId, this.value);
+                    });
+                    
+                    element.addEventListener('input', function() {
+                        localStorage.setItem(inputId, this.value);
+                    });
+                }
+            });
+        
+            // Clear localStorage when form is successfully submitted
+            const form = document.getElementById('employeeForm');
+            
+            form.addEventListener('submit', function(e) {
+                if (this.checkValidity()) {
+                    formInputs.forEach(inputId => {
+                        localStorage.removeItem(inputId);
+                    });
+                }
+            });
+        });
+
+</script>
+
+
+</body>
+
+</html>
