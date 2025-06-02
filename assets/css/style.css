@@ -251,7 +251,39 @@ img {
 	}
 }
 
+.collaps-arrow {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
 
+.collaps-arrow:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+.collaps-arrow[aria-expanded="true"] {
+    transform: rotate(180deg);
+}
+
+.ticket-details {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.ticket-details h6 {
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.collapse {
+    transition: all 0.3s ease-out;
+}
 
 /* home page */
 

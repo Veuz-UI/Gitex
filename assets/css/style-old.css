@@ -327,13 +327,7 @@ img {
 	justify-content: center; align-items: center;
   }
   
-  .modal-content {
-	background: white;
-	padding: 30px;
-	border-radius: 12px;
-	width: 400px;
-	position: relative;
-  }
+
   
   .btn-group {
 	margin-top: 20px;
@@ -1974,10 +1968,11 @@ body .modal-open {
 	font-weight: 600;
 	font-size: 20px;
 	color: #000;
+	margin-bottom: 20px;
 }
 
 .ticket-outer p {
-	font-weight: 600;
+	font-weight: 500;
 	font-size: 14px;
 	line-height: 108%;
 	letter-spacing: 0.04em;
@@ -2006,9 +2001,7 @@ body .modal-open {
 
 .row.table-row {
 	padding-bottom: 20px;
-	align-items: center;
 	border-bottom: 1px solid #ACACAC38;
-	padding-top: 18px;
 	position: relative;
 }
 
@@ -2034,14 +2027,6 @@ body .modal-open {
 	padding: 20px;
 }
 
-.table-row:first-child {
-	padding-top: 0;
-}
-
-.table-row:last-child {
-	border: 0;
-	padding-bottom: 0;
-}
 
 .ticket-total-div {
 	display: flex;
@@ -2509,7 +2494,55 @@ body .modal-open {
 	background-color: var(--primary-color);
 }
 
+ .alert {
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    animation: slideIn 0.3s ease-out;
+}
 
+.alert-success {
+    background-color: #49b964;
+    color: white;
+    border: none;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.modal-content {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 
 

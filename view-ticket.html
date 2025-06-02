@@ -6,15 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GITEX NIGERIA</title>
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/new-style-visitor.css">
   <link rel="stylesheet" href="assets/css/style-old.css">
   <link rel="stylesheet" href="assets/fonts/webfont/stylesheet.css">
   <link rel="icon" type="image/png" href="assets/img/fav-icon.png">
   <link rel="icon" href="assets/img/fav-icon.png" type="image/png">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.4.0/build/css/intlTelInput.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
@@ -33,15 +29,10 @@
 
     <div>
       <div class="registration-text">GITEX NIGERIA TECH EXPO + <br> FUTURE ECONOMY SUMMIT</div>
-       <a href="matchmaking.html">
-         <button class="btn-main " type="button" >
+      <a href="matchmaking.html">
+        <button class="btn-main " type="button">
           <i class="animation"></i>Matchmaking<i class="animation"></i>
         </button>
-       </a>
-       <a target="_blank" href="index.html">
-        <button class="btn-main color-white"><i class="animation"></i>
-          Logout<i class="animation"></i>
-      </button>
       </a>
     </div>
   </div>
@@ -51,89 +42,210 @@
   <div class="content">
     <section class="register-main">
 
-        <div class="row justify-content-center">
 
-          <div>
-          
-            <div class="ticket-outer">
-              <h3>Orders you made for veuzevent</h3>
-              <div class="ticket-box mb-5">
 
-                <div class="row table-row">
-                  <div class="col-lg-2">
-                    <h6>Order ID</h6>
-                    <p>10960000000175009</p>
-                  </div>
-                  <div class="col-lg-2">
-                     <h6>Payment Mode</h6>
-                    <p>Online</p>
-                  </div>
-                  <div class="col-lg-2">
-                    <h6>Purchased By</h6>
-                    <p>Bisharu Rahman</p>
-                  </div>
-                   <div class="col-lg-2">
-                    <h6>No. of Tickets</h6>
-                    <p>3</p>
-                  </div>
-                  <div class="col-lg-2">
-                   
-                  </div>
-                  <div class="col-lg-2 d-flex justify-content-end">
-                    :
-                  </div>
+
+
+      <div class="ticket-outer">
+        <h3>Orders you made for veuzevent</h3>
+        <div class="ticket-box mb-3">
+
+          <div class="row table-row">
+            <div class="col-lg-3">
+              <h6>Order ID</h6>
+              <p>10960000000175009</p>
+            </div>
+            <div class="col-lg-2">
+              <h6>Payment Mode</h6>
+              <p>Online</p>
+            </div>
+            <div class="col-lg-3">
+              <h6>Purchased By</h6>
+              <p>Bisharu Rahman</p>
+            </div>
+            <div class="col-lg-2">
+              <h6>No. of Tickets</h6>
+              <p>3</p>
+            </div>
+            <div class="col-lg-2 d-flex justify-content-end">
+              <div class="d-flex align-items-center gap-2">
+                <div class="dropdown ticket-view-dropdown">
+                  <button class="btn btn-link dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v"></i>
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="#"><i class="far fa-window-close me-2"></i></i>Cancel
+                        Order</a>
+                    </li>
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-download me-2"></i>Download Tickets</a>
+                    </li>
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-print me-2"></i>Print Tickets</a></li>
+                  </ul>
                 </div>
-
-
-              </div>
-              <div class="ticket-box">
-                <div class="ticket-total-div">
-                  <div>
-                    <p>Premium Ticket</p>
-
-                  </div>
-                  <div>
-                    <p class="ticket-amount">EUR 2,000.00</p>
-
-                  </div>
-
+                <div class="collaps-arrow" data-bs-toggle="collapse" data-bs-target="#orderDetails"
+                  aria-expanded="false">
+                  <i class="fas fa-angle-down"></i>
                 </div>
-                <div class="ticket-total-div">
-                  <div>
-                    <p>VAT 19% </p>
-
-                  </div>
-                  <div>
-                    <p>EUR 45.00</p>
-
-                  </div>
-
-                </div>
-
-                <div class="ticket-total-div ticket-grand-total">
-                  <div>
-                    <p>Total</p>
-
-                  </div>
-                  <div>
-                    <p class="ticket-grand-total-amount">EUR 2,045.00</p>
-
-                  </div>
-
-                </div>
-
               </div>
             </div>
-            <div class="register-btn">
-              <a href="index.html"><button class="primary-btn pink-btn">Logout</button></a>
-              <a href="index-ticket.html"><button class="secondary-btn">Add More</button></a>
-            </div>
-
-
-
           </div>
 
+          <div class="collapse" id="orderDetails">
+            <div class="collaps-ticket-nav">
+              <ul class="nav nav-tabs" id="ticketTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="details-tab" data-bs-toggle="tab" data-bs-target="#details"
+                    type="button" role="tab" aria-controls="details" aria-selected="true">
+                    Order Summary
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="attendees-tab" data-bs-toggle="tab" data-bs-target="#attendees"
+                    type="button" role="tab" aria-controls="attendees" aria-selected="false">
+                    Event Tickets <span style="color: gray;">(2)</span>
+                  </button>
+                </li>
+              </ul>
+              <div class="tab-content" id="ticketTabContent">
+                <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="details-tab">
+                  <h5>Buyer Information</h5>
+                  <div class="row table-row">
+                    <div class="col-lg-3">
+                      <h6>Name</h6>
+                      <p>Bisharu Rahman</p>
+                      <small>On Jun 01, 2025 - 09:58 AM</small>
+                    </div>
+                    <div class="col-lg-3">
+                      <h6>Email</h6>
+                      <p>bisharu@veuz.in</p>
+                    </div>
+                    <div class="col-lg-3">
+                      <h6>Event Info</h6>
+                      <p class="text-success">GITEX Nigeria</p>
+                    </div>
+                  </div>
+
+                  <div class="collapstable">
+                    <table>
+                      <tr>
+                        <th>Ticket Details</th>
+                        <th style="text-align: right;">Quantity</th>
+                      </tr>
+                      <tr>
+                        <td>free</td>
+                        <td style="text-align: right;">3</td>
+                      </tr>
+                      <tr class="">
+                        <td style="font-weight: 600;">Total</td>
+                        <td style="text-align: right;font-weight: 600;">3</td>
+                      </tr>
+                    </table>
+                  <h6 class="no-cancel">*No cancellation policy: Order cancellation not allowed.</h6>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="attendees" role="tabpanel" aria-labelledby="attendees-tab">
+                  <table class="ticket-table">
+                    <thead>
+                      <tr>
+                        <th>Ticket ID</th>
+                        <th>Name</th>
+                        <th>Email Address</th>
+                        <th>Ticket Class</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>109600000001750091</td>
+                        <td>Bisharunnn Rahman</td>
+                        <td>bisharu@veuz.in</td>
+                        <td>free</td>
+                        <td>
+                          <div class="dropdown ticketdropdown">
+                              <button class="btn ticket-3dot-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  <i class="fas fa-ellipsis-v"></i>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-end">
+                                  <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editTicketModal"><i class="fas fa-pencil-alt me-2"></i>Edit</a></li>
+                                  <li><a class="dropdown-item" href="badge.html"><i class="fas fa-eye me-2"></i>View Ticket</a></li>
+                                  <li><a class="dropdown-item" href="#"><i class="fas fa-print me-2"></i>Download Ticket</a></li>
+                              </ul>
+                          </div>
+                      </td>
+                      </tr>
+                      <tr>
+                        <td>109600000001750092</td>
+                        <td>Bisharu Rahman</td>
+                        <td>bishrum19@gmail.com</td>
+                        <td>free</td>
+                        <td>
+                          <div class="dropdown ticketdropdown">
+                              <button class="btn ticket-3dot-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  <i class="fas fa-ellipsis-v"></i>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-end">
+                                  <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editTicketModal"><i class="fas fa-pencil-alt me-2"></i>Edit</a></li>
+                                  <li><a class="dropdown-item" href="#"><i class="fas fa-eye me-2"></i>View Ticket</a></li>
+                                  <li><a class="dropdown-item" href="#"><i class="fas fa-print me-2"></i>Download Ticket</a></li>
+                              </ul>
+                          </div>
+                      </td>
+                      </tr>
+                      <tr>
+                        <td>109600000001750093</td>
+                        <td>Bisharu Rahman</td>
+                        <td>bishrum159@gmail.com</td>
+                        <td>free</td>
+                        <td>
+                          <div class="dropdown ticketdropdown">
+                              <button class="btn ticket-3dot-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  <i class="fas fa-ellipsis-v"></i>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-end">
+                                  <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editTicketModal"><i class="fas fa-pencil-alt me-2"></i>Edit</a></li>
+                                  <li><a class="dropdown-item" href="#"><i class="fas fa-eye me-2"></i>View Ticket</a></li>
+                                  <li><a class="dropdown-item" href="#"><i class="fas fa-print me-2"></i>Download Ticket</a></li>
+                              </ul>
+                          </div>
+                      </td>
+                      </tr>
+                      <tr>
+                        <td>109600000001750093</td>
+                        <td>Bisharu Rahman51556598959</td>
+                        <td>bishrum159@gmail.com</td>
+                        <td>free</td>
+                        <td>
+                          <div class="dropdown ticketdropdown">
+                              <button class="btn ticket-3dot-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  <i class="fas fa-ellipsis-v"></i>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-end">
+                                  <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editTicketModal"><i class="fas fa-pencil-alt me-2"></i>Edit</a></li>
+                                  <li><a class="dropdown-item" href="#"><i class="fas fa-eye me-2"></i>View Ticket</a></li>
+                                  <li><a class="dropdown-item" href="#"><i class="fas fa-print me-2"></i>Download Ticket</a></li>
+                              </ul>
+                          </div>
+                      </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
         </div>
+      </div>
+
+      <div class="register-btn">
+        <a href="index.html"><button class="primary-btn pink-btn">Logout</button></a>
+        <a href="index-ticket.html"><button class="secondary-btn">Add More</button></a>
+      </div>
+
     </section>
   </div>
 
@@ -153,23 +265,184 @@
 
 
 
+  <div class="modal fade" id="editTicketModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header premium-header">
+                <h5 class="modal-title">Edit Ticket Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editTicketForm">
+                    <div class="mb-3">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-control" value="Bisharunnn Rahman">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-control" value="bisharu@veuz.in">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Company</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Designation</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Ticket Type</label>
+                        <select class="form-select">
+                            <option>Free Pass</option>
+                            <option>VIP Pass</option>
+                            <option>Premium Pass</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-success" id="saveTicketChanges">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
 
   <script src="assets/js/script.js"></script>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/popper.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/font-awsome.js"></script>
 
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Initialize all dropdowns
+      const dropdowns = document.querySelectorAll('.dropdown-toggle');
+      dropdowns.forEach(dropdown => {
+        new bootstrap.Dropdown(dropdown, {
+          offset: [0, 8]
+        });
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Initialize all dropdowns
+      var dropdownElementList = [].slice.call(document.querySelectorAll('[data-bs-toggle="dropdown"]'));
+      dropdownElementList.map(function (dropdownToggleEl) {
+        return new bootstrap.Dropdown(dropdownToggleEl, {
+          offset: [0, 8] // Adds some spacing between button and dropdown
+        });
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Handle collapse arrow rotation and background
+      const collapseArrows = document.querySelectorAll('.collaps-arrow');
+
+      collapseArrows.forEach(arrow => {
+        arrow.addEventListener('click', function () {
+          // Toggle aria-expanded attribute
+          const isExpanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', !isExpanded);
+
+          // Find the collapse element
+          const collapseTarget = document.querySelector(this.getAttribute('data-bs-target'));
+
+          // Add event listener for collapse transitions
+          collapseTarget.addEventListener('shown.bs.collapse', () => {
+            this.setAttribute('aria-expanded', 'true');
+          });
+
+          collapseTarget.addEventListener('hidden.bs.collapse', () => {
+            this.setAttribute('aria-expanded', 'false');
+          });
+        });
+      });
+    });
+  </script>
+
+
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var dropdowns = document.querySelectorAll('.dropdown-toggle');
-        dropdowns.forEach(function(dropdown) {
-            new bootstrap.Dropdown(dropdown);
+document.addEventListener('DOMContentLoaded', function() {
+    const editModal = document.getElementById('editTicketModal');
+    const editForm = document.getElementById('editTicketForm');
+    let editingRow = null;
+
+    // Handle modal opening
+    document.querySelectorAll('[data-bs-target="#editTicketModal"]').forEach(editBtn => {
+        editBtn.addEventListener('click', function(e) {
+            // Get the current row
+            editingRow = e.target.closest('tr');
+            
+            // Populate form with current row data
+            const name = editingRow.querySelector('td:nth-child(2)').textContent;
+            const email = editingRow.querySelector('td:nth-child(3)').textContent;
+            const ticketType = editingRow.querySelector('td:nth-child(4)').textContent;
+            
+            // Set form values
+            editForm.querySelector('input[type="text"]').value = name;
+            editForm.querySelector('input[type="email"]').value = email;
+            editForm.querySelector('select').value = ticketType.charAt(0).toUpperCase() + ticketType.slice(1) + ' Pass';
         });
     });
+
+    // Handle save changes
+    document.getElementById('saveTicketChanges').addEventListener('click', function() {
+        if (!editingRow) return;
+
+        // Get form values
+        const newName = editForm.querySelector('input[type="text"]').value;
+        const newEmail = editForm.querySelector('input[type="email"]').value;
+        const newTicketType = editForm.querySelector('select').value.toLowerCase().replace(' pass', '');
+
+        // Update table cells
+        editingRow.querySelector('td:nth-child(2)').textContent = newName;
+        editingRow.querySelector('td:nth-child(3)').textContent = newEmail;
+        editingRow.querySelector('td:nth-child(4)').textContent = newTicketType;
+
+        // Show success toast
+        showSuccessToast('Ticket information updated successfully!');
+
+        // Close modal
+        const modal = bootstrap.Modal.getInstance(editModal);
+        modal.hide();
+
+        // Reset editing row
+        editingRow = null;
+    });
+
+    // Helper function for success toast
+    function showSuccessToast(message) {
+        const toast = document.createElement('div');
+        toast.className = 'alert alert-success position-fixed top-0 end-0 m-3';
+        toast.style.zIndex = '9999';
+        toast.textContent = message;
+        document.body.appendChild(toast);
+
+        setTimeout(() => {
+            toast.style.animation = 'slideOut 0.3s ease-in forwards';
+            setTimeout(() => toast.remove(), 300);
+        }, 3000);
+    }
+});
 </script>
+  
+
 
 
 
