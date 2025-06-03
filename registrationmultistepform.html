@@ -3,11 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>GITEX NIGERIA</title>
     <link rel="icon" type="image/png" href="assets/img/fav-icon.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/new-style-visitor.css">
+    <link rel="stylesheet" href="assets/fonts/webfont/stylesheet.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -137,11 +138,13 @@
                             </ul>
                         </div>
                     </div>
+                    <div id="validationMessage" class="text-danger mt-2" style="display: none;"></div>
                 </div>
                 <div class="modal-footer">
                     <div class="tags-container" id="tagsContainer"></div>
                     <button type="button" class="back-btn" data-bs-dismiss="modal">CANCEL</button>
-                    <button type="button" class="buy-btn" id="applyBtn" disabled>APPLY</button>
+                    <button type="button" class="buy-btn" id="applyBtn" onclick="clearValidationMessage()" disabled>APPLY</button>
+                    
                 </div>
             </div>
         </div>
@@ -2868,7 +2871,8 @@
                                         
                                         <div class="row">
                                             <div class="form-end-btn">
-                                                <label class="form-label required-field">Select Your Areas of Interest</label>
+                                                <label for="servicepopup_${attendeeIndex}" class="form-label required-field">Select Your Areas of Interest</label>
+                                                <div class="invalid-feedback" id="servicepopupError_${attendeeIndex}"></div>
                                                 <div>
                                                     <button type="button" class="buy-btn solution-btn pink-btn" data-bs-toggle="modal" data-bs-target="#solutionsModal">
                                                         Select solution/Products <span class="arrow-right">→</span>
@@ -3417,14 +3421,6 @@
     </script>
 
     <script>
-        /**
-         * Solutions Modal - Complete Working Version
-         * With product and service limits
-         * Dynamic product and service generation
-         * Enhanced features and UI
-         */
-
-        // Sample data structure for products and their services
         
 const productsData = {
     "5G & Telecommunications": {
@@ -3563,7 +3559,7 @@ const productsData = {
             });
 
             if ($productHeader.length > 0 && totalServiceCount > 0) {
-                const serviceCountText = ` (${selectedServiceCount}/${totalServiceCount} services selected)`;
+                const serviceCountText = ` (${selectedServiceCount}/${totalServiceCount} services selected`;
                 let headerText = $productHeader.html().split('<small')[0].trim(); // Get text before existing small tag
                 $productHeader.html(`
                     ${headerText}
@@ -3604,10 +3600,13 @@ const productsData = {
                 const isChecked = $(this).prop('checked');
 
                 if (isChecked) {
-                    if (Object.keys(formSelections[formId]).length >= MAX_PRODUCTS) {
+                    const currentTotalSelections = getTotalSelections(formSelections[formId]);
+                    if (currentTotalSelections >= MAX_PRODUCTS) {
                         $(this).prop('checked', false);
-                        alert(`You can select a maximum of ${MAX_PRODUCTS} products.`);
+                        showValidationMessage(`You can only select a total of ${MAX_PRODUCTS} items.`);
                         return;
+                    } else {
+                        clearValidationMessage();
                     }
                     formSelections[formId][productId] = {
                         name: productsData[productId].name,
@@ -3635,12 +3634,14 @@ const productsData = {
                 if (!formSelections[formId] || !formSelections[formId][productId]) return;
 
                 if (isChecked) {
-                    if (formSelections[formId][productId].services.length >= MAX_SERVICES_PER_PRODUCT) {
-                        $(this).prop('checked', false);
-                        alert(
-                            `You can select a maximum of ${MAX_SERVICES_PER_PRODUCT} services for each product.`);
-                        return;
-                    }
+                    const currentTotalSelections = getTotalSelections(formSelections[formId]);
+                        if (currentTotalSelections >= MAX_PRODUCTS) {
+                            $(this).prop('checked', false);
+                            showValidationMessage(`You can only select a total of ${MAX_PRODUCTS} items.`);
+                            return;
+                        } else {
+                            clearValidationMessage();
+                        }
                     if (!formSelections[formId][productId].services.includes(serviceName)) {
                         formSelections[formId][productId].services.push(serviceName);
                     }
@@ -3656,6 +3657,23 @@ const productsData = {
                 updateModalTags();
             });
 
+                    function showValidationMessage(message) {
+                        $('#validationMessage').text(message).show();
+                    }
+
+                    function clearValidationMessage() {
+                        $('#validationMessage').text('').hide();
+                    }
+
+
+                    function getTotalSelections(selections) {
+    let total = 0;
+    for (const productId in selections) {
+        total += 1; // 1 for the product
+        total += selections[productId].services.length; // Add all its services
+    }
+    return total;
+}
 
             // Search functionality for solutions modal
             $(document).on('input', '#searchInput', function () {
@@ -3665,21 +3683,7 @@ const productsData = {
                     $(this).toggle(productText.includes(searchText));
                 });
             });
-
-            // Remove tag in modal
-            $(document).on('click', '.tag-close', function () {
-                const tagType = $(this).data('type');
-                const productId = $(this).data('product');
-                const serviceName = $(this).data('service');
-
-                if (tagType === 'product') {
-                    $(`input.category-checkbox[value="${productId}"]`).prop('checked', false).trigger(
-                        'change');
-                } else if (tagType === 'service') {
-                    $(`input.service-checkbox[data-product="${productId}"][data-service-name="${serviceName}"]`)
-                        .prop('checked', false).trigger('change');
-                }
-            });
+            
 
 
 
@@ -3711,9 +3715,10 @@ const productsData = {
                 }
 
                 if (!servicesValid) {
-                    alert(
-                        `You must select at least ${MIN_SERVICES_PER_PRODUCT} service for ${productWithMissingServices}.`);
+                    showValidationMessage(`You must select at least ${MIN_SERVICES_PER_PRODUCT} Service .`);
                     return;
+                } else {
+                    clearValidationMessage();
                 }
 
                 // Update the form with current selections
@@ -3917,12 +3922,11 @@ const productsData = {
 
                 let serviceCountText = "";
                 if (totalServiceCount > 0) {
-                    serviceCountText =
-                        ` <small class="text-muted">(${selectedServiceCount}/${totalServiceCount} services selected)</small>`;
+                   
                 }
 
                 $subitemsList.append(`
-                <li class="list-group-item bg-light fw-bold">
+                <li class="list-group-item bg-light fw-bold ps-2">
                     ${product.name}${serviceCountText}
                 </li>
             `);
@@ -4044,7 +4048,32 @@ const productsData = {
     </script>
 
     
+<script>
+function setupWorkshopLimit(attendeeIndex, maxSelection = 6) {
+    const selector = `input[name="workshop_${attendeeIndex}[]"]`;
+    const errorBox = document.getElementById(`workshopError_${attendeeIndex}`);
 
+    $(document).on('change', selector, function () {
+        const checkedCount = $(`input[name="workshop_${attendeeIndex}[]"]:checked`).length;
+
+        if (checkedCount > maxSelection) {
+            this.checked = false;
+            errorBox.innerText = `You can only select a maximum of ${maxSelection} workshops.`;
+            errorBox.classList.add('text-danger');
+        } else {
+            errorBox.innerText = '';
+        }
+    });
+}
+
+$(document).ready(function () {
+    setupWorkshopLimit(0);
+    setupWorkshopLimit(1);
+    setupWorkshopLimit(2);
+});
+
+
+</script>
 
 
 
