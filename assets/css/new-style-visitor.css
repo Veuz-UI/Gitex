@@ -2176,9 +2176,6 @@ ul.accordion-list {
         padding: 10px;
     }
 
-    .total-section {
-        margin-bottom: 10px;
-    }
 
     .checkout-btn {
         width: 100%;
@@ -2255,7 +2252,7 @@ ul.accordion-list {
     font-weight: bold;
     font-size: 14px;
     margin-bottom: 5px;
-    color: #000066;
+    color: #1e1e1e;
 }
 
 
@@ -2327,7 +2324,6 @@ ul.accordion-list {
 
     .total-section {
         width: 100%;
-        margin-bottom: 10px;
     }
 
     .checkout-btn {
@@ -2944,21 +2940,12 @@ ul.accordion-list {
 
 /* Enhanced ticket summary popup styles */
 .ticket-summary-popup {
-    position: fixed;
-    bottom: 80px;
     right: 0;
     /* Aligned to the right edge of the window */
     left: auto;
     width: 420px;
     max-height: 500px;
-    background-color: white;
-    border-radius: 8px 0 0 8px;
-    /* Rounded corners only on the left side */
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
-    z-index: 1001;
-    display: none;
-    overflow: hidden;
-    transition: all 0.3s ease;
+
 }
 
 .ticket-summary-header {
@@ -2997,11 +2984,6 @@ ul.accordion-list {
     margin-bottom: 12px;
 }
 
-.ticket-name {
-    font-weight: bold;
-    font-size: 14px;
-    margin-bottom: 5px;
-}
 
 .ticket-details {
     display: flex;
@@ -3050,15 +3032,7 @@ ul.accordion-list {
     font-size: 13px;
 }
 
-.ticket-total-section .promocode-input button {
-    background: linear-gradient(91deg, #1F2383 -0.01%, #0B0442 99.99%);
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 0 4px 4px 0;
-    font-size: 13px;
-    cursor: pointer;
-}
+
 
 .ticket-total-section .total-row {
     font-weight: bold;
@@ -5224,6 +5198,15 @@ select.form-control {
 }
 
 @media (max-width: 768px) {
+    .checkout-btn{
+        font-size: 14px;
+        font-weight: 500;
+        padding: 8px 10px;
+        width: fit-content;
+    }
+    .footer .logo-width{
+        width: 120px;
+    }
 
     .fixed-checkout-bar {
         padding: 10px;
@@ -5231,9 +5214,6 @@ select.form-control {
         /* Make sure this is below the popup z-index */
     }
 
-    .total-section {
-        margin-bottom: 10px;
-    }
 
     .checkout-btn {
         width: 100%;
@@ -5249,7 +5229,6 @@ select.form-control {
 
     .total-section {
         width: 100%;
-        margin-bottom: 10px;
     }
 
     .checkout-btn {
@@ -5260,7 +5239,6 @@ select.form-control {
         flex-direction: column;
         align-items: stretch;
         gap: 10px;
-        padding: 5px 0;
     }
 
     .promocode-input,
@@ -5280,7 +5258,7 @@ select.form-control {
     .ticket-summary-popup {
         width: 100%;
         max-height: none;
-        bottom: 65px;
+        bottom: 10px;
         left: 0;
         right: 0;
         border-radius: 12px 12px 0 0;
@@ -5302,17 +5280,7 @@ select.form-control {
     }
 
     /* Add a semi-transparent overlay behind the popup for better focus */
-    body.popup-open::after {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 1001;
-        /* Between checkout bar and popup */
-    }
+ 
 
     .registration-container .step-indicator {
         padding: 8px 0;
@@ -5365,12 +5333,11 @@ select.form-control {
 
 @media (max-width: 480px) {
     .ticket-summary-popup {
-        width: 100%;
-        /* Full width on very small screens */
+        width: 90%;
+        margin: auto;
         right: 0;
         left: 0;
         border-radius: 8px 8px 0 0;
-        /* Rounded top only */
     }
 
     .registration-container .step-indicator {
