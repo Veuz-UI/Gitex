@@ -5163,6 +5163,10 @@ select.form-control {
     .messages-container{
         padding: 15px;
     }
+
+    .min-height-70{
+        min-height: auto;
+    }
     
     .message.received .message-content{
         margin: 0px;
