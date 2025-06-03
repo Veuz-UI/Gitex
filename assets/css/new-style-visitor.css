@@ -5156,6 +5156,12 @@ select.form-control {
     min-height: 65vh;
 }
 
+.table-tab{
+    overflow: scroll;
+    width: auto;
+    display: none;
+    }
+
 
 
 
@@ -5199,10 +5205,7 @@ select.form-control {
         gap: 20px;
     }
 
-    .table-tab{
-    overflow: scroll;
-    width: auto;
-    }
+    
     .collapstable table{
         margin-top: 10px;
     }
