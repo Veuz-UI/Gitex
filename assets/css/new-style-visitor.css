@@ -5149,6 +5149,9 @@ select.form-control {
         font-size: 14px;
         flex-wrap: wrap;
     }
+    .pass-cards{
+        padding: 0px 10px;
+    }
 
     #custom-toast{
         right: auto;
