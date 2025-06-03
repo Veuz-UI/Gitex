@@ -5168,7 +5168,9 @@ select.form-control {
     }
 
     .min-height-70{
-        min-height: auto;
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
     }
     
     .message.received .message-content{
