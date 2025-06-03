@@ -5159,7 +5159,7 @@ select.form-control {
 .table-tab{
     overflow: scroll;
     width: auto;
-    display: none;
+ 
     }
 
 
@@ -5177,6 +5177,9 @@ select.form-control {
         min-height: 60vh;
         display: flex;
         align-items: center;
+    }
+    .table-tab{
+        display: none;
     }
     
     .message.received .message-content{
