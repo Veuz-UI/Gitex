@@ -5171,6 +5171,11 @@ select.form-control {
 
 
 @media (max-width: 992px) {
+    .checkbox-grid label{
+        font-size: 14px;
+        flex-direction: wrap;
+    }
+
     #custom-toast{
         right: auto;
         margin: 0px 20px;
