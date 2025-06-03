@@ -16,6 +16,10 @@ body {
     touch-action: manipulation;
 }
 
+.h-screen {
+    min-height: 100vh;
+}
+
 .h-screen .footer{
     position: absolute;
     width: 100%;
@@ -5148,10 +5152,18 @@ select.form-control {
     color: gray;
 }
 
+.min-height-70{
+    min-height: 65vh;
+}
+
 
 
 
 @media (max-width: 992px) {
+    .messages-container{
+        padding: 15px;
+    }
+    
     .message.received .message-content{
         margin: 0px;
     }
@@ -5389,9 +5401,13 @@ select.form-control {
     .registration-summary {
         padding: 20px;
     }
-    
+
     .footer {
         padding: 30px 20px 15px;
+    }
+    .collaps-ticket-nav .nav-tabs .nav-link{
+        font-size: 14px;
+        margin-right: 10px;
     }
 }
 

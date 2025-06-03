@@ -45,8 +45,7 @@
   <!-- loader -->
 
 
-<div class="h-screen">
-    <div class="inner-banner">
+  <div class="inner-banner">
     <a href="index.html"><img src="assets/img/ni-header.png" class="img-fluid"></a>
     <div>
       <div class="registration-text">GITEX NIGERIA TECH EXPO + <br> FUTURE ECONOMY SUMMIT</div>
@@ -56,9 +55,10 @@
 
 
 
-  <section class="content">
+  <section class="content min-height-70">
     <div class="custom-container">
       <div class="sub-wrapper">
+        <img src="assets/img/login-img.png" alt="">
         <h4>OTP Verification</h4>
         <div class="sub-wrapper-cntnt">
           <p>Enter the OTP sent to <span>demo@demo.com</span></p>
@@ -73,11 +73,12 @@
           <p id="otpError" style="color: red; margin-top: 10px; display: none;">Please enter all 4 digits of the OTP.</p>
           </form>
 
-          <h6 class="resend-otp">
+         <h6 class="resend-otp">
               Didn't you receive the OTP? <br>
-              <span id="timer">Time remaining: <span id="countdown">10</span></span>
+              <span id="timer">Time remaining: <span id="countdown">00:10</span></span>
               <span id="resend-section" style="display: none;">
-                  <a href="#" id="resend-link">Resend OTP</a>
+                  <a href="#" id="resend-link" onclick="showOTPToast(); return false;">Resend OTP</a>
+
               </span>
           </h6>
           <a href="view-ticket.html"><button class="secondary-btn" id="verify-btn">Verify</button></a>
@@ -98,26 +99,25 @@
       </div>
     </div>
   </section>
-</div>
 
-<div id="toast" style="
-    visibility: hidden;
-    min-width: 200px;
-    margin-left: -100px;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    border-radius: 8px;
-    padding: 12px 24px;
+
+<div id="otpToast" style="
     position: fixed;
-    z-index: 9999;
+    top: 30px;
     left: 50%;
-    bottom: 30px;
-    font-size: 16px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    transition: visibility 0s, opacity 0.3s ease;
+    transform: translateX(-50%);
+    background-color: #1e872e;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    display: none;
+    z-index: 9999;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
     opacity: 0;
-">New OTP has been sent!</div>
+    transition: all 0.3s ease-in-out;
+">
+    New OTP has been sent!
+</div>
 
 
 
@@ -156,15 +156,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Timer functionality
-    let timeLeft = 10; // 2 minutes in seconds
+    let timeLeft = 10;
     const countdownEl = document.getElementById('countdown');
     const timerEl = document.getElementById('timer');
     const resendSection = document.getElementById('resend-section');
     const resendLink = document.getElementById('resend-link');
 
     function updateTimer() {
-        const minutes = Math.floor(timeLeft / 10);
-        const seconds = timeLeft % 10;
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
         countdownEl.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         
         if (timeLeft === 0) {
@@ -179,54 +179,57 @@ document.addEventListener('DOMContentLoaded', function() {
     let timerInterval = setInterval(updateTimer, 1000);
     updateTimer();
 
-    // Resend OTP functionality
-    resendLink.addEventListener('click', (e) => {
+    // Resend OTP handler
+    resendLink.addEventListener('click', function(e) {
         e.preventDefault();
-        
+
         // Reset inputs
         inputs.forEach(input => input.value = '');
         inputs[0].focus();
-        
+
         // Reset timer
+        clearInterval(timerInterval);
         timeLeft = 10;
         timerEl.style.display = 'inline';
         resendSection.style.display = 'none';
         timerInterval = setInterval(updateTimer, 1000);
-        
-        // Show resend confirmation
-        showToast('New OTP has been sent!');
 
-        resendLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    
-    // Reset inputs
-    inputs.forEach(input => input.value = '');
-    inputs[0].focus();
-    
-    // Reset timer
-    timeLeft = 30;
-    timerEl.style.display = 'inline';
-    resendSection.style.display = 'none';
-    clearInterval(timerInterval);
-    timerInterval = setInterval(updateTimer, 1000);
-    
-    // Show toast instead of alert
-    showToast('New OTP has been sent!');
+        // Show toast
+        showOTPToast();
+    });
 });
-function showToast(message) {
-    const toast = document.getElementById('toast');
-    toast.textContent = message;
-    toast.style.visibility = 'visible';
-    toast.style.opacity = '1';
+
+// Global toast function
+function showOTPToast() {
+    const toast = document.getElementById('otpToast');
+    toast.style.display = 'block';
+
+    setTimeout(() => {
+        toast.style.display = 'none';
+    }, 3000);
+}
+</script>
+
+<script>
+function showOTPToast() {
+    const toast = document.getElementById('otpToast');
+    toast.style.display = 'block';
+    setTimeout(() => {
+        toast.style.opacity = '1';
+        toast.style.top = '40px'; // slight slide-down effect
+    }, 10);
 
     setTimeout(() => {
         toast.style.opacity = '0';
-        toast.style.visibility = 'hidden';
-    }, 3000); // hides after 3 seconds
+        toast.style.top = '20px'; // reset to original
+    }, 3000);
+
+    setTimeout(() => {
+        toast.style.display = 'none';
+    }, 3500);
 }
-    });
-});
 </script>
+
 
 
 
