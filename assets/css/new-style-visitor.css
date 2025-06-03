@@ -8,6 +8,7 @@
 body {
     font-family: 'Alexandria' !important;
     background-color: #fff;
+    overflow-y: hidden;
 }
 
 html,
@@ -5150,7 +5151,7 @@ select.form-control {
         flex-wrap: wrap;
     }
     .pass-cards{
-        padding: 0px 30px;
+        padding: 0px 10px;
     }
 
     #custom-toast{
