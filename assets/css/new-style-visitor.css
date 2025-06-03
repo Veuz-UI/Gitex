@@ -5160,6 +5160,9 @@ select.form-control {
 
 
 @media (max-width: 992px) {
+    .user-inner img{
+        object-position: top;
+    }
     .messages-container{
         padding: 15px;
     }
