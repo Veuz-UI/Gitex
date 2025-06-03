@@ -24,7 +24,8 @@
 <body>
 
 
-  <div class="inner-banner">
+ <div class="h-screen">
+   <div class="inner-banner">
     <a href="index.html"><img src="assets/img/ni-header.png" class="img-fluid sm-hide-logo"></a>
 
     <div>
@@ -37,37 +38,31 @@
     </div>
   </div>
 
-
-
   <div class="content">
     <section class="register-main">
-
-
-
-
 
       <div class="ticket-outer">
         <h3>Orders you made for veuzevent</h3>
         <div class="ticket-box mb-3">
 
           <div class="row table-row">
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-md-4">
               <h6>Order ID</h6>
               <p>10960000000175009</p>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-2 col-md-4">
               <h6>Payment Mode</h6>
               <p>Online</p>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-md-4">
               <h6>Purchased By</h6>
               <p>Bisharu Rahman</p>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-2 col-md-4">
               <h6>No. of Tickets</h6>
               <p>3</p>
             </div>
-            <div class="col-lg-2 d-flex justify-content-end">
+            <div class="col-lg-2 d-flex justify-content-start justify-content-md-end">
               <div class="d-flex align-items-center gap-2">
                 <div class="dropdown ticket-view-dropdown">
                   <button class="btn btn-link dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -141,11 +136,12 @@
                         <td style="text-align: right;font-weight: 600;">3</td>
                       </tr>
                     </table>
-                  <h6 class="no-cancel">*No cancellation policy: Order cancellation not allowed.</h6>
+                    <h6 class="no-cancel">*No cancellation policy: Order cancellation not allowed.</h6>
                   </div>
                 </div>
                 <div class="tab-pane fade" id="attendees" role="tabpanel" aria-labelledby="attendees-tab">
-                  <table class="ticket-table">
+                  <div class="table-tab">
+                    <table class="ticket-table">
                     <thead>
                       <tr>
                         <th>Ticket ID</th>
@@ -163,16 +159,20 @@
                         <td>free</td>
                         <td>
                           <div class="dropdown ticketdropdown">
-                              <button class="btn ticket-3dot-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                  <i class="fas fa-ellipsis-v"></i>
-                              </button>
-                              <ul class="dropdown-menu dropdown-menu-end">
-                                  <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editTicketModal"><i class="fas fa-pencil-alt me-2"></i>Edit</a></li>
-                                  <li><a class="dropdown-item" href="badge.html"><i class="fas fa-eye me-2"></i>View Ticket</a></li>
-                                  <li><a class="dropdown-item" href="#"><i class="fas fa-print me-2"></i>Download Ticket</a></li>
-                              </ul>
+                            <button class="btn ticket-3dot-btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                              aria-expanded="false">
+                              <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                              <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                  data-bs-target="#editTicketModal"><i class="fas fa-pencil-alt me-2"></i>Edit</a></li>
+                              <li><a class="dropdown-item" href="badge.html"><i class="fas fa-eye me-2"></i>View
+                                  Ticket</a></li>
+                              <li><a class="dropdown-item" href="#"><i class="fas fa-print me-2"></i>Download Ticket</a>
+                              </li>
+                            </ul>
                           </div>
-                      </td>
+                        </td>
                       </tr>
                       <tr>
                         <td>109600000001750092</td>
@@ -181,16 +181,19 @@
                         <td>free</td>
                         <td>
                           <div class="dropdown ticketdropdown">
-                              <button class="btn ticket-3dot-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                  <i class="fas fa-ellipsis-v"></i>
-                              </button>
-                              <ul class="dropdown-menu dropdown-menu-end">
-                                  <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editTicketModal"><i class="fas fa-pencil-alt me-2"></i>Edit</a></li>
-                                  <li><a class="dropdown-item" href="#"><i class="fas fa-eye me-2"></i>View Ticket</a></li>
-                                  <li><a class="dropdown-item" href="#"><i class="fas fa-print me-2"></i>Download Ticket</a></li>
-                              </ul>
+                            <button class="btn ticket-3dot-btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                              aria-expanded="false">
+                              <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                              <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                  data-bs-target="#editTicketModal"><i class="fas fa-pencil-alt me-2"></i>Edit</a></li>
+                              <li><a class="dropdown-item" href="#"><i class="fas fa-eye me-2"></i>View Ticket</a></li>
+                              <li><a class="dropdown-item" href="#"><i class="fas fa-print me-2"></i>Download Ticket</a>
+                              </li>
+                            </ul>
                           </div>
-                      </td>
+                        </td>
                       </tr>
                       <tr>
                         <td>109600000001750093</td>
@@ -199,16 +202,19 @@
                         <td>free</td>
                         <td>
                           <div class="dropdown ticketdropdown">
-                              <button class="btn ticket-3dot-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                  <i class="fas fa-ellipsis-v"></i>
-                              </button>
-                              <ul class="dropdown-menu dropdown-menu-end">
-                                  <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editTicketModal"><i class="fas fa-pencil-alt me-2"></i>Edit</a></li>
-                                  <li><a class="dropdown-item" href="#"><i class="fas fa-eye me-2"></i>View Ticket</a></li>
-                                  <li><a class="dropdown-item" href="#"><i class="fas fa-print me-2"></i>Download Ticket</a></li>
-                              </ul>
+                            <button class="btn ticket-3dot-btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                              aria-expanded="false">
+                              <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                              <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                  data-bs-target="#editTicketModal"><i class="fas fa-pencil-alt me-2"></i>Edit</a></li>
+                              <li><a class="dropdown-item" href="#"><i class="fas fa-eye me-2"></i>View Ticket</a></li>
+                              <li><a class="dropdown-item" href="#"><i class="fas fa-print me-2"></i>Download Ticket</a>
+                              </li>
+                            </ul>
                           </div>
-                      </td>
+                        </td>
                       </tr>
                       <tr>
                         <td>109600000001750093</td>
@@ -217,38 +223,37 @@
                         <td>free</td>
                         <td>
                           <div class="dropdown ticketdropdown">
-                              <button class="btn ticket-3dot-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                  <i class="fas fa-ellipsis-v"></i>
-                              </button>
-                              <ul class="dropdown-menu dropdown-menu-end">
-                                  <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#editTicketModal"><i class="fas fa-pencil-alt me-2"></i>Edit</a></li>
-                                  <li><a class="dropdown-item" href="#"><i class="fas fa-eye me-2"></i>View Ticket</a></li>
-                                  <li><a class="dropdown-item" href="#"><i class="fas fa-print me-2"></i>Download Ticket</a></li>
-                              </ul>
+                            <button class="btn ticket-3dot-btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                              aria-expanded="false">
+                              <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                              <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                  data-bs-target="#editTicketModal"><i class="fas fa-pencil-alt me-2"></i>Edit</a></li>
+                              <li><a class="dropdown-item" href="#"><i class="fas fa-eye me-2"></i>View Ticket</a></li>
+                              <li><a class="dropdown-item" href="#"><i class="fas fa-print me-2"></i>Download Ticket</a>
+                              </li>
+                            </ul>
                           </div>
-                      </td>
+                        </td>
                       </tr>
                     </tbody>
                   </table>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-
-
-
-
         </div>
       </div>
+
 
       <div class="register-btn">
         <a href="index.html"><button class="primary-btn pink-btn">Logout</button></a>
         <a href="index-ticket.html"><button class="secondary-btn">Add More</button></a>
       </div>
-
     </section>
   </div>
-
 
   <section class="footer">
     <div class="container">
@@ -262,57 +267,58 @@
       </div>
     </div>
   </section>
+ </div>
 
 
 
   <div class="modal fade" id="editTicketModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
-            <div class="modal-header premium-header">
-                <h5 class="modal-title">Edit Ticket Information</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="editTicketForm">
-                    <div class="mb-3">
-                        <label class="form-label">Full Name</label>
-                        <input type="text" class="form-control" value="Mohammed Navab">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Email Address</label>
-                        <input type="email" class="form-control" value="navab@gmail.com">
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Phone Number</label>
-                            <input type="tel" class="form-control">
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Company</label>
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Designation</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Ticket Type</label>
-                        <select class="form-select">
-                            <option>Free Pass</option>
-                            <option>VIP Pass</option>
-                            <option>Premium Pass</option>
-                        </select>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-success" id="saveTicketChanges">Save Changes</button>
-            </div>
+      <div class="modal-content">
+        <div class="modal-header premium-header">
+          <h5 class="modal-title">Edit Ticket Information</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div class="modal-body">
+          <form id="editTicketForm">
+            <div class="mb-3">
+              <label class="form-label">Full Name</label>
+              <input type="text" class="form-control" value="Mohammed Navab">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Email Address</label>
+              <input type="email" class="form-control" value="navab@gmail.com">
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Phone Number</label>
+                <input type="tel" class="form-control">
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Company</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Designation</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Ticket Type</label>
+              <select class="form-select">
+                <option>Free Pass</option>
+                <option>VIP Pass</option>
+                <option>Premium Pass</option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="buy-btn pink-btn" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="buy-btn" id="saveTicketChanges">Save Changes</button>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 
 
 
@@ -377,32 +383,33 @@
   </script>
 
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const editModal = document.getElementById('editTicketModal');
-    const editForm = document.getElementById('editTicketForm');
-    let editingRow = null;
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const editModal = document.getElementById('editTicketModal');
+      const editForm = document.getElementById('editTicketForm');
+      let editingRow = null;
 
-    // Handle modal opening
-    document.querySelectorAll('[data-bs-target="#editTicketModal"]').forEach(editBtn => {
-        editBtn.addEventListener('click', function(e) {
-            // Get the current row
-            editingRow = e.target.closest('tr');
-            
-            // Populate form with current row data
-            const name = editingRow.querySelector('td:nth-child(2)').textContent;
-            const email = editingRow.querySelector('td:nth-child(3)').textContent;
-            const ticketType = editingRow.querySelector('td:nth-child(4)').textContent;
-            
-            // Set form values
-            editForm.querySelector('input[type="text"]').value = name;
-            editForm.querySelector('input[type="email"]').value = email;
-            editForm.querySelector('select').value = ticketType.charAt(0).toUpperCase() + ticketType.slice(1) + ' Pass';
+      // Handle modal opening
+      document.querySelectorAll('[data-bs-target="#editTicketModal"]').forEach(editBtn => {
+        editBtn.addEventListener('click', function (e) {
+          // Get the current row
+          editingRow = e.target.closest('tr');
+
+          // Populate form with current row data
+          const name = editingRow.querySelector('td:nth-child(2)').textContent;
+          const email = editingRow.querySelector('td:nth-child(3)').textContent;
+          const ticketType = editingRow.querySelector('td:nth-child(4)').textContent;
+
+          // Set form values
+          editForm.querySelector('input[type="text"]').value = name;
+          editForm.querySelector('input[type="email"]').value = email;
+          editForm.querySelector('select').value = ticketType.charAt(0).toUpperCase() + ticketType.slice(
+            1) + ' Pass';
         });
-    });
+      });
 
-    // Handle save changes
-    document.getElementById('saveTicketChanges').addEventListener('click', function() {
+      // Handle save changes
+      document.getElementById('saveTicketChanges').addEventListener('click', function () {
         if (!editingRow) return;
 
         // Get form values
@@ -424,10 +431,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Reset editing row
         editingRow = null;
-    });
+      });
 
-    // Helper function for success toast
-    function showSuccessToast(message) {
+      // Helper function for success toast
+      function showSuccessToast(message) {
         const toast = document.createElement('div');
         toast.className = 'alert alert-success position-fixed top-0 end-0 m-3';
         toast.style.zIndex = '9999';
@@ -435,13 +442,13 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.appendChild(toast);
 
         setTimeout(() => {
-            toast.style.animation = 'slideOut 0.3s ease-in forwards';
-            setTimeout(() => toast.remove(), 300);
+          toast.style.animation = 'slideOut 0.3s ease-in forwards';
+          setTimeout(() => toast.remove(), 300);
         }, 3000);
-    }
-});
-</script>
-  
+      }
+    });
+  </script>
+
 
 
 

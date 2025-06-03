@@ -10,7 +10,7 @@
 
 
 html {
-	/* scroll-behavior: smooth; */
+	scroll-behavior: smooth;
 	overflow-x: hidden;
 }
 
@@ -2763,6 +2763,10 @@ body .modal-open {
 		gap: 15px;
 	}
 
+	.row.table-row{
+		border: none;
+	}
+
 	.banner-content {
 		position: relative;
 		top: 400px;
@@ -2802,10 +2806,6 @@ body .modal-open {
 		flex-direction: column;
 		justify-content: center;
 		gap: 10px;
-	}
-
-	.ticket-outer p {
-		text-align: center;
 	}
 
 	.register-btn {

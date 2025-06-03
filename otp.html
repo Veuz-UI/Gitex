@@ -45,7 +45,8 @@
   <!-- loader -->
 
 
-  <div class="inner-banner">
+<div class="h-screen">
+    <div class="inner-banner">
     <a href="index.html"><img src="assets/img/ni-header.png" class="img-fluid"></a>
     <div>
       <div class="registration-text">GITEX NIGERIA TECH EXPO + <br> FUTURE ECONOMY SUMMIT</div>
@@ -55,7 +56,7 @@
 
 
 
-  <section class="content height-content">
+  <section class="content">
     <div class="custom-container">
       <div class="sub-wrapper">
         <img src="assets/img/login-img.png" alt="">
@@ -70,11 +71,12 @@
               <input id="input3" type="text" maxlength="1">
               <input id="input4" type="text" maxlength="1">
           </div>
+          <p id="otpError" style="color: red; margin-top: 10px; display: none;">Please enter all 4 digits of the OTP.</p>
           </form>
 
           <h6 class="resend-otp">
               Didn't you receive the OTP? <br>
-              <span id="timer">Time remaining: <span id="countdown">02:00</span></span>
+              <span id="timer">Time remaining: <span id="countdown">10</span></span>
               <span id="resend-section" style="display: none;">
                   <a href="#" id="resend-link">Resend OTP</a>
               </span>
@@ -97,8 +99,26 @@
       </div>
     </div>
   </section>
+</div>
 
-
+<div id="toast" style="
+    visibility: hidden;
+    min-width: 200px;
+    margin-left: -100px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    padding: 12px 24px;
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+    bottom: 30px;
+    font-size: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: visibility 0s, opacity 0.3s ease;
+    opacity: 0;
+">New OTP has been sent!</div>
 
 
 
@@ -137,15 +157,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Timer functionality
-    let timeLeft = 30; // 2 minutes in seconds
+    let timeLeft = 10; // 2 minutes in seconds
     const countdownEl = document.getElementById('countdown');
     const timerEl = document.getElementById('timer');
     const resendSection = document.getElementById('resend-section');
     const resendLink = document.getElementById('resend-link');
 
     function updateTimer() {
-        const minutes = Math.floor(timeLeft / 60);
-        const seconds = timeLeft % 60;
+        const minutes = Math.floor(timeLeft / 10);
+        const seconds = timeLeft % 10;
         countdownEl.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         
         if (timeLeft === 0) {
@@ -169,16 +189,48 @@ document.addEventListener('DOMContentLoaded', function() {
         inputs[0].focus();
         
         // Reset timer
-        timeLeft = 30;
+        timeLeft = 10;
         timerEl.style.display = 'inline';
         resendSection.style.display = 'none';
         timerInterval = setInterval(updateTimer, 1000);
         
         // Show resend confirmation
-        alert('New OTP has been sent!');
+        showToast('New OTP has been sent!');
+
+        resendLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    
+    // Reset inputs
+    inputs.forEach(input => input.value = '');
+    inputs[0].focus();
+    
+    // Reset timer
+    timeLeft = 30;
+    timerEl.style.display = 'inline';
+    resendSection.style.display = 'none';
+    clearInterval(timerInterval);
+    timerInterval = setInterval(updateTimer, 1000);
+    
+    // Show toast instead of alert
+    showToast('New OTP has been sent!');
+});
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.style.visibility = 'visible';
+    toast.style.opacity = '1';
+
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.visibility = 'hidden';
+    }, 3000); // hides after 3 seconds
+}
     });
 });
 </script>
+
+
+
 
 
 
