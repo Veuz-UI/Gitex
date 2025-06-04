@@ -31,7 +31,7 @@ document.body.style.overflow = 'hidden';
 window.addEventListener('load', function() {
     setTimeout(function() {
         document.body.style.overflow = 'visible';
-    }, 1500);
+    }, 1000);
 });
 
 

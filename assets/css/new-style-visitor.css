@@ -1150,11 +1150,12 @@ a {
     padding: 15px 20px;
     font-size: 18px;
     font-weight: 700;
-    background-image: url(../img/banner.webp);
-    background-size: cover;
+    /* background-image: url(../img/banner.webp);
+    background-size: cover; */
     height: auto;
     border: none;
     color: white;
+    border-bottom: 1px solid #299c3f;
 }
 
 .promocard .card-header {
@@ -1253,9 +1254,11 @@ a {
 }
 
 .card-header img {
-    width: 60%;
+     width: 68%;
     height: 100%;
     object-fit: contain;
+    margin: auto;
+    display: block;
 }
 
 form label {
@@ -2916,8 +2919,8 @@ ul.accordion-list {
 }
 
 
-.min-height-77 {
-    min-height: 77px;
+.min-height-70 {
+      min-height: calc(70vh - 80px); 
 }
 
 
@@ -3575,14 +3578,34 @@ select.form-control {
 
 .ticket-info-ft {
     box-shadow: 0px -5px 40px #e8e8e8ba;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     background: #fff;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
+.badge-bg-1{
+        background-image: url(../img/banner.webp);
+}
+
+.badge-bg-2{
+        background-image: url(../img/orange-bg.webp);
+}
+
+.badge-bg-3{
+        background-image: url(../img/purple-bg.webp);
+}
+
+.badge-bg-4{
+        background-image: url(../img/blue-bg.webp);
+}
+
 
 .ticket-info-ft h6 {
     font-weight: 400;
-    color: #a4aab3;
+    color: #ffffff;
     text-transform: uppercase;
     margin-bottom: 10px;
 }
@@ -3590,7 +3613,7 @@ select.form-control {
 .ticket-info-ft h4 {
     font-size: 24px;
     font-weight: 700;
-    color: #000000;
+    color: #fff3f3;
     text-transform: uppercase;
     margin-bottom: 0px;
     letter-spacing: 3.84px;
@@ -5147,14 +5170,18 @@ select.form-control {
 
 /* view ticket */
 
+.min-height-77{
+    min-height: 77px;
+}
+
 .table-row h6 {
     font-size: 13px;
     color: gray;
 }
 
-.min-height-70{
+/* .min-height-70{
     min-height: 65vh;
-}
+} */
 
 .table-tab{
     overflow: scroll;
@@ -5173,12 +5200,7 @@ select.form-control {
         padding: 15px;
     }
 
-    .min-height-70{
-        min-height: 60vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+    
     /* .table-tab{
         display: none;
     }
