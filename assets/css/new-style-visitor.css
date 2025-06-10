@@ -3826,6 +3826,12 @@ select.form-control {
 }
 
 
+.list-group-item label span{
+    color: #047074;
+    font-weight: 600;
+}
+
+
 
 
 

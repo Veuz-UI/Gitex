@@ -1508,7 +1508,7 @@
                 const product = productsData[productId];
                 const serviceCount = product.services.length;
                 const serviceCountBadge = serviceCount > 0 ?
-                    `<span class="service-count">${serviceCount}</span>` :
+                    `<span class="service-count">(${serviceCount})</span>` :
                     '';
 
                 $categoriesList.append(`
