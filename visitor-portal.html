@@ -1,0 +1,619 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GITEX NIGERIA</title>
+    <link rel="stylesheet" href="assets/css/new-style-visitor.css">
+    <link rel="stylesheet" href="assets/fonts/webfont/stylesheet.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="assets/img/fav-icon.png">
+
+    <style>
+        body {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- loader -->
+    <div id="loader-wrapper">
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <circle id="test" cx="40" cy="40" r="32"></circle>
+            </svg>
+        </div>
+        <div class="loader triangle">
+            <svg viewBox="0 0 86 80">
+                <polygon points="43 8 79 72 7 72"></polygon>
+            </svg>
+        </div>
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <rect x="8" y="8" width="64" height="64"></rect>
+            </svg>
+        </div>
+    </div>
+    <!-- loader -->
+
+    
+
+    <div class="content">
+       <div class="visitor-header">
+        <div class="visitor_menu">
+            <a href="">Link 1</a>
+            <a href="">Link 2</a>
+            <a href="">Link 3</a>
+        </div>
+        <div class="visitor_topright">
+            <div class="visitor-notification">
+                <i class="far fa-bell"></i>
+                <span class="notification-dot"></span>
+            </div>
+            <h4>Mohammed Navab</h4>
+        </div>
+    </div>
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-8 d-flex justify-content-center">
+                <div class="registration_data">
+                     
+
+                        <div class="upload-container">
+                            <h2 class="title">Upload Profile Photo</h2>
+                            
+                            <div class="avatar-section">
+                                <div class="avatar-container">
+                                    <div class="avatar-circle" id="avatarCircle">
+                                        <svg class="user-icon icon" id="userIcon" viewBox="0 0 24 24">
+                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="12" cy="7" r="4"></circle>
+                                        </svg>
+                                    </div>
+                                    
+                                    <button class="remove-overlay" id="removeOverlay">
+                                        <i class="far fa-times-circle"></i>
+                                    </button>
+                                    
+                                    <button class="camera-button" id="cameraButton">
+                                        <i class="fas fa-camera"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <input type="file" id="fileInput" class="file-input" accept="image/*">
+
+                            <div class="button-group">
+                                <button class="btn btn-primary" id="chooseBtn">Choose Photo</button>
+                                <button class="btn btn-secondary" id="cropBtn" style="display: none;">Crop</button>
+                                <button class="btn btn-secondary" id="removeBtn">Remove</button>
+                            </div>
+
+                            <div class="file-info" id="fileInfo">
+                                <p><span class="file-name">Selected:</span> <span id="fileName"></span></p>
+                                <p class="file-size">Size: <span id="fileSize"></span></p>
+                            </div>
+                        </div>
+                        <div id="dataDisplay">
+                            <p><strong>Name:</strong> <span id="nameText">John Doe</span></p>
+                            <p><strong>Email:</strong> <span id="emailText">john@example.com</span></p>
+                            <p><strong>Phone:</strong> <span id="phoneText">+1234567890</span></p>
+                            <p><strong>Company:</strong> <span id="companyText">ABC Corp</span></p>
+                            <p><strong>Designation:</strong> <span id="designationText">Developer</span></p>
+                            <p><strong>Country:</strong> <span id="countryText">USA</span></p>
+                            <button onclick="enableEdit()">Edit</button>
+                        </div>
+
+                        <div id="dataEdit" style="display: none;">
+                            <p><strong>Name:</strong> <input type="text" id="nameInput"></p>
+                            <p><strong>Email:</strong> <input type="email" id="emailInput"></p>
+                            <p><strong>Phone:</strong> <input type="tel" id="phoneInput"></p>
+                            <p><strong>Company:</strong> <input type="text" id="companyInput"></p>
+                            <p><strong>Designation:</strong> <input type="text" id="designationInput"></p>
+                            <p><strong>Country:</strong> <input type="text" id="countryInput"></p>
+                            <button onclick="saveData()">Save</button>
+                            <button onclick="cancelEdit()">Cancel</button>
+                        </div>
+
+                    </div>
+            </div>
+            
+        </div>
+    </div>
+
+
+    <section class="footer">
+        <div class="container">
+            <img src="assets/img/logo.png" alt="" class="logo-width">
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <div class="crop-modal" id="cropModal">
+        <div class="crop-container">
+            <h3 class="crop-title">Crop Your Image</h3>
+            <div class="crop-area" id="cropArea">
+                <img class="crop-image" id="cropImage" draggable="false">
+                <div class="crop-overlay" id="cropOverlay">
+                    <div class="crop-handle nw"></div>
+                    <div class="crop-handle ne"></div>
+                    <div class="crop-handle sw"></div>
+                    <div class="crop-handle se"></div>
+                </div>
+            </div>
+            <div class="crop-buttons">
+                <button class="crop-btn crop-btn-primary" id="applyCrop">Apply Crop</button>
+                <button class="crop-btn crop-btn-secondary" id="cancelCrop">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+  
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/font-awsome.js"></script>
+
+    
+
+
+<script>
+    function enableEdit() {
+        document.getElementById('dataDisplay').style.display = 'none';
+        document.getElementById('dataEdit').style.display = 'block';
+
+        // Fill input fields with current values
+        document.getElementById('nameInput').value = document.getElementById('nameText').textContent;
+        document.getElementById('emailInput').value = document.getElementById('emailText').textContent;
+        document.getElementById('phoneInput').value = document.getElementById('phoneText').textContent;
+        document.getElementById('companyInput').value = document.getElementById('companyText').textContent;
+        document.getElementById('designationInput').value = document.getElementById('designationText').textContent;
+        document.getElementById('countryInput').value = document.getElementById('countryText').textContent;
+    }
+
+    function saveData() {
+        // Update display values
+        document.getElementById('nameText').textContent = document.getElementById('nameInput').value;
+        document.getElementById('emailText').textContent = document.getElementById('emailInput').value;
+        document.getElementById('phoneText').textContent = document.getElementById('phoneInput').value;
+        document.getElementById('companyText').textContent = document.getElementById('companyInput').value;
+        document.getElementById('designationText').textContent = document.getElementById('designationInput').value;
+        document.getElementById('countryText').textContent = document.getElementById('countryInput').value;
+
+        document.getElementById('dataDisplay').style.display = 'block';
+        document.getElementById('dataEdit').style.display = 'none';
+    }
+
+    function cancelEdit() {
+        document.getElementById('dataDisplay').style.display = 'block';
+        document.getElementById('dataEdit').style.display = 'none';
+    }
+</script>
+
+
+ <script>
+        class PhotoUploader {
+            constructor() {
+                this.elements = {
+                    fileInput: document.getElementById('fileInput'),
+                    avatarCircle: document.getElementById('avatarCircle'),
+                    cameraButton: document.getElementById('cameraButton'),
+                    removeOverlay: document.getElementById('removeOverlay'),
+                    chooseBtn: document.getElementById('chooseBtn'),
+                    cropBtn: document.getElementById('cropBtn'),
+                    removeBtn: document.getElementById('removeBtn'),
+                    fileInfo: document.getElementById('fileInfo'),
+                    fileName: document.getElementById('fileName'),
+                    fileSize: document.getElementById('fileSize'),
+                    userIcon: document.getElementById('userIcon'),
+                    // Crop elements
+                    cropModal: document.getElementById('cropModal'),
+                    cropArea: document.getElementById('cropArea'),
+                    cropImage: document.getElementById('cropImage'),
+                    cropOverlay: document.getElementById('cropOverlay'),
+                    applyCrop: document.getElementById('applyCrop'),
+                    cancelCrop: document.getElementById('cancelCrop')
+                };
+                
+                this.config = {
+                    maxSize: 5 * 1024 * 1024, // 5MB
+                   allowedTypes: ['image/', 'image/heic', 'image/heif'],
+                    sizeUnits: ['Bytes', 'KB', 'MB', 'GB'],
+                    cropAreaSize: 400
+                };
+                
+                this.state = {
+                    selectedFile: null,
+                    previewUrl: null,
+                    originalImageData: null,
+                    cropData: { x: 50, y: 50, width: 300, height: 300 }
+                };
+                
+                this.cropper = {
+                    isDragging: false,
+                    isResizing: false,
+                    dragStart: { x: 0, y: 0 },
+                    currentHandle: null
+                };
+                
+                this.initEventListeners();
+            }
+
+            initEventListeners() {
+                const { avatarCircle, cameraButton, chooseBtn, cropBtn, removeBtn, removeOverlay, fileInput } = this.elements;
+                
+                // Upload triggers
+                const uploadTriggers = [avatarCircle, cameraButton, chooseBtn];
+                uploadTriggers.forEach(el => el.addEventListener('click', this.handleUploadClick.bind(this)));
+                
+                // Remove triggers
+                const removeTriggers = [removeBtn, removeOverlay];
+                removeTriggers.forEach(el => el.addEventListener('click', this.removeImage.bind(this)));
+                
+                // File input and crop button
+                fileInput.addEventListener('change', this.handleFileSelect.bind(this));
+                cropBtn.addEventListener('click', this.openCropModal.bind(this));
+                
+                // Crop modal events
+                this.elements.applyCrop.addEventListener('click', this.applyCrop.bind(this));
+                this.elements.cancelCrop.addEventListener('click', this.closeCropModal.bind(this));
+                this.elements.cropModal.addEventListener('click', this.handleModalClick.bind(this));
+                
+                // Prevent event bubbling for overlay buttons
+                cameraButton.addEventListener('click', e => e.stopPropagation());
+                removeOverlay.addEventListener('click', e => e.stopPropagation());
+                
+                this.initCropEvents();
+            }
+
+            initCropEvents() {
+                const { cropOverlay, cropArea } = this.elements;
+                
+                // Crop overlay drag events
+                cropOverlay.addEventListener('mousedown', this.startDrag.bind(this));
+                document.addEventListener('mousemove', this.drag.bind(this));
+                document.addEventListener('mouseup', this.stopDrag.bind(this));
+                
+                // Crop handle events
+                const handles = cropOverlay.querySelectorAll('.crop-handle');
+                handles.forEach(handle => {
+                    handle.addEventListener('mousedown', (e) => this.startResize(e, handle));
+                });
+            }
+
+            handleUploadClick() {
+                this.elements.fileInput.click();
+            }
+
+            handleFileSelect(e) {
+                const file = e.target.files?.[0];
+                if (!file || !this.validateFile(file)) return;
+                
+                this.state.selectedFile = file;
+                this.state.originalImageData = null; // Reset for new file
+                this.showPreview(file);
+                this.updateUI();
+            }
+
+            validateFile(file) {
+                const { maxSize, allowedTypes } = this.config;
+                
+                if (file.size > maxSize) {
+                    this.showError('File size must be less than 5MB');
+                    return false;
+                }
+                
+               if (!allowedTypes.some(type => file.type.startsWith(type) || file.type === type)) {
+                    this.showError('Please select a valid image file');
+                    return false;
+                }
+                
+                return true;
+            }
+
+            showError(message) {
+                alert(message);
+            }
+
+            showPreview(file) {
+                const reader = new FileReader();
+                reader.onload = e => {
+                    this.state.originalImageData = e.target.result;
+                    this.displayImage(e.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+
+            displayImage(src) {
+                const { avatarCircle, userIcon } = this.elements;
+                
+                // Clean up existing image
+                const existingImg = avatarCircle.querySelector('img');
+                existingImg?.remove();
+                
+                // Create new image
+                const img = Object.assign(document.createElement('img'), {
+                    src,
+                    alt: 'Profile preview'
+                });
+                
+                avatarCircle.appendChild(img);
+                userIcon.style.display = 'none';
+                this.state.previewUrl = src;
+            }
+
+            openCropModal() {
+                if (!this.state.originalImageData) return;
+                
+                const { cropModal, cropImage } = this.elements;
+                
+                cropImage.src = this.state.originalImageData;
+                cropModal.classList.add('show');
+                
+                // Initialize crop area after image loads
+                cropImage.onload = () => this.initializeCropArea();
+            }
+
+            initializeCropArea() {
+                const { cropImage, cropOverlay } = this.elements;
+                const { cropAreaSize } = this.config;
+                
+                // Calculate image display size
+                const imgRect = cropImage.getBoundingClientRect();
+                const naturalRatio = cropImage.naturalWidth / cropImage.naturalHeight;
+                
+                let displayWidth, displayHeight;
+                if (naturalRatio > 1) {
+                    displayWidth = Math.min(cropAreaSize, cropImage.naturalWidth);
+                    displayHeight = displayWidth / naturalRatio;
+                } else {
+                    displayHeight = Math.min(cropAreaSize, cropImage.naturalHeight);
+                    displayWidth = displayHeight * naturalRatio;
+                }
+                
+                // Set image size and position
+                cropImage.style.width = displayWidth + 'px';
+                cropImage.style.height = displayHeight + 'px';
+                cropImage.style.left = (cropAreaSize - displayWidth) / 2 + 'px';
+                cropImage.style.top = (cropAreaSize - displayHeight) / 2 + 'px';
+                
+                // Initialize crop overlay
+                const size = Math.min(displayWidth, displayHeight) * 0.8;
+                this.state.cropData = {
+                    x: (cropAreaSize - size) / 2,
+                    y: (cropAreaSize - size) / 2,
+                    width: size,
+                    height: size
+                };
+                
+                this.updateCropOverlay();
+            }
+
+            updateCropOverlay() {
+                const { cropOverlay } = this.elements;
+                const { x, y, width, height } = this.state.cropData;
+                
+                cropOverlay.style.left = x + 'px';
+                cropOverlay.style.top = y + 'px';
+                cropOverlay.style.width = width + 'px';
+                cropOverlay.style.height = height + 'px';
+            }
+
+            startDrag(e) {
+                e.preventDefault();
+                this.cropper.isDragging = true;
+                this.cropper.dragStart = { x: e.clientX, y: e.clientY };
+            }
+
+            startResize(e, handle) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.cropper.isResizing = true;
+                this.cropper.currentHandle = handle.classList[1]; // nw, ne, sw, se
+                this.cropper.dragStart = { x: e.clientX, y: e.clientY };
+            }
+
+            drag(e) {
+                if (!this.cropper.isDragging && !this.cropper.isResizing) return;
+                
+                e.preventDefault();
+                const deltaX = e.clientX - this.cropper.dragStart.x;
+                const deltaY = e.clientY - this.cropper.dragStart.y;
+                
+                if (this.cropper.isDragging) {
+                    this.moveCropArea(deltaX, deltaY);
+                } else if (this.cropper.isResizing) {
+                    this.resizeCropArea(deltaX, deltaY);
+                }
+                
+                this.cropper.dragStart = { x: e.clientX, y: e.clientY };
+            }
+
+            moveCropArea(deltaX, deltaY) {
+                const { cropData } = this.state;
+                const { cropAreaSize } = this.config;
+                
+                cropData.x = Math.max(0, Math.min(cropAreaSize - cropData.width, cropData.x + deltaX));
+                cropData.y = Math.max(0, Math.min(cropAreaSize - cropData.height, cropData.y + deltaY));
+                
+                this.updateCropOverlay();
+            }
+
+            resizeCropArea(deltaX, deltaY) {
+                const { cropData } = this.state;
+                const { currentHandle } = this.cropper;
+                const { cropAreaSize } = this.config;
+                
+                const minSize = 50;
+                let newWidth = cropData.width;
+                let newHeight = cropData.height;
+                let newX = cropData.x;
+                let newY = cropData.y;
+                
+                if (currentHandle.includes('e')) newWidth += deltaX;
+                if (currentHandle.includes('w')) { newWidth -= deltaX; newX += deltaX; }
+                if (currentHandle.includes('s')) newHeight += deltaY;
+                if (currentHandle.includes('n')) { newHeight -= deltaY; newY += deltaY; }
+                
+                // Maintain square aspect ratio
+                const size = Math.min(newWidth, newHeight);
+                if (size >= minSize) {
+                    cropData.width = size;
+                    cropData.height = size;
+                    
+                    // Adjust position to keep within bounds
+                    cropData.x = Math.max(0, Math.min(cropAreaSize - size, newX));
+                    cropData.y = Math.max(0, Math.min(cropAreaSize - size, newY));
+                    
+                    this.updateCropOverlay();
+                }
+            }
+
+            stopDrag() {
+                this.cropper.isDragging = false;
+                this.cropper.isResizing = false;
+                this.cropper.currentHandle = null;
+            }
+
+            applyCrop() {
+                const { cropImage } = this.elements;
+                const { cropData } = this.state;
+                
+                // Calculate actual crop coordinates
+                const scaleX = cropImage.naturalWidth / cropImage.offsetWidth;
+                const scaleY = cropImage.naturalHeight / cropImage.offsetHeight;
+                
+                const imageRect = cropImage.getBoundingClientRect();
+                const cropAreaRect = this.elements.cropArea.getBoundingClientRect();
+                
+                const actualX = (cropData.x - (parseFloat(cropImage.style.left) || 0)) * scaleX;
+                const actualY = (cropData.y - (parseFloat(cropImage.style.top) || 0)) * scaleY;
+                const actualWidth = cropData.width * scaleX;
+                const actualHeight = cropData.height * scaleY;
+                
+                // Create canvas and crop
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                
+                canvas.width = actualWidth;
+                canvas.height = actualHeight;
+                
+                const img = new Image();
+                img.onload = () => {
+                    ctx.drawImage(img, actualX, actualY, actualWidth, actualHeight, 0, 0, actualWidth, actualHeight);
+                    
+                    // Convert to blob and update preview
+                    canvas.toBlob((blob) => {
+                        const file = new File([blob], this.state.selectedFile.name, { type: blob.type });
+                        this.state.selectedFile = file;
+                        this.state.previewUrl = canvas.toDataURL();
+                        this.displayImage(this.state.previewUrl);
+                        this.closeCropModal();
+                        this.updateUI();
+                    }, 'image/jpeg', 0.9);
+                };
+                img.src = this.state.originalImageData;
+            }
+
+            closeCropModal() {
+                this.elements.cropModal.classList.remove('show');
+            }
+
+            handleModalClick(e) {
+                if (e.target === this.elements.cropModal) {
+                    this.closeCropModal();
+                }
+            }
+
+            removeImage() {
+                const { avatarCircle, userIcon, fileInput } = this.elements;
+                
+                // Reset state
+                this.state = { 
+                    selectedFile: null, 
+                    previewUrl: null, 
+                    originalImageData: null,
+                    cropData: { x: 50, y: 50, width: 300, height: 300 }
+                };
+                fileInput.value = '';
+                
+                // Reset UI
+                avatarCircle.querySelector('img')?.remove();
+                userIcon.style.display = 'block';
+                
+                this.updateUI();
+            }
+
+            updateUI() {
+                const { fileInfo, fileName, fileSize, removeOverlay, cropBtn } = this.elements;
+                const { selectedFile } = this.state;
+                
+                if (selectedFile) {
+                    fileName.textContent = selectedFile.name;
+                    fileSize.textContent = this.formatFileSize(selectedFile.size);
+                    fileInfo.classList.add('show');
+                    removeOverlay.classList.add('show');
+                    cropBtn.style.display = 'block';
+                } else {
+                    fileInfo.classList.remove('show');
+                    removeOverlay.classList.remove('show');
+                    cropBtn.style.display = 'none';
+                }
+            }
+
+            formatFileSize(bytes) {
+                if (!bytes) return '0 Bytes';
+                
+                const i = Math.floor(Math.log(bytes) / Math.log(1024));
+                const size = (bytes / Math.pow(1024, i)).toFixed(2);
+                
+                return `${parseFloat(size)} ${this.config.sizeUnits[i]}`;
+            }
+
+            // Public API
+            getSelectedFile() { return this.state.selectedFile; }
+            getPreviewUrl() { return this.state.previewUrl; }
+            reset() { this.removeImage(); }
+        }
+
+        // Initialize
+        let photoUploader;
+        document.addEventListener('DOMContentLoaded', () => {
+            photoUploader = new PhotoUploader();
+        });
+
+        // Utility function for form integration
+        function getUploadData() {
+            const file = photoUploader?.getSelectedFile();
+            if (!file) return null;
+            
+            const formData = new FormData();
+            formData.append('photo', file);
+            return { file, formData };
+        }
+    </script>
+
+
+
+
+
+</body>
+
+</html>
