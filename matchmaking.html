@@ -548,11 +548,9 @@
             </div>
         </div>
     </div>
-</div>
+    </div>
 
-
-
-  <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+    <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
 
@@ -593,25 +591,25 @@
 
     </div>
   </div>
-</div>
+    </div>
 
 
-<div class="modal fade" id="remove_friend" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content text-center p-4">
-            <div class="modal-body">
-                <!-- Confirmation Content -->
-                <div class="unfollow-confirmation">
-                    <h5 class="modal-title modal-title-head mb-4">Are you sure you want to unfollow friend?</h5>
-                    <div class="d-flex justify-content-center gap-3">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                        <button type="button" class="btn btn-danger" id="confirmUnfollow">Yes</button>
+    <div class="modal fade" id="remove_friend" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-4">
+                <div class="modal-body">
+                    <!-- Confirmation Content -->
+                    <div class="unfollow-confirmation">
+                        <h5 class="modal-title modal-title-head mb-4">Are you sure you want to unfollow friend?</h5>
+                        <div class="d-flex justify-content-center gap-3">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                            <button type="button" class="btn btn-danger" id="confirmUnfollow">Yes</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
   
 
@@ -624,228 +622,7 @@
     <script src="assets/js/font-awsome.js"></script>
 
 
-    <script>
-        function createProgressBar(container, percentage, tooltipText) {
-            const progressBar = container.querySelector('.progress-bar');
-            const tooltip = container.querySelector('.tooltip');
-            
-            // Add yellow class if percentage is below 70%
-            if (percentage < 70) {
-                progressBar.classList.add('yellow');
-            } else {
-                progressBar.classList.remove('yellow');
-            }
-            
-            // Set tooltip text
-            if (tooltipText) {
-                tooltip.textContent = tooltipText;
-            } else {
-                tooltip.textContent = `${percentage}% Complete`;
-            }
-            
-            // Animate the progress bar
-            setTimeout(() => {
-                progressBar.style.width = percentage + '%';
-            }, 100);
-        }
-
-        function animateAllBars() {
-            const containers = document.querySelectorAll('.progress-container');
-            
-            containers.forEach((container, index) => {
-                const percentage = parseInt(container.getAttribute('data-percentage'));
-                const progressBar = container.querySelector('.progress-bar');
-                
-                // Reset animation first
-                progressBar.style.width = '0%';
-                
-                // Add appropriate color class
-                if (percentage < 70) {
-                    progressBar.classList.add('yellow');
-                } else {
-                    progressBar.classList.remove('yellow');
-                }
-                
-                // Animate after a short delay (staggered for each bar)
-                setTimeout(() => {
-                    progressBar.style.width = percentage + '%';
-                }, 300 + (index * 100));
-            });
-        }
-
-        // Initialize tooltips for all progress containers
-        function initializeTooltips() {
-            document.querySelectorAll('.progress-container').forEach(container => {
-                const tooltip = container.querySelector('.tooltip');
-                
-                container.addEventListener('mouseenter', function(e) {
-                    tooltip.style.opacity = '1';
-                });
-                
-                container.addEventListener('mouseleave', function(e) {
-                    tooltip.style.opacity = '0';
-                });
-                
-                container.addEventListener('mousemove', function(e) {
-                    const rect = container.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    tooltip.style.left = Math.max(0, Math.min(x, rect.width)) + 'px';
-                });
-            });
-        }
-
-        // Initialize all progress bars on page load
-        window.addEventListener('load', function() {
-            // Set initial colors based on percentage
-            document.querySelectorAll('.progress-container').forEach(container => {
-                const percentage = parseInt(container.getAttribute('data-percentage'));
-                const progressBar = container.querySelector('.progress-bar');
-                
-                if (percentage < 70) {
-                    progressBar.classList.add('yellow');
-                }
-            });
-            
-            // Then animate bars
-            setTimeout(() => {
-                animateAllBars();
-            }, 500);
-        });
-
-        // Example of how to create a new progress bar dynamically
-        function addNewProgressBar(containerId, percentage, label, tooltipText) {
-            const container = document.getElementById(containerId);
-            if (container) {
-                container.setAttribute('data-percentage', percentage);
-                createProgressBar(container, percentage, tooltipText);
-            }
-        }
-    </script>
     
- <script>
-let lastClickedBtn = null;
-let modalInstance = null;
-
-document.addEventListener('DOMContentLoaded', () => {
-    const followModalEl = document.getElementById('followModal');
-    const confirmationContent = followModalEl.querySelector('.confirmation-content');
-    const successContent = followModalEl.querySelector('.success-content');
-
-    // Ensure modal element exists before initializing
-    if (!followModalEl) return;
-
-    // Initialize modal only once
-    modalInstance = new bootstrap.Modal(followModalEl, {
-        backdrop: 'static',
-        keyboard: false
-    });
-
-    // Ensure clean modal each time it's shown
-    followModalEl.addEventListener('show.bs.modal', () => {
-        // Reset modal content
-        confirmationContent.style.display = 'block';
-        successContent.style.display = 'none';
-
-        // 🛡 Remove stale backdrops before showing
-        document.querySelectorAll('.modal-backdrop').forEach(b => b.remove());
-
-        // 🛡 Restore body state
-        document.body.classList.remove('modal-open');
-        document.body.style.paddingRight = '';
-        document.body.style.overflow = '';
-    });
-
-    // Button click opens modal
-    document.querySelectorAll('.connect-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            lastClickedBtn = btn;
-            setTimeout(() => {
-                modalInstance.show(); // Slight delay ensures stable animation stack
-            }, 10); // delay avoids race with backdrop removal
-        });
-    });
-
-    // Confirm click inside modal
-    document.getElementById('confirmConnect').addEventListener('click', () => {
-        confirmationContent.style.display = 'none';
-        successContent.style.display = 'block';
-
-        if (lastClickedBtn) {
-            lastClickedBtn.innerHTML = '<span><i class="fas fa-clock"></i></span> Pending';
-            lastClickedBtn.style.backgroundColor = '#ffc107';
-            lastClickedBtn.style.borderColor = '#ffc107';
-            lastClickedBtn.style.color = '#000';
-        }
-
-        setTimeout(() => {
-            if (lastClickedBtn) {
-                lastClickedBtn.classList.remove('purple-btn');
-                lastClickedBtn.disabled = true;
-                lastClickedBtn = null;
-            }
-
-            modalInstance.hide();
-        }, 1500);
-    });
-
-    // Modal cleanup
-    followModalEl.addEventListener('hidden.bs.modal', () => {
-        confirmationContent.style.display = 'block';
-        successContent.style.display = 'none';
-
-        // Final cleanup
-        document.querySelectorAll('.modal-backdrop').forEach(b => b.remove());
-        document.body.classList.remove('modal-open');
-        document.body.style.paddingRight = '';
-        document.body.style.overflow = '';
-    });
-});
-</script>
-
-
-
-
-
-
-<script>
-let lastFriendBtn = null;
-
-// Track which friend button was clicked
-document.querySelectorAll('.ready-frnd').forEach(btn => {
-    btn.addEventListener('click', () => {
-        lastFriendBtn = btn;
-    });
-});
-
-// Handle unfollow confirmation
-document.getElementById('confirmUnfollow').addEventListener('click', function() {
-    const modal = document.getElementById('remove_friend');
-    
-    if (lastFriendBtn) {
-        // Change button appearance
-        lastFriendBtn.classList.remove('ready-frnd');
-        lastFriendBtn.classList.add('purple-btn', 'connect-btn');
-        lastFriendBtn.innerHTML = '<span><i class="fas fa-user-plus"></i></span> Connect';
-        lastFriendBtn.setAttribute('data-bs-target', '#followModal');
-        
-        // Reset the button reference
-        lastFriendBtn = null;
-    }
-    
-    // Hide modal
-    const modalInstance = bootstrap.Modal.getInstance(modal);
-    modalInstance.hide();
-    
-    // Cleanup
-    setTimeout(() => {
-        document.body.classList.remove('modal-open');
-        const backdrop = document.querySelector('.modal-backdrop');
-        if (backdrop) {
-            backdrop.remove();
-        }
-    }, 300);
-});
-</script>
 
 
 

@@ -8,7 +8,7 @@
 body {
     font-family: 'Alexandria' !important;
     background-color: #fff;
-    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 html,
@@ -340,6 +340,7 @@ body.loaded #loader-wrapper {
 
 .pass-header {
     position: relative;
+    z-index: 3;
 }
 
 .color-red-gr {
@@ -440,19 +441,25 @@ body.loaded #loader-wrapper {
     padding: 20px 20px 10px 20px;
     display: flex;
     flex-direction: column;
-    /* min-height: 170px; */
+    /* min-height: 210px;
+    max-height: 210px;  */
     background: #ffffff;
     position: relative;
 }
 
-.pass-content::after {
+.pass-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.pass-card::after {
     position: absolute;
     content: '';
     background-image: url(../img/ticket-ab.svg);
     right: 0px;
     top: 0px;
-    background-position: right;
-    background-size: contain;
+    background-position: right bottom;
+    background-size: 30%;
     height: 100%;
     width: 100%;
     background-repeat: no-repeat;
@@ -538,16 +545,24 @@ body.loaded #loader-wrapper {
 .buy-btn {
     display: block;
     width: 100%;
-    background: linear-gradient(91deg, #2ba642 -0.01%, #123d21 99.99%) !important;
+    background: linear-gradient(91deg, #2ba642, #123d21);
+    background-size: 200% 100%;
+    background-position: left;
     color: white;
     border: none;
     padding: 10px 20px;
     text-align: center;
     font-weight: 500;
     font-size: 16px;
-    border-radius: 10px;
+    border-radius: 8px;
     margin-top: 10px;
     cursor: pointer;
+    transition: background-position 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.buy-btn:hover {
+    background-position: right;
+    transform: translateY(-4px);
 }
 
 .logo-footer {
@@ -647,6 +662,8 @@ body.loaded #loader-wrapper {
     background-color: #f5f5f500;
     backdrop-filter: blur(1px);
     border-top: 1px solid #cdcdcd63;
+    position: relative;
+    z-index: 1;
 }
 
 a {
@@ -1146,16 +1163,15 @@ a {
 }
 
 .card-header {
-    background-color: #fff;
+    background: linear-gradient(91deg, #2ba642 -0.01%, #123d21 99.99%) !important;
     padding: 15px 20px;
     font-size: 18px;
     font-weight: 700;
-    /* background-image: url(../img/banner.webp);
-    background-size: cover; */
+    /* background-image: url(../img/banner.webp); */
+    background-size: cover;
     height: auto;
     border: none;
     color: white;
-    border-bottom: 1px solid #299c3f;
 }
 
 .promocard .card-header {
@@ -1205,6 +1221,7 @@ a {
 .ticket-info-to {
     text-align: center;
     padding: 30px 20px;
+    border: 1px solid #ebebeb;
 }
 
 .promo-input {
@@ -1254,7 +1271,7 @@ a {
 }
 
 .card-header img {
-    width: 68%;
+    width: 78%;
     height: 100%;
     object-fit: contain;
     margin: auto;
@@ -1526,7 +1543,7 @@ input[type=number] {
 }
 
 .input-box {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
 }
@@ -1548,9 +1565,9 @@ input[type=number] {
 }
 
 .sub-selected-tags span {
-    background: #f5f5f5 !important;
+    background: #505050 !important;
     border: 1px solid #d0d0d0;
-    color: rgb(69, 69, 69);
+    color: rgb(255, 255, 255);
     padding: 5px 12px;
     border-radius: 20px;
     display: inline-flex;
@@ -1879,8 +1896,8 @@ input[type=number] {
 }
 
 .ticket-info-to {
-    padding: 0px 20px 20px 20px;
-    min-height: 200px;
+    padding: 40px 20px 20px 20px;
+    min-height: 220px;
     transition: all 0.3s ease;
     background: #fff;
 }
@@ -2721,6 +2738,10 @@ ul.accordion-list {
     transition: .5s;
 }
 
+.social-icons a:hover i {
+    color: #000 !important;
+    transition: .5s;
+}
 
 
 .btn-main {
@@ -2820,12 +2841,12 @@ ul.accordion-list {
 
 .select-sub-tag {
     display: inline-block;
-    background: #f5f5f5;
+    background: #505050;
     border: 1px solid #d0d0d0;
     border-radius: 20px;
     padding: 5px 12px;
     font-size: 14px;
-    color: rgb(69, 69, 69);
+    color: rgb(253 253 253);
     margin-bottom: 15px;
     font-weight: 300;
 }
@@ -2903,14 +2924,13 @@ ul.accordion-list {
     height: 0;
 }
 
-.attendee-form {
-    margin-bottom: 20px;
+/* .attendee-form {
     border: none;
-    border-radius: 8px;
-    background: #fafafa;
-    padding: 15px;
-    border: 1px solid #579b29;
-}
+    border-radius: 0 0 8px 8px;
+    background: #ffffff;
+    padding: 0px 15px 15px 15px ;
+    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.1);
+} */
 
 .checkout-right-aligned {
     display: flex;
@@ -3169,7 +3189,6 @@ select.form-control {
 
 .action-buttons {
     display: flex;
-    justify-content: center;
     gap: 10px;
 }
 
@@ -3198,7 +3217,6 @@ select.form-control {
 .step-indicator {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
 }
 
 .step-circle {
@@ -3261,7 +3279,6 @@ select.form-control {
 }
 
 .btn-continue {
-    background: linear-gradient(91deg, #1F2383 -0.01%, #0B0442 99.99%);
     color: white;
     border: none;
     border-radius: 5px;
@@ -3557,10 +3574,10 @@ select.form-control {
 
 .ticket-info-to .badge-fullname {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 19px;
     color: #8f959e;
     text-transform: uppercase;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .ticket-info-to .badge-jobtitle,
@@ -3568,13 +3585,15 @@ select.form-control {
     font-weight: 400;
     color: #a4aab3;
     text-transform: uppercase;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    font-size: 18px;
 }
 
 .ticket-info-to .badge-country {
     font-weight: 400;
     color: #000000;
     text-transform: uppercase;
+    font-size: 18px;
 }
 
 .ticket-info-ft {
@@ -3675,11 +3694,6 @@ select.form-control {
     transform: translateY(-50%);
 }
 
-.select2-container--default .select2-selection--single .select2-selection__clear:hover {
-    background-color: rgba(31, 35, 131, 0.1);
-    color: #0B0442;
-    cursor: pointer;
-}
 
 /* Dropdown styling */
 .select2-dropdown {
@@ -3826,11 +3840,14 @@ select.form-control {
 }
 
 
-.list-group-item label span{
+.list-group-item label span {
     color: #047074;
     font-weight: 600;
 }
 
+.reg-form-width {
+    padding: 30px 150px;
+}
 
 
 
@@ -3991,16 +4008,7 @@ select.form-control {
     transition: all 0.3s ease-in-out;
 }
 
-.form-content.collapsed {
-    max-height: 0;
-    opacity: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-}
 
-.attendee-form.collapsed .toggle-btn svg {
-    transform: rotate(180deg);
-}
 
 
 
@@ -4025,12 +4033,13 @@ select.form-control {
 }
 
 .form-workshop {
-    margin: 20px 0px;
+    margin: 20px 0px 0px 0px;
 }
 
 .form-workshop .checkbox-grid label {
     font-weight: 300;
     margin-bottom: 10px;
+    margin-top: 0px;
     color: rgb(49, 49, 49);
 }
 
@@ -4154,15 +4163,14 @@ select.form-control {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
-    padding: 10px 5px;
+    padding: 13px 5px;
     width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    background-color: transparent;
+    background-color: #ffffff;
     border-radius: 8px 8px 0 0;
     scrollbar-width: thin;
-    scrollbar-color: #e9ecef;
+    position: relative;
 }
 
 
@@ -4184,9 +4192,6 @@ select.form-control {
     /* Optional: gives a slight border to the thumb */
 }
 
-.registration-container .step-indicator::-webkit-scrollbar-thumb:hover {
-    background-color: #1F2383;
-}
 
 .registration-container .step-circle {
     width: 38px;
@@ -4243,6 +4248,14 @@ select.form-control {
     left: 50%;
     transform: translate(-50%, -50%);
     line-height: 1;
+}
+
+.registration-container {
+    border: none;
+    border-radius: 8px;
+    background: #ffffff;
+    padding: 0px 15px 15px 15px;
+    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.1);
 }
 
 .iagree .form-check {
@@ -4687,7 +4700,7 @@ select.form-control {
 .chat-icon svg {
     border-radius: 100%;
     background-color: #fff;
-    color: #00ab56;
+    color: #3c3c3c;
     display: grid;
     place-content: center;
     padding: 10px;
@@ -4967,7 +4980,7 @@ select.form-control {
 
 
 .dropdown-divider {
-    margin: 8px 0;
+    margin: 0;
     border-color: #eee;
 }
 
@@ -5213,13 +5226,24 @@ select.form-control {
     display: flex;
     align-items: center;
     gap: 15px;
+    border: none;
 }
 
 .visitor_menu a {
-    color: #000;
+    color: #2d2d2d;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 15px;
     text-decoration: none;
+    padding: 5px 12px;
+    border: 1px solid #0f9330 !important;
+    border-radius: 0px !important;
+    background: #defed4;
+}
+
+.visitor_menu a:hover {
+    background: #ffffff;
+    color: #008800;
+    transition: all 0.3s ease-in-out;
 }
 
 
@@ -5227,12 +5251,42 @@ select.form-control {
     display: flex;
     align-self: center;
     justify-content: space-between;
+    padding: 10px 0px;
+    /* background-image: url(../img/banner.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+    margin-bottom: 20px;
+
+}
+
+.visitor-header .nav-link.active {
+    background: #008800;
+    color: white;
 }
 
 .registration_data {
-    padding: 16px;
     border-radius: 8px;
     background-color: #fff;
+    min-width: 100%;
+}
+
+.registration_data_header {
+    background-image: url(../img/banner.webp);
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    padding: 20px 0px;
+}
+
+.registration_data_header h4 {
+    font-size: 25px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0px;
+    text-align: center;
 }
 
 .registration_data p {
@@ -5245,7 +5299,7 @@ select.form-control {
     padding: 6px 12px;
     border: none;
     border-radius: 4px;
-    background-color: #008f46;
+    background-color: #06855f;
     color: white;
     cursor: pointer;
 }
@@ -5295,26 +5349,39 @@ select.form-control {
     margin: 0px;
     font-size: 20px;
     font-weight: 600;
+    color: #000;
 }
 
 .upload-container {
     border-radius: 0.5rem;
-    padding: 2rem;
     width: 100%;
 }
 
 .title {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 18px;
+    margin-top: 30px;
+    font-weight: 500;
     text-align: center;
-    margin-bottom: 2rem;
     color: #1f2937;
+}
+
+#dataDisplay {
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 20px;
+}
+
+#dataEdit {
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 20px;
 }
 
 .avatar-section {
     display: flex;
     justify-content: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 10px;
+    margin-top: 20px;
 }
 
 .avatar-container {
@@ -5323,8 +5390,8 @@ select.form-control {
 
 .remove-overlay {
     position: absolute;
-    top: -8px;
-    right: -8px;
+    top: -15px;
+    right: -14px;
     width: 2rem;
     height: 2rem;
     background-color: #ef4444;
@@ -5355,8 +5422,8 @@ select.form-control {
 .avatar-circle {
     width: 8rem;
     height: 8rem;
-    border-radius: 50%;
-    background-color: #111827;
+    border-radius: 100%;
+    background-color: #e2ffdf;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -5366,14 +5433,14 @@ select.form-control {
 }
 
 .avatar-circle:hover {
-    background-color: #374151;
+    background-color: #2f3134;
 }
 
 .avatar-circle img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 5%;
 }
 
 .user-icon {
@@ -5384,11 +5451,11 @@ select.form-control {
 
 .camera-button {
     position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 2.5rem;
-    height: 2.5rem;
-    background-color: #e8e8e8 !important;
+    top: 20px;
+    right: -14px;
+    width: 2rem;
+    height: 2rem;
+    background-color: #076c2f !important;
     border-radius: 100% !important;
     border: 1px solid #e0e0e0 !important;
     border: none;
@@ -5397,7 +5464,7 @@ select.form-control {
     justify-content: center;
     cursor: pointer;
     transition: background-color 0.2s;
-    color: black !important;
+    color: #ffffff !important;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
@@ -5430,11 +5497,10 @@ select.form-control {
     color: #9ca3af;
     font-size: 0.75rem;
 }
+
 .file-info {
-    margin-top: 1rem;
+    margin-top: .5rem;
     padding: 0.75rem;
-    background-color: #f3f4f6;
-    border-radius: 0.5rem;
     display: none;
 }
 
@@ -5443,9 +5509,20 @@ select.form-control {
 }
 
 .file-info p {
-    font-size: 0.875rem;
+    font-size: 13px;
+    text-align: center;
     color: #374151;
     margin-bottom: 0.25rem;
+}
+
+#chooseBtn {
+    background: #161616;
+    border: 1px solid #ebebeb;
+    color: #ffffff;
+}
+
+#removeBtn {
+    display: none;
 }
 
 .file-info .file-size {
@@ -5454,6 +5531,10 @@ select.form-control {
 
 .file-name {
     font-weight: 500;
+}
+
+.form-control:disabled {
+    background-color: transparent !important;
 }
 
 /* SVG Icons */
@@ -5578,19 +5659,556 @@ select.form-control {
 }
 
 .icon {
-    fill: currentColor;
+    fill: rgb(36 127 46);
 }
 
 
-.button-group{
+.button-group {
     display: flex;
     gap: 5px;
     justify-content: center;
 }
 
+.edit-form-main {
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.edit-form-main .attendee-header {
+    background-image: url(../img/banner.webp) !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    position: relative !important;
+}
+
+
+.edit-form-main .attendee-header #editBtn {
+    background: #ffffff !important;
+    color: #74bb28 !important;
+    border: 1px solid #6ab422;
+}
+
+
+.edit-form-main .attendee-header #saveBtn {
+    background: #55105f !important;
+    color: #fefefe !important;
+    border: none;
+    
+}
+
+.edit-form-inputs #saveBtn{
+    margin-top: 20px !important;
+    text-align: center;
+    margin: auto;
+    padding: 7px 30px;
+}
+
+.edit-form-inputs {
+    padding: 20px;
+}
+
+.edit-form-inputs label {
+    margin-top: 30px;
+}
+
+
+.edit-form-inputs .form-workshop{
+    border-bottom: 1px solid #ebebeb;
+}
+
+
+/* badge table */
+
+
+
+.table-container {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.table-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.search-box {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 200px;
+}
+
+.sort-select {
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.badge-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+.badge-table th,
+td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+}
+
+.badge-table th {
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 13px;
+}
+
+.badge-table .user {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.badge-table .user img {
+    border-radius: 100%;
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+}
+
+.badge-table .badge-btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 0px;
+    background-color: #7E57C2;
+    cursor: pointer;
+    color: white;
+    font-size: 12px;
+    transition: .5s ease;
+
+}
+
+.badge-table .badge-btn span {
+    margin-right: 5px;
+}
+
+.badge-table .badge-btn:hover {
+    background-color: #5E35B1;
+    transition: .5s ease;
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #555;
+}
+
+.action-cell {
+    position: relative;
+    text-align: center;
+}
+
+.action-cell .btn-link {
+    color: #6c757d;
+    padding: 6px;
+    transition: color 0.2s;
+}
+
+.action-cell .btn-link:hover {
+    color: #343a40;
+}
+
+.dropdown-menu {
+    min-width: 180px;
+    padding: 0.5rem 0;
+    margin: 0;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #333;
+    transition: all 0.2s;
+}
+
+.dropdown-item i {
+    width: 16px;
+    color: #6c757d;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+.dropdown-item:hover i {
+    color: #49b964;
+}
+
+.dropdown-item.text-danger:hover i {
+    color: #dc3545;
+}
+
+.badge-table {
+    background-color: #fff;
+    border: 1px solid #ebebeb;
+}
+
+.primary-user {
+    background: #008800;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 300;
+    padding: 4px 7px;
+    border-radius: 30px;
+}
+
+.badge-status span {
+    background: #cfa701;
+    padding: 4px 8px;
+    border-radius: 30px;
+    color: white;
+    font-size: 12px;
+}
+
+.badge-approved span {
+    background-color: #008800;
+}
+
+.badge-cancel span {
+    background-color: #8a340c;
+}
+
+.btn-check:checked+.btn,
+.btn.active,
+.btn.show,
+.btn:first-child:active,
+:not(.btn-check)+.btn:active {
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+
+
+.edit-form-products label {
+    margin-bottom: 5px;
+}
+
+.edit-form-products input[type="checkbox"] {
+    accent-color: black;
+}
+
+.workshop-error {
+    color: red;
+}
+
+
+
+
+
+/* Notification */
+
+
+.notification-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+.notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.notification-header h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0;
+}
+
+.notification-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.mark-all-read {
+    padding: 0.5rem 1rem;
+    background: #49b964;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mark-all-read:hover {
+    background: #3a9651;
+}
+
+.notification-filter {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+}
+
+.notification-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+.notification-item.unread {
+    background: #fff;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+}
+
+.notification-avatar {
+    position: relative;
+    margin-right: 1rem;
+}
+
+.notification-avatar img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.status-dot {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 10px;
+    height: 10px;
+    background: #49b964;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+.notification-icon {
+    width: 20px;
+    height: 20px;
+    background: #e9ecef;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #49b964;
+    font-size: 12px;
+}
+
+.notification-content {
+    flex: 1;
+}
+
+.notification-text {
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.notification-time {
+    color: #6c757d;
+    font-size: 0.875rem;
+}
+
+.notification-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.accept-btn,
+.decline-btn {
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.accept-btn {
+    background: #49b964;
+    color: white;
+}
+
+.accept-btn:hover {
+    background: #3a9651;
+}
+
+.decline-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.decline-btn:hover {
+    background: #bb2d3b;
+}
+
+.notification-options {
+    color: #6c757d;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.notification-options:hover {
+    color: #343a40;
+}
+
+.notification-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin: 0.5rem 0;
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.notification-badge.warning {
+    background: #fff3e0;
+    color: #e65100;
+}
+
+.system-update {
+    background: #e3f2fd !important;
+    color: #1976d2 !important;
+}
+
+.event {
+    background: #f3e5f5 !important;
+    color: #7b1fa2 !important;
+}
+
+.payment {
+    background: #e8f5e9 !important;
+    color: #2e7d32 !important;
+}
+
+.document {
+    background: #fff3e0 !important;
+    color: #e65100 !important;
+}
+
+.view-btn,
+.remind-btn,
+.download-btn,
+.upload-btn {
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+    color: #495057;
+}
+
+.view-btn:hover,
+.remind-btn:hover,
+.download-btn:hover,
+.upload-btn:hover {
+    background: #e9ecef;
+    color: #212529;
+}
+
+.download-btn {
+    background: #e3f2fd;
+    color: #1976d2;
+    font-size: 13px;
+}
+
+.download-btn:hover {
+    background: #bbdefb;
+    color: #1565c0;
+}
+
+.upload-btn {
+    background: #fff3e0;
+    color: #e65100;
+    font-size: 13px;
+}
+
+.upload-btn:hover {
+    background: #ffe0b2;
+    color: #ef6c00;
+}
+
+
+/* Animation for new notifications */
+@keyframes slideIn {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.notification-item.unread {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Notification */
+
+
+@media (max-width: 1366px) {
+    .reg-form-width {
+        padding: 30px 50px;
+    }
+    .table-main-div{
+        width: auto;
+        overflow: scroll;
+    }
+}
+
 
 
 @media (max-width: 992px) {
+    .ticket-info-to {
+        padding: 20px;
+    }
+
+    .ticket-info-to .badge-fullname {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .ticket-info-ft h4 {
+        font-size: 18px;
+    }
+
+    .reg-form-width {
+        padding: 30px 20px;
+    }
+
     .user-inner img {
         object-position: top;
     }
@@ -5598,7 +6216,12 @@ select.form-control {
     .messages-container {
         padding: 15px;
     }
-
+    .visitor_menu{
+        justify-content: center;
+    }
+    .edit-form-inputs label {
+    margin-top: 15px;
+    }
 
     /* .table-tab{
         display: none;
@@ -5698,6 +6321,20 @@ select.form-control {
 
     .registration-container .step-indicator {
         justify-content: start;
+    }
+
+    .visitor-header{
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .upgrade-btn{
+        margin: auto;
+    }
+    .call-options{
+       flex-direction: column;
     }
 }
 
@@ -5805,7 +6442,7 @@ select.form-control {
 
     .registration-container .step-indicator {
         padding: 8px 0;
-        margin-bottom: 15px;
+        margin-bottom: 5px;
     }
 
     .registration-container .step-circle {
@@ -5846,10 +6483,7 @@ select.form-control {
     }
 
     /* Adjust padding for form cards */
-    .attendee-form,
-    .registration-summary {
-        padding: 20px;
-    }
+
 
     .footer {
         padding: 30px 20px 15px;
@@ -5858,6 +6492,26 @@ select.form-control {
     .collaps-ticket-nav .nav-tabs .nav-link {
         font-size: 14px;
         margin-right: 10px;
+    }
+
+    .notification-container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .notification-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .notification-actions {
+        width: 100%;
+        flex-direction: column;
+        margin-top: 0px;
+    }
+
+    .notification-filter {
+        flex: 1;
     }
 }
 
@@ -5873,7 +6527,7 @@ select.form-control {
     .registration-container .step-indicator {
         padding: 8px 5px;
         /* Add side padding for when it scrolls */
-        margin-bottom: 15px;
+        margin-bottom: 5px;
         overflow-x: auto;
         /* Enable horizontal scrolling */
         /* justify-content: flex-start; /* Optional: if you prefer scroll to start from left */
@@ -5924,10 +6578,6 @@ select.form-control {
         /* flex-shrink: 1; /* Already default, ensures lines shrink */
     }
 
-    .attendee-form,
-    .registration-summary {
-        padding: 15px;
-    }
 
     .attendee-header h4,
     .summary-header h4 {

@@ -5,15 +5,487 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GITEX NIGERIA</title>
-    <link rel="stylesheet" href="assets/css/new-style-visitor.css">
-    <link rel="stylesheet" href="assets/fonts/webfont/stylesheet.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css">
+    <link rel="stylesheet" href="assets/css/new-style-visitor.css">
+    <link rel="stylesheet" href="assets/fonts/webfont/stylesheet.css">
     <link rel="icon" type="image/png" href="assets/img/fav-icon.png">
+
+    
 
     <style>
         body {
             scroll-behavior: smooth;
+        }
+        .select2-container--default.select2-container--disabled .select2-selection--single{
+            background: transparent !important;
+        }
+        /* Meeting Icon and Modal Styles */
+        .meeting-icon-wrapper {
+            position: absolute;
+            top: 70px;
+            right: 15px;
+            z-index: 1;
+            
+        }
+
+        .meeting-icon {
+            border-radius: 100%;
+            background-color: #fff;
+            color: #3c3c3c;
+            display: grid;
+            border: none;
+            place-content: center;
+            padding: 10px;
+            font-size: 25px;
+            box-shadow: 0 4px 40px 0 rgba(0, 0, 0, 0.15);
+        }
+
+        .meeting-icon i {
+            font-size: 18px;
+            color: #49b964;
+        }
+
+
+        /* Meeting List Styles */
+
+        .call-options {
+            padding: 1rem;
+            display: flex;
+            gap: 10px;
+        }
+
+        .call-option-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 1rem;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .call-option-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .call-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+
+        .call-icon i {
+            font-size: 24px;
+        }
+
+        .call-icon.video {
+            background: #e5e1ec;
+            color: #9575CD;
+        }
+
+        .call-icon.audio {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .call-info {
+            flex: 1;
+        }
+
+        .call-info h6 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .call-info p {
+            margin: 0 0 1rem 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .start-btn {
+            padding: 0.5rem 1.5rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+            border: none;
+            color: white;
+        }
+
+        .start-btn.video-call {
+            background: #9575CD;
+            color: white;
+        }
+
+        .start-btn.video-call:hover {
+            background: #7255a2;
+            color: white;
+        }
+
+        .start-btn.audio-call {
+            background: #2e7d32;
+            color: white;
+        }
+
+        .start-btn.audio-call:hover {
+            background: #1b5e20;
+            color: white;
+        }
+
+
+        .premium-header .btn-close {
+            filter: brightness(0) invert(1);
+        }
+
+
+        .step {
+            display: none;
+            background: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2eb13f 0%, #0d3d0d 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-right: 1rem;
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        /* Current Ticket Display */
+        .current-ticket {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+        }
+
+        .upgrade-ticket-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .upgrade-btn {
+            width: fit-content;
+        }
+
+        .upgrade-ticket-details h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .upgrade-ticket-details p {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .ticket-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #108a26;
+        }
+
+        
+
+        /* Ticket Selection */
+        .ticket-options {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .ticket-option {
+            border: 2px solid #e2e8f0;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .ticket-option:hover {
+            border-color: #2eb13f;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+        }
+
+        .ticket-option.selected {
+            border-color: #667eea;
+            background: rgba(102, 126, 234, 0.05);
+        }
+
+        .ticket-option.selected::before {
+            content: '✓';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 24px;
+            height: 24px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .ticket-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .ticket-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .ticket-option-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #048718;
+        }
+
+        .ticket-features {
+            list-style: none;
+            margin-top: 1rem;
+            padding: 0px;
+        }
+
+        .ticket-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .ticket-features li::before {
+            content: '✓';
+            color: #10b981;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .upgrade-info {
+            background: #e7ffeb;
+            border: 1px solid #34bc3f;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .upgrade-info svg {
+            color: #d97706;
+        }
+
+        .upgrade-info span {
+            color: #319604;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* Checkout Page */
+        .checkout-summary {
+            background: #f8fafc;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .summary-row:last-child {
+            border-bottom: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #1f2937;
+        }
+
+        .summary-label {
+            color: #6b7280;
+        }
+
+        .summary-value {
+            font-weight: 500;
+        }
+
+        .payment-section {
+            margin-bottom: 2rem;
+        }
+
+        .payment-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 0.5rem;
+            font-size: 0.95rem;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1rem;
+        }
+
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .button-group .btn {
+            flex: 1;
+        }
+
+        /* Success Page */
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .success-message {
+            text-align: center;
+        }
+
+        .success-message h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #048718;
+            margin-bottom: 1rem;
+        }
+
+        .success-message p {
+            color: #5f5e5e;
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+        .upgrade-ticket-details-card {
+            background: #f8fafc;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .checkout-form .form-group label{
+                margin-bottom: 5px;
+                font-size: 15px;
+                color: #646464;
+                font-weight: 100;
+        }
+
+        .validation-message {
+            display: none;
+            color: #dc2626;
+            font-size: 0.95rem;
+            font-weight: 500;
+            }
+
+        .ticket-upgrade .step { display: none; }
+        .ticket-upgrade .step.active { display: block; }
+        .ticket-upgrade .ticket-option.selected { border: 2px solid green; background: #f0fff0; }
+        /* Add your styling for buttons, form fields, etc. */
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+                gap: 0px;
+            }
+
+            .upgrade-ticket-info {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -40,32 +512,55 @@
     </div>
     <!-- loader -->
 
-    
 
-    <div class="content">
-       <div class="visitor-header">
-        <div class="visitor_menu">
-            <a href="">Link 1</a>
-            <a href="">Link 2</a>
-            <a href="">Link 3</a>
-        </div>
-        <div class="visitor_topright">
-            <div class="visitor-notification">
-                <i class="far fa-bell"></i>
-                <span class="notification-dot"></span>
-            </div>
-            <h4>Mohammed Navab</h4>
+    <div class="inner-banner">
+        <a href="index.html"><img src="assets/img/ni-header.png" class="img-fluid sm-hide-logo"></a>
+
+        <div>
+            <div class="registration-text">GITEX NIGERIA TECH EXPO + <br> FUTURE ECONOMY SUMMIT</div>
         </div>
     </div>
 
-        <div class="row d-flex justify-content-center">
-            <div class="col-lg-8 d-flex justify-content-center">
-                <div class="registration_data">
-                     
 
-                        <div class="upload-container">
-                            <h2 class="title">Upload Profile Photo</h2>
-                            
+    <div class="content">
+        <div class="visitor-header">
+    <div class="visitor_menu nav nav-tabs" id="visitorTabs" role="tablist">
+        <a class="nav-link active" id="visitor-details-tab" data-bs-toggle="tab" href="#visitor-details" role="tab" aria-controls="visitor-details" aria-selected="true">
+            Visitor Details
+        </a>
+        <a class="nav-link" id="badge-tab" data-bs-toggle="tab" href="#badge" role="tab" aria-controls="badge" aria-selected="false">
+            Badge
+        </a>
+        <a class="nav-link" id="matchmaking-tab" data-bs-toggle="tab" href="#matchmaking" role="tab" aria-controls="matchmaking" aria-selected="false">
+            Matchmaking
+        </a>
+    </div>
+    <div class="visitor_topright">
+        <a href="notification.html"><div class="visitor-notification">
+            <i class="far fa-bell"></i>
+            <span class="notification-dot"></span>
+        </div></a>
+        <h4>Mohammed Navab</h4>
+    </div>
+    </div>
+
+
+    <div class="tab-content" id="visitorTabContent">
+    <div class="tab-pane fade show active" id="visitor-details" role="tabpanel" aria-labelledby="visitor-details-tab">
+        <!-- Your existing visitor details form content -->
+     <div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-lg-8">
+            <div class="edit-form-main">
+                <div class="attendee-header min-height-77 d-flex justify-content-between align-items-center">
+                    <h4>Registration Information</h4>
+                    <div>
+                    <button type="button" class="btn btn-primary" id="editBtn">Edit</button>
+                    </div>
+                </div>
+
+
+                <!-- <div class="upload-container">       
                             <div class="avatar-section">
                                 <div class="avatar-container">
                                     <div class="avatar-circle" id="avatarCircle">
@@ -84,9 +579,7 @@
                                     </button>
                                 </div>
                             </div>
-
                             <input type="file" id="fileInput" class="file-input" accept="image/*">
-
                             <div class="button-group">
                                 <button class="btn btn-primary" id="chooseBtn">Choose Photo</button>
                                 <button class="btn btn-secondary" id="cropBtn" style="display: none;">Crop</button>
@@ -97,34 +590,1737 @@
                                 <p><span class="file-name">Selected:</span> <span id="fileName"></span></p>
                                 <p class="file-size">Size: <span id="fileSize"></span></p>
                             </div>
+                    </div> -->
+
+                <form id="employeeForm">
+                    <div class="">
+                    <div class="edit-form-inputs">
+                        <div class="row">
+                        <div class="col-md-6">
+                            <label for="firstname" class="form-label">First Name</label>
+                            <input value="Bishru" type="text" id="firstname" class="form-control" disabled>
                         </div>
-                        <div id="dataDisplay">
-                            <p><strong>Name:</strong> <span id="nameText">John Doe</span></p>
-                            <p><strong>Email:</strong> <span id="emailText">john@example.com</span></p>
-                            <p><strong>Phone:</strong> <span id="phoneText">+1234567890</span></p>
-                            <p><strong>Company:</strong> <span id="companyText">ABC Corp</span></p>
-                            <p><strong>Designation:</strong> <span id="designationText">Developer</span></p>
-                            <p><strong>Country:</strong> <span id="countryText">USA</span></p>
-                            <button onclick="enableEdit()">Edit</button>
+                        <div class="col-md-6">
+                            <label for="lastname" class="form-label">Last Name</label>
+                            <input value="Rahman" type="text" id="lastname" class="form-control" disabled>
+                        </div>
                         </div>
 
-                        <div id="dataEdit" style="display: none;">
-                            <p><strong>Name:</strong> <input type="text" id="nameInput"></p>
-                            <p><strong>Email:</strong> <input type="email" id="emailInput"></p>
-                            <p><strong>Phone:</strong> <input type="tel" id="phoneInput"></p>
-                            <p><strong>Company:</strong> <input type="text" id="companyInput"></p>
-                            <p><strong>Designation:</strong> <input type="text" id="designationInput"></p>
-                            <p><strong>Country:</strong> <input type="text" id="countryInput"></p>
-                            <button onclick="saveData()">Save</button>
-                            <button onclick="cancelEdit()">Cancel</button>
+                        <div class="row">
+                            <div class="col-md-12">
+                            <div class="d-flex flex-column">
+                                <label for="CountryResidence" class="form-label">Country of residence</label>
+                            <select id="CountryResidence" class="form-control select2-countries" disabled>
+                                <option value="">Select Country</option>
+                                <option value="AF" data-flag="🇦🇫">Afghanistan</option>
+                                <option value="AX" data-flag="🇦🇽">Åland Islands</option>
+                                <option value="AL" data-flag="🇦🇱">Albania</option>
+                                <option value="DZ" data-flag="🇩🇿">Algeria</option>
+                                <option value="AS" data-flag="🇦🇸">American Samoa</option>
+                                <option value="AD" data-flag="🇦🇩">Andorra</option>
+                                <option value="AO" data-flag="🇦🇴">Angola</option>
+                                <option value="AI" data-flag="🇦🇮">Anguilla</option>
+                                <option value="AQ" data-flag="🇦🇶">Antarctica</option>
+                                <option value="AG" data-flag="🇦🇬">Antigua and Barbuda</option>
+                                <option value="AR" data-flag="🇦🇷">Argentina</option>
+                                <option value="AM" data-flag="🇦🇲">Armenia</option>
+                                <option value="AW" data-flag="🇦🇼">Aruba</option>
+                                <option value="AU" data-flag="🇦🇺">Australia</option>
+                                <option value="AT" data-flag="🇦🇹">Austria</option>
+                                <option value="AZ" data-flag="🇦🇿">Azerbaijan</option>
+                                <option value="BS" data-flag="🇧🇸">Bahamas</option>
+                                <option value="BH" data-flag="🇧🇭">Bahrain</option>
+                                <option value="BD" data-flag="🇧🇩">Bangladesh</option>
+                                <option value="BB" data-flag="🇧🇧">Barbados</option>
+                                <option value="BY" data-flag="🇧🇾">Belarus</option>
+                                <option value="BE" data-flag="🇧🇪">Belgium</option>
+                                <option value="BZ" data-flag="🇧🇿">Belize</option>
+                                <option value="BJ" data-flag="🇧🇯">Benin</option>
+                                <option value="BM" data-flag="🇧🇲">Bermuda</option>
+                                <option value="BT" data-flag="🇧🇹">Bhutan</option>
+                                <option value="BO" data-flag="🇧🇴">Bolivia</option>
+                                <option value="BA" data-flag="🇧🇦">Bosnia and Herzegovina</option>
+                                <option value="BW" data-flag="🇧🇼">Botswana</option>
+                                <option value="BR" data-flag="🇧🇷">Brazil</option>
+                                <option value="IO" data-flag="🇮🇴">British Indian Ocean Territory</option>
+                                <option value="VG" data-flag="🇻🇬">British Virgin Islands</option>
+                                <option value="BN" data-flag="🇧🇳">Brunei Darussalam</option>
+                                <option value="BG" data-flag="🇧🇬">Bulgaria</option>
+                                <option value="BF" data-flag="🇧🇫">Burkina Faso</option>
+                                <option value="BI" data-flag="🇧🇮">Burundi</option>
+                                <option value="KH" data-flag="🇰🇭">Cambodia</option>
+                                <option value="CM" data-flag="🇨🇲">Cameroon</option>
+                                <option value="CA" data-flag="🇨🇦">Canada</option>
+                                <option value="CV" data-flag="🇨🇻">Cape Verde</option>
+                                <option value="KY" data-flag="🇰🇾">Cayman Islands</option>
+                                <option value="CF" data-flag="🇨🇫">Central African Republic</option>
+                                <option value="TD" data-flag="🇹🇩">Chad</option>
+                                <option value="CL" data-flag="🇨🇱">Chile</option>
+                                <option value="CN" data-flag="🇨🇳">China</option>
+                                <option value="CX" data-flag="🇨🇽">Christmas Island</option>
+                                <option value="CC" data-flag="🇨🇨">Cocos (Keeling) Islands</option>
+                                <option value="CO" data-flag="🇨🇴">Colombia</option>
+                                <option value="KM" data-flag="🇰🇲">Comoros</option>
+                                <option value="CD" data-flag="🇨🇩">Congo (DRC)</option>
+                                <option value="CG" data-flag="🇨🇬">Congo (Republic)</option>
+                                <option value="CK" data-flag="🇨🇰">Cook Islands</option>
+                                <option value="CR" data-flag="🇨🇷">Costa Rica</option>
+                                <option value="CI" data-flag="🇨🇮">Côte d'Ivoire</option>
+                                <option value="HR" data-flag="🇭🇷">Croatia</option>
+                                <option value="CU" data-flag="🇨🇺">Cuba</option>
+                                <option value="CW" data-flag="🇨🇼">Curaçao</option>
+                                <option value="CY" data-flag="🇨🇾">Cyprus</option>
+                                <option value="CZ" data-flag="🇨🇿">Czech Republic</option>
+                                <option value="DK" data-flag="🇩🇰">Denmark</option>
+                                <option value="DJ" data-flag="🇩🇯">Djibouti</option>
+                                <option value="DM" data-flag="🇩🇲">Dominica</option>
+                                <option value="DO" data-flag="🇩🇴">Dominican Republic</option>
+                                <option value="EC" data-flag="🇪🇨">Ecuador</option>
+                                <option value="EG" data-flag="🇪🇬">Egypt</option>
+                                <option value="SV" data-flag="🇸🇻">El Salvador</option>
+                                <option value="GQ" data-flag="🇬🇶">Equatorial Guinea</option>
+                                <option value="ER" data-flag="🇪🇷">Eritrea</option>
+                                <option value="EE" data-flag="🇪🇪">Estonia</option>
+                                <option value="ET" data-flag="🇪🇹">Ethiopia</option>
+                                <option value="FK" data-flag="🇫🇰">Falkland Islands</option>
+                                <option value="FO" data-flag="🇫🇴">Faroe Islands</option>
+                                <option value="FJ" data-flag="🇫🇯">Fiji</option>
+                                <option value="FI" data-flag="🇫🇮">Finland</option>
+                                <option value="FR" data-flag="🇫🇷">France</option>
+                                <option value="PF" data-flag="🇵🇫">French Polynesia</option>
+                                <option value="TF" data-flag="🇹🇫">French Southern Territories</option>
+                                <option value="GA" data-flag="🇬🇦">Gabon</option>
+                                <option value="GM" data-flag="🇬🇲">Gambia</option>
+                                <option value="GE" data-flag="🇬🇪">Georgia</option>
+                                <option value="DE" data-flag="🇩🇪">Germany</option>
+                                <option value="GH" data-flag="🇬🇭">Ghana</option>
+                                <option value="GI" data-flag="🇬🇮">Gibraltar</option>
+                                <option value="GR" data-flag="🇬🇷">Greece</option>
+                                <option value="GL" data-flag="🇬🇱">Greenland</option>
+                                <option value="GD" data-flag="🇬🇩">Grenada</option>
+                                <option value="GP" data-flag="🇬🇵">Guadeloupe</option>
+                                <option value="GU" data-flag="🇬🇺">Guam</option>
+                                <option value="GT" data-flag="🇬🇹">Guatemala</option>
+                                <option value="GG" data-flag="🇬🇬">Guernsey</option>
+                                <option value="GN" data-flag="🇬🇳">Guinea</option>
+                                <option value="GW" data-flag="🇬🇼">Guinea‑Bissau</option>
+                                <option value="GY" data-flag="🇬🇾">Guyana</option>
+                                <option value="HT" data-flag="🇭🇹">Haiti</option>
+                                <option value="HN" data-flag="🇭🇳">Honduras</option>
+                                <option value="HK" data-flag="🇭🇰">Hong Kong</option>
+                                <option value="HU" data-flag="🇭🇺">Hungary</option>
+                                <option value="IS" data-flag="🇮🇸">Iceland</option>
+                                <option value="IN" data-flag="🇮🇳" selected>India</option>
+                                <option value="ID" data-flag="🇮🇩">Indonesia</option>
+                                <option value="IR" data-flag="🇮🇷">Iran</option>
+                                <option value="IQ" data-flag="🇮🇶">Iraq</option>
+                                <option value="IE" data-flag="🇮🇪">Ireland</option>
+                                <option value="IM" data-flag="🇮🇲">Isle of Man</option>
+                                <option value="IL" data-flag="🇮🇱">Israel</option>
+                                <option value="IT" data-flag="🇮🇹">Italy</option>
+                                <option value="JM" data-flag="🇯🇲">Jamaica</option>
+                                <option value="JP" data-flag="🇯🇵">Japan</option>
+                                <option value="JE" data-flag="🇯🇪">Jersey</option>
+                                <option value="JO" data-flag="🇯🇴">Jordan</option>
+                                <option value="KZ" data-flag="🇰🇿">Kazakhstan</option>
+                                <option value="KE" data-flag="🇰🇪">Kenya</option>
+                                <option value="KI" data-flag="🇰🇮">Kiribati</option>
+                                <option value="KP" data-flag="🇰🇵">North Korea</option>
+                                <option value="KR" data-flag="🇰🇷">South Korea</option>
+                                <option value="KW" data-flag="🇰🇼">Kuwait</option>
+                                <option value="KG" data-flag="🇰🇬">Kyrgyzstan</option>
+                                <option value="LA" data-flag="🇱🇦">Laos</option>
+                                <option value="LV" data-flag="🇱🇻">Latvia</option>
+                                <option value="LB" data-flag="🇱🇧">Lebanon</option>
+                                <option value="LS" data-flag="🇱🇸">Lesotho</option>
+                                <option value="LR" data-flag="🇱🇷">Liberia</option>
+                                <option value="LY" data-flag="🇱🇾">Libya</option>
+                                <option value="LI" data-flag="🇱🇮">Liechtenstein</option>
+                                <option value="LT" data-flag="🇱🇹">Lithuania</option>
+                                <option value="LU" data-flag="🇱🇺">Luxembourg</option>
+                                <option value="MO" data-flag="🇲🇴">Macao</option>
+                                <option value="MK" data-flag="🇲🇰">Macedonia</option>
+                                <option value="MG" data-flag="🇲🇬">Madagascar</option>
+                                <option value="MW" data-flag="🇲🇼">Malawi</option>
+                                <option value="MY" data-flag="🇲🇾">Malaysia</option>
+                                <option value="MV" data-flag="🇲🇻">Maldives</option>
+                                <option value="ML" data-flag="🇲🇱">Mali</option>
+                                <option value="MT" data-flag="🇲🇹">Malta</option>
+                                <option value="MH" data-flag="🇲🇭">Marshall Islands</option>
+                                <option value="MQ" data-flag="🇲🇶">Martinique</option>
+                                <option value="MR" data-flag="🇲🇷">Mauritania</option>
+                                <option value="MU" data-flag="🇲🇺">Mauritius</option>
+                                <option value="YT" data-flag="🇾🇹">Mayotte</option>
+                                <option value="MX" data-flag="🇲🇽">Mexico</option>
+                                <option value="FM" data-flag="🇫🇲">Micronesia</option>
+                                <option value="MD" data-flag="🇲🇩">Moldova</option>
+                                <option value="MC" data-flag="🇲🇨">Monaco</option>
+                                <option value="MN" data-flag="🇲🇳">Mongolia</option>
+                                <option value="ME" data-flag="🇲🇪">Montenegro</option>
+                                <option value="MS" data-flag="🇲🇸">Montserrat</option>
+                                <option value="MA" data-flag="🇲🇦">Morocco</option>
+                                <option value="MZ" data-flag="🇲🇿">Mozambique</option>
+                                <option value="MM" data-flag="🇲🇲">Myanmar</option>
+                                <option value="NA" data-flag="🇳🇦">Namibia</option>
+                                <option value="NR" data-flag="🇳🇷">Nauru</option>
+                                <option value="NP" data-flag="🇳🇵">Nepal</option>
+                                <option value="NL" data-flag="🇳🇱">Netherlands</option>
+                                <option value="NC" data-flag="🇳🇨">New Caledonia</option>
+                                <option value="NZ" data-flag="🇳🇿">New Zealand</option>
+                                <option value="NI" data-flag="🇳🇮">Nicaragua</option>
+                                <option value="NE" data-flag="🇳🇪">Niger</option>
+                                <option value="NG" data-flag="🇳🇬">Nigeria</option>
+                                <option value="NU" data-flag="🇳🇺">Niue</option>
+                                <option value="NF" data-flag="🇳🇫">Norfolk Island</option>
+                                <option value="MP" data-flag="🇲🇵">Northern Mariana Islands</option>
+                                <option value="NO" data-flag="🇳🇴">Norway</option>
+                                <option value="OM" data-flag="🇴🇲">Oman</option>
+                                <option value="PK" data-flag="🇵🇰">Pakistan</option>
+                                <option value="PW" data-flag="🇵🇼">Palau</option>
+                                <option value="PS" data-flag="🇵🇸">Palestine</option>
+                                <option value="PA" data-flag="🇵🇦">Panama</option>
+                                <option value="PG" data-flag="🇵🇬">Papua New Guinea</option>
+                                <option value="PY" data-flag="🇵🇾">Paraguay</option>
+                                <option value="PE" data-flag="🇵🇪">Peru</option>
+                                <option value="PH" data-flag="🇵🇭">Philippines</option>
+                                <option value="PN" data-flag="🇵🇳">Pitcairn Islands</option>
+                                <option value="PL" data-flag="🇵🇱">Poland</option>
+                                <option value="PT" data-flag="🇵🇹">Portugal</option>
+                                <option value="PR" data-flag="🇵🇷">Puerto Rico</option>
+                                <option value="QA" data-flag="🇶🇦">Qatar</option>
+                                <option value="RE" data-flag="🇷🇪">Réunion</option>
+                                <option value="RO" data-flag="🇷🇴">Romania</option>
+                                <option value="RU" data-flag="🇷🇺">Russia</option>
+                                <option value="RW" data-flag="🇷🇼">Rwanda</option>
+                                <option value="BL" data-flag="🇧🇱">Saint-Barthélemy</option>
+                                <option value="SH" data-flag="🇸🇭">Saint Helena</option>
+                                <option value="KN" data-flag="🇰🇳">Saint Kitts and Nevis</option>
+                                <option value="LC" data-flag="🇱🇨">Saint Lucia</option>
+                                <option value="MF" data-flag="🇲🇫">Saint-Martin</option>
+                                <option value="PM" data-flag="🇵🇲">Saint Pierre & Miquelon</option>
+                                <option value="VC" data-flag="🇻🇨">Saint Vincent & Grenadines</option>
+                                <option value="WS" data-flag="🇼🇸">Samoa</option>
+                                <option value="SM" data-flag="🇸🇲">San Marino</option>
+                                <option value="ST" data-flag="🇸🇹">São Tomé & Príncipe</option>
+                                <option value="SA" data-flag="🇸🇦">Saudi Arabia</option>
+                                <option value="SN" data-flag="🇸🇳">Senegal</option>
+                                <option value="RS" data-flag="🇷🇸">Serbia</option>
+                                <option value="SC" data-flag="🇸🇨">Seychelles</option>
+                                <option value="SL" data-flag="🇸🇱">Sierra Leone</option>
+                                <option value="SG" data-flag="🇸🇬">Singapore</option>
+                                <option value="SX" data-flag="🇸🇽">Sint Maarten</option>
+                                <option value="SK" data-flag="🇸🇰">Slovakia</option>
+                                <option value="SI" data-flag="🇸🇮">Slovenia</option>
+                                <option value="SB" data-flag="🇸🇧">Solomon Islands</option>
+                                <option value="SO" data-flag="🇸🇴">Somalia</option>
+                                <option value="ZA" data-flag="🇿🇦">South Africa</option>
+                                <option value="SS" data-flag="🇸🇸">South Sudan</option>
+                                <option value="ES" data-flag="🇪🇸">Spain</option>
+                                <option value="LK" data-flag="🇱🇰">Sri Lanka</option>
+                                <option value="SD" data-flag="🇸🇩">Sudan</option>
+                                <option value="SR" data-flag="🇸🇷">Suriname</option>
+                                <option value="SJ" data-flag="🇸🇯">Svalbard & Jan Mayen</option>
+                                <option value="SZ" data-flag="🇸🇿">Swaziland</option>
+                                <option value="SE" data-flag="🇸🇪">Sweden</option>
+                                <option value="CH" data-flag="🇨🇭">Switzerland</option>
+                                <option value="SY" data-flag="🇸🇾">Syria</option>
+                                <option value="TW" data-flag="🇹🇼">Taiwan</option>
+                                <option value="TJ" data-flag="🇹🇯">Tajikistan</option>
+                                <option value="TZ" data-flag="🇹🇿">Tanzania</option>
+                                <option value="TH" data-flag="🇹🇭">Thailand</option>
+                                <option value="TG" data-flag="🇹🇬">Togo</option>
+                                <option value="TK" data-flag="🇹🇰">Tokelau</option>
+                                <option value="TO" data-flag="🇹🇴">Tonga</option>
+                                <option value="TT" data-flag="🇹🇹">Trinidad and Tobago</option>
+                                <option value="TN" data-flag="🇹🇳">Tunisia</option>
+                                <option value="TR" data-flag="🇹🇷">Turkey</option>
+                                <option value="TM" data-flag="🇹🇲">Turkmenistan</option>
+                                <option value="TC" data-flag="🇹🇨">Turks and Caicos Islands</option>
+                                <option value="TV" data-flag="🇹🇻">Tuvalu</option>
+                                <option value="UG" data-flag="🇺🇬">Uganda</option>
+                                <option value="UA" data-flag="🇺🇦">Ukraine</option>
+                                <option value="AE" data-flag="🇦🇪">United Arab Emirates</option>
+                                <option value="GB" data-flag="🇬🇧">United Kingdom</option>
+                                <option value="US" data-flag="🇺🇸">United States</option>
+                                <option value="UY" data-flag="🇺🇾">Uruguay</option>
+                                <option value="UZ" data-flag="🇺🇿">Uzbekistan</option>
+                                <option value="VU" data-flag="🇻🇺">Vanuatu</option>
+                                <option value="VA" data-flag="🇻🇦">Vatican City</option>
+                                <option value="VE" data-flag="🇻🇪">Venezuela</option>
+                                <option value="VN" data-flag="🇻🇳">Vietnam</option>
+                                <option value="WF" data-flag="🇼🇫">Wallis and Futuna</option>
+                                <option value="EH" data-flag="🇪🇭">Western Sahara</option>
+                                <option value="YE" data-flag="🇾🇪">Yemen</option>
+                                <option value="ZM" data-flag="🇿🇲">Zambia</option>
+                                <option value="ZW" data-flag="🇿🇼">Zimbabwe</option>
+                            </select>
+                            </div>
+                        </div>
                         </div>
 
+                        <div class="row">
+                        <div class="col-md-6">
+                            <label for="email" class="form-label">Email address</label>
+                            <input value="bishru@gmail.com" type="email" id="email" class="form-control" disabled>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="emailConfirm" class="form-label">Confirm Email address</label>
+                            <input value="bishru@gmail.com" type="email" id="emailConfirm" class="form-control" disabled>
+                        </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="d-flex flex-column">
+                                    <label for="Nationality" class="form-label">Nationality</label>
+                                <select id="Nationality" class="form-control select2-nationality" disabled>
+                                <option value="">Select Nationality</option>
+                                <option value="AF" data-flag="🇦🇫">Afghanistan</option>
+                                <option value="AX" data-flag="🇦🇽">Åland Islands</option>
+                                <option value="AL" data-flag="🇦🇱">Albania</option>
+                                <option value="DZ" data-flag="🇩🇿">Algeria</option>
+                                <option value="AS" data-flag="🇦🇸">American Samoa</option>
+                                <option value="AD" data-flag="🇦🇩">Andorra</option>
+                                <option value="AO" data-flag="🇦🇴">Angola</option>
+                                <option value="AI" data-flag="🇦🇮">Anguilla</option>
+                                <option value="AQ" data-flag="🇦🇶">Antarctica</option>
+                                <option value="AG" data-flag="🇦🇬">Antigua and Barbuda</option>
+                                <option value="AR" data-flag="🇦🇷">Argentina</option>
+                                <option value="AM" data-flag="🇦🇲">Armenia</option>
+                                <option value="AW" data-flag="🇦🇼">Aruba</option>
+                                <option value="AU" data-flag="🇦🇺">Australia</option>
+                                <option value="AT" data-flag="🇦🇹">Austria</option>
+                                <option value="AZ" data-flag="🇦🇿">Azerbaijan</option>
+                                <option value="BS" data-flag="🇧🇸">Bahamas</option>
+                                <option value="BH" data-flag="🇧🇭">Bahrain</option>
+                                <option value="BD" data-flag="🇧🇩">Bangladesh</option>
+                                <option value="BB" data-flag="🇧🇧">Barbados</option>
+                                <option value="BY" data-flag="🇧🇾">Belarus</option>
+                                <option value="BE" data-flag="🇧🇪">Belgium</option>
+                                <option value="BZ" data-flag="🇧🇿">Belize</option>
+                                <option value="BJ" data-flag="🇧🇯">Benin</option>
+                                <option value="BM" data-flag="🇧🇲">Bermuda</option>
+                                <option value="BT" data-flag="🇧🇹">Bhutan</option>
+                                <option value="BO" data-flag="🇧🇴">Bolivia</option>
+                                <option value="BA" data-flag="🇧🇦">Bosnia and Herzegovina</option>
+                                <option value="BW" data-flag="🇧🇼">Botswana</option>
+                                <option value="BR" data-flag="🇧🇷">Brazil</option>
+                                <option value="IO" data-flag="🇮🇴">British Indian Ocean Territory</option>
+                                <option value="VG" data-flag="🇻🇬">British Virgin Islands</option>
+                                <option value="BN" data-flag="🇧🇳">Brunei Darussalam</option>
+                                <option value="BG" data-flag="🇧🇬">Bulgaria</option>
+                                <option value="BF" data-flag="🇧🇫">Burkina Faso</option>
+                                <option value="BI" data-flag="🇧🇮">Burundi</option>
+                                <option value="KH" data-flag="🇰🇭">Cambodia</option>
+                                <option value="CM" data-flag="🇨🇲">Cameroon</option>
+                                <option value="CA" data-flag="🇨🇦">Canada</option>
+                                <option value="CV" data-flag="🇨🇻">Cape Verde</option>
+                                <option value="KY" data-flag="🇰🇾">Cayman Islands</option>
+                                <option value="CF" data-flag="🇨🇫">Central African Republic</option>
+                                <option value="TD" data-flag="🇹🇩">Chad</option>
+                                <option value="CL" data-flag="🇨🇱">Chile</option>
+                                <option value="CN" data-flag="🇨🇳">China</option>
+                                <option value="CX" data-flag="🇨🇽">Christmas Island</option>
+                                <option value="CC" data-flag="🇨🇨">Cocos (Keeling) Islands</option>
+                                <option value="CO" data-flag="🇨🇴">Colombia</option>
+                                <option value="KM" data-flag="🇰🇲">Comoros</option>
+                                <option value="CD" data-flag="🇨🇩">Congo (DRC)</option>
+                                <option value="CG" data-flag="🇨🇬">Congo (Republic)</option>
+                                <option value="CK" data-flag="🇨🇰">Cook Islands</option>
+                                <option value="CR" data-flag="🇨🇷">Costa Rica</option>
+                                <option value="CI" data-flag="🇨🇮">Côte d'Ivoire</option>
+                                <option value="HR" data-flag="🇭🇷">Croatia</option>
+                                <option value="CU" data-flag="🇨🇺">Cuba</option>
+                                <option value="CW" data-flag="🇨🇼">Curaçao</option>
+                                <option value="CY" data-flag="🇨🇾">Cyprus</option>
+                                <option value="CZ" data-flag="🇨🇿">Czech Republic</option>
+                                <option value="DK" data-flag="🇩🇰">Denmark</option>
+                                <option value="DJ" data-flag="🇩🇯">Djibouti</option>
+                                <option value="DM" data-flag="🇩🇲">Dominica</option>
+                                <option value="DO" data-flag="🇩🇴">Dominican Republic</option>
+                                <option value="EC" data-flag="🇪🇨">Ecuador</option>
+                                <option value="EG" data-flag="🇪🇬">Egypt</option>
+                                <option value="SV" data-flag="🇸🇻">El Salvador</option>
+                                <option value="GQ" data-flag="🇬🇶">Equatorial Guinea</option>
+                                <option value="ER" data-flag="🇪🇷">Eritrea</option>
+                                <option value="EE" data-flag="🇪🇪">Estonia</option>
+                                <option value="ET" data-flag="🇪🇹">Ethiopia</option>
+                                <option value="FK" data-flag="🇫🇰">Falkland Islands</option>
+                                <option value="FO" data-flag="🇫🇴">Faroe Islands</option>
+                                <option value="FJ" data-flag="🇫🇯">Fiji</option>
+                                <option value="FI" data-flag="🇫🇮">Finland</option>
+                                <option value="FR" data-flag="🇫🇷">France</option>
+                                <option value="PF" data-flag="🇵🇫">French Polynesia</option>
+                                <option value="TF" data-flag="🇹🇫">French Southern Territories</option>
+                                <option value="GA" data-flag="🇬🇦">Gabon</option>
+                                <option value="GM" data-flag="🇬🇲">Gambia</option>
+                                <option value="GE" data-flag="🇬🇪">Georgia</option>
+                                <option value="DE" data-flag="🇩🇪">Germany</option>
+                                <option value="GH" data-flag="🇬🇭">Ghana</option>
+                                <option value="GI" data-flag="🇬🇮">Gibraltar</option>
+                                <option value="GR" data-flag="🇬🇷">Greece</option>
+                                <option value="GL" data-flag="🇬🇱">Greenland</option>
+                                <option value="GD" data-flag="🇬🇩">Grenada</option>
+                                <option value="GP" data-flag="🇬🇵">Guadeloupe</option>
+                                <option value="GU" data-flag="🇬🇺">Guam</option>
+                                <option value="GT" data-flag="🇬🇹">Guatemala</option>
+                                <option value="GG" data-flag="🇬🇬">Guernsey</option>
+                                <option value="GN" data-flag="🇬🇳">Guinea</option>
+                                <option value="GW" data-flag="🇬🇼">Guinea‑Bissau</option>
+                                <option value="GY" data-flag="🇬🇾">Guyana</option>
+                                <option value="HT" data-flag="🇭🇹">Haiti</option>
+                                <option value="HN" data-flag="🇭🇳">Honduras</option>
+                                <option value="HK" data-flag="🇭🇰">Hong Kong</option>
+                                <option value="HU" data-flag="🇭🇺">Hungary</option>
+                                <option value="IS" data-flag="🇮🇸">Iceland</option>
+                                <option value="IN" data-flag="🇮🇳" selected>India</option>
+                                <option value="ID" data-flag="🇮🇩">Indonesia</option>
+                                <option value="IR" data-flag="🇮🇷">Iran</option>
+                                <option value="IQ" data-flag="🇮🇶">Iraq</option>
+                                <option value="IE" data-flag="🇮🇪">Ireland</option>
+                                <option value="IM" data-flag="🇮🇲">Isle of Man</option>
+                                <option value="IL" data-flag="🇮🇱">Israel</option>
+                                <option value="IT" data-flag="🇮🇹">Italy</option>
+                                <option value="JM" data-flag="🇯🇲">Jamaica</option>
+                                <option value="JP" data-flag="🇯🇵">Japan</option>
+                                <option value="JE" data-flag="🇯🇪">Jersey</option>
+                                <option value="JO" data-flag="🇯🇴">Jordan</option>
+                                <option value="KZ" data-flag="🇰🇿">Kazakhstan</option>
+                                <option value="KE" data-flag="🇰🇪">Kenya</option>
+                                <option value="KI" data-flag="🇰🇮">Kiribati</option>
+                                <option value="KP" data-flag="🇰🇵">North Korea</option>
+                                <option value="KR" data-flag="🇰🇷">South Korea</option>
+                                <option value="KW" data-flag="🇰🇼">Kuwait</option>
+                                <option value="KG" data-flag="🇰🇬">Kyrgyzstan</option>
+                                <option value="LA" data-flag="🇱🇦">Laos</option>
+                                <option value="LV" data-flag="🇱🇻">Latvia</option>
+                                <option value="LB" data-flag="🇱🇧">Lebanon</option>
+                                <option value="LS" data-flag="🇱🇸">Lesotho</option>
+                                <option value="LR" data-flag="🇱🇷">Liberia</option>
+                                <option value="LY" data-flag="🇱🇾">Libya</option>
+                                <option value="LI" data-flag="🇱🇮">Liechtenstein</option>
+                                <option value="LT" data-flag="🇱🇹">Lithuania</option>
+                                <option value="LU" data-flag="🇱🇺">Luxembourg</option>
+                                <option value="MO" data-flag="🇲🇴">Macao</option>
+                                <option value="MK" data-flag="🇲🇰">Macedonia</option>
+                                <option value="MG" data-flag="🇲🇬">Madagascar</option>
+                                <option value="MW" data-flag="🇲🇼">Malawi</option>
+                                <option value="MY" data-flag="🇲🇾">Malaysia</option>
+                                <option value="MV" data-flag="🇲🇻">Maldives</option>
+                                <option value="ML" data-flag="🇲🇱">Mali</option>
+                                <option value="MT" data-flag="🇲🇹">Malta</option>
+                                <option value="MH" data-flag="🇲🇭">Marshall Islands</option>
+                                <option value="MQ" data-flag="🇲🇶">Martinique</option>
+                                <option value="MR" data-flag="🇲🇷">Mauritania</option>
+                                <option value="MU" data-flag="🇲🇺">Mauritius</option>
+                                <option value="YT" data-flag="🇾🇹">Mayotte</option>
+                                <option value="MX" data-flag="🇲🇽">Mexico</option>
+                                <option value="FM" data-flag="🇫🇲">Micronesia</option>
+                                <option value="MD" data-flag="🇲🇩">Moldova</option>
+                                <option value="MC" data-flag="🇲🇨">Monaco</option>
+                                <option value="MN" data-flag="🇲🇳">Mongolia</option>
+                                <option value="ME" data-flag="🇲🇪">Montenegro</option>
+                                <option value="MS" data-flag="🇲🇸">Montserrat</option>
+                                <option value="MA" data-flag="🇲🇦">Morocco</option>
+                                <option value="MZ" data-flag="🇲🇿">Mozambique</option>
+                                <option value="MM" data-flag="🇲🇲">Myanmar</option>
+                                <option value="NA" data-flag="🇳🇦">Namibia</option>
+                                <option value="NR" data-flag="🇳🇷">Nauru</option>
+                                <option value="NP" data-flag="🇳🇵">Nepal</option>
+                                <option value="NL" data-flag="🇳🇱">Netherlands</option>
+                                <option value="NC" data-flag="🇳🇨">New Caledonia</option>
+                                <option value="NZ" data-flag="🇳🇿">New Zealand</option>
+                                <option value="NI" data-flag="🇳🇮">Nicaragua</option>
+                                <option value="NE" data-flag="🇳🇪">Niger</option>
+                                <option value="NG" data-flag="🇳🇬">Nigeria</option>
+                                <option value="NU" data-flag="🇳🇺">Niue</option>
+                                <option value="NF" data-flag="🇳🇫">Norfolk Island</option>
+                                <option value="MP" data-flag="🇲🇵">Northern Mariana Islands</option>
+                                <option value="NO" data-flag="🇳🇴">Norway</option>
+                                <option value="OM" data-flag="🇴🇲">Oman</option>
+                                <option value="PK" data-flag="🇵🇰">Pakistan</option>
+                                <option value="PW" data-flag="🇵🇼">Palau</option>
+                                <option value="PS" data-flag="🇵🇸">Palestine</option>
+                                <option value="PA" data-flag="🇵🇦">Panama</option>
+                                <option value="PG" data-flag="🇵🇬">Papua New Guinea</option>
+                                <option value="PY" data-flag="🇵🇾">Paraguay</option>
+                                <option value="PE" data-flag="🇵🇪">Peru</option>
+                                <option value="PH" data-flag="🇵🇭">Philippines</option>
+                                <option value="PN" data-flag="🇵🇳">Pitcairn Islands</option>
+                                <option value="PL" data-flag="🇵🇱">Poland</option>
+                                <option value="PT" data-flag="🇵🇹">Portugal</option>
+                                <option value="PR" data-flag="🇵🇷">Puerto Rico</option>
+                                <option value="QA" data-flag="🇶🇦">Qatar</option>
+                                <option value="RE" data-flag="🇷🇪">Réunion</option>
+                                <option value="RO" data-flag="🇷🇴">Romania</option>
+                                <option value="RU" data-flag="🇷🇺">Russia</option>
+                                <option value="RW" data-flag="🇷🇼">Rwanda</option>
+                                <option value="BL" data-flag="🇧🇱">Saint-Barthélemy</option>
+                                <option value="SH" data-flag="🇸🇭">Saint Helena</option>
+                                <option value="KN" data-flag="🇰🇳">Saint Kitts and Nevis</option>
+                                <option value="LC" data-flag="🇱🇨">Saint Lucia</option>
+                                <option value="MF" data-flag="🇲🇫">Saint-Martin</option>
+                                <option value="PM" data-flag="🇵🇲">Saint Pierre & Miquelon</option>
+                                <option value="VC" data-flag="🇻🇨">Saint Vincent & Grenadines</option>
+                                <option value="WS" data-flag="🇼🇸">Samoa</option>
+                                <option value="SM" data-flag="🇸🇲">San Marino</option>
+                                <option value="ST" data-flag="🇸🇹">São Tomé & Príncipe</option>
+                                <option value="SA" data-flag="🇸🇦">Saudi Arabia</option>
+                                <option value="SN" data-flag="🇸🇳">Senegal</option>
+                                <option value="RS" data-flag="🇷🇸">Serbia</option>
+                                <option value="SC" data-flag="🇸🇨">Seychelles</option>
+                                <option value="SL" data-flag="🇸🇱">Sierra Leone</option>
+                                <option value="SG" data-flag="🇸🇬">Singapore</option>
+                                <option value="SX" data-flag="🇸🇽">Sint Maarten</option>
+                                <option value="SK" data-flag="🇸🇰">Slovakia</option>
+                                <option value="SI" data-flag="🇸🇮">Slovenia</option>
+                                <option value="SB" data-flag="🇸🇧">Solomon Islands</option>
+                                <option value="SO" data-flag="🇸🇴">Somalia</option>
+                                <option value="ZA" data-flag="🇿🇦">South Africa</option>
+                                <option value="SS" data-flag="🇸🇸">South Sudan</option>
+                                <option value="ES" data-flag="🇪🇸">Spain</option>
+                                <option value="LK" data-flag="🇱🇰">Sri Lanka</option>
+                                <option value="SD" data-flag="🇸🇩">Sudan</option>
+                                <option value="SR" data-flag="🇸🇷">Suriname</option>
+                                <option value="SJ" data-flag="🇸🇯">Svalbard & Jan Mayen</option>
+                                <option value="SZ" data-flag="🇸🇿">Swaziland</option>
+                                <option value="SE" data-flag="🇸🇪">Sweden</option>
+                                <option value="CH" data-flag="🇨🇭">Switzerland</option>
+                                <option value="SY" data-flag="🇸🇾">Syria</option>
+                                <option value="TW" data-flag="🇹🇼">Taiwan</option>
+                                <option value="TJ" data-flag="🇹🇯">Tajikistan</option>
+                                <option value="TZ" data-flag="🇹🇿">Tanzania</option>
+                                <option value="TH" data-flag="🇹🇭">Thailand</option>
+                                <option value="TG" data-flag="🇹🇬">Togo</option>
+                                <option value="TK" data-flag="🇹🇰">Tokelau</option>
+                                <option value="TO" data-flag="🇹🇴">Tonga</option>
+                                <option value="TT" data-flag="🇹🇹">Trinidad and Tobago</option>
+                                <option value="TN" data-flag="🇹🇳">Tunisia</option>
+                                <option value="TR" data-flag="🇹🇷">Turkey</option>
+                                <option value="TM" data-flag="🇹🇲">Turkmenistan</option>
+                                <option value="TC" data-flag="🇹🇨">Turks and Caicos Islands</option>
+                                <option value="TV" data-flag="🇹🇻">Tuvalu</option>
+                                <option value="UG" data-flag="🇺🇬">Uganda</option>
+                                <option value="UA" data-flag="🇺🇦">Ukraine</option>
+                                <option value="AE" data-flag="🇦🇪">United Arab Emirates</option>
+                                <option value="GB" data-flag="🇬🇧">United Kingdom</option>
+                                <option value="US" data-flag="🇺🇸">United States</option>
+                                <option value="UY" data-flag="🇺🇾">Uruguay</option>
+                                <option value="UZ" data-flag="🇺🇿">Uzbekistan</option>
+                                <option value="VU" data-flag="🇻🇺">Vanuatu</option>
+                                <option value="VA" data-flag="🇻🇦">Vatican City</option>
+                                <option value="VE" data-flag="🇻🇪">Venezuela</option>
+                                <option value="VN" data-flag="🇻🇳">Vietnam</option>
+                                <option value="WF" data-flag="🇼🇫">Wallis and Futuna</option>
+                                <option value="EH" data-flag="🇪🇭">Western Sahara</option>
+                                <option value="YE" data-flag="🇾🇪">Yemen</option>
+                                <option value="ZM" data-flag="🇿🇲">Zambia</option>
+                                <option value="ZW" data-flag="🇿🇼">Zimbabwe</option>
+                                </select>
+                                </div>
+                            </div>
+
+
+                        <div class="col-md-6">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" disabled>
+                            <div id="phone-error" class="invalid-feedback"></div>
+                        </div>
+                        </div>
+
+
+                        <div class="row">
+                        <div class="col-md-6">
+                            <label for="firstname" class="form-label">Company Name</label>
+                            <input value="Veuz" type="text" id="firstname" class="form-control" disabled>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="lastname" class="form-label">Job Title</label>
+                            <input value="Developer" type="text" id="lastname" class="form-control" disabled>
+                        </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                            <div class="d-flex flex-column">
+                                <label for="CompanyType" class="form-label">Company Type</label>
+                        <select id="CompanyType" class="form-control select2-company-type" disabled>
+                            <option value="">Select Company Type</option>
+                            <option selected value="CORP">Corporation</option>
+                            <option value="LLC">Limited Liability Company</option>
+                            <option value="PLLC">Professional Limited Liability Company</option>
+                            <option value="PC">Professional Corporation</option>
+                            <option value="LLP">Limited Liability Partnership</option>
+                            <option value="LP">Limited Partnership</option>
+                            <option value="SP">Sole Proprietorship</option>
+                            <option value="JV">Joint Venture</option>
+                            <option value="NGO">Non-Governmental Organization</option>
+                            <option value="NPO">Non-Profit Organization</option>
+                            <option value="GOV">Government Entity</option>
+                            <option value="EDU">Educational Institution</option>
+                            <option value="PUB">Public Company</option>
+                            <option value="PRI">Private Company</option>
+                            <option value="COOP">Cooperative</option>
+                            <option value="BANK">Banking Institution</option>
+                            <option value="INS">Insurance Company</option>
+                            <option value="MEDIA">Media Company</option>
+                            <option value="TECH">Technology Company</option>
+                            <option value="RETAIL">Retail Business</option>
+                            <option value="MFG">Manufacturing Company</option>
+                            <option value="SVC">Service Provider</option>
+                            <option value="FREE">Freelancer/Self-employed</option>
+                            <option value="OTHER">Other</option>
+                        </select>
+                            </div>
                     </div>
-            </div>
-            
+
+
+                        <div class="col-md-6">
+                            <div class="d-flex flex-column">
+                                <label for="Industry" class="form-label">Industry</label>
+                            <select id="Industry" class="form-control select2-industry" disabled>
+                                <option  value="">Select Industry</option>
+                                <option selected value="AGR">Agriculture</option>
+                                <option value="AUTO">Automotive</option>
+                                <option value="AVI">Aviation & Space</option>
+                                <option value="FIN">Banking, Finance & Insurance</option>
+                                <option value="CONS">Construction & Infrastructure</option>
+                                <option value="COS">Cosmetics</option>
+                                <option value="DEF">Defense</option>
+                                <option value="EDU">Education</option>
+                                <option value="ENE">Energy & Utilities</option>
+                                <option value="ENT">Entertainment</option>
+                                <option value="ENV">Environment & Sustainability</option>
+                                <option value="FASH">Fashion & Apparel</option>
+                                <option value="FMCG">FMCG</option>
+                                <option value="GAM">Gaming</option>
+                                <option value="TRA">General Trading</option>
+                                <option value="GOV">Government</option>
+                                <option value="HLTH">Healthcare</option>
+                                <option value="HOSP">Hospitality</option>
+                                <option value="JEW">Jewellery & Luxury Goods</option>
+                                <option value="LEG">Legal</option>
+                                <option value="LOG">Logistics & Supply Chain</option>
+                                <option value="MNF">Manufacturing</option>
+                                <option value="MEDIA">Media & Advertising</option>
+                                <option value="MIN">Mining</option>
+                                <option value="REAL">Real Estate & Property Developers</option>
+                                <option value="RD">Research & Development</option>
+                                <option value="RETAIL">Retail</option>
+                                <option value="TECH">Technology</option>
+                                <option value="TEL">Telecoms</option>
+                                <option value="TOUR">Travel & Tourism</option>
+                            </select>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="form-end-btn">
+                                <label for="servicepopup_" class="form-label required-field">Select Your Areas of Interest</label>
+                                <div class="invalid-feedback" id="servicepopupError_"></div>
+                                <div>
+                                    <button
+                                        type="button" id="solutionBtn"class="buy-btn solution-btn pink-btn" data-bs-toggle="modal"data-bs-target="#solutionsModal"disabled>
+                                        <span class="arrow-right">Select solution/Products</span>
+                                        </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-workshop">
+                                            <div class="row">
+                                                <h5>Select Workshop <span class="text-muted">(Maximum 6)</span></h5>
+                                                <div class="col-lg-6">
+                                                    <div class="event-info">
+                                                        <div class="checkbox-grid workshop-options">
+                                                            <label><input type="checkbox" name="workshop_0[]" value="global_leaders" class="workshop-checkbox"> Global Leaders Forum <span class="workshop-italic"> !NEW </span> (3 Days)</label>
+                                                            <label><input type="checkbox" name="workshop_0[]" value="gitex_main" class="workshop-checkbox"> GITEX Main Stage</label>
+                                                            <label><input type="checkbox" name="workshop_0[]" value="ai_robotics" class="workshop-checkbox"> Artificial Intelligence &amp; Robotics (15)</label>
+                                                            <label><input type="checkbox" name="workshop_0[]" value="ai_everything" class="workshop-checkbox"> AI Everything (4 Days)</label>
+                                                            <label><input type="checkbox" name="workshop_0[]" value="cybersecurity" class="workshop-checkbox"> Cybersecurity (4 Days)</label>
+                                                            <label><input type="checkbox" name="workshop_0[]" value="future_health" class="workshop-checkbox"> Future Health NEW (2 Days)</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="event-info">
+                                                        <div class="checkbox-grid workshop-options">
+                                                            <label><input type="checkbox" name="workshop_0[]" value="digital_cities" class="workshop-checkbox"> Digital Cities (1 Day)</label>
+                                                            <label><input type="checkbox" name="workshop_0[]" value="edtech" class="workshop-checkbox"> Edtech (1 Day)</label>
+                                                            <label><input type="checkbox" name="workshop_0[]" value="energy" class="workshop-checkbox"> Energy Transition (1 Day)</label>
+                                                            <label><input type="checkbox" name="workshop_0[]" value="connectivity" class="workshop-checkbox"> Intelligent Connectivity (1 Day)</label>
+                                                            <label><input type="checkbox" name="workshop_0[]" value="digital_finance" class="workshop-checkbox"> Digital Finance (1 Day)</label>
+                                                            <label><input type="checkbox" name="workshop_0[]" value="future_mobility" class="workshop-checkbox"> Future Mobility (1 Day)</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="workshop-error" id="workshopError_0"></div>
+                                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success d-none" id="saveBtn">Save</button>
+                        
+                    </div>
+                    </div>
+                    
+                </form>
+                </div>
+
+
         </div>
+
+    </div>
     </div>
 
+    </div>
+    
+    <div class="tab-pane fade" id="badge" role="tabpanel" aria-labelledby="badge-tab">
+        <!-- Badge content here -->
+        <div class="table-main-div">
+            <table class="badge-table">
+            <thead>
+                <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Ticket Type</th>
+                <th>Badge Status</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th style="text-align: center;">Action</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <!-- Repeat this <tr> as needed -->
+                    
+                    <tr>
+                    <td>
+                        <div class="user">
+                        <img src="assets/img/user-1.jpg" alt="User" />
+                        <span>Mariya John</span>
+                        <span class="primary-user">Primary</span>
+                        </div>
+                    </td>
+                    <td>mariya@gmail.com</td>
+                    <td>Premium</td>
+                    <td class="badge-status"><span>Pending</span></td>
+                    <td>40EUR</td>
+                    <td>20/3/2025</td>
+                        <td class="action-cell">
+                        <div class="dropdown">
+                            <button class="btn p-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
+                            </ul>
+                        </div>
+                    </td> 
+                    </tr>
+                    <tr>
+                    <td>
+                        <div class="user">
+                        <img src="assets/img/user-2.jpg" alt="User" />
+                        <span>Mohammed Navab</span>
+                        </div>
+                    </td>
+                    <td>navab@gmail.com</td>
+                    <td>Visitor</td>
+                    <td class="badge-status badge-approved"><span>Approved</span></td>
+                    <td>40EUR</td>
+                    <td>20/3/2025</td>
+
+                        <td class="action-cell">
+                        <div class="dropdown">
+                            <button class="btn p-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
+                            </ul>
+                        </div>
+                    </td> 
+                    </tr>
+                    <tr>
+                    <td>
+                        <div class="user">
+                        <img src="assets/img/user-3.jpeg" alt="User" />
+                        <span>Nabeel Mohammed</span>
+                        </div>
+                    </td>
+                    <td>nabeel@gmail.com</td>
+                    <td>Premium</td>
+                    <td class="badge-status badge-cancel"><span>Rejected</span></td>
+                    <td>40EUR</td>
+                    <td>20/3/2025</td>
+
+                        <td class="action-cell">
+                        <div class="dropdown">
+                            <button class="btn p-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
+                            </ul>
+                        </div>
+                    </td> 
+                    </tr>
+                    <tr>
+                    <td>
+                        <div class="user">
+                        <img src="assets/img/user-4.jpg" alt="User" />
+                        <span>Nishida</span>
+                        </div>
+                    </td>
+                    <td>nishida@gmail.com</td>
+                    <td>Masterclass</td>
+                    <td class="badge-status badge-approved"><span>Approved</span></td>
+                    <td>40EUR</td>
+                    <td>20/3/2025</td>
+                    
+                        <td class="action-cell">
+                        <div class="dropdown">
+                            <button class="btn p-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
+                            </ul>
+                        </div>
+                    </td> 
+                    </tr>
+                    <tr>
+                    <td>
+                        <div class="user">
+                        <img src="assets/img/user-1.jpg" alt="User" />
+                        <span>Mariya John</span>
+                        </div>
+                    </td>
+                    <td>mariya@gmail.com</td>
+                    <td>Premium</td>
+                    <td class="badge-status"><span>Pending</span></td>
+                    <td>40EUR</td>
+                    <td>20/3/2025</td>
+
+                        <td class="action-cell">
+                        <div class="dropdown">
+                            <button class="btn p-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
+                            </ul>
+                        </div>
+                    </td> 
+                    </tr>
+                    <tr>
+                    <td>
+                        <div class="user">
+                        <img src="assets/img/user-2.jpg" alt="User" />
+                        <span>Mohammed Navab</span>
+                        </div>
+                    </td>
+                    <td>navab@gmail.com</td>
+                    <td>Visitor</td>
+                    <td class="badge-status badge-approved"><span>Approved</span></td>
+                    <td>40EUR</td>
+                    <td>20/3/2025</td>
+
+                        <td class="action-cell">
+                        <div class="dropdown">
+                            <button class="btn p-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
+                            </ul>
+                        </div>
+                    </td> 
+                    </tr>
+                    <tr>
+                    <td>
+                        <div class="user">
+                        <img src="assets/img/user-3.jpeg" alt="User" />
+                        <span>Nabeel Mohammed</span>
+                        </div>
+                    </td>
+                    <td>nabeel@gmail.com</td>
+                    <td>Premium</td>
+                    <td class="badge-status badge-cancel"><span>Rejected</span></td>
+                    <td>40EUR</td>
+                    <td>20/3/2025</td>
+
+                        <td class="action-cell">
+                        <div class="dropdown">
+                            <button class="btn p-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
+                            </ul>
+                        </div>
+                    </td> 
+                    </tr>
+                    <tr>
+                    <td>
+                        <div class="user">
+                        <img src="assets/img/user-4.jpg" alt="User" />
+                        <span>Nishida</span>
+                        </div>
+                    </td>
+                    <td>nishida@gmail.com</td>
+                    <td>Masterclass</td>
+                    <td class="badge-status badge-approved"><span>Approved</span></td>
+                    <td>40EUR</td>
+                    <td>20/3/2025</td>
+                    
+                        <td class="action-cell">
+                        <div class="dropdown">
+                            <button class="btn p-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
+                            </ul>
+                        </div>
+                    </td> 
+                    </tr>
+                    
+                </tbody>
+            </table>
+           
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-6">
+                <div class="ticket-upgrade" data-instance="1">
+                    <div class="step active" data-step="1">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <div class="step-title">Current Ticket</div>
+                        </div>
+                        <div class="current-ticket">
+                            <div class="upgrade-ticket-info">
+                                <div class="upgrade-ticket-details">
+                                    <h3>Masterclass</h3>
+                                    <p>Event access • Basic networking • Standard seating</p>
+                                    <p><strong>Order ID:</strong> #MT2023-001</p>
+                                </div>
+                                <div class="ticket-price">$50.00</div>
+                            </div>
+                            <button class="upgrade-btn buy-btn">Upgrade Ticket</button>
+                        </div>
+                    </div>
+
+                    <div class="step" data-step="2">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <div class="step-title">Select Upgrade Option</div>
+                        </div>
+
+                        <div class="ticket-options">
+                            <div class="ticket-option" data-type="premium" data-price="75">
+                                <div class="ticket-header">
+                                    <div class="ticket-name">Premium Ticket</div>
+                                    <div class="ticket-option-price">$75.00</div>
+                                </div>
+                                <ul class="ticket-features">
+                                    <li>All Standard features</li>
+                                    <li>Priority seating</li>
+                                    <li>VIP networking area</li>
+                                    <li>Welcome refreshments</li>
+                                    <li>Event materials kit</li>
+                                </ul>
+                                <div class="upgrade-info">
+                                    <span>Upgrade fee: $25.00</span>
+                                </div>
+                            </div>
+
+                            <div class="ticket-option" data-type="vip" data-price="120">
+                                <div class="ticket-header">
+                                    <div class="ticket-name">VIP Ticket</div>
+                                    <div class="ticket-option-price">$120.00</div>
+                                </div>
+                                <ul class="ticket-features">
+                                    <li>All Premium features</li>
+                                    <li>Front row seating</li>
+                                    <li>Exclusive VIP lounge</li>
+                                    <li>Meet & greet with speakers</li>
+                                    <li>Premium gift bag</li>
+                                    <li>Complimentary parking</li>
+                                </ul>
+                                <div class="upgrade-info">
+                                    <span>Upgrade fee: $70.00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="button-group">
+                            <button class="btn-back buy-btn violet-btn">Back</button>
+                            <button class="btn-continue buy-btn" disabled>Continue to Checkout</button>
+                        </div>
+                    </div>
+
+                    <div class="step" data-step="3">
+                        <div class="step-header">
+                            <div class="step-number">3</div>
+                            <div class="step-title">Checkout</div>
+                        </div>
+
+                        <div class="checkout-summary">
+                            <div class="summary-row">
+                                <span class="summary-label">Current Ticket:</span>
+                                <span class="summary-value">Standard Ticket</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Upgrading to:</span>
+                                <span class="summary-value new-ticket-type">-</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Upgrade Fee:</span>
+                                <span class="summary-value upgrade-fee">$0.00</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Processing Fee:</span>
+                                <span class="summary-value">$2.50</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Total Amount:</span>
+                                <span class="total-amount">$0.00</span>
+                            </div>
+                        </div>
+
+                        <div class="payment-section">
+                            <h3 class="payment-title">Payment Information</h3>
+                            <form class="checkout-form">
+                                <div class="form-group">
+                                    <label>Cardholder Name</label>
+                                    <input class="form-control" type="text" placeholder="Cardholder Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Card Number</label>
+                                    <input class="form-control" placeholder="Card Number" type="Number" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Expiry Date</label>
+                                        <input placeholder="Expiry Date" class="form-control" type="date" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>CVV</label>
+                                        <input class="form-control" type="text" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Email Address</label>
+                                    <input placeholder="Email Address" class="form-control" type="email" required>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="validation-message" style="display:none;"></div>
+
+                        <div class="button-group">
+                            <button class="btn-back buy-btn violet-btn">Back</button>
+                            <button class="btn-complete buy-btn">Complete Upgrade</button>
+                        </div>
+                    </div>
+
+                    <div class="step" data-step="4">
+                        <div class="success-message">
+                            <h2>Upgrade Successful!</h2>
+                            <p>You will receive a confirmation email shortly.</p>
+                            <div class="ticket-details-card">
+                                <h3 class="final-ticket-type">Premium Ticket</h3>
+                                <p><strong>Order ID:</strong> #MT2023-001-UPG</p>
+                                <p><strong>Confirmation:</strong> #CNF789456123</p>
+                                <p class="final-ticket-price">$75.00</p>
+                            </div>
+                            <button class="btn-return buy-btn">Return to Dashboard</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="ticket-upgrade" data-instance="1">
+                    <div class="step active" data-step="1">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <div class="step-title">Current Ticket</div>
+                        </div>
+                        <div class="current-ticket">
+                            <div class="upgrade-ticket-info">
+                                <div class="upgrade-ticket-details">
+                                    <h3>Standard Ticket</h3>
+                                    <p>Event access • Basic networking • Standard seating</p>
+                                    <p><strong>Order ID:</strong> #MT2023-001</p>
+                                </div>
+                                <div class="ticket-price">$50.00</div>
+                            </div>
+                            <button class="upgrade-btn buy-btn">Upgrade Ticket</button>
+                        </div>
+                    </div>
+
+                    <div class="step" data-step="2">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <div class="step-title">Select Upgrade Option</div>
+                        </div>
+
+                        <div class="ticket-options">
+                            <div class="ticket-option" data-type="premium" data-price="75">
+                                <div class="ticket-header">
+                                    <div class="ticket-name">Premium Ticket</div>
+                                    <div class="ticket-option-price">$75.00</div>
+                                </div>
+                                <ul class="ticket-features">
+                                    <li>All Standard features</li>
+                                    <li>Priority seating</li>
+                                    <li>VIP networking area</li>
+                                    <li>Welcome refreshments</li>
+                                    <li>Event materials kit</li>
+                                </ul>
+                                <div class="upgrade-info">
+                                    <span>Upgrade fee: $25.00</span>
+                                </div>
+                            </div>
+
+                            <div class="ticket-option" data-type="vip" data-price="120">
+                                <div class="ticket-header">
+                                    <div class="ticket-name">VIP Ticket</div>
+                                    <div class="ticket-option-price">$120.00</div>
+                                </div>
+                                <ul class="ticket-features">
+                                    <li>All Premium features</li>
+                                    <li>Front row seating</li>
+                                    <li>Exclusive VIP lounge</li>
+                                    <li>Meet & greet with speakers</li>
+                                    <li>Premium gift bag</li>
+                                    <li>Complimentary parking</li>
+                                </ul>
+                                <div class="upgrade-info">
+                                    <span>Upgrade fee: $70.00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="button-group">
+                            <button class="btn-back buy-btn violet-btn">Back</button>
+                            <button class="btn-continue buy-btn" disabled>Continue to Checkout</button>
+                        </div>
+                    </div>
+
+                    <div class="step" data-step="3">
+                        <div class="step-header">
+                            <div class="step-number">3</div>
+                            <div class="step-title">Checkout</div>
+                        </div>
+
+                        <div class="checkout-summary">
+                            <div class="summary-row">
+                                <span class="summary-label">Current Ticket:</span>
+                                <span class="summary-value">Standard Ticket</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Upgrading to:</span>
+                                <span class="summary-value new-ticket-type">-</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Upgrade Fee:</span>
+                                <span class="summary-value upgrade-fee">$0.00</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">Processing Fee:</span>
+                                <span class="summary-value">$2.50</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Total Amount:</span>
+                                <span class="total-amount">$0.00</span>
+                            </div>
+                        </div>
+
+                        <div class="payment-section">
+                            <h3 class="payment-title">Payment Information</h3>
+                            <form class="checkout-form">
+                                <div class="form-group">
+                                    <label>Cardholder Name</label>
+                                    <input class="form-control" type="text" placeholder="Cardholder Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Card Number</label>
+                                    <input class="form-control" placeholder="Card Number" type="Number" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Expiry Date</label>
+                                        <input placeholder="Expiry Date" class="form-control" type="date" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>CVV</label>
+                                        <input class="form-control" type="text" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Email Address</label>
+                                    <input placeholder="Email Address" class="form-control" type="email" required>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="validation-message" style="display:none;"></div>
+
+                        <div class="button-group">
+                            <button class="btn-back buy-btn violet-btn">Back</button>
+                            <button class="btn-complete buy-btn">Complete Upgrade</button>
+                        </div>
+                    </div>
+
+                    <div class="step" data-step="4">
+                        <div class="success-message">
+                            <h2>Upgrade Successful!</h2>
+                            <p>You will receive a confirmation email shortly.</p>
+                            <div class="ticket-details-card">
+                                <h3 class="final-ticket-type">Premium Ticket</h3>
+                                <p><strong>Order ID:</strong> #MT2023-001-UPG</p>
+                                <p><strong>Confirmation:</strong> #CNF789456123</p>
+                                <p class="final-ticket-price">$75.00</p>
+                            </div>
+                            <button class="btn-return buy-btn">Return to Dashboard</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+          
+
+
+       
+        </div>
+        </div>
+    
+    <div class="tab-pane fade" id="matchmaking" role="tabpanel" aria-labelledby="matchmaking-tab">
+        <!-- Matchmaking content here -->
+        <div>
+        <section class="matchmakingsection">
+            <h4 class="page-section-title">Total Users</h4>
+            <div class="row gy-3">
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
+                    <div class="match-profile-card">
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-1.jpg" alt="">
+                        </div>
+                        <div>
+                        <h5>Maria John</h5>
+                        <h6>maria@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="75">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                               <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
+                    <div class="match-profile-card">
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-2.jpg" alt="">
+                        </div>
+                        <div>
+                            <h5>Mohammed Navab</h5>
+                        <h6>navab@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="75">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                                <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
+                    <div class="match-profile-card">
+                        <a href="chat.html">
+                            <div class="chat-icon">
+                            <i class="far fa-comment-dots"></i>
+                        </div>
+                        </a>
+
+                        <div class="meeting-icon-wrapper">
+                            <button class="meeting-icon" data-bs-toggle="modal" data-bs-target="#meetingModal">
+                                <i class="fa-solid fa-headset"></i>
+                            </button>
+                        </div>
+
+                         <a href="chat.html">
+                            <div class="chat-icon">
+                            <i class="far fa-comment-dots"></i>
+                        </div>
+                        </a>
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-3.jpeg" alt="">
+                        </div>
+                        <div>
+                            <h5>Ahmed Bazil</h5>
+                        <h6>bazil@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>50%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="50">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                                <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
+                                <button class="purple-btn ready-frnd" data-bs-toggle="modal" data-bs-target="#remove_friend">
+                                <span><i class="fas fa-user-check"></i></span> Friend
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
+                    <div class="match-profile-card">
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-4.jpg" alt="">
+                        </div>
+                        <div>
+                            <h5>Nishida</h5>
+                        <h6>nishida@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>50%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="50">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                               <button type="button" data-bs-toggle="modal" data-bs-target="#profileModal">
+                                    <i class="fas fa-user-circle"></i> View Profile
+                                    </button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                  <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
+                    <div class="match-profile-card">
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-4.jpg" alt="">
+                        </div>
+                        <div>
+                            <h5>Nishida</h5>
+                        <h6>nishida@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>50%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="50">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                               <button type="button" data-bs-toggle="modal" data-bs-target="#profileModal">
+                                    <i class="fas fa-user-circle"></i> View Profile
+                                    </button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
+                    <div class="match-profile-card">
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-1.jpg" alt="">
+                        </div>
+                        <div>
+                        <h5>Maria John</h5>
+                        <h6>maria@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="75">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                               <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
+                    <div class="match-profile-card">
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-2.jpg" alt="">
+                        </div>
+                        <div>
+                            <h5>Mohammed Navab</h5>
+                        <h6>navab@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="75">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                                <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
+                    <div class="match-profile-card">
+                       <a href="chat.html">
+                            <div class="chat-icon">
+                            <i class="far fa-comment-dots"></i>
+                        </div>
+                        </a>
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-3.jpeg" alt="">
+                        </div>
+                        <div>
+                            <h5>Ahmed Bazil</h5>
+                        <h6>bazil@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>50%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="50">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                                <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
+                                <button class="purple-btn ready-frnd" data-bs-toggle="modal" data-bs-target="#remove_friend">
+                                <span><i class="fas fa-user-check"></i></span> Friend
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
+                    <div class="match-profile-card">
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-1.jpg" alt="">
+                        </div>
+                        <div>
+                        <h5>Maria John</h5>
+                        <h6>maria@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="75">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                               <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
+                    <div class="match-profile-card">
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-2.jpg" alt="">
+                        </div>
+                        <div>
+                            <h5>Mohammed Navab</h5>
+                        <h6>navab@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="75">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                                <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
+                    <div class="match-profile-card">
+                        <a href="chat.html">
+                            <div class="chat-icon">
+                            <i class="far fa-comment-dots"></i>
+                        </div>
+                        </a>
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-3.jpeg" alt="">
+                        </div>
+                        <div>
+                            <h5>Ahmed Bazil</h5>
+                        <h6>bazil@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>50%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="50">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                                <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
+                                <button class="purple-btn ready-frnd" data-bs-toggle="modal" data-bs-target="#remove_friend">
+                                <span><i class="fas fa-user-check"></i></span> Friend
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
+                    <div class="match-profile-card">
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-4.jpg" alt="">
+                        </div>
+                        <div>
+                            <h5>Nishida</h5>
+                        <h6>nishida@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>50%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="50">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                               <button type="button" data-bs-toggle="modal" data-bs-target="#profileModal">
+                                    <i class="fas fa-user-circle"></i> View Profile
+                                    </button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                  <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
+                    <div class="match-profile-card">
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-4.jpg" alt="">
+                        </div>
+                        <div>
+                            <h5>Nishida</h5>
+                        <h6>nishida@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>50%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="50">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                               <button type="button" data-bs-toggle="modal" data-bs-target="#profileModal">
+                                    <i class="fas fa-user-circle"></i> View Profile
+                                    </button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
+                    <div class="match-profile-card">
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-1.jpg" alt="">
+                        </div>
+                        <div>
+                        <h5>Maria John</h5>
+                        <h6>maria@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="75">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                               <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
+                    <div class="match-profile-card">
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-2.jpg" alt="">
+                        </div>
+                        <div>
+                            <h5>Mohammed Navab</h5>
+                        <h6>navab@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="75">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                                <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
+                    <div class="match-profile-card">
+                       <a href="chat.html">
+                            <div class="chat-icon">
+                            <i class="far fa-comment-dots"></i>
+                        </div>
+                        </a>
+                        <div class="match-image-wrapper">
+                            <img src="assets/img/user-3.jpeg" alt="">
+                        </div>
+                        <div>
+                            <h5>Ahmed Bazil</h5>
+                        <h6>bazil@gmail.com</h6>
+                       <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>50%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="50">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                                <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
+                                <button class="purple-btn ready-frnd" data-bs-toggle="modal" data-bs-target="#remove_friend">
+                                <span><i class="fas fa-user-check"></i></span> Friend
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+               
+
+                
+
+                 
+            </div>
+        </section>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    
+
+
+   
 
     <section class="footer">
         <div class="container">
@@ -138,6 +2334,9 @@
             </div>
         </div>
     </section>
+
+
+
 
     <div class="crop-modal" id="cropModal">
         <div class="crop-container">
@@ -160,457 +2359,907 @@
 
 
 
+    <div class="modal fade" id="solutionsModal" tabindex="-1" aria-labelledby="solutionsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header premium-header">
+                    <h5 class="modal-title" id="solutionsModalLabel">SELECT SOLUTIONS/PRODUCTS</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="searchInput" class="form-control mb-3" placeholder="Try product/service">
+                    <label><strong>I am interested in sourcing the following solutions/products? (Select Top
+                                    5)</strong>
+                                <em>* Please ensure you have chosen at least one category in each section</em></label>
+                    <div class="row gx-4 mt-2">
+                        <!-- Products List -->
+                        <div class="col-md-6">
+                            <ul class="list-group categories-list edit-form-products">
+                                <label><input type="checkbox" name="category[]" value="3d_printing_services"> 3D Printing & Printing Services</label>
+                                <label><input type="checkbox" name="category[]" value="5g_telecom"> 5G & Telecommunications</label>
+                                <label><input type="checkbox" name="category[]" value="ar_vr_mr_gaming"> AR/VR/MR & Gaming</label>
+                                <label><input type="checkbox" name="category[]" value="agritech_foodtech"> AgriTech & FoodTech</label>
+                                <label><input type="checkbox" name="category[]" value="artificial_intelligence"> Artificial Intelligence</label>
+                                <label><input type="checkbox" name="category[]" value="big_data_analytics"> Big Data & Analytics</label>
+                                <label><input type="checkbox" name="category[]" value="blockchain"> Blockchain</label>
+                                <label><input type="checkbox" name="category[]" value="cloud_services"> Cloud Services</label>
+                                <label><input type="checkbox" name="category[]" value="coding_development"> Coding and Development</label>
+                                <label><input type="checkbox" name="category[]" value="consumer_tech"> Consumer Tech, Smart Home & Smart Workplace</label>
+                                <label><input type="checkbox" name="category[]" value="creative_economy"> Creative Economy</label>
+                                <label><input type="checkbox" name="category[]" value="cyber_security"> Cyber security</label>
+                                <label><input type="checkbox" name="category[]" value="data_centres"> Data Centres</label>
+                            </ul>
+                        </div>
+                        
+                        <!-- Services List -->
+                        <div class="col-md-6">
+                            <ul class="list-group subitems-list" id="subitemsList">
+                                 
+
+
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="validationMessage" class="text-danger mt-2" style="display: none;"></div>
+                </div>
+                <div class="modal-footer">
+                    <div class="tags-container" id="tagsContainer"></div>
+                    <button type="button" class="back-btn" data-bs-dismiss="modal">CANCEL</button>
+                    <button type="button" class="buy-btn" data-bs-dismiss="modal">APPLY</button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="followModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-4">
+                <div class="modal-body">
+                    <!-- Confirmation Content -->
+                    <div class="confirmation-content">
+                        <h5 class="modal-title modal-title-head mb-4">Are you sure you want to connect?</h5>
+                        <div class="d-flex justify-content-center gap-3">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                            <button type="button" class="btn btn-success" id="confirmConnect">Yes</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Success Content (Initially Hidden) -->
+                    <div class="success-content" style="display: none;">
+                        <div class="checkmark-animation mb-3">
+                            <svg class="checkmark" viewBox="0 0 52 52">
+                                <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                                <path class="checkmark-check" fill="none" d="M14 27l7 7 16-16"/>
+                            </svg>
+                        </div>
+                        <h5 class="modal-title">Follow Request Successful</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+
+      <!-- Modal Header (optional) -->
+      <div class="modal-header premium-header">
+        <h5 class="modal-title" id="profileModalLabel">Profile Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <!-- Modal Body -->
+      <!-- Replace the existing profile info section with this -->
+    <div class="modal-body p-0">
+        <div class="modal-profile-body">
+            <div class="text-center bg-light position-relative user-inner">
+                <img src="assets/img/user-2.jpg" alt="Cover">
+            </div>
+
+            <div class="profile-info">
+                <h5>Mohammed Navab</h5>
+                <div class="contact-info">
+                    <div class="profile-content">
+                        <i class="fas fa-envelope"></i>
+                        <h6>navab@gmail.com</h6>
+                    </div>
+                    <div class="profile-content">
+                        <i class="fas fa-phone"></i>
+                        <h6>+966 313-249-5473</h6>
+                    </div>
+                    <div class="profile-content">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h6>56 Market Street, 25 Lakehurst, NJ 15835, United States</h6>
+                    </div>
+                    <button type="button" data-bs-dismiss="modal" class="buy-btn" style="width: fit-content;">Connect</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+  </div>
+    </div>
+
+
+    <div class="modal fade" id="remove_friend" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-4">
+                <div class="modal-body">
+                    <!-- Confirmation Content -->
+                    <div class="unfollow-confirmation">
+                        <h5 class="modal-title modal-title-head mb-4">Are you sure you want to unfollow friend?</h5>
+                        <div class="d-flex justify-content-center gap-3">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                            <button type="button" class="btn btn-danger" id="confirmUnfollow">Yes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Meeting Schedule Modal -->
+    <div class="modal fade" id="meetingModal" tabindex="-1" aria-labelledby="meetingModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header premium-header">
+                    <h5 class="modal-title">Start Conversation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="call-options">
+                        <!-- Video Call Option -->
+                        <div class="call-option-item">
+                            <div class="call-icon video">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <div class="call-info">
+                                <h6>Video Call</h6>
+                                <p>Start a face-to-face video conversation</p>
+                                <button class="btn start-btn video-call">
+                                    <i class="fas fa-video"></i> Start Video Call
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Audio Call Option -->
+                        <div class="call-option-item">
+                            <div class="call-icon audio">
+                               <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div class="call-info">
+                                <h6>Audio Call</h6>
+                                <p>Start a voice-only conversation</p>
+                                <button class="btn start-btn audio-call">
+                                    <i class="fa-solid fa-phone"></i>Start Audio Call
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
   
 
 
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/font-awsome.js"></script>
 
     
-
-
 <script>
-    function enableEdit() {
-        document.getElementById('dataDisplay').style.display = 'none';
-        document.getElementById('dataEdit').style.display = 'block';
+document.querySelectorAll('.ticket-upgrade').forEach(component => {
+    let selectedType = null;
+    let selectedPrice = 0;
 
-        // Fill input fields with current values
-        document.getElementById('nameInput').value = document.getElementById('nameText').textContent;
-        document.getElementById('emailInput').value = document.getElementById('emailText').textContent;
-        document.getElementById('phoneInput').value = document.getElementById('phoneText').textContent;
-        document.getElementById('companyInput').value = document.getElementById('companyText').textContent;
-        document.getElementById('designationInput').value = document.getElementById('designationText').textContent;
-        document.getElementById('countryInput').value = document.getElementById('countryText').textContent;
-    }
+    const steps = component.querySelectorAll('.step');
+    const btnUpgrade = component.querySelector('.upgrade-btn');
+    const btnBacks = component.querySelectorAll('.btn-back');
+    const btnContinue = component.querySelector('.btn-continue');
+    const btnComplete = component.querySelector('.btn-complete');
+    const btnReturn = component.querySelector('.btn-return');
+    const validationMessage = component.querySelector('.validation-message');
 
-    function saveData() {
-        // Update display values
-        document.getElementById('nameText').textContent = document.getElementById('nameInput').value;
-        document.getElementById('emailText').textContent = document.getElementById('emailInput').value;
-        document.getElementById('phoneText').textContent = document.getElementById('phoneInput').value;
-        document.getElementById('companyText').textContent = document.getElementById('companyInput').value;
-        document.getElementById('designationText').textContent = document.getElementById('designationInput').value;
-        document.getElementById('countryText').textContent = document.getElementById('countryInput').value;
+    const updateStep = (stepNum) => {
+        steps.forEach((step, index) => {
+            step.classList.toggle('active', index === stepNum - 1);
+        });
+    };
 
-        document.getElementById('dataDisplay').style.display = 'block';
-        document.getElementById('dataEdit').style.display = 'none';
-    }
+    const updateSummary = () => {
+        const fee = selectedPrice - 50;
+        component.querySelector('.new-ticket-type').textContent = selectedType === 'vip' ? 'VIP Ticket' : 'Premium Ticket';
+        component.querySelector('.upgrade-fee').textContent = `$${fee.toFixed(2)}`;
+        component.querySelector('.total-amount').textContent = `$${(fee + 2.50).toFixed(2)}`;
+    };
 
-    function cancelEdit() {
-        document.getElementById('dataDisplay').style.display = 'block';
-        document.getElementById('dataEdit').style.display = 'none';
-    }
+    btnUpgrade.addEventListener('click', () => updateStep(2));
+
+    btnBacks.forEach(btn => {
+        btn.addEventListener('click', () => updateStep(1));
+    });
+
+    component.querySelectorAll('.ticket-option').forEach(option => {
+        option.addEventListener('click', () => {
+            component.querySelectorAll('.ticket-option').forEach(opt => opt.classList.remove('selected'));
+            option.classList.add('selected');
+            selectedType = option.dataset.type;
+            selectedPrice = parseFloat(option.dataset.price);
+            updateSummary();
+            btnContinue.disabled = false;
+        });
+    });
+
+    btnContinue.addEventListener('click', () => updateStep(3));
+
+    btnComplete.addEventListener('click', () => {
+        const form = component.querySelector('.checkout-form');
+        if (form.checkValidity()) {
+            // Hide validation message if valid
+            if (validationMessage) {
+                validationMessage.textContent = '';
+                validationMessage.style.display = 'none';
+            }
+
+            const ticketText = selectedType === 'vip' ? 'VIP Ticket' : 'Premium Ticket';
+            const finalPrice = `$${selectedPrice.toFixed(2)}`;
+            component.querySelector('.final-ticket-type').textContent = ticketText;
+            component.querySelector('.final-ticket-price').textContent = finalPrice;
+            updateStep(4);
+        } else {
+            // Show validation message
+            if (validationMessage) {
+                validationMessage.textContent = 'Please complete all required fields.';
+                validationMessage.style.display = 'block';
+                validationMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+    });
+
+    btnReturn.addEventListener('click', () => updateStep(1));
+});
 </script>
 
 
- <script>
-        class PhotoUploader {
-            constructor() {
-                this.elements = {
-                    fileInput: document.getElementById('fileInput'),
-                    avatarCircle: document.getElementById('avatarCircle'),
-                    cameraButton: document.getElementById('cameraButton'),
-                    removeOverlay: document.getElementById('removeOverlay'),
-                    chooseBtn: document.getElementById('chooseBtn'),
-                    cropBtn: document.getElementById('cropBtn'),
-                    removeBtn: document.getElementById('removeBtn'),
-                    fileInfo: document.getElementById('fileInfo'),
-                    fileName: document.getElementById('fileName'),
-                    fileSize: document.getElementById('fileSize'),
-                    userIcon: document.getElementById('userIcon'),
-                    // Crop elements
-                    cropModal: document.getElementById('cropModal'),
-                    cropArea: document.getElementById('cropArea'),
-                    cropImage: document.getElementById('cropImage'),
-                    cropOverlay: document.getElementById('cropOverlay'),
-                    applyCrop: document.getElementById('applyCrop'),
-                    cancelCrop: document.getElementById('cancelCrop')
-                };
-                
-                this.config = {
-                    maxSize: 5 * 1024 * 1024, // 5MB
-                   allowedTypes: ['image/', 'image/heic', 'image/heif'],
-                    sizeUnits: ['Bytes', 'KB', 'MB', 'GB'],
-                    cropAreaSize: 400
-                };
-                
-                this.state = {
-                    selectedFile: null,
-                    previewUrl: null,
-                    originalImageData: null,
-                    cropData: { x: 50, y: 50, width: 300, height: 300 }
-                };
-                
-                this.cropper = {
-                    isDragging: false,
-                    isResizing: false,
-                    dragStart: { x: 0, y: 0 },
-                    currentHandle: null
-                };
-                
-                this.initEventListeners();
-            }
 
-            initEventListeners() {
-                const { avatarCircle, cameraButton, chooseBtn, cropBtn, removeBtn, removeOverlay, fileInput } = this.elements;
-                
-                // Upload triggers
-                const uploadTriggers = [avatarCircle, cameraButton, chooseBtn];
-                uploadTriggers.forEach(el => el.addEventListener('click', this.handleUploadClick.bind(this)));
-                
-                // Remove triggers
-                const removeTriggers = [removeBtn, removeOverlay];
-                removeTriggers.forEach(el => el.addEventListener('click', this.removeImage.bind(this)));
-                
-                // File input and crop button
-                fileInput.addEventListener('change', this.handleFileSelect.bind(this));
-                cropBtn.addEventListener('click', this.openCropModal.bind(this));
-                
-                // Crop modal events
-                this.elements.applyCrop.addEventListener('click', this.applyCrop.bind(this));
-                this.elements.cancelCrop.addEventListener('click', this.closeCropModal.bind(this));
-                this.elements.cropModal.addEventListener('click', this.handleModalClick.bind(this));
-                
-                // Prevent event bubbling for overlay buttons
-                cameraButton.addEventListener('click', e => e.stopPropagation());
-                removeOverlay.addEventListener('click', e => e.stopPropagation());
-                
-                this.initCropEvents();
-            }
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all dropdowns
+    var dropdownElementList = [].slice.call(document.querySelectorAll('[data-bs-toggle="dropdown"]'))
+    var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+        return new bootstrap.Dropdown(dropdownToggleEl);
+    });
 
-            initCropEvents() {
-                const { cropOverlay, cropArea } = this.elements;
-                
-                // Crop overlay drag events
-                cropOverlay.addEventListener('mousedown', this.startDrag.bind(this));
-                document.addEventListener('mousemove', this.drag.bind(this));
-                document.addEventListener('mouseup', this.stopDrag.bind(this));
-                
-                // Crop handle events
-                const handles = cropOverlay.querySelectorAll('.crop-handle');
-                handles.forEach(handle => {
-                    handle.addEventListener('mousedown', (e) => this.startResize(e, handle));
-                });
-            }
+    // Handle dropdown item clicks
+    document.querySelectorAll('.dropdown-item').forEach(function(item) {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            const action = this.textContent.trim();
+            console.log('Action clicked:', action);
+        });
+    });
+});
+</script>
 
-            handleUploadClick() {
-                this.elements.fileInput.click();
-            }
 
-            handleFileSelect(e) {
-                const file = e.target.files?.[0];
-                if (!file || !this.validateFile(file)) return;
-                
-                this.state.selectedFile = file;
-                this.state.originalImageData = null; // Reset for new file
-                this.showPreview(file);
-                this.updateUI();
-            }
+    <script>
+$(document).ready(function() {
+    // Initialize Select2 for Nationality dropdown
+    $('#Nationality').select2({
+        placeholder: 'Select Nationality',
+        allowClear: true,
+        width: '100%',
+    });
 
-            validateFile(file) {
-                const { maxSize, allowedTypes } = this.config;
-                
-                if (file.size > maxSize) {
-                    this.showError('File size must be less than 5MB');
-                    return false;
-                }
-                
-               if (!allowedTypes.some(type => file.type.startsWith(type) || file.type === type)) {
-                    this.showError('Please select a valid image file');
-                    return false;
-                }
-                
-                return true;
-            }
+    // Update edit/save button handlers
+    $('#editBtn').on('click', function() {
+        $('#Nationality').prop('disabled', false).trigger('change');
+    });
 
-            showError(message) {
-                alert(message);
-            }
+    $('#saveBtn').on('click', function() {
+        $('#Nationality').prop('disabled', true).trigger('change');
+    });
+});
+</script>
 
-            showPreview(file) {
-                const reader = new FileReader();
-                reader.onload = e => {
-                    this.state.originalImageData = e.target.result;
-                    this.displayImage(e.target.result);
-                };
-                reader.readAsDataURL(file);
-            }
+    
+<script>
+$(document).ready(function() {
+    // Initialize intl-tel-input first
+    const phoneInput = document.querySelector("#phone");
+    const iti = window.intlTelInput(phoneInput, {
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js",
+        separateDialCode: true,
+        initialCountry: "ng",
+        preferredCountries: [],
+        geoIpLookup: function(callback) {
+            fetch("https://ipapi.co/json")
+                .then(res => res.json())
+                .then(data => callback(data.country_code))
+                .catch(() => callback("us"));
+        }
+    });
 
-            displayImage(src) {
-                const { avatarCircle, userIcon } = this.elements;
-                
-                // Clean up existing image
-                const existingImg = avatarCircle.querySelector('img');
-                existingImg?.remove();
-                
-                // Create new image
-                const img = Object.assign(document.createElement('img'), {
-                    src,
-                    alt: 'Profile preview'
-                });
-                
-                avatarCircle.appendChild(img);
-                userIcon.style.display = 'none';
-                this.state.previewUrl = src;
-            }
+    // Make iti accessible globally
+    window.iti = iti;
 
-            openCropModal() {
-                if (!this.state.originalImageData) return;
-                
-                const { cropModal, cropImage } = this.elements;
-                
-                cropImage.src = this.state.originalImageData;
-                cropModal.classList.add('show');
-                
-                // Initialize crop area after image loads
-                cropImage.onload = () => this.initializeCropArea();
-            }
+    // Initialize Select2
+    $('.select2-countries').select2({
+        placeholder: 'Select Country',
+        allowClear: true
+    });
 
-            initializeCropArea() {
-                const { cropImage, cropOverlay } = this.elements;
-                const { cropAreaSize } = this.config;
-                
-                // Calculate image display size
-                const imgRect = cropImage.getBoundingClientRect();
-                const naturalRatio = cropImage.naturalWidth / cropImage.naturalHeight;
-                
-                let displayWidth, displayHeight;
-                if (naturalRatio > 1) {
-                    displayWidth = Math.min(cropAreaSize, cropImage.naturalWidth);
-                    displayHeight = displayWidth / naturalRatio;
-                } else {
-                    displayHeight = Math.min(cropAreaSize, cropImage.naturalHeight);
-                    displayWidth = displayHeight * naturalRatio;
-                }
-                
-                // Set image size and position
-                cropImage.style.width = displayWidth + 'px';
-                cropImage.style.height = displayHeight + 'px';
-                cropImage.style.left = (cropAreaSize - displayWidth) / 2 + 'px';
-                cropImage.style.top = (cropAreaSize - displayHeight) / 2 + 'px';
-                
-                // Initialize crop overlay
-                const size = Math.min(displayWidth, displayHeight) * 0.8;
-                this.state.cropData = {
-                    x: (cropAreaSize - size) / 2,
-                    y: (cropAreaSize - size) / 2,
-                    width: size,
-                    height: size
-                };
-                
-                this.updateCropOverlay();
-            }
+    // Map of country codes
+    const countryCodeMap = {
+        'AF': 'af','AX': 'ax','AL': 'al','DZ': 'dz','AS': 'as','AD': 'ad','AO': 'ao',
+        'AI': 'ai','AQ': 'aq','AG': 'ag','AR': 'ar','AM': 'am','AW': 'aw','AU': 'au',
+        'AT': 'at','AZ': 'az','BS': 'bs','BH': 'bh','BD': 'bd','BB': 'bb','BY': 'by',
+        'BE': 'be','BZ': 'bz','BJ': 'bj','BM': 'bm','BT': 'bt','BO': 'bo','BQ': 'bq',
+        'BA': 'ba','BW': 'bw','BV': 'bv','BR': 'br','IO': 'io','BN': 'bn','BG': 'bg',
+        'BF': 'bf','BI': 'bi','CV': 'cv','KH': 'kh','CM': 'cm','CA': 'ca','KY': 'ky',
+        'CF': 'cf','TD': 'td','CL': 'cl','CN': 'cn','CX': 'cx','CC': 'cc','CO': 'co',
+        'KM': 'km','CG': 'cg','CD': 'cd','CK': 'ck','CR': 'cr','CI': 'ci','HR': 'hr',
+        'CU': 'cu','CW': 'cw','CY': 'cy','CZ': 'cz','DK': 'dk','DJ': 'dj','DM': 'dm',
+        'DO': 'do','EC': 'ec','EG': 'eg','SV': 'sv','GQ': 'gq','ER': 'er','EE': 'ee',
+        'ET': 'et','FK': 'fk','FO': 'fo','FJ': 'fj','FI': 'fi','FR': 'fr','GF': 'gf',
+        'PF': 'pf','TF': 'tf','GA': 'ga','GM': 'gm','GE': 'ge','DE': 'de','GH': 'gh',
+        'GI': 'gi','GR': 'gr','GL': 'gl','GD': 'gd','GP': 'gp','GU': 'gu','GT': 'gt',
+        'GG': 'gg','GN': 'gn','GW': 'gw','GY': 'gy','HT': 'ht','HM': 'hm','VA': 'va',
+        'HN': 'hn','HK': 'hk','HU': 'hu','IS': 'is','IN': 'in','ID': 'id','IR': 'ir',
+        'IQ': 'iq','IE': 'ie','IM': 'im','IL': 'il','IT': 'it','JM': 'jm','JP': 'jp',
+        'JE': 'je','JO': 'jo','KZ': 'kz','KE': 'ke','KI': 'ki','KP': 'kp','KR': 'kr',
+        'KW': 'kw','KG': 'kg','LA': 'la','LV': 'lv','LB': 'lb','LS': 'ls','LR': 'lr',
+        'LY': 'ly','LI': 'li','LT': 'lt','LU': 'lu','MO': 'mo','MK': 'mk','MG': 'mg',
+        'MW': 'mw','MY': 'my','MV': 'mv','ML': 'ml','MT': 'mt','MH': 'mh','MQ': 'mq',
+        'MR': 'mr','MU': 'mu','YT': 'yt','MX': 'mx','FM': 'fm','MD': 'md','MC': 'mc',
+        'MN': 'mn','ME': 'me','MS': 'ms','MA': 'ma','MZ': 'mz','MM': 'mm','NA': 'na',
+        'NR': 'nr','NP': 'np','NL': 'nl','NC': 'nc','NZ': 'nz','NI': 'ni','NE': 'ne',
+        'NG': 'ng','NU': 'nu','NF': 'nf','MP': 'mp','NO': 'no','OM': 'om','PK': 'pk',
+        'PW': 'pw','PS': 'ps','PA': 'pa','PG': 'pg','PY': 'py','PE': 'pe','PH': 'ph',
+        'PN': 'pn','PL': 'pl','PT': 'pt','PR': 'pr','QA': 'qa','RE': 're','RO': 'ro',
+        'RU': 'ru','RW': 'rw','BL': 'bl','SH': 'sh','KN': 'kn','LC': 'lc','MF': 'mf',
+        'PM': 'pm','VC': 'vc','WS': 'ws','SM': 'sm','ST': 'st','SA': 'sa','SN': 'sn',
+        'RS': 'rs','SC': 'sc','SL': 'sl','SG': 'sg','SX': 'sx','SK': 'sk','SI': 'si',
+        'SB': 'sb','SO': 'so','ZA': 'za','SS': 'ss','ES': 'es','LK': 'lk','SD': 'sd',
+        'SR': 'sr','SJ': 'sj','SE': 'se','CH': 'ch','SY': 'sy','TW': 'tw','TJ': 'tj',
+        'TZ': 'tz','TH': 'th','TL': 'tl','TG': 'tg','TK': 'tk','TO': 'to','TT': 'tt',
+        'TN': 'tn','TR': 'tr','TM': 'tm','TC': 'tc','TV': 'tv','UG': 'ug','UA': 'ua',
+        'AE': 'ae','GB': 'gb','US': 'us','UM': 'um','UY': 'uy','UZ': 'uz','VU': 'vu',
+        'VE': 've','VN': 'vn','VG': 'vg','VI': 'vi','WF': 'wf','EH': 'eh','YE': 'ye',
+        'ZM': 'zm','ZW': 'zw'
 
-            updateCropOverlay() {
-                const { cropOverlay } = this.elements;
-                const { x, y, width, height } = this.state.cropData;
-                
-                cropOverlay.style.left = x + 'px';
-                cropOverlay.style.top = y + 'px';
-                cropOverlay.style.width = width + 'px';
-                cropOverlay.style.height = height + 'px';
-            }
+    };
 
-            startDrag(e) {
-                e.preventDefault();
-                this.cropper.isDragging = true;
-                this.cropper.dragStart = { x: e.clientX, y: e.clientY };
+    // Listen for Select2 country changes
+    $('.select2-countries').on('change', function() {
+        const selectedCountry = $(this).val();
+        if (selectedCountry) {
+            const countryCode = countryCodeMap[selectedCountry];
+            if (countryCode) {
+                iti.setCountry(countryCode);
             }
+        }
+    });
 
-            startResize(e, handle) {
-                e.preventDefault();
-                e.stopPropagation();
-                this.cropper.isResizing = true;
-                this.cropper.currentHandle = handle.classList[1]; // nw, ne, sw, se
-                this.cropper.dragStart = { x: e.clientX, y: e.clientY };
+    // Phone validation
+    phoneInput.addEventListener('blur', function() {
+        if (phoneInput.value.trim()) {
+            if (iti.isValidNumber()) {
+                phoneInput.classList.remove("is-invalid");
+                phoneInput.classList.add("is-valid");
+            } else {
+                phoneInput.classList.remove("is-valid");
+                phoneInput.classList.add("is-invalid");
+                document.getElementById('phone-error').textContent = 'Invalid phone number';
             }
+        }
+    });
 
-            drag(e) {
-                if (!this.cropper.isDragging && !this.cropper.isResizing) return;
-                
-                e.preventDefault();
-                const deltaX = e.clientX - this.cropper.dragStart.x;
-                const deltaY = e.clientY - this.cropper.dragStart.y;
-                
-                if (this.cropper.isDragging) {
-                    this.moveCropArea(deltaX, deltaY);
-                } else if (this.cropper.isResizing) {
-                    this.resizeCropArea(deltaX, deltaY);
-                }
-                
-                this.cropper.dragStart = { x: e.clientX, y: e.clientY };
+    // Handle edit/save button states
+    $('#editBtn').on('click', function() {
+        $('.select2-countries').prop('disabled', false);
+        $('.select2-countries').select2('enable');
+        phoneInput.disabled = false;
+    });
+
+    $('#saveBtn').on('click', function() {
+        $('.select2-countries').prop('disabled', true);
+        $('.select2-countries').select2('enable', false);
+        phoneInput.disabled = true;
+
+        if (phoneInput.value.trim()) {
+            const fullNumber = iti.getNumber();
+            phoneInput.value = fullNumber;
+        }
+    });
+
+    // Set initial country if one is selected
+    const initialCountry = $('.select2-countries').val();
+    if (initialCountry) {
+        const countryCode = countryCodeMap[initialCountry];
+        if (countryCode) {
+            iti.setCountry(countryCode);
+        }
+    }
+});
+</script>
+
+<script>
+$(document).ready(function() {
+    // Initialize Select2 for Industry dropdown
+    $('#Industry').select2({
+        placeholder: 'Select Industry',
+        allowClear: true,
+        width: '100%',
+        minimumResultsForSearch: 5
+    });
+
+    // Handle edit/save button states
+    $('#editBtn').on('click', function() {
+        $('#Industry').prop('disabled', false);
+        $('#Industry').select2('enable');
+    });
+
+    $('#saveBtn').on('click', function() {
+        $('#Industry').prop('disabled', true);
+        $('#Industry').select2('enable', false);
+    });
+});
+</script>
+
+
+
+<script>
+$(document).ready(function() {
+    // Initialize Select2
+    $('.select2-countries').select2({
+        placeholder: 'Select Country',
+        allowClear: true
+    });
+
+    // Format countries with flags
+    function formatCountry(country) {
+        if (!country.id) return country.text;
+        const flag = $(country.element).data('flag');
+        return $(`
+            <div class="country-option">
+                <span class="country-flag">${flag}</span>
+                <span class="country-name">${country.text}</span>
+            </div>
+        `);
+    }
+
+    // Handle edit/save button states
+    $('#editBtn').on('click', function() {
+        $('.select2-countries').prop('disabled', false);
+        $('.select2-countries').select2('enable');
+    });
+
+    $('#saveBtn').on('click', function() {
+        $('.select2-countries').prop('disabled', true);
+        $('.select2-countries').select2('enable', false);
+    });
+
+    // Update phone country on select change
+    $('.select2-countries').on('change', function() {
+        const selectedCountry = $(this).val();
+        if (window.iti && selectedCountry) {
+            window.iti.setCountry(selectedCountry.toLowerCase());
+        }
+    });
+});
+</script>
+
+    
+<script>
+  const editBtn = document.getElementById('editBtn');
+  const saveBtn = document.getElementById('saveBtn');
+  const solutionBtn = document.getElementById('solutionBtn');
+
+  const formInputs = document.querySelectorAll(
+    '#employeeForm input, #employeeForm select, .workshop-checkbox'
+  );
+  const workshopCheckboxes = document.querySelectorAll('.workshop-checkbox');
+  const workshopError = document.getElementById('workshopError_0');
+
+  // 🔒 Disable all form inputs + solution button on load
+  formInputs.forEach(input => input.disabled = true);
+  solutionBtn.disabled = true;
+
+  // ✏️ Enable editing
+  editBtn.addEventListener('click', () => {
+    formInputs.forEach(input => input.disabled = false);
+    solutionBtn.disabled = false;
+    saveBtn.classList.remove('d-none');
+    editBtn.classList.add('d-none');
+    workshopError.textContent = '';
+  });
+
+  // ✅ Save logic
+  saveBtn.addEventListener('click', () => {
+    const formData = {};
+    let selectedWorkshops = [];
+
+    formInputs.forEach(input => {
+      if (input.type === 'checkbox') {
+        if (!formData[input.name]) {
+          formData[input.name] = [];
+        }
+        if (input.checked) {
+          formData[input.name].push(input.value);
+          selectedWorkshops.push(input.value);
+        }
+      } else {
+        formData[input.id] = input.value;
+      }
+
+      input.disabled = true;
+    });
+
+    // 🧪 Workshop limit check
+    if (selectedWorkshops.length > 6) {
+      workshopError.textContent = 'You can select a maximum of 6 workshops.';
+      formInputs.forEach(input => input.disabled = false);
+      solutionBtn.disabled = false;
+      return;
+    } else {
+      workshopError.textContent = '';
+    }
+
+    // ✅ Disable solution button again
+    solutionBtn.disabled = true;
+
+    console.log('Form data saved:', formData);
+
+    saveBtn.classList.add('d-none');
+    editBtn.classList.remove('d-none');
+  });
+
+  // ⚠️ Limit to max 6 workshop checkboxes
+  workshopCheckboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', () => {
+      const checked = document.querySelectorAll('.workshop-checkbox:checked');
+      if (checked.length > 6) {
+        checkbox.checked = false;
+        workshopError.textContent = 'You can select a maximum of 6 workshops.';
+      } else {
+        workshopError.textContent = '';
+      }
+    });
+  });
+</script>
+
+
+<script>
+$(document).ready(function() {
+    // Initialize Select2 for Company Type dropdown
+    $('#CompanyType').select2({
+        placeholder: 'Select Company Type',
+        allowClear: true,
+        width: '100%',
+        minimumResultsForSearch: 5,
+    });
+
+    // Handle edit/save button states
+    $('#editBtn').on('click', function() {
+        $('#CompanyType').prop('disabled', false);
+        $('#CompanyType').select2('enable');
+    });
+
+    $('#saveBtn').on('click', function() {
+        $('#CompanyType').prop('disabled', true);
+        $('#CompanyType').select2('enable', false);
+    });
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all tabs
+    const tabs = document.querySelectorAll('.nav-link');
+    
+    // Add click event listeners to tabs
+    tabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Remove active class from all tabs
+            tabs.forEach(t => {
+                t.classList.remove('active');
+                t.setAttribute('aria-selected', 'false');
+            });
+            
+            // Add active class to clicked tab
+            tab.classList.add('active');
+            tab.setAttribute('aria-selected', 'true');
+            
+            // Show corresponding content
+            const targetId = tab.getAttribute('href').substring(1);
+            const tabPanes = document.querySelectorAll('.tab-pane');
+            tabPanes.forEach(pane => {
+                pane.classList.remove('show', 'active');
+            });
+            document.getElementById(targetId).classList.add('show', 'active');
+        });
+    });
+
+    // Handle notification click
+    const notification = document.querySelector('.visitor-notification');
+    notification.addEventListener('click', () => {
+        // Add your notification handling code here
+        console.log('Notification clicked');
+    });
+});
+</script>
+
+
+<script>
+        function createProgressBar(container, percentage, tooltipText) {
+            const progressBar = container.querySelector('.progress-bar');
+            const tooltip = container.querySelector('.tooltip');
+            
+            // Add yellow class if percentage is below 70%
+            if (percentage < 70) {
+                progressBar.classList.add('yellow');
+            } else {
+                progressBar.classList.remove('yellow');
             }
-
-            moveCropArea(deltaX, deltaY) {
-                const { cropData } = this.state;
-                const { cropAreaSize } = this.config;
-                
-                cropData.x = Math.max(0, Math.min(cropAreaSize - cropData.width, cropData.x + deltaX));
-                cropData.y = Math.max(0, Math.min(cropAreaSize - cropData.height, cropData.y + deltaY));
-                
-                this.updateCropOverlay();
+            
+            // Set tooltip text
+            if (tooltipText) {
+                tooltip.textContent = tooltipText;
+            } else {
+                tooltip.textContent = `${percentage}% Complete`;
             }
-
-            resizeCropArea(deltaX, deltaY) {
-                const { cropData } = this.state;
-                const { currentHandle } = this.cropper;
-                const { cropAreaSize } = this.config;
-                
-                const minSize = 50;
-                let newWidth = cropData.width;
-                let newHeight = cropData.height;
-                let newX = cropData.x;
-                let newY = cropData.y;
-                
-                if (currentHandle.includes('e')) newWidth += deltaX;
-                if (currentHandle.includes('w')) { newWidth -= deltaX; newX += deltaX; }
-                if (currentHandle.includes('s')) newHeight += deltaY;
-                if (currentHandle.includes('n')) { newHeight -= deltaY; newY += deltaY; }
-                
-                // Maintain square aspect ratio
-                const size = Math.min(newWidth, newHeight);
-                if (size >= minSize) {
-                    cropData.width = size;
-                    cropData.height = size;
-                    
-                    // Adjust position to keep within bounds
-                    cropData.x = Math.max(0, Math.min(cropAreaSize - size, newX));
-                    cropData.y = Math.max(0, Math.min(cropAreaSize - size, newY));
-                    
-                    this.updateCropOverlay();
-                }
-            }
-
-            stopDrag() {
-                this.cropper.isDragging = false;
-                this.cropper.isResizing = false;
-                this.cropper.currentHandle = null;
-            }
-
-            applyCrop() {
-                const { cropImage } = this.elements;
-                const { cropData } = this.state;
-                
-                // Calculate actual crop coordinates
-                const scaleX = cropImage.naturalWidth / cropImage.offsetWidth;
-                const scaleY = cropImage.naturalHeight / cropImage.offsetHeight;
-                
-                const imageRect = cropImage.getBoundingClientRect();
-                const cropAreaRect = this.elements.cropArea.getBoundingClientRect();
-                
-                const actualX = (cropData.x - (parseFloat(cropImage.style.left) || 0)) * scaleX;
-                const actualY = (cropData.y - (parseFloat(cropImage.style.top) || 0)) * scaleY;
-                const actualWidth = cropData.width * scaleX;
-                const actualHeight = cropData.height * scaleY;
-                
-                // Create canvas and crop
-                const canvas = document.createElement('canvas');
-                const ctx = canvas.getContext('2d');
-                
-                canvas.width = actualWidth;
-                canvas.height = actualHeight;
-                
-                const img = new Image();
-                img.onload = () => {
-                    ctx.drawImage(img, actualX, actualY, actualWidth, actualHeight, 0, 0, actualWidth, actualHeight);
-                    
-                    // Convert to blob and update preview
-                    canvas.toBlob((blob) => {
-                        const file = new File([blob], this.state.selectedFile.name, { type: blob.type });
-                        this.state.selectedFile = file;
-                        this.state.previewUrl = canvas.toDataURL();
-                        this.displayImage(this.state.previewUrl);
-                        this.closeCropModal();
-                        this.updateUI();
-                    }, 'image/jpeg', 0.9);
-                };
-                img.src = this.state.originalImageData;
-            }
-
-            closeCropModal() {
-                this.elements.cropModal.classList.remove('show');
-            }
-
-            handleModalClick(e) {
-                if (e.target === this.elements.cropModal) {
-                    this.closeCropModal();
-                }
-            }
-
-            removeImage() {
-                const { avatarCircle, userIcon, fileInput } = this.elements;
-                
-                // Reset state
-                this.state = { 
-                    selectedFile: null, 
-                    previewUrl: null, 
-                    originalImageData: null,
-                    cropData: { x: 50, y: 50, width: 300, height: 300 }
-                };
-                fileInput.value = '';
-                
-                // Reset UI
-                avatarCircle.querySelector('img')?.remove();
-                userIcon.style.display = 'block';
-                
-                this.updateUI();
-            }
-
-            updateUI() {
-                const { fileInfo, fileName, fileSize, removeOverlay, cropBtn } = this.elements;
-                const { selectedFile } = this.state;
-                
-                if (selectedFile) {
-                    fileName.textContent = selectedFile.name;
-                    fileSize.textContent = this.formatFileSize(selectedFile.size);
-                    fileInfo.classList.add('show');
-                    removeOverlay.classList.add('show');
-                    cropBtn.style.display = 'block';
-                } else {
-                    fileInfo.classList.remove('show');
-                    removeOverlay.classList.remove('show');
-                    cropBtn.style.display = 'none';
-                }
-            }
-
-            formatFileSize(bytes) {
-                if (!bytes) return '0 Bytes';
-                
-                const i = Math.floor(Math.log(bytes) / Math.log(1024));
-                const size = (bytes / Math.pow(1024, i)).toFixed(2);
-                
-                return `${parseFloat(size)} ${this.config.sizeUnits[i]}`;
-            }
-
-            // Public API
-            getSelectedFile() { return this.state.selectedFile; }
-            getPreviewUrl() { return this.state.previewUrl; }
-            reset() { this.removeImage(); }
+            
+            // Animate the progress bar
+            setTimeout(() => {
+                progressBar.style.width = percentage + '%';
+            }, 100);
         }
 
-        // Initialize
-        let photoUploader;
-        document.addEventListener('DOMContentLoaded', () => {
-            photoUploader = new PhotoUploader();
+        function animateAllBars() {
+            const containers = document.querySelectorAll('.progress-container');
+            
+            containers.forEach((container, index) => {
+                const percentage = parseInt(container.getAttribute('data-percentage'));
+                const progressBar = container.querySelector('.progress-bar');
+                
+                // Reset animation first
+                progressBar.style.width = '0%';
+                
+                // Add appropriate color class
+                if (percentage < 70) {
+                    progressBar.classList.add('yellow');
+                } else {
+                    progressBar.classList.remove('yellow');
+                }
+                
+                // Animate after a short delay (staggered for each bar)
+                setTimeout(() => {
+                    progressBar.style.width = percentage + '%';
+                }, 300 + (index * 100));
+            });
+        }
+
+        // Initialize tooltips for all progress containers
+        function initializeTooltips() {
+            document.querySelectorAll('.progress-container').forEach(container => {
+                const tooltip = container.querySelector('.tooltip');
+                
+                container.addEventListener('mouseenter', function(e) {
+                    tooltip.style.opacity = '1';
+                });
+                
+                container.addEventListener('mouseleave', function(e) {
+                    tooltip.style.opacity = '0';
+                });
+                
+                container.addEventListener('mousemove', function(e) {
+                    const rect = container.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    tooltip.style.left = Math.max(0, Math.min(x, rect.width)) + 'px';
+                });
+            });
+        }
+
+        // Initialize all progress bars on page load
+        window.addEventListener('load', function() {
+            // Set initial colors based on percentage
+            document.querySelectorAll('.progress-container').forEach(container => {
+                const percentage = parseInt(container.getAttribute('data-percentage'));
+                const progressBar = container.querySelector('.progress-bar');
+                
+                if (percentage < 70) {
+                    progressBar.classList.add('yellow');
+                }
+            });
+            
+            // Then animate bars
+            setTimeout(() => {
+                animateAllBars();
+            }, 500);
         });
 
-        // Utility function for form integration
-        function getUploadData() {
-            const file = photoUploader?.getSelectedFile();
-            if (!file) return null;
-            
-            const formData = new FormData();
-            formData.append('photo', file);
-            return { file, formData };
+        // Example of how to create a new progress bar dynamically
+        function addNewProgressBar(containerId, percentage, label, tooltipText) {
+            const container = document.getElementById(containerId);
+            if (container) {
+                container.setAttribute('data-percentage', percentage);
+                createProgressBar(container, percentage, tooltipText);
+            }
         }
     </script>
+    
+ <script>
+let lastClickedBtn = null;
+let modalInstance = null;
+
+document.addEventListener('DOMContentLoaded', () => {
+    const followModalEl = document.getElementById('followModal');
+    const confirmationContent = followModalEl.querySelector('.confirmation-content');
+    const successContent = followModalEl.querySelector('.success-content');
+
+    // Ensure modal element exists before initializing
+    if (!followModalEl) return;
+
+    // Initialize modal only once
+    modalInstance = new bootstrap.Modal(followModalEl, {
+        backdrop: 'static',
+        keyboard: false
+    });
+
+    // Ensure clean modal each time it's shown
+    followModalEl.addEventListener('show.bs.modal', () => {
+        // Reset modal content
+        confirmationContent.style.display = 'block';
+        successContent.style.display = 'none';
+
+        // 🛡 Remove stale backdrops before showing
+        document.querySelectorAll('.modal-backdrop').forEach(b => b.remove());
+
+        // 🛡 Restore body state
+        document.body.classList.remove('modal-open');
+        document.body.style.paddingRight = '';
+        document.body.style.overflow = '';
+    });
+
+    // Button click opens modal
+    document.querySelectorAll('.connect-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            lastClickedBtn = btn;
+            setTimeout(() => {
+                modalInstance.show(); // Slight delay ensures stable animation stack
+            }, 10); // delay avoids race with backdrop removal
+        });
+    });
+
+    // Confirm click inside modal
+    document.getElementById('confirmConnect').addEventListener('click', () => {
+        confirmationContent.style.display = 'none';
+        successContent.style.display = 'block';
+
+        if (lastClickedBtn) {
+            lastClickedBtn.innerHTML = '<span><i class="fas fa-clock"></i></span> Pending';
+            lastClickedBtn.style.backgroundColor = '#ffc107';
+            lastClickedBtn.style.borderColor = '#ffc107';
+            lastClickedBtn.style.color = '#000';
+        }
+
+        setTimeout(() => {
+            if (lastClickedBtn) {
+                lastClickedBtn.classList.remove('purple-btn');
+                lastClickedBtn.disabled = true;
+                lastClickedBtn = null;
+            }
+
+            modalInstance.hide();
+        }, 1500);
+    });
+
+    // Modal cleanup
+    followModalEl.addEventListener('hidden.bs.modal', () => {
+        confirmationContent.style.display = 'block';
+        successContent.style.display = 'none';
+
+        // Final cleanup
+        document.querySelectorAll('.modal-backdrop').forEach(b => b.remove());
+        document.body.classList.remove('modal-open');
+        document.body.style.paddingRight = '';
+        document.body.style.overflow = '';
+    });
+});
+</script>
 
 
+<script>
+let lastFriendBtn = null;
+
+// Track which friend button was clicked
+document.querySelectorAll('.ready-frnd').forEach(btn => {
+    btn.addEventListener('click', () => {
+        lastFriendBtn = btn;
+    });
+});
+
+// Handle unfollow confirmation
+document.getElementById('confirmUnfollow').addEventListener('click', function() {
+    const modal = document.getElementById('remove_friend');
+    
+    if (lastFriendBtn) {
+        // Change button appearance
+        lastFriendBtn.classList.remove('ready-frnd');
+        lastFriendBtn.classList.add('purple-btn', 'connect-btn');
+        lastFriendBtn.innerHTML = '<span><i class="fas fa-user-plus"></i></span> Connect';
+        lastFriendBtn.setAttribute('data-bs-target', '#followModal');
+        
+        // Reset the button reference
+        lastFriendBtn = null;
+    }
+    
+    // Hide modal
+    const modalInstance = bootstrap.Modal.getInstance(modal);
+    modalInstance.hide();
+    
+    // Cleanup
+    setTimeout(() => {
+        document.body.classList.remove('modal-open');
+        const backdrop = document.querySelector('.modal-backdrop');
+        if (backdrop) {
+            backdrop.remove();
+        }
+    }, 300);
+});
+</script>
+
+
+
+<!-- meeting -->
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle video call button click
+    document.querySelector('.video-call').addEventListener('click', function() {
+        // Add your video call initialization logic here
+        console.log('Starting video call...');
+        // Example: Show connecting state
+        this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Connecting...';
+        this.disabled = true;
+        
+        // Simulate connection (replace with actual call logic)
+        setTimeout(() => {
+            window.location.href = 'video-call.html'; // Replace with actual video call page
+        }, 1500);
+    });
+
+    // Handle audio call button click
+    document.querySelector('.audio-call').addEventListener('click', function() {
+        // Add your audio call initialization logic here
+        console.log('Starting audio call...');
+        // Example: Show connecting state
+        this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Connecting...';
+        this.disabled = true;
+
+        // Simulate connection (replace with actual call logic)
+        setTimeout(() => {
+            window.location.href = 'audio-call.html'; // Replace with actual audio call page
+        }, 1500);
+    });
+});
+</script>
 
 
 
