@@ -5232,7 +5232,7 @@ select.form-control {
 .visitor_menu a {
     color: #2d2d2d;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 17px;
     text-decoration: none;
     padding: 5px 12px;
     border: 1px solid #0f9330 !important;
@@ -5939,7 +5939,7 @@ td {
 }
 
 .notification-header h2 {
-    font-size: 1.5rem;
+    font-size: 18px;
     color: #333;
     margin: 0;
 }
@@ -6495,8 +6495,8 @@ td {
     }
 
     .notification-container {
-        margin: 1rem;
-        padding: 1rem;
+        margin-top: 0px;
+        padding: 10px;
     }
 
     .notification-header {
