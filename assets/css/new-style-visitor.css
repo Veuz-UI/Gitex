@@ -1356,12 +1356,9 @@ form .form-select {
     margin-top: 20px;
 }
 
-.selected-tag .remove-tag {
-    margin-left: 8px;
-    color: #fff;
-    cursor: pointer;
-    font-weight: bold;
-    cursor: pointer;
+
+.remove-tag{
+    display: none;
 }
 
 
@@ -1572,23 +1569,15 @@ input[type=number] {
     gap: 8px;
     font-size: 14px;
     font-weight: 300;
+    white-space: normal;        
+    word-break: break-word;         
+    overflow-wrap: break-word;    
+    text-align: left;
 }
 
-.sub-selected-tags .remove-tag {
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 16px;
+.remove-tag{
     display: none;
-    color: rgb(33, 33, 33);
 }
-
-.remove-tag:hover {
-    opacity: 0.8;
-}
-
-
-
-
 
 
 .checkbox-grid {
@@ -2827,6 +2816,7 @@ ul.accordion-list {
     white-space: normal;           
     word-break: break-word;         
     overflow-wrap: break-word;    
+    text-align: left;  
 }
 
 .select-main-tag span {
@@ -2843,6 +2833,10 @@ ul.accordion-list {
     color: rgb(253 253 253);
     margin-bottom: 15px;
     font-weight: 300;
+    white-space: normal;          
+    word-break: break-word;          
+    overflow-wrap: break-word;  
+    text-align: left;  
 }
 
 .select-sub-tag span {
@@ -3762,6 +3756,7 @@ select.form-control {
     cursor: pointer;
     opacity: 0.7;
     transition: opacity 0.2s;
+    display: none !important;
 }
 
 .tag-close:hover,
@@ -6805,6 +6800,10 @@ td {
 
 
 @media (max-width: 992px) {
+    .applied-promo{
+        flex-direction: column;
+    }
+    
     .ticket-info-to {
         padding: 20px;
     }
