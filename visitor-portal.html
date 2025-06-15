@@ -20,474 +20,6 @@
             scroll-behavior: smooth;
             overflow-x: hidden !important;
         }
-        .select2-container--default.select2-container--disabled .select2-selection--single{
-            background: transparent !important;
-        }
-        /* Meeting Icon and Modal Styles */
-        .meeting-icon-wrapper {
-            position: absolute;
-            top: 70px;
-            right: 15px;
-            z-index: 1;
-            
-        }
-
-        .meeting-icon {
-            border-radius: 100%;
-            background-color: #fff;
-            color: #3c3c3c;
-            display: grid;
-            border: none;
-            place-content: center;
-            padding: 10px;
-            font-size: 25px;
-            box-shadow: 0 4px 40px 0 rgba(0, 0, 0, 0.15);
-        }
-
-        .meeting-icon i {
-            font-size: 18px;
-            color: #49b964;
-        }
-
-
-        /* Meeting List Styles */
-
-        .call-options {
-            padding: 1rem;
-            display: flex;
-            gap: 10px;
-        }
-
-        .call-option-item {
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            margin-bottom: 1rem;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-
-        .call-option-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-
-        .call-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 10px;
-        }
-
-        .call-icon i {
-            font-size: 24px;
-        }
-
-        .call-icon.video {
-            background: #e5e1ec;
-            color: #9575CD;
-        }
-
-        .call-icon.audio {
-            background: #e8f5e9;
-            color: #2e7d32;
-        }
-
-        .call-info {
-            flex: 1;
-        }
-
-        .call-info h6 {
-            margin: 0 0 0.5rem 0;
-            font-size: 1.1rem;
-            color: #333;
-        }
-
-        .call-info p {
-            margin: 0 0 1rem 0;
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        .start-btn {
-            padding: 0.5rem 1.5rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.2s;
-            border: none;
-            color: white;
-        }
-
-        .start-btn.video-call {
-            background: #9575CD;
-            color: white;
-        }
-
-        .start-btn.video-call:hover {
-            background: #7255a2;
-            color: white;
-        }
-
-        .start-btn.audio-call {
-            background: #2e7d32;
-            color: white;
-        }
-
-        .start-btn.audio-call:hover {
-            background: #1b5e20;
-            color: white;
-        }
-
-
-        .premium-header .btn-close {
-            filter: brightness(0) invert(1);
-        }
-
-
-        .step {
-            display: none;
-            background: white;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .step.active {
-            display: block;
-        }
-
-        .step-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .step-number {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #2eb13f 0%, #0d3d0d 100%);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            margin-right: 1rem;
-        }
-
-        .step-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #1f2937;
-        }
-
-        /* Current Ticket Display */
-        .current-ticket {
-            background: #f8fafc;
-            border: 2px solid #e2e8f0;
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-        }
-
-        .upgrade-ticket-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .upgrade-btn {
-            width: fit-content;
-        }
-
-        .upgrade-ticket-details h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #1f2937;
-            margin-bottom: 0.5rem;
-        }
-
-        .upgrade-ticket-details p {
-            color: #6b7280;
-            font-size: 0.9rem;
-        }
-
-        .ticket-price {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #108a26;
-        }
-
-        
-
-        /* Ticket Selection */
-        .ticket-options {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .ticket-option {
-            border: 2px solid #e2e8f0;
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            position: relative;
-        }
-
-        .ticket-option:hover {
-            border-color: #2eb13f;
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
-        }
-
-        .ticket-option.selected {
-            border-color: #667eea;
-            background: rgba(102, 126, 234, 0.05);
-        }
-
-        .ticket-option.selected::before {
-            content: '✓';
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            width: 24px;
-            height: 24px;
-            background: #667eea;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .ticket-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .ticket-name {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #1f2937;
-        }
-
-        .ticket-option-price {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #048718;
-        }
-
-        .ticket-features {
-            list-style: none;
-            margin-top: 1rem;
-            padding: 0px;
-        }
-
-        .ticket-features li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.5rem;
-            color: #6b7280;
-            font-size: 0.9rem;
-        }
-
-        .ticket-features li::before {
-            content: '✓';
-            color: #10b981;
-            font-weight: 600;
-            margin-right: 0.5rem;
-        }
-
-        .upgrade-info {
-            background: #e7ffeb;
-            border: 1px solid #34bc3f;
-            border-radius: 0.5rem;
-            padding: 1rem;
-            margin-top: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .upgrade-info svg {
-            color: #d97706;
-        }
-
-        .upgrade-info span {
-            color: #319604;
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        /* Checkout Page */
-        .checkout-summary {
-            background: #f8fafc;
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .summary-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .summary-row:last-child {
-            border-bottom: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: #1f2937;
-        }
-
-        .summary-label {
-            color: #6b7280;
-        }
-
-        .summary-value {
-            font-weight: 500;
-        }
-
-        .payment-section {
-            margin-bottom: 2rem;
-        }
-
-        .payment-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: #1f2937;
-            margin-bottom: 1rem;
-        }
-
-
-        .form-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: #374151;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 0.5rem;
-            font-size: 0.95rem;
-            transition: border-color 0.2s ease;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 1rem;
-        }
-
-
-        .button-group {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .button-group .btn {
-            flex: 1;
-        }
-
-        /* Success Page */
-        .success-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 2rem;
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2rem;
-        }
-
-        .success-message {
-            text-align: center;
-        }
-
-        .success-message h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #048718;
-            margin-bottom: 1rem;
-        }
-
-        .success-message p {
-            color: #5f5e5e;
-            font-size: 17px;
-            margin-bottom: 10px;
-        }
-
-        .upgrade-ticket-details-card {
-            background: #f8fafc;
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .checkout-form .form-group label{
-                margin-bottom: 5px;
-                font-size: 15px;
-                color: #646464;
-                font-weight: 100;
-        }
-
-        .validation-message {
-            display: none;
-            color: #dc2626;
-            font-size: 0.95rem;
-            font-weight: 500;
-            }
-
-        .ticket-upgrade .step { display: none; }
-        .ticket-upgrade .step.active { display: block; }
-        .ticket-upgrade .ticket-option.selected { border: 2px solid green; background: #f0fff0; }
-        /* Add your styling for buttons, form fields, etc. */
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .button-group {
-                flex-direction: column;
-                gap: 0px;
-            }
-
-            .upgrade-ticket-info {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-        }
     </style>
 </head>
 
@@ -1290,6 +822,7 @@
                 <th>Badge Status</th>
                 <th>Amount</th>
                 <th>Date</th>
+                <th></th>
                 <th style="text-align: center;">Action</th>
                 </tr>
             </thead>
@@ -1309,14 +842,23 @@
                     <td class="badge-status"><span>Pending</span></td>
                     <td>40EUR</td>
                     <td>20/3/2025</td>
-                        <td class="action-cell">
+                    <td>
+                        <div class="d-flex gap-2 justify-content-center">
+                            <a href="upgrade-ticket.html">
+                                <button type="button" class="table-upgrade-btn">
+                            <span><i class="fa-solid fa-arrow-up-wide-short"></i></span>Upgrade Ticket
+                            </button>
+                            </a>
+                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-print"></i> Print Badge</button></a>
+                        </div>
+                    </td>
+                    <td class="action-cell">
                         <div class="dropdown">
                             <button class="btn p-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-ellipsis-v"></i>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print Badge</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
                                 <li><hr class="dropdown-divider"></li>
@@ -1337,6 +879,16 @@
                     <td class="badge-status badge-approved"><span>Approved</span></td>
                     <td>40EUR</td>
                     <td>20/3/2025</td>
+                    <td>
+                        <div class="d-flex gap-2 justify-content-center">
+                            <a href="upgrade-ticket.html">
+                                <button type="button" class="table-upgrade-btn">
+                            <span><i class="fa-solid fa-arrow-up-wide-short"></i></span>Upgrade Ticket
+                            </button>
+                            </a>
+                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-print"></i> Print Badge</button></a>
+                        </div>
+                    </td>
 
                         <td class="action-cell">
                         <div class="dropdown">
@@ -1345,7 +897,6 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print Badge</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
                                 <li><hr class="dropdown-divider"></li>
@@ -1366,6 +917,16 @@
                     <td class="badge-status badge-cancel"><span>Rejected</span></td>
                     <td>40EUR</td>
                     <td>20/3/2025</td>
+                    <td>
+                        <div class="d-flex gap-2 justify-content-center">
+                            <a href="upgrade-ticket.html">
+                                <button type="button" class="table-upgrade-btn">
+                            <span><i class="fa-solid fa-arrow-up-wide-short"></i></span>Upgrade Ticket
+                            </button>
+                            </a>
+                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-print"></i> Print Badge</button></a>
+                        </div>
+                    </td>
 
                         <td class="action-cell">
                         <div class="dropdown">
@@ -1374,7 +935,6 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print Badge</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
                                 <li><hr class="dropdown-divider"></li>
@@ -1395,6 +955,16 @@
                     <td class="badge-status badge-approved"><span>Approved</span></td>
                     <td>40EUR</td>
                     <td>20/3/2025</td>
+                    <td>
+                        <div class="d-flex gap-2 justify-content-center">
+                            <a href="upgrade-ticket.html">
+                                <button type="button" class="table-upgrade-btn">
+                            <span><i class="fa-solid fa-arrow-up-wide-short"></i></span>Upgrade Ticket
+                            </button>
+                            </a>
+                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-print"></i> Print Badge</button></a>
+                        </div>
+                    </td>
                     
                         <td class="action-cell">
                         <div class="dropdown">
@@ -1403,7 +973,6 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print Badge</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
                                 <li><hr class="dropdown-divider"></li>
@@ -1412,7 +981,7 @@
                         </div>
                     </td> 
                     </tr>
-                    <tr>
+                     <tr>
                     <td>
                         <div class="user">
                         <img src="assets/img/user-1.jpg" alt="User" />
@@ -1424,15 +993,23 @@
                     <td class="badge-status"><span>Pending</span></td>
                     <td>40EUR</td>
                     <td>20/3/2025</td>
-
-                        <td class="action-cell">
+                    <td>
+                        <div class="d-flex gap-2 justify-content-center">
+                            <a href="upgrade-ticket.html">
+                                <button type="button" class="table-upgrade-btn">
+                            <span><i class="fa-solid fa-arrow-up-wide-short"></i></span>Upgrade Ticket
+                            </button>
+                            </a>
+                            <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-print"></i> Print Badge</button></a>
+                        </div>
+                    </td>
+                    <td class="action-cell">
                         <div class="dropdown">
                             <button class="btn p-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-ellipsis-v"></i>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print Badge</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
                                 <li><hr class="dropdown-divider"></li>
@@ -1453,6 +1030,16 @@
                     <td class="badge-status badge-approved"><span>Approved</span></td>
                     <td>40EUR</td>
                     <td>20/3/2025</td>
+                    <td>
+                        <div class="d-flex gap-2 justify-content-center">
+                            <a href="upgrade-ticket.html">
+                                <button type="button" class="table-upgrade-btn">
+                            <span><i class="fa-solid fa-arrow-up-wide-short"></i></span>Upgrade Ticket
+                            </button>
+                            </a>
+                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-print"></i> Print Badge</button></a>
+                        </div>
+                    </td>
 
                         <td class="action-cell">
                         <div class="dropdown">
@@ -1461,7 +1048,6 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print Badge</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
                                 <li><hr class="dropdown-divider"></li>
@@ -1482,6 +1068,16 @@
                     <td class="badge-status badge-cancel"><span>Rejected</span></td>
                     <td>40EUR</td>
                     <td>20/3/2025</td>
+                    <td>
+                        <div class="d-flex gap-2 justify-content-center">
+                            <a href="upgrade-ticket.html">
+                                <button type="button" class="table-upgrade-btn">
+                            <span><i class="fa-solid fa-arrow-up-wide-short"></i></span>Upgrade Ticket
+                            </button>
+                            </a>
+                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-print"></i> Print Badge</button></a>
+                        </div>
+                    </td>
 
                         <td class="action-cell">
                         <div class="dropdown">
@@ -1490,7 +1086,6 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print Badge</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
                                 <li><hr class="dropdown-divider"></li>
@@ -1511,6 +1106,16 @@
                     <td class="badge-status badge-approved"><span>Approved</span></td>
                     <td>40EUR</td>
                     <td>20/3/2025</td>
+                    <td>
+                        <div class="d-flex gap-2 justify-content-center">
+                            <a href="upgrade-ticket.html">
+                                <button type="button" class="table-upgrade-btn">
+                            <span><i class="fa-solid fa-arrow-up-wide-short"></i></span>Upgrade Ticket
+                            </button>
+                            </a>
+                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-print"></i> Print Badge</button></a>
+                        </div>
+                    </td>
                     
                         <td class="action-cell">
                         <div class="dropdown">
@@ -1519,7 +1124,6 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print Badge</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
                                 <li><hr class="dropdown-divider"></li>
@@ -1533,313 +1137,238 @@
             </table>
            
         </div>
+        
 
-        <div class="row">
-
-            <div class="col-lg-6">
-                <div class="ticket-upgrade" data-instance="1">
-                    <div class="step active" data-step="1">
-                        <div class="step-header">
-                            <div class="step-number">1</div>
-                            <div class="step-title">Current Ticket</div>
-                        </div>
-                        <div class="current-ticket">
-                            <div class="upgrade-ticket-info">
-                                <div class="upgrade-ticket-details">
-                                    <h3>Masterclass</h3>
-                                    <p>Event access • Basic networking • Standard seating</p>
-                                    <p><strong>Order ID:</strong> #MT2023-001</p>
-                                </div>
-                                <div class="ticket-price">$50.00</div>
-                            </div>
-                            <button class="upgrade-btn buy-btn">Upgrade Ticket</button>
+        <div class="mobile-table-card-wrapper">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="mobile-table-card">
+                <div class="mobile-card-profile ">
+                    <div class="d-flex align-items-center gap-3">
+                        <img src="assets/img/user-1.jpg" alt="">
+                    <div class="mobile-card-header">
+                        <h5>Mohammed Navab <span class="primary-user">Primary</span></h5>
+                        <h6>navab@gmail.com</h6>
+                    </div>
+                    </div>
+                    <div>
+                        <div class="dropdown">
+                            <button class="btn p-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
+                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
+                            </ul>
                         </div>
                     </div>
+                </div>
 
-                    <div class="step" data-step="2">
-                        <div class="step-header">
-                            <div class="step-number">2</div>
-                            <div class="step-title">Select Upgrade Option</div>
-                        </div>
-
-                        <div class="ticket-options">
-                            <div class="ticket-option" data-type="premium" data-price="75">
-                                <div class="ticket-header">
-                                    <div class="ticket-name">Premium Ticket</div>
-                                    <div class="ticket-option-price">$75.00</div>
-                                </div>
-                                <ul class="ticket-features">
-                                    <li>All Standard features</li>
-                                    <li>Priority seating</li>
-                                    <li>VIP networking area</li>
-                                    <li>Welcome refreshments</li>
-                                    <li>Event materials kit</li>
-                                </ul>
-                                <div class="upgrade-info">
-                                    <span>Upgrade fee: $25.00</span>
-                                </div>
-                            </div>
-
-                            <div class="ticket-option" data-type="vip" data-price="120">
-                                <div class="ticket-header">
-                                    <div class="ticket-name">VIP Ticket</div>
-                                    <div class="ticket-option-price">$120.00</div>
-                                </div>
-                                <ul class="ticket-features">
-                                    <li>All Premium features</li>
-                                    <li>Front row seating</li>
-                                    <li>Exclusive VIP lounge</li>
-                                    <li>Meet & greet with speakers</li>
-                                    <li>Premium gift bag</li>
-                                    <li>Complimentary parking</li>
-                                </ul>
-                                <div class="upgrade-info">
-                                    <span>Upgrade fee: $70.00</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="button-group">
-                            <button class="btn-back buy-btn violet-btn">Back</button>
-                            <button class="btn-continue buy-btn" disabled>Continue to Checkout</button>
+                        <div class="details-grid">
+                    <div class="detail-item">
+                        <div class="detail-label">Ticket Type</div>
+                        <div class="detail-value">Premium</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Badge Status</div>
+                        <div class="detail-value">
+                            <span class="status-badge">Pending</span>
                         </div>
                     </div>
-
-                    <div class="step" data-step="3">
-                        <div class="step-header">
-                            <div class="step-number">3</div>
-                            <div class="step-title">Checkout</div>
-                        </div>
-
-                        <div class="checkout-summary">
-                            <div class="summary-row">
-                                <span class="summary-label">Current Ticket:</span>
-                                <span class="summary-value">Standard Ticket</span>
-                            </div>
-                            <div class="summary-row">
-                                <span class="summary-label">Upgrading to:</span>
-                                <span class="summary-value new-ticket-type">-</span>
-                            </div>
-                            <div class="summary-row">
-                                <span class="summary-label">Upgrade Fee:</span>
-                                <span class="summary-value upgrade-fee">$0.00</span>
-                            </div>
-                            <div class="summary-row">
-                                <span class="summary-label">Processing Fee:</span>
-                                <span class="summary-value">$2.50</span>
-                            </div>
-                            <div class="summary-row">
-                                <span>Total Amount:</span>
-                                <span class="total-amount">$0.00</span>
-                            </div>
-                        </div>
-
-                        <div class="payment-section">
-                            <h3 class="payment-title">Payment Information</h3>
-                            <form class="checkout-form">
-                                <div class="form-group">
-                                    <label>Cardholder Name</label>
-                                    <input class="form-control" type="text" placeholder="Cardholder Name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Card Number</label>
-                                    <input class="form-control" placeholder="Card Number" type="Number" required>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label>Expiry Date</label>
-                                        <input placeholder="Expiry Date" class="form-control" type="date" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>CVV</label>
-                                        <input class="form-control" type="text" required>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Email Address</label>
-                                    <input placeholder="Email Address" class="form-control" type="email" required>
-                                </div>
-                            </form>
-                        </div>
-
-                        <div class="validation-message" style="display:none;"></div>
-
-                        <div class="button-group">
-                            <button class="btn-back buy-btn violet-btn">Back</button>
-                            <button class="btn-complete buy-btn">Complete Upgrade</button>
+                    <div class="detail-item">
+                        <div class="detail-label">Amount</div>
+                        <div class="detail-value">40EUR</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Date</div>
+                        <div class="detail-value">20/3/2025</div>
+                    </div>
+                </div>
+                <div class="d-flex gap-2 justify-content-center flex-column justify-content-center">
+                            <a href="upgrade-ticket.html">
+                                <button type="button" class="table-upgrade-btn">
+                            <span><i class="fa-solid fa-arrow-up-wide-short"></i></span>Upgrade Ticket
+                            </button>
+                            </a>
+                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-print"></i> Print Badge</button></a>
                         </div>
                     </div>
+                </div>
 
-                    <div class="step" data-step="4">
-                        <div class="success-message">
-                            <h2>Upgrade Successful!</h2>
-                            <p>You will receive a confirmation email shortly.</p>
-                            <div class="ticket-details-card">
-                                <h3 class="final-ticket-type">Premium Ticket</h3>
-                                <p><strong>Order ID:</strong> #MT2023-001-UPG</p>
-                                <p><strong>Confirmation:</strong> #CNF789456123</p>
-                                <p class="final-ticket-price">$75.00</p>
-                            </div>
-                            <button class="btn-return buy-btn">Return to Dashboard</button>
+                <div class="col-lg-4">
+                    <div class="mobile-table-card">
+                <div class="mobile-card-profile ">
+                    <div class="d-flex align-items-center gap-3">
+                        <img src="assets/img/user-2.jpg" alt="">
+                    <div class="mobile-card-header">
+                        <h5>Nishida <span class="primary-user">Primary</span></h5>
+                        <h6>nishida@gmail.com</h6>
+                    </div>
+                    </div>
+                    <div>
+                        <div class="dropdown">
+                            <button class="btn p-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
+                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                        <div class="details-grid">
+                    <div class="detail-item">
+                        <div class="detail-label">Ticket Type</div>
+                        <div class="detail-value">Premium</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Badge Status</div>
+                        <div class="detail-value">
+                            <span class="status-badge">Pending</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Amount</div>
+                        <div class="detail-value">40EUR</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Date</div>
+                        <div class="detail-value">20/3/2025</div>
+                    </div>
+                </div>
+                <div class="d-flex gap-2 justify-content-center flex-column justify-content-center">
+                            <a href="upgrade-ticket.html">
+                                <button type="button" class="table-upgrade-btn">
+                            <span><i class="fa-solid fa-arrow-up-wide-short"></i></span>Upgrade Ticket
+                            </button>
+                            </a>
+                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-print"></i> Print Badge</button></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="mobile-table-card">
+                <div class="mobile-card-profile ">
+                    <div class="d-flex align-items-center gap-3">
+                        <img src="assets/img/user-3.jpeg" alt="">
+                    <div class="mobile-card-header">
+                        <h5>Mariajhon <span class="primary-user">Primary</span></h5>
+                        <h6>maria@gmail.com</h6>
+                    </div>
+                    </div>
+                    <div>
+                        <div class="dropdown">
+                            <button class="btn p-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
+                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                        <div class="details-grid">
+                    <div class="detail-item">
+                        <div class="detail-label">Ticket Type</div>
+                        <div class="detail-value">Premium</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Badge Status</div>
+                        <div class="detail-value">
+                            <span class="status-badge">Pending</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Amount</div>
+                        <div class="detail-value">40EUR</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Date</div>
+                        <div class="detail-value">20/3/2025</div>
+                    </div>
+                </div>
+                <div class="d-flex gap-2 justify-content-center flex-column justify-content-center">
+                            <a href="upgrade-ticket.html">
+                                <button type="button" class="table-upgrade-btn">
+                            <span><i class="fa-solid fa-arrow-up-wide-short"></i></span>Upgrade Ticket
+                            </button>
+                            </a>
+                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-print"></i> Print Badge</button></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="mobile-table-card">
+                <div class="mobile-card-profile ">
+                    <div class="d-flex align-items-center gap-3">
+                        <img src="assets/img/user-4.jpg" alt="">
+                    <div class="mobile-card-header">
+                        <h5>Mohammed Navab <span class="primary-user">Primary</span></h5>
+                        <h6>navab@gmail.com</h6>
+                    </div>
+                    </div>
+                    <div>
+                        <div class="dropdown">
+                            <button class="btn p-0" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
+                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                        <div class="details-grid">
+                    <div class="detail-item">
+                        <div class="detail-label">Ticket Type</div>
+                        <div class="detail-value">Premium</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Badge Status</div>
+                        <div class="detail-value">
+                            <span class="status-badge">Pending</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Amount</div>
+                        <div class="detail-value">40EUR</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Date</div>
+                        <div class="detail-value">20/3/2025</div>
+                    </div>
+                </div>
+                <div class="d-flex gap-2 justify-content-center flex-column justify-content-center">
+                            <a href="upgrade-ticket.html">
+                                <button type="button" class="table-upgrade-btn">
+                            <span><i class="fa-solid fa-arrow-up-wide-short"></i></span>Upgrade Ticket
+                            </button>
+                            </a>
+                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-print"></i> Print Badge</button></a>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-6">
-                <div class="ticket-upgrade" data-instance="1">
-                    <div class="step active" data-step="1">
-                        <div class="step-header">
-                            <div class="step-number">1</div>
-                            <div class="step-title">Current Ticket</div>
-                        </div>
-                        <div class="current-ticket">
-                            <div class="upgrade-ticket-info">
-                                <div class="upgrade-ticket-details">
-                                    <h3>Standard Ticket</h3>
-                                    <p>Event access • Basic networking • Standard seating</p>
-                                    <p><strong>Order ID:</strong> #MT2023-001</p>
-                                </div>
-                                <div class="ticket-price">$50.00</div>
-                            </div>
-                            <button class="upgrade-btn buy-btn">Upgrade Ticket</button>
-                        </div>
-                    </div>
-
-                    <div class="step" data-step="2">
-                        <div class="step-header">
-                            <div class="step-number">2</div>
-                            <div class="step-title">Select Upgrade Option</div>
-                        </div>
-
-                        <div class="ticket-options">
-                            <div class="ticket-option" data-type="premium" data-price="75">
-                                <div class="ticket-header">
-                                    <div class="ticket-name">Premium Ticket</div>
-                                    <div class="ticket-option-price">$75.00</div>
-                                </div>
-                                <ul class="ticket-features">
-                                    <li>All Standard features</li>
-                                    <li>Priority seating</li>
-                                    <li>VIP networking area</li>
-                                    <li>Welcome refreshments</li>
-                                    <li>Event materials kit</li>
-                                </ul>
-                                <div class="upgrade-info">
-                                    <span>Upgrade fee: $25.00</span>
-                                </div>
-                            </div>
-
-                            <div class="ticket-option" data-type="vip" data-price="120">
-                                <div class="ticket-header">
-                                    <div class="ticket-name">VIP Ticket</div>
-                                    <div class="ticket-option-price">$120.00</div>
-                                </div>
-                                <ul class="ticket-features">
-                                    <li>All Premium features</li>
-                                    <li>Front row seating</li>
-                                    <li>Exclusive VIP lounge</li>
-                                    <li>Meet & greet with speakers</li>
-                                    <li>Premium gift bag</li>
-                                    <li>Complimentary parking</li>
-                                </ul>
-                                <div class="upgrade-info">
-                                    <span>Upgrade fee: $70.00</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="button-group">
-                            <button class="btn-back buy-btn violet-btn">Back</button>
-                            <button class="btn-continue buy-btn" disabled>Continue to Checkout</button>
-                        </div>
-                    </div>
-
-                    <div class="step" data-step="3">
-                        <div class="step-header">
-                            <div class="step-number">3</div>
-                            <div class="step-title">Checkout</div>
-                        </div>
-
-                        <div class="checkout-summary">
-                            <div class="summary-row">
-                                <span class="summary-label">Current Ticket:</span>
-                                <span class="summary-value">Standard Ticket</span>
-                            </div>
-                            <div class="summary-row">
-                                <span class="summary-label">Upgrading to:</span>
-                                <span class="summary-value new-ticket-type">-</span>
-                            </div>
-                            <div class="summary-row">
-                                <span class="summary-label">Upgrade Fee:</span>
-                                <span class="summary-value upgrade-fee">$0.00</span>
-                            </div>
-                            <div class="summary-row">
-                                <span class="summary-label">Processing Fee:</span>
-                                <span class="summary-value">$2.50</span>
-                            </div>
-                            <div class="summary-row">
-                                <span>Total Amount:</span>
-                                <span class="total-amount">$0.00</span>
-                            </div>
-                        </div>
-
-                        <div class="payment-section">
-                            <h3 class="payment-title">Payment Information</h3>
-                            <form class="checkout-form">
-                                <div class="form-group">
-                                    <label>Cardholder Name</label>
-                                    <input class="form-control" type="text" placeholder="Cardholder Name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Card Number</label>
-                                    <input class="form-control" placeholder="Card Number" type="Number" required>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label>Expiry Date</label>
-                                        <input placeholder="Expiry Date" class="form-control" type="date" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>CVV</label>
-                                        <input class="form-control" type="text" required>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Email Address</label>
-                                    <input placeholder="Email Address" class="form-control" type="email" required>
-                                </div>
-                            </form>
-                        </div>
-
-                        <div class="validation-message" style="display:none;"></div>
-
-                        <div class="button-group">
-                            <button class="btn-back buy-btn violet-btn">Back</button>
-                            <button class="btn-complete buy-btn">Complete Upgrade</button>
-                        </div>
-                    </div>
-
-                    <div class="step" data-step="4">
-                        <div class="success-message">
-                            <h2>Upgrade Successful!</h2>
-                            <p>You will receive a confirmation email shortly.</p>
-                            <div class="ticket-details-card">
-                                <h3 class="final-ticket-type">Premium Ticket</h3>
-                                <p><strong>Order ID:</strong> #MT2023-001-UPG</p>
-                                <p><strong>Confirmation:</strong> #CNF789456123</p>
-                                <p class="final-ticket-price">$75.00</p>
-                            </div>
-                            <button class="btn-return buy-btn">Return to Dashboard</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-          
-
-
-       
         </div>
         </div>
     
@@ -1847,472 +1376,480 @@
         <!-- Matchmaking content here -->
         <div>
         <section class="matchmakingsection">
-            <h4 class="page-section-title">Total Users</h4>
-            <div class="row gy-3">
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
-                    <div class="match-profile-card">
-                        <div class="match-image-wrapper">
-                            <img src="assets/img/user-1.jpg" alt="">
-                        </div>
-                        <div>
-                        <h5>Maria John</h5>
-                        <h6>maria@gmail.com</h6>
-                       <div class="demo-item">
-                            <div class="progress-label">
-                                <span>Matching</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="progress-container" data-percentage="75">
-                                <div class="progress-bar" style="width: 0%"></div>
-                            </div>
-                            <div class="matchmaking-buttons">
-                               <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
-                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
-                                <span><i class="fas fa-user-plus"></i></span> Connect
-                                </button>
-                            </div>
-                        </div>
-                        </div>
+        <h4 class="page-section-title">Proffessional Matchmaking</h4>
+        
+        <!-- Filters Section -->
+        <div class="filters-section">
+            <div class="row align-items-center">
+                <!-- Search Box -->
+                <div class="col-lg-4 col-md-6 col-sm-6 mb-3">
+                    <div class="search-box">
+                        <input type="text" class="form-control" id="searchInput" placeholder="Search by name or email...">
                     </div>
                 </div>
-                 <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
-                    <div class="match-profile-card">
-                        <div class="match-image-wrapper">
-                            <img src="assets/img/user-2.jpg" alt="">
-                        </div>
-                        <div>
-                            <h5>Mohammed Navab</h5>
-                        <h6>navab@gmail.com</h6>
-                       <div class="demo-item">
-                            <div class="progress-label">
-                                <span>Matching</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="progress-container" data-percentage="75">
-                                <div class="progress-bar" style="width: 0%"></div>
-                            </div>
-                            <div class="matchmaking-buttons">
-                                <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
-                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
-                                <span><i class="fas fa-user-plus"></i></span> Connect
-                                </button>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-                 <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
-                    <div class="match-profile-card">
-                        <a href="chat.html">
-                            <div class="chat-icon">
-                            <i class="far fa-comment-dots"></i>
-                        </div>
-                        </a>
-
-                        <div class="meeting-icon-wrapper">
-                            <button class="meeting-icon" data-bs-toggle="modal" data-bs-target="#meetingModal">
-                                <i class="fa-solid fa-headset"></i>
-                            </button>
-                        </div>
-
-                         <a href="chat.html">
-                            <div class="chat-icon">
-                            <i class="far fa-comment-dots"></i>
-                        </div>
-                        </a>
-                        <div class="match-image-wrapper">
-                            <img src="assets/img/user-3.jpeg" alt="">
-                        </div>
-                        <div>
-                            <h5>Ahmed Bazil</h5>
-                        <h6>bazil@gmail.com</h6>
-                       <div class="demo-item">
-                            <div class="progress-label">
-                                <span>Matching</span>
-                                <span>50%</span>
-                            </div>
-                            <div class="progress-container" data-percentage="50">
-                                <div class="progress-bar" style="width: 0%"></div>
-                            </div>
-                            <div class="matchmaking-buttons">
-                                <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
-                                <button class="purple-btn ready-frnd" data-bs-toggle="modal" data-bs-target="#remove_friend">
-                                <span><i class="fas fa-user-check"></i></span> Friend
-                                </button>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-                 <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
-                    <div class="match-profile-card">
-                        <div class="match-image-wrapper">
-                            <img src="assets/img/user-4.jpg" alt="">
-                        </div>
-                        <div>
-                            <h5>Nishida</h5>
-                        <h6>nishida@gmail.com</h6>
-                       <div class="demo-item">
-                            <div class="progress-label">
-                                <span>Matching</span>
-                                <span>50%</span>
-                            </div>
-                            <div class="progress-container" data-percentage="50">
-                                <div class="progress-bar" style="width: 0%"></div>
-                            </div>
-                            <div class="matchmaking-buttons">
-                               <button type="button" data-bs-toggle="modal" data-bs-target="#profileModal">
-                                    <i class="fas fa-user-circle"></i> View Profile
-                                    </button>
-                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
-                                <span><i class="fas fa-user-plus"></i></span> Connect
-                                </button>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-                  <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
-                    <div class="match-profile-card">
-                        <div class="match-image-wrapper">
-                            <img src="assets/img/user-4.jpg" alt="">
-                        </div>
-                        <div>
-                            <h5>Nishida</h5>
-                        <h6>nishida@gmail.com</h6>
-                       <div class="demo-item">
-                            <div class="progress-label">
-                                <span>Matching</span>
-                                <span>50%</span>
-                            </div>
-                            <div class="progress-container" data-percentage="50">
-                                <div class="progress-bar" style="width: 0%"></div>
-                            </div>
-                            <div class="matchmaking-buttons">
-                               <button type="button" data-bs-toggle="modal" data-bs-target="#profileModal">
-                                    <i class="fas fa-user-circle"></i> View Profile
-                                    </button>
-                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
-                                <span><i class="fas fa-user-plus"></i></span> Connect
-                                </button>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
-                    <div class="match-profile-card">
-                        <div class="match-image-wrapper">
-                            <img src="assets/img/user-1.jpg" alt="">
-                        </div>
-                        <div>
-                        <h5>Maria John</h5>
-                        <h6>maria@gmail.com</h6>
-                       <div class="demo-item">
-                            <div class="progress-label">
-                                <span>Matching</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="progress-container" data-percentage="75">
-                                <div class="progress-bar" style="width: 0%"></div>
-                            </div>
-                            <div class="matchmaking-buttons">
-                               <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
-                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
-                                <span><i class="fas fa-user-plus"></i></span> Connect
-                                </button>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
-                    <div class="match-profile-card">
-                        <div class="match-image-wrapper">
-                            <img src="assets/img/user-2.jpg" alt="">
-                        </div>
-                        <div>
-                            <h5>Mohammed Navab</h5>
-                        <h6>navab@gmail.com</h6>
-                       <div class="demo-item">
-                            <div class="progress-label">
-                                <span>Matching</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="progress-container" data-percentage="75">
-                                <div class="progress-bar" style="width: 0%"></div>
-                            </div>
-                            <div class="matchmaking-buttons">
-                                <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
-                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
-                                <span><i class="fas fa-user-plus"></i></span> Connect
-                                </button>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-                 <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
-                    <div class="match-profile-card">
-                       <a href="chat.html">
-                            <div class="chat-icon">
-                            <i class="far fa-comment-dots"></i>
-                        </div>
-                        </a>
-                        <div class="match-image-wrapper">
-                            <img src="assets/img/user-3.jpeg" alt="">
-                        </div>
-                        <div>
-                            <h5>Ahmed Bazil</h5>
-                        <h6>bazil@gmail.com</h6>
-                       <div class="demo-item">
-                            <div class="progress-label">
-                                <span>Matching</span>
-                                <span>50%</span>
-                            </div>
-                            <div class="progress-container" data-percentage="50">
-                                <div class="progress-bar" style="width: 0%"></div>
-                            </div>
-                            <div class="matchmaking-buttons">
-                                <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
-                                <button class="purple-btn ready-frnd" data-bs-toggle="modal" data-bs-target="#remove_friend">
-                                <span><i class="fas fa-user-check"></i></span> Friend
-                                </button>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
-                    <div class="match-profile-card">
-                        <div class="match-image-wrapper">
-                            <img src="assets/img/user-1.jpg" alt="">
-                        </div>
-                        <div>
-                        <h5>Maria John</h5>
-                        <h6>maria@gmail.com</h6>
-                       <div class="demo-item">
-                            <div class="progress-label">
-                                <span>Matching</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="progress-container" data-percentage="75">
-                                <div class="progress-bar" style="width: 0%"></div>
-                            </div>
-                            <div class="matchmaking-buttons">
-                               <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
-                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
-                                <span><i class="fas fa-user-plus"></i></span> Connect
-                                </button>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-                 <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
-                    <div class="match-profile-card">
-                        <div class="match-image-wrapper">
-                            <img src="assets/img/user-2.jpg" alt="">
-                        </div>
-                        <div>
-                            <h5>Mohammed Navab</h5>
-                        <h6>navab@gmail.com</h6>
-                       <div class="demo-item">
-                            <div class="progress-label">
-                                <span>Matching</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="progress-container" data-percentage="75">
-                                <div class="progress-bar" style="width: 0%"></div>
-                            </div>
-                            <div class="matchmaking-buttons">
-                                <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
-                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
-                                <span><i class="fas fa-user-plus"></i></span> Connect
-                                </button>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-                 <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
-                    <div class="match-profile-card">
-                        <a href="chat.html">
-                            <div class="chat-icon">
-                            <i class="far fa-comment-dots"></i>
-                        </div>
-                        </a>
-                        <div class="match-image-wrapper">
-                            <img src="assets/img/user-3.jpeg" alt="">
-                        </div>
-                        <div>
-                            <h5>Ahmed Bazil</h5>
-                        <h6>bazil@gmail.com</h6>
-                       <div class="demo-item">
-                            <div class="progress-label">
-                                <span>Matching</span>
-                                <span>50%</span>
-                            </div>
-                            <div class="progress-container" data-percentage="50">
-                                <div class="progress-bar" style="width: 0%"></div>
-                            </div>
-                            <div class="matchmaking-buttons">
-                                <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
-                                <button class="purple-btn ready-frnd" data-bs-toggle="modal" data-bs-target="#remove_friend">
-                                <span><i class="fas fa-user-check"></i></span> Friend
-                                </button>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-                 <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
-                    <div class="match-profile-card">
-                        <div class="match-image-wrapper">
-                            <img src="assets/img/user-4.jpg" alt="">
-                        </div>
-                        <div>
-                            <h5>Nishida</h5>
-                        <h6>nishida@gmail.com</h6>
-                       <div class="demo-item">
-                            <div class="progress-label">
-                                <span>Matching</span>
-                                <span>50%</span>
-                            </div>
-                            <div class="progress-container" data-percentage="50">
-                                <div class="progress-bar" style="width: 0%"></div>
-                            </div>
-                            <div class="matchmaking-buttons">
-                               <button type="button" data-bs-toggle="modal" data-bs-target="#profileModal">
-                                    <i class="fas fa-user-circle"></i> View Profile
-                                    </button>
-                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
-                                <span><i class="fas fa-user-plus"></i></span> Connect
-                                </button>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-                  <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
-                    <div class="match-profile-card">
-                        <div class="match-image-wrapper">
-                            <img src="assets/img/user-4.jpg" alt="">
-                        </div>
-                        <div>
-                            <h5>Nishida</h5>
-                        <h6>nishida@gmail.com</h6>
-                       <div class="demo-item">
-                            <div class="progress-label">
-                                <span>Matching</span>
-                                <span>50%</span>
-                            </div>
-                            <div class="progress-container" data-percentage="50">
-                                <div class="progress-bar" style="width: 0%"></div>
-                            </div>
-                            <div class="matchmaking-buttons">
-                               <button type="button" data-bs-toggle="modal" data-bs-target="#profileModal">
-                                    <i class="fas fa-user-circle"></i> View Profile
-                                    </button>
-                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
-                                <span><i class="fas fa-user-plus"></i></span> Connect
-                                </button>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
-                    <div class="match-profile-card">
-                        <div class="match-image-wrapper">
-                            <img src="assets/img/user-1.jpg" alt="">
-                        </div>
-                        <div>
-                        <h5>Maria John</h5>
-                        <h6>maria@gmail.com</h6>
-                       <div class="demo-item">
-                            <div class="progress-label">
-                                <span>Matching</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="progress-container" data-percentage="75">
-                                <div class="progress-bar" style="width: 0%"></div>
-                            </div>
-                            <div class="matchmaking-buttons">
-                               <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
-                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
-                                <span><i class="fas fa-user-plus"></i></span> Connect
-                                </button>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
-                    <div class="match-profile-card">
-                        <div class="match-image-wrapper">
-                            <img src="assets/img/user-2.jpg" alt="">
-                        </div>
-                        <div>
-                            <h5>Mohammed Navab</h5>
-                        <h6>navab@gmail.com</h6>
-                       <div class="demo-item">
-                            <div class="progress-label">
-                                <span>Matching</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="progress-container" data-percentage="75">
-                                <div class="progress-bar" style="width: 0%"></div>
-                            </div>
-                            <div class="matchmaking-buttons">
-                                <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
-                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
-                                <span><i class="fas fa-user-plus"></i></span> Connect
-                                </button>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-                 <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 ">
-                    <div class="match-profile-card">
-                       <a href="chat.html">
-                            <div class="chat-icon">
-                            <i class="far fa-comment-dots"></i>
-                        </div>
-                        </a>
-                        <div class="match-image-wrapper">
-                            <img src="assets/img/user-3.jpeg" alt="">
-                        </div>
-                        <div>
-                            <h5>Ahmed Bazil</h5>
-                        <h6>bazil@gmail.com</h6>
-                       <div class="demo-item">
-                            <div class="progress-label">
-                                <span>Matching</span>
-                                <span>50%</span>
-                            </div>
-                            <div class="progress-container" data-percentage="50">
-                                <div class="progress-bar" style="width: 0%"></div>
-                            </div>
-                            <div class="matchmaking-buttons">
-                                <button data-bs-toggle="modal" data-bs-target="#profileModal" class="" type="button"><span><i class="fas fa-user-circle"></i></span>View Profile</button>
-                                <button class="purple-btn ready-frnd" data-bs-toggle="modal" data-bs-target="#remove_friend">
-                                <span><i class="fas fa-user-check"></i></span> Friend
-                                </button>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-               
-
                 
-
-                 
+                <!-- Filter Dropdowns -->
+                <div class="col-lg-3 col-md-6 col-sm-6 mb-3">
+                    <div class="filter-dropdown">
+                        <select class="form-select" id="matchingFilter">
+                            <option style="display: none;" value="">All Matching </option>
+                            <option value="100">100% Match</option>
+                            <option value="90">90% Match</option>
+                            <option value="80">80% Match</option>
+                            <option value="70">70% Match</option>
+                            <option value="60">60% Match</option>
+                            <option value="50">50% Match</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 col-sm-6 mb-3">
+                    <div class="filter-dropdown">
+                        <select class="form-select" id="statusFilter">
+                            <option style="display: none;" value="">Status</option>
+                            <option value="connections">My Connections (15)</option>
+                            <option value="favorites">Favorites (18)</option>
+                            <option value="send-request">Send Requests (71)</option>
+                            <option value="recieved-request">Recieved Requests (78)</option>
+                            <option value="meeting-request">Meeting Requests (87)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 col-sm-6 mb-3">
+                    <button class="buy-btn violet-btn w-100 m-0" id="clearFilters">
+                        <i class="fas fa-times"></i> Clear
+                    </button>
+                </div>
             </div>
-        </section>
+            
+            <!-- Tab Filters -->
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <ul class="nav filter-tabs" id="filterTabs">
+                                        <li class="nav-item">
+                                            <button class="nav-link active" data-filter="all">All Users</button>
+                                        </li>
+                                        <li class="nav-item">
+                                            <button class="nav-link" data-filter="technology">Technology</button>
+                                        </li>
+                                        <li class="nav-item">
+                                            <button class="nav-link" data-filter="business">Business</button>
+                                        </li>
+                                        <li class="nav-item">
+                                            <button class="nav-link" data-filter="startups">Startups</button>
+                                        </li>
+                                        <li class="nav-item">
+                                            <button class="nav-link" data-filter="investment">Investment</button>
+                                        </li>
+                                        <li class="nav-item">
+                                            <button class="nav-link" data-filter="ai-innovation">AI Innovation</button>
+                                        </li>
+                                        <li class="nav-item">
+                                            <button class="nav-link" data-filter="fintech">Fintech</button>
+                                        </li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Results Info -->
+                        
+        
+        <!-- User Cards Grid -->
+        <div class="row gy-3" id="userGrid">
+            <!-- User 1 -->
+            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 user-card" data-name="Maria John" data-email="maria@gmail.com" data-match="75" data-status="connections">
+                <div class="match-profile-card">
+                    <div class="match-image-wrapper">
+                        <img src="assets/img/user-1.jpg" alt="">
+                    </div>
+                    <div>
+                        <h5>Maria John</h5>
+                        <h6>maria@gmail.com</h6>
+                        <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="75">
+                                <div class="progress-bar" style="width: 75%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                                <button data-bs-toggle="modal" data-bs-target="#profileModal" type="button">
+                                    <span><i class="fas fa-user-circle"></i></span>View Profile
+                                </button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                    <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- User 2 -->
+            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 user-card" data-name="Mohammed Navab" data-email="navab@gmail.com" data-match="75" data-status="favorites">
+                <div class="match-profile-card">
+                    <div class="match-image-wrapper">
+                        <img src="assets/img/user-2.jpg" alt="">
+                    </div>
+                    <div>
+                        <h5>Mohammed Navab</h5>
+                        <h6>navab@gmail.com</h6>
+                        <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="75">
+                                <div class="progress-bar" style="width: 75%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                                <button data-bs-toggle="modal" data-bs-target="#profileModal" type="button">
+                                    <span><i class="fas fa-user-circle"></i></span>View Profile
+                                </button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                    <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- User 3 -->
+            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 user-card" data-name="Ahmed Bazil" data-email="bazil@gmail.com" data-match="50" data-status="friend">
+                <div class="match-profile-card">
+                    <a href="chat.html">
+                        <div class="chat-icon">
+                            <i class="far fa-comment-dots"></i>
+                        </div>
+                    </a>
+                    <div class="meeting-icon-wrapper">
+                        <button class="meeting-icon" data-bs-toggle="modal" data-bs-target="#meetingModal">
+                            <i class="fa-solid fa-headset"></i>
+                        </button>
+                    </div>
+                    <div class="match-image-wrapper">
+                        <img src="assets/img/user-3.jpeg" alt="">
+                    </div>
+                    <div>
+                        <h5>Ahmed Bazil</h5>
+                        <h6>bazil@gmail.com</h6>
+                        <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>50%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="50">
+                                <div class="progress-bar" style="width: 50%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                                <button data-bs-toggle="modal" data-bs-target="#profileModal" type="button">
+                                    <span><i class="fas fa-user-circle"></i></span>View Profile
+                                </button>
+                                <button class="purple-btn ready-frnd" data-bs-toggle="modal" data-bs-target="#remove_friend">
+                                    <span><i class="fas fa-user-check"></i></span> Friend
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- User 4 -->
+            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 user-card" data-name="Nishida" data-email="nishida@gmail.com" data-match="60" data-status="connect">
+                <div class="match-profile-card">
+                    <div class="match-image-wrapper">
+                        <img src="assets/img/user-4.jpg" alt="">
+                    </div>
+                    <div>
+                        <h5>Nishida</h5>
+                        <h6>nishida@gmail.com</h6>
+                        <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>60%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="60">
+                                <div class="progress-bar" style="width: 60%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#profileModal">
+                                    <i class="fas fa-user-circle"></i> View Profile
+                                </button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                    <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User 5 -->
+            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 user-card" data-name="Ahmed Bazil" data-email="bazil@gmail.com" data-match="70" data-status="friend">
+                <div class="match-profile-card">
+                    <a href="chat.html">
+                        <div class="chat-icon">
+                            <i class="far fa-comment-dots"></i>
+                        </div>
+                    </a>
+                    <div class="meeting-icon-wrapper">
+                        <button class="meeting-icon" data-bs-toggle="modal" data-bs-target="#meetingModal">
+                            <i class="fa-solid fa-headset"></i>
+                        </button>
+                    </div>
+                    <div class="match-image-wrapper">
+                        <img src="assets/img/user-3.jpeg" alt="">
+                    </div>
+                    <div>
+                        <h5>Ahmed Bazil</h5>
+                        <h6>bazil@gmail.com</h6>
+                        <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="70">
+                                <div class="progress-bar" style="width: 70%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                                <button data-bs-toggle="modal" data-bs-target="#profileModal" type="button">
+                                    <span><i class="fas fa-user-circle"></i></span>View Profile
+                                </button>
+                                <button class="purple-btn ready-frnd" data-bs-toggle="modal" data-bs-target="#remove_friend">
+                                    <span><i class="fas fa-user-check"></i></span> Friend
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- User 6 -->
+            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 user-card" data-name="Nishida" data-email="nishida@gmail.com" data-match="80" data-status="connect">
+                <div class="match-profile-card">
+                    <div class="match-image-wrapper">
+                        <img src="assets/img/user-4.jpg" alt="">
+                    </div>
+                    <div>
+                        <h5>Nishida</h5>
+                        <h6>nishida@gmail.com</h6>
+                        <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="80">
+                                <div class="progress-bar" style="width: 80%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#profileModal">
+                                    <i class="fas fa-user-circle"></i> View Profile
+                                </button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                    <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User 7 -->
+            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 user-card" data-name="Maria John" data-email="maria@gmail.com" data-match="90" data-status="connect">
+                <div class="match-profile-card">
+                    <div class="match-image-wrapper">
+                        <img src="assets/img/user-1.jpg" alt="">
+                    </div>
+                    <div>
+                        <h5>Maria John</h5>
+                        <h6>maria@gmail.com</h6>
+                        <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="90">
+                                <div class="progress-bar" style="width: 90%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                                <button data-bs-toggle="modal" data-bs-target="#profileModal" type="button">
+                                    <span><i class="fas fa-user-circle"></i></span>View Profile
+                                </button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                    <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- User 8 -->
+            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 user-card" data-name="Mohammed Navab" data-email="navab@gmail.com" data-match="75" data-status="connect">
+                <div class="match-profile-card">
+                    <div class="match-image-wrapper">
+                        <img src="assets/img/user-2.jpg" alt="">
+                    </div>
+                    <div>
+                        <h5>Mohammed Navab</h5>
+                        <h6>navab@gmail.com</h6>
+                        <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="75">
+                                <div class="progress-bar" style="width: 75%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                                <button data-bs-toggle="modal" data-bs-target="#profileModal" type="button">
+                                    <span><i class="fas fa-user-circle"></i></span>View Profile
+                                </button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                    <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User 1 -->
+            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 user-card" data-name="Maria John" data-email="maria@gmail.com" data-match="75" data-status="connect">
+                <div class="match-profile-card">
+                    <div class="match-image-wrapper">
+                        <img src="assets/img/user-1.jpg" alt="">
+                    </div>
+                    <div>
+                        <h5>Maria John</h5>
+                        <h6>maria@gmail.com</h6>
+                        <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="75">
+                                <div class="progress-bar" style="width: 75%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                                <button data-bs-toggle="modal" data-bs-target="#profileModal" type="button">
+                                    <span><i class="fas fa-user-circle"></i></span>View Profile
+                                </button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                    <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- User 2 -->
+            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 user-card" data-name="Mohammed Navab" data-email="navab@gmail.com" data-match="75" data-status="connect">
+                <div class="match-profile-card">
+                    <div class="match-image-wrapper">
+                        <img src="assets/img/user-2.jpg" alt="">
+                    </div>
+                    <div>
+                        <h5>Mohammed Navab</h5>
+                        <h6>navab@gmail.com</h6>
+                        <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="75">
+                                <div class="progress-bar" style="width: 75%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                                <button data-bs-toggle="modal" data-bs-target="#profileModal" type="button">
+                                    <span><i class="fas fa-user-circle"></i></span>View Profile
+                                </button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                    <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- User 3 -->
+            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 user-card" data-name="Ahmed Bazil" data-email="bazil@gmail.com" data-match="50" data-status="friend">
+                <div class="match-profile-card">
+                    <a href="chat.html">
+                        <div class="chat-icon">
+                            <i class="far fa-comment-dots"></i>
+                        </div>
+                    </a>
+                    <div class="meeting-icon-wrapper">
+                        <button class="meeting-icon" data-bs-toggle="modal" data-bs-target="#meetingModal">
+                            <i class="fa-solid fa-headset"></i>
+                        </button>
+                    </div>
+                    <div class="match-image-wrapper">
+                        <img src="assets/img/user-3.jpeg" alt="">
+                    </div>
+                    <div>
+                        <h5>Ahmed Bazil</h5>
+                        <h6>bazil@gmail.com</h6>
+                        <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>50%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="50">
+                                <div class="progress-bar" style="width: 50%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                                <button data-bs-toggle="modal" data-bs-target="#profileModal" type="button">
+                                    <span><i class="fas fa-user-circle"></i></span>View Profile
+                                </button>
+                                <button class="purple-btn ready-frnd" data-bs-toggle="modal" data-bs-target="#remove_friend">
+                                    <span><i class="fas fa-user-check"></i></span> Friend
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- User 4 -->
+            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 user-card" data-name="Nishida" data-email="nishida@gmail.com" data-match="50" data-status="connect">
+                <div class="match-profile-card">
+                    <div class="match-image-wrapper">
+                        <img src="assets/img/user-4.jpg" alt="">
+                    </div>
+                    <div>
+                        <h5>Nishida</h5>
+                        <h6>nishida@gmail.com</h6>
+                        <div class="demo-item">
+                            <div class="progress-label">
+                                <span>Matching</span>
+                                <span>50%</span>
+                            </div>
+                            <div class="progress-container" data-percentage="50">
+                                <div class="progress-bar" style="width: 50%"></div>
+                            </div>
+                            <div class="matchmaking-buttons">
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#profileModal">
+                                    <i class="fas fa-user-circle"></i> View Profile
+                                </button>
+                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
+                                    <span><i class="fas fa-user-plus"></i></span> Connect
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
     </div>
     </div>
     </div>
@@ -2559,80 +2096,203 @@
     <script src="assets/js/script.js"></script>
     <script src="assets/js/font-awsome.js"></script>
 
-    
+
 <script>
-document.querySelectorAll('.ticket-upgrade').forEach(component => {
-    let selectedType = null;
-    let selectedPrice = 0;
-
-    const steps = component.querySelectorAll('.step');
-    const btnUpgrade = component.querySelector('.upgrade-btn');
-    const btnBacks = component.querySelectorAll('.btn-back');
-    const btnContinue = component.querySelector('.btn-continue');
-    const btnComplete = component.querySelector('.btn-complete');
-    const btnReturn = component.querySelector('.btn-return');
-    const validationMessage = component.querySelector('.validation-message');
-
-    const updateStep = (stepNum) => {
-        steps.forEach((step, index) => {
-            step.classList.toggle('active', index === stepNum - 1);
+    document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    const matchingFilter = document.getElementById('matchingFilter');
+    const statusFilter = document.getElementById('statusFilter');
+    const clearFilters = document.getElementById('clearFilters');
+    const filterTabs = document.getElementById('filterTabs');
+    const userGrid = document.getElementById('userGrid');
+    const resultsCount = document.getElementById('resultsCount');
+    const noResults = document.getElementById('noResults');
+    
+    // Initialize progress bars
+    setTimeout(() => {
+        document.querySelectorAll('.progress-container').forEach(container => {
+            const percentage = container.getAttribute('data-percentage');
+            const progressBar = container.querySelector('.progress-bar');
+            progressBar.style.width = percentage + '%';
         });
-    };
-
-    const updateSummary = () => {
-        const fee = selectedPrice - 50;
-        component.querySelector('.new-ticket-type').textContent = selectedType === 'vip' ? 'VIP Ticket' : 'Premium Ticket';
-        component.querySelector('.upgrade-fee').textContent = `$${fee.toFixed(2)}`;
-        component.querySelector('.total-amount').textContent = `$${(fee + 2.50).toFixed(2)}`;
-    };
-
-    btnUpgrade.addEventListener('click', () => updateStep(2));
-
-    btnBacks.forEach(btn => {
-        btn.addEventListener('click', () => updateStep(1));
-    });
-
-    component.querySelectorAll('.ticket-option').forEach(option => {
-        option.addEventListener('click', () => {
-            component.querySelectorAll('.ticket-option').forEach(opt => opt.classList.remove('selected'));
-            option.classList.add('selected');
-            selectedType = option.dataset.type;
-            selectedPrice = parseFloat(option.dataset.price);
-            updateSummary();
-            btnContinue.disabled = false;
-        });
-    });
-
-    btnContinue.addEventListener('click', () => updateStep(3));
-
-    btnComplete.addEventListener('click', () => {
-        const form = component.querySelector('.checkout-form');
-        if (form.checkValidity()) {
-            // Hide validation message if valid
-            if (validationMessage) {
-                validationMessage.textContent = '';
-                validationMessage.style.display = 'none';
+    }, 500);
+    
+    // Filter function
+    function filterUsers() {
+        const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+        const matchingValue = matchingFilter ? matchingFilter.value : '';
+        const statusValue = statusFilter ? statusFilter.value : '';
+        const activeTab = document.querySelector('.filter-tabs .nav-link.active');
+        const activeTabFilter = activeTab ? activeTab.getAttribute('data-filter') : 'all';
+        
+        // Get fresh list of user cards each time
+        const userCards = document.querySelectorAll('.user-card');
+        let visibleCount = 0;
+        
+        if (!userCards || userCards.length === 0) {
+            console.warn('No user cards found');
+            return;
+        }
+        
+        userCards.forEach(card => {
+            const name = card.getAttribute('data-name').toLowerCase();
+            const email = card.getAttribute('data-email').toLowerCase();
+            const match = card.getAttribute('data-match');
+            const status = card.getAttribute('data-status');
+            const hasChat = card.querySelector('.chat-icon') !== null;
+            
+            let showCard = true;
+            
+            // Search filter
+            if (searchTerm && !name.includes(searchTerm) && !email.includes(searchTerm)) {
+                showCard = false;
             }
-
-            const ticketText = selectedType === 'vip' ? 'VIP Ticket' : 'Premium Ticket';
-            const finalPrice = `$${selectedPrice.toFixed(2)}`;
-            component.querySelector('.final-ticket-type').textContent = ticketText;
-            component.querySelector('.final-ticket-price').textContent = finalPrice;
-            updateStep(4);
-        } else {
-            // Show validation message
-            if (validationMessage) {
-                validationMessage.textContent = 'Please complete all required fields.';
-                validationMessage.style.display = 'block';
-                validationMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Matching percentage filter
+            if (matchingValue && match !== matchingValue) {
+                showCard = false;
+            }
+            
+            // Status filter
+            if (statusValue) {
+                if (statusValue === 'chat' && !hasChat) {
+                    showCard = false;
+                } else if (statusValue !== 'chat' && status !== statusValue) {
+                    showCard = false;
+                }
+            }
+            
+            // Tab filter
+            switch(activeTabFilter) {
+                case 'high-match':
+                    if (parseInt(match) < 75) showCard = false;
+                    break;
+                case 'friends':
+                    if (status !== 'friend') showCard = false;
+                    break;
+                case 'available':
+                    if (status !== 'connect') showCard = false;
+                    break;
+                case 'online':
+                    // Show users who have chat capability (chat icon present)
+                    if (!hasChat) showCard = false;
+                    break;
+                case 'all':
+                default:
+                    // Show all users - no additional filtering
+                    break;
+            }
+            
+            if (showCard) {
+                card.style.display = 'block';
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+        
+        // Update results count
+        if (userGrid && resultsCount) {
+            if (visibleCount === 0) {
+                userGrid.style.display = 'none';
+                if (noResults) noResults.classList.remove('d-none');
+                resultsCount.textContent = 'No users found';
+            } else {
+                userGrid.style.display = 'flex';
+                if (noResults) noResults.classList.add('d-none');
+                resultsCount.textContent = `Showing ${visibleCount} user${visibleCount !== 1 ? 's' : ''}`;
             }
         }
-    });
-
-    btnReturn.addEventListener('click', () => updateStep(1));
+    }
+    
+    // Event listeners with error handling
+    if (searchInput) {
+        searchInput.addEventListener('input', debounce(filterUsers, 300));
+    }
+    
+    if (matchingFilter) {
+        matchingFilter.addEventListener('change', filterUsers);
+    }
+    
+    if (statusFilter) {
+        statusFilter.addEventListener('change', filterUsers);
+    }
+    
+    // Debounce function to prevent excessive filtering
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+    
+    // Tab click handlers
+    if (filterTabs) {
+        filterTabs.addEventListener('click', function(e) {
+            if (e.target.classList.contains('nav-link')) {
+                // Remove active class from all tabs
+                document.querySelectorAll('.filter-tabs .nav-link').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                
+                // Add active class to clicked tab
+                e.target.classList.add('active');
+                
+                // Filter users
+                filterUsers();
+            }
+        });
+    }
+    
+    // Clear filters
+    if (clearFilters) {
+        clearFilters.addEventListener('click', function() {
+            if (searchInput) searchInput.value = '';
+            if (matchingFilter) matchingFilter.value = '';
+            if (statusFilter) statusFilter.value = '';
+            
+            // Reset to "All Users" tab
+            document.querySelectorAll('.filter-tabs .nav-link').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            const allTab = document.querySelector('[data-filter="all"]');
+            if (allTab) {
+                allTab.classList.add('active');
+            }
+            
+            filterUsers();
+        });
+    }
+    
+    // Initial filter with delay to ensure DOM is ready
+    setTimeout(() => {
+        filterUsers();
+    }, 100);
+    
+    // Also add a mutation observer to handle dynamic content
+    if (userGrid) {
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'childList') {
+                    // Re-run filter when new user cards are added
+                    setTimeout(filterUsers, 100);
+                }
+            });
+        });
+        
+        observer.observe(userGrid, {
+            childList: true,
+            subtree: true
+        });
+    }
 });
 </script>
-
 
 
 <script>
