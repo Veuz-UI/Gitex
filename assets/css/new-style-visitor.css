@@ -1075,7 +1075,7 @@ a {
 }
 
 .modal-content {
-    border-radius: 30px;
+    border-radius: 30px !important;
     border: none;
 }
 
@@ -2203,15 +2203,6 @@ ul.accordion-list {
     font-size: 12px;
 }
 
-.ticket-summary-link a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-.ticket-summary-link a:hover {
-    color: white;
-}
 
 /* Enhanced ticket summary popup styles */
 .ticket-summary-popup {
@@ -2787,12 +2778,11 @@ ul.accordion-list {
 }
 
 .list-group-item {
-    padding: 5px 0px;
-    border: none;
-    background: transparent;
+    padding: 5px 0px !important;
+    border: none !important;
+    background: transparent !important;
 }
 
-.list-group-item+.list-group-item {}
 
 .category-checkbox,
 .service-checkbox {
@@ -2932,16 +2922,6 @@ ul.accordion-list {
 }
 
 
-
-
-
-
-
-
-
-
-
-
 /* ticket page */
 
 
@@ -2952,7 +2932,7 @@ ul.accordion-list {
 
 .ticket-summary-link a {
     color: rgba(255, 255, 255, 0.8);
-    text-decoration: underline;
+    text-decoration: underline !important;
     cursor: pointer;
 }
 
@@ -6561,12 +6541,6 @@ td {
     margin-bottom: 1rem;
 }
 
-.ticket-name {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #1f2937;
-}
-
 .ticket-option-price {
     font-size: 1.5rem;
     font-weight: 700;
@@ -6803,7 +6777,7 @@ td {
     .applied-promo{
         flex-direction: column;
     }
-    
+
     .ticket-info-to {
         padding: 20px;
     }
@@ -7481,6 +7455,9 @@ img {
     border-radius: 100%;
     padding: 15px;
     font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -8264,21 +8241,7 @@ img {
     color: #777 !important;
 }
 
-.form-group input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="date"],
-select,
-textarea {
-    width: 100%;
-    padding: 0px 16px;
-    height: 50px;
-    border: 1px solid #20202080;
-    border-radius: 10px;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    background: white;
-}
+
 
 input:focus,
 select:focus,
@@ -8597,8 +8560,16 @@ textarea {
     }
 
     .btn-main {
-        min-width: auto;
+        /* min-width: auto; */
         padding: 10px;
+    }
+
+    .nav-elements .btn-main{
+        min-width: auto;
+    }
+
+    .about-wrapper .btn-main{
+        min-width: auto;
     }
 
     .banner-cntnt h3 {
