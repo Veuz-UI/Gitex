@@ -2882,26 +2882,45 @@ ul.accordion-list {
     font-weight: 600;
 }
 
+.ticket-select-box{
+    background: #ffffff23;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    border: 1px solid #ffffff3f;
+    border-radius: 8px;
+}
+
+
 #redEditSelect{
     color: #fff;
     background: #ffffff23;
-    border: 1px solid #ffffff3f;
+    border: none;
     border-radius: 8px;
-    padding: 15px 5px;
     font-size: 15px;
-    max-width: 400px;
+    padding-right: 40px;
+    max-width: 230px;
+    min-width: 230px;
+    overflow: hidden;
     background-size: 16px 16px;
     appearance: none; /* Remove default arrow */
     -webkit-appearance: none;
     -moz-appearance: none;
     background: url('data:image/svg+xml;utf8,<svg fill="%23ffffff" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat;
-    background-position: right 10px center; /* Adjust position here */
+    background-position: right 0px center; /* Adjust position here */
+      text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 #redEditSelect option{
     color: black !important;
     padding: 10px !important;
     font-weight: 300;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .form-content {
@@ -3232,6 +3251,11 @@ select.form-control {
     border-radius: 10px;
     padding: 10px 15px;
     font-size: 15px;
+}
+
+.attendee-header img{
+    width: 30px;
+    filter: invert(1);
 }
 
 
@@ -4567,11 +4591,13 @@ select.form-control {
 .filters-section .search-box #searchInput{
     background: transparent;
     border: none;
+    font-size: 14px;
 }
 
 .filters-section .filter-dropdown .form-select{
     border: 1px solid #c4fa86;
     background: #fcfff0;
+    font-size: 14px;
 }
 
 .filters-section .filter-dropdown .form-select:focus{
@@ -5355,10 +5381,176 @@ select.form-control {
 }
 
 
+/* visitor dashboard */
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #05250d;
+  color: #fff;
+  padding: 20px 0px;
+}
+
+.sidebar h2 {
+  font-size: 20px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0px;
+}
+
+.sidebar ul li {
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: #fff;
+  transition: .5s ease;
+}
+
+.sidebar ul li:hover,
+.sidebar ul li.active {
+    background-color: #e3ffc8;
+    border-left: 4px solid #25612d;
+    color: #136313;
+    transition: .5s ease;
+}
+
+.main-dashboard {
+  flex: 1;
+  background-color: #fff;
+}
+
+.tab-content {
+  padding: 20px;
+}
+
+.tab-content p{
+    color: gray;
+    font-size: 15px;
+}
+/* visitor dashboard */
+
+/* badge profile */
+badge-search-wrapper {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.search-input-group {
+    position: relative;
+    max-width: 500px;
+}
+
+.search-input {
+    padding: 12px 45px 12px 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 0px;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    box-shadow: 0 0 0 3px rgba(70, 108, 19, 0.1);
+    border-color: #466c13;
+}
+
+.search-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #466c13;
+    pointer-events: none;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .badge-search-wrapper {
+        padding: 15px;
+    }
+    
+    .search-input {
+        padding: 10px 40px 10px 15px;
+    }
+}
+/* badge profile */
+
+
+
+
+
+/* like profile */
+.like-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  transition: transform 0.2s;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+.heart {
+  color: #ccc; /* empty heart */
+  transition: color 0.3s;
+}
+
+.liked .heart {
+  color: red; /* filled heart */
+}
+/* like profile */
+
+
 .visitor_topright {
-    display: flex;
     align-items: center;
     gap: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.1);
+}
+
+  .completed-badge {
+    background: linear-gradient(135deg, #08571f 0%, #4ea31d 100%);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dash-head{
+    font-size: 25px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 15px;
+}
+
+.sidebar .sidebar-logo {
+    width: 170px;
+    margin: auto;
+    display: block;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ffffff4f;
+    margin-bottom: 30px;
+    
 }
 
 .visitor_topright h4 {
@@ -5716,6 +5908,7 @@ select.form-control {
 
 .edit-form-inputs {
     padding: 20px;
+    border: 1px solid #ebebeb;
 }
 
 .edit-form-inputs label {
@@ -7202,8 +7395,8 @@ td {
 
     .attendee-header h4,
     .summary-header h4 {
-        font-size: 1.1rem;
-        /* Slightly smaller headers in forms */
+       font-size: 16px;
+        text-align: center;
     }
 
 
@@ -8119,6 +8312,7 @@ img {
 .gitex-promo__event {
   flex: 1;
   padding: 20px;
+    background: #f2fff2;
 }
 
 .gitex-promo__iam {
@@ -8993,6 +9187,9 @@ textarea {
         height: auto;
         margin-bottom: 5px;
     }
+    #redEditSelect{
+        background-position: right 23px center;
+    }
 }
 
 
@@ -9636,6 +9833,10 @@ textarea {
 @media only screen and (max-width: 370px) {
     .premium-header .modal-title {
         font-size: 13px;
+    }
+    #redEditSelect{
+        min-width: 200px;
+        max-width: 200px;
     }
 }
 

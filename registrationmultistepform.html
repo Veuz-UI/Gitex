@@ -1993,7 +1993,7 @@
                 const badge = document.createElement('div');
                 badge.className = 'card'; // This 'card' is the outer card for the badge column
                 badge.innerHTML = `
-                    
+                                
                     <div class="card-header min-height-77">
                         <img src="assets/img/banner-img.png" width="100%">
                     </div>
@@ -2753,16 +2753,18 @@
                             data-attendee-index="${i}">
                             <div class="attendee-header min-height-77">
                                 <h4>Registration Information ${attendeeIndex + 1}</h4>
-                                <div class="attendee-header-ticket-info">${ticket.type} - ${ticketPriceString}</div>
-                                <select id="redEditSelect" name="redEditSelect">
-                                <option value="">Select an option</option>
-                                <option value="option1">Visitor 3 Day Access Ticket</option>
-                                <option value="option2">PREMIUM PASS</option>
-                                <option value="option3">All Access Conference Ticket</option>
-                                <option value="option3">All Masterclass Ticket</option>
-                                <option value="option3">All Masterclass Ticket</option>
-                                <option value="option3">Certified Training Ticket Agentic AI: Build Your First AI Agent</option>
+                                <div class="ticket-select-box">
+                                <img src="assets/img/ticket.svg" alt="">
+                                <select id="redEditSelect" name="redEditSelect" class="custom-select">
+                                    <option value="">${ticket.type} - ${ticketPriceString}</option>
+                                    <option value="option1">Visitor 3 Day Access Ticket</option>
+                                    <option value="option2">PREMIUM PASS</option>
+                                    <option value="option3">All Access Conference Ticket</option>
+                                    <option value="option4">All Masterclass Ticket</option>
+                                    <option value="option5">Certified Training Ticket Agentic AI</option>
                                 </select>
+                                </div>
+
                             </div>
                             <form id="employeeForm_${attendeeIndex}">
                                 <div class="card form-card">

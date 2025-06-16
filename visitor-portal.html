@@ -46,47 +46,47 @@
     <!-- loader -->
 
 
-    <div class="inner-banner">
+    <!-- <div class="inner-banner">
         <a href="index.html"><img src="assets/img/ni-header.png" class="img-fluid sm-hide-logo"></a>
 
         <div>
             <div class="registration-text">GITEX NIGERIA TECH EXPO + <br> FUTURE ECONOMY SUMMIT</div>
         </div>
-    </div>
+    </div> -->
 
 
-    <div class="content">
-        <div class="visitor-header">
-    <div class="visitor_menu nav nav-tabs" id="visitorTabs" role="tablist">
-        <a class="nav-link active" id="visitor-details-tab" data-bs-toggle="tab" href="#visitor-details" role="tab" aria-controls="visitor-details" aria-selected="true">
-            Visitor Details
-        </a>
-        <a class="nav-link" id="badge-tab" data-bs-toggle="tab" href="#badge" role="tab" aria-controls="badge" aria-selected="false">
-            Badge
-        </a>
-        <a class="nav-link" id="matchmaking-tab" data-bs-toggle="tab" href="#matchmaking" role="tab" aria-controls="matchmaking" aria-selected="false">
-            Matchmaking
-        </a>
-    </div>
-    <div class="visitor_topright">
-        <a href="notification.html"><div class="visitor-notification">
-            <i class="far fa-bell"></i>
-            <span class="notification-dot"></span>
-        </div></a>
-        <h4>Bishru Rahman</h4>
-    </div>
+
+     <div class="dashboard">
+    <div class="sidebar">
+        <img src="assets/img/GITEXNIGERIA_AIheadlogo.png" alt="" class="sidebar-logo">
+      <ul>
+        <li class="active" data-tab="visitor"><i class="fas fa-user"></i> Visitor Details</li>
+        <li data-tab="badge"><i class="fas fa-id-badge"></i> Badge</li>
+        <li data-tab="matchmaking"><i class="fas fa-handshake"></i> Matchmaking</li>
+      </ul>
     </div>
 
+    <div class="main-dashboard">
+          <div class="visitor_topright">
+            <div class="completed-badge">Event Portal</div>
+            <div class="d-flex gap-2 align-items-center">
+                        <a href="notification.html"><div class="visitor-notification">
+                        <i class="far fa-bell"></i>
+                        <span class="notification-dot"></span>
+                    </div></a>
+                <h4>Bishru Rahman</h4>
+            </div>
+    </div>
 
-    <div class="tab-content" id="visitorTabContent">
-    <div class="tab-pane fade show active" id="visitor-details" role="tabpanel" aria-labelledby="visitor-details-tab">
-        <!-- Your existing visitor details form content -->
-     <div>
-    <div class="row d-flex justify-content-center">
-        <div class="col-lg-8">
+        <!-- Visitor Detailes -->
+      <div class="tab-content" id="visitor">
+            <h4 class="dash-head">Registration Information</h4>
+            <p>Complete your event registration with the required information below</p>
+        <div class="row ">
+        <div class="col-lg-10">
             <div class="edit-form-main">
                 <div class="attendee-header min-height-77 d-flex justify-content-between align-items-center">
-                    <h4>Registration Information</h4>
+                    <h4>Personal Information</h4>
                     <div>
                     <button type="button" class="btn btn-primary" id="editBtn">Edit</button>
                     </div>
@@ -805,13 +805,24 @@
 
         </div>
 
-    </div>
+        </div>
+      </div>
+      <!-- Visitor Detailes -->
+
+       <!-- Visitor Detailes -->
+      <div class="tab-content" id="badge" style="display: none;">
+
+        <div class="badge-search-wrapper mb-4">
+            <h4 class="dash-head">Badge Details</h4>
+        <div class="search-input-group">
+            <input type="text" class="form-control search-input" id="badgeSearch" placeholder="Search by name, email or ticket type...">
+            <span class="search-icon">
+                <i class="fas fa-search"></i>
+            </span>
+        </div>
     </div>
 
-    </div>
-    
-    <div class="tab-pane fade" id="badge" role="tabpanel" aria-labelledby="badge-tab">
-        <!-- Badge content here -->
+
         <div class="table-main-div">
             <table class="badge-table">
             <thead>
@@ -840,7 +851,7 @@
                     <td>mariya@gmail.com</td>
                     <td>Premium</td>
                     <td class="badge-status"><span>Pending</span></td>
-                    <td>40EUR</td>
+                    <td>USD 300</td>
                     <td>20/3/2025</td>
                     <td>
                         <div class="d-flex gap-2 justify-content-center">
@@ -849,7 +860,7 @@
                             <span><i class="fa-solid fa-arrow-up-wide-short"></i></span>Upgrade Ticket
                             </button>
                             </a>
-                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-print"></i> Print Badge</button></a>
+                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-download"></i> Download Badge</button></a>
                         </div>
                     </td>
                     <td class="action-cell">
@@ -860,7 +871,7 @@
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
                                 <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print Badge</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
                             </ul>
@@ -877,7 +888,7 @@
                     <td>navab@gmail.com</td>
                     <td>Visitor</td>
                     <td class="badge-status badge-approved"><span>Approved</span></td>
-                    <td>40EUR</td>
+                    <td>USD 300</td>
                     <td>20/3/2025</td>
                     <td>
                         <div class="d-flex gap-2 justify-content-center">
@@ -886,7 +897,7 @@
                             <span><i class="fa-solid fa-arrow-up-wide-short"></i></span>Upgrade Ticket
                             </button>
                             </a>
-                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-print"></i> Print Badge</button></a>
+                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-download"></i> Download Badge</button></a>
                         </div>
                     </td>
 
@@ -898,7 +909,7 @@
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
                                 <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print Badge</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
                             </ul>
@@ -915,7 +926,7 @@
                     <td>nabeel@gmail.com</td>
                     <td>Premium</td>
                     <td class="badge-status badge-cancel"><span>Rejected</span></td>
-                    <td>40EUR</td>
+                    <td>USD 300</td>
                     <td>20/3/2025</td>
                     <td>
                         <div class="d-flex gap-2 justify-content-center">
@@ -924,7 +935,7 @@
                             <span><i class="fa-solid fa-arrow-up-wide-short"></i></span>Upgrade Ticket
                             </button>
                             </a>
-                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-print"></i> Print Badge</button></a>
+                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-download"></i> Download Badge</button></a>
                         </div>
                     </td>
 
@@ -936,7 +947,7 @@
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
                                 <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print Badge</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
                             </ul>
@@ -953,7 +964,7 @@
                     <td>nishida@gmail.com</td>
                     <td>Masterclass</td>
                     <td class="badge-status badge-approved"><span>Approved</span></td>
-                    <td>40EUR</td>
+                    <td>USD 300</td>
                     <td>20/3/2025</td>
                     <td>
                         <div class="d-flex gap-2 justify-content-center">
@@ -962,7 +973,7 @@
                             <span><i class="fa-solid fa-arrow-up-wide-short"></i></span>Upgrade Ticket
                             </button>
                             </a>
-                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-print"></i> Print Badge</button></a>
+                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-download"></i> Download Badge</button></a>
                         </div>
                     </td>
                     
@@ -974,7 +985,7 @@
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
                                 <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print Badge</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
                             </ul>
@@ -991,7 +1002,7 @@
                     <td>mariya@gmail.com</td>
                     <td>Premium</td>
                     <td class="badge-status"><span>Pending</span></td>
-                    <td>40EUR</td>
+                    <td>USD 300</td>
                     <td>20/3/2025</td>
                     <td>
                         <div class="d-flex gap-2 justify-content-center">
@@ -1000,7 +1011,7 @@
                             <span><i class="fa-solid fa-arrow-up-wide-short"></i></span>Upgrade Ticket
                             </button>
                             </a>
-                            <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-print"></i> Print Badge</button></a>
+                            <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-download"></i> Download Badge</button></a>
                         </div>
                     </td>
                     <td class="action-cell">
@@ -1011,7 +1022,7 @@
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
                                 <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print Badge</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
                             </ul>
@@ -1028,7 +1039,7 @@
                     <td>navab@gmail.com</td>
                     <td>Visitor</td>
                     <td class="badge-status badge-approved"><span>Approved</span></td>
-                    <td>40EUR</td>
+                    <td>USD 300</td>
                     <td>20/3/2025</td>
                     <td>
                         <div class="d-flex gap-2 justify-content-center">
@@ -1037,7 +1048,7 @@
                             <span><i class="fa-solid fa-arrow-up-wide-short"></i></span>Upgrade Ticket
                             </button>
                             </a>
-                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-print"></i> Print Badge</button></a>
+                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-download"></i> Download Badge</button></a>
                         </div>
                     </td>
 
@@ -1049,7 +1060,7 @@
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
                                 <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print Badge</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
                             </ul>
@@ -1066,7 +1077,7 @@
                     <td>nabeel@gmail.com</td>
                     <td>Premium</td>
                     <td class="badge-status badge-cancel"><span>Rejected</span></td>
-                    <td>40EUR</td>
+                    <td>USD 300</td>
                     <td>20/3/2025</td>
                     <td>
                         <div class="d-flex gap-2 justify-content-center">
@@ -1075,7 +1086,7 @@
                             <span><i class="fa-solid fa-arrow-up-wide-short"></i></span>Upgrade Ticket
                             </button>
                             </a>
-                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-print"></i> Print Badge</button></a>
+                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-download"></i> Download Badge</button></a>
                         </div>
                     </td>
 
@@ -1087,7 +1098,7 @@
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
                                 <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print Badge</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
                             </ul>
@@ -1104,7 +1115,7 @@
                     <td>nishida@gmail.com</td>
                     <td>Masterclass</td>
                     <td class="badge-status badge-approved"><span>Approved</span></td>
-                    <td>40EUR</td>
+                    <td>USD 300</td>
                     <td>20/3/2025</td>
                     <td>
                         <div class="d-flex gap-2 justify-content-center">
@@ -1113,7 +1124,7 @@
                             <span><i class="fa-solid fa-arrow-up-wide-short"></i></span>Upgrade Ticket
                             </button>
                             </a>
-                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-print"></i> Print Badge</button></a>
+                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-download"></i> Download Badge</button></a>
                         </div>
                     </td>
                     
@@ -1125,7 +1136,7 @@
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
                                 <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print Badge</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
                             </ul>
@@ -1159,7 +1170,7 @@
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
                                 <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print Badge</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
                             </ul>
@@ -1180,7 +1191,7 @@
                     </div>
                     <div class="detail-item">
                         <div class="detail-label">Amount</div>
-                        <div class="detail-value">40EUR</div>
+                        <div class="detail-value">USD 300</div>
                     </div>
                     <div class="detail-item">
                         <div class="detail-label">Date</div>
@@ -1193,7 +1204,7 @@
                             <span><i class="fa-solid fa-arrow-up-wide-short"></i></span>Upgrade Ticket
                             </button>
                             </a>
-                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-print"></i> Print Badge</button></a>
+                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-download"></i> Download Badge</button></a>
                         </div>
                     </div>
                 </div>
@@ -1216,7 +1227,7 @@
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
                                 <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print Badge</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
                             </ul>
@@ -1237,7 +1248,7 @@
                     </div>
                     <div class="detail-item">
                         <div class="detail-label">Amount</div>
-                        <div class="detail-value">40EUR</div>
+                        <div class="detail-value">USD 300</div>
                     </div>
                     <div class="detail-item">
                         <div class="detail-label">Date</div>
@@ -1250,7 +1261,7 @@
                             <span><i class="fa-solid fa-arrow-up-wide-short"></i></span>Upgrade Ticket
                             </button>
                             </a>
-                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-print"></i> Print Badge</button></a>
+                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-download"></i> Download Badge</button></a>
                         </div>
                     </div>
                 </div>
@@ -1273,7 +1284,7 @@
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
                                 <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print Badge</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
                             </ul>
@@ -1294,7 +1305,7 @@
                     </div>
                     <div class="detail-item">
                         <div class="detail-label">Amount</div>
-                        <div class="detail-value">40EUR</div>
+                        <div class="detail-value">USD 300</div>
                     </div>
                     <div class="detail-item">
                         <div class="detail-label">Date</div>
@@ -1307,7 +1318,7 @@
                             <span><i class="fa-solid fa-arrow-up-wide-short"></i></span>Upgrade Ticket
                             </button>
                             </a>
-                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-print"></i> Print Badge</button></a>
+                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-download"></i> Download Badge</button></a>
                         </div>
                     </div>
                 </div>
@@ -1330,7 +1341,7 @@
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#" onclick="window.location.href='badge.html'"><i class="fas fa-eye"></i> View Badge</a>
                                 <li><a class="dropdown-item" href="#"><i class="fa-solid fa-repeat"></i> Resend Badge</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-download"></i> Download Badge</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-print"></i> Print Badge</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i> Delete</a></li>
                             </ul>
@@ -1351,7 +1362,7 @@
                     </div>
                     <div class="detail-item">
                         <div class="detail-label">Amount</div>
-                        <div class="detail-value">40EUR</div>
+                        <div class="detail-value">USD 300</div>
                     </div>
                     <div class="detail-item">
                         <div class="detail-label">Date</div>
@@ -1364,19 +1375,20 @@
                             <span><i class="fa-solid fa-arrow-up-wide-short"></i></span>Upgrade Ticket
                             </button>
                             </a>
-                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-print"></i> Print Badge</button></a>
+                             <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-download"></i> Download Badge</button></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
-    
-    <div class="tab-pane fade" id="matchmaking" role="tabpanel" aria-labelledby="matchmaking-tab">
-        <!-- Matchmaking content here -->
+      </div>
+      <!-- Badge Detailes -->
+
+       <!-- Matchmaking Detailes -->
+      <div class="tab-content" id="matchmaking" style="display: none;">
         <div>
         <section class="matchmakingsection">
-        <h4 class="page-section-title">Professional Matchmaking</h4>
+        <h4 class="dash-head">Professional Matchmaking</h4>
         
         <!-- Filters Section -->
         <div class="filters-section">
@@ -1464,6 +1476,9 @@
                     <div class="match-image-wrapper">
                         <img src="assets/img/user-1.jpg" alt="">
                     </div>
+                    <button class="like-btn">
+                    <span class="heart">&#10084;</span>
+                    </button>
                     <div>
                         <h5>Maria John</h5>
                         <h6>maria@gmail.com</h6>
@@ -1494,6 +1509,9 @@
                     <div class="match-image-wrapper">
                         <img src="assets/img/user-2.jpg" alt="">
                     </div>
+                    <button class="like-btn">
+                    <span class="heart">&#10084;</span>
+                    </button>
                     <div>
                         <h5>Mohammed Navab</h5>
                         <h6>navab@gmail.com</h6>
@@ -1534,6 +1552,9 @@
                     <div class="match-image-wrapper">
                         <img src="assets/img/user-3.jpeg" alt="">
                     </div>
+                    <button class="like-btn">
+                    <span class="heart">&#10084;</span>
+                    </button>
                     <div>
                         <h5>Ahmed Bazil</h5>
                         <h6>bazil@gmail.com</h6>
@@ -1550,8 +1571,7 @@
                                     <span><i class="fas fa-user-circle"></i></span>View Profile
                                 </button>
                                 <button class="purple-btn ready-frnd" data-bs-toggle="modal" data-bs-target="#remove_friend">
-                                    <span><i class="fas fa-user-check"></i></span> Friend
-                                </button>
+                                    <span><i class="fas fa-user-check"></i></span> Connected </button>
                             </div>
                         </div>
                     </div>
@@ -1564,6 +1584,9 @@
                     <div class="match-image-wrapper">
                         <img src="assets/img/user-4.jpg" alt="">
                     </div>
+                    <button class="like-btn">
+                    <span class="heart">&#10084;</span>
+                    </button>
                     <div>
                         <h5>Nishida</h5>
                         <h6>nishida@gmail.com</h6>
@@ -1604,6 +1627,9 @@
                     <div class="match-image-wrapper">
                         <img src="assets/img/user-3.jpeg" alt="">
                     </div>
+                    <button class="like-btn">
+                    <span class="heart">&#10084;</span>
+                    </button>
                     <div>
                         <h5>Ahmed Bazil</h5>
                         <h6>bazil@gmail.com</h6>
@@ -1620,8 +1646,7 @@
                                     <span><i class="fas fa-user-circle"></i></span>View Profile
                                 </button>
                                 <button class="purple-btn ready-frnd" data-bs-toggle="modal" data-bs-target="#remove_friend">
-                                    <span><i class="fas fa-user-check"></i></span> Friend
-                                </button>
+                                    <span><i class="fas fa-user-check"></i></span> Connected</button>
                             </div>
                         </div>
                     </div>
@@ -1634,6 +1659,9 @@
                     <div class="match-image-wrapper">
                         <img src="assets/img/user-4.jpg" alt="">
                     </div>
+                    <button class="like-btn">
+                    <span class="heart">&#10084;</span>
+                    </button>
                     <div>
                         <h5>Nishida</h5>
                         <h6>nishida@gmail.com</h6>
@@ -1664,6 +1692,9 @@
                     <div class="match-image-wrapper">
                         <img src="assets/img/user-1.jpg" alt="">
                     </div>
+                    <button class="like-btn">
+                    <span class="heart">&#10084;</span>
+                    </button>
                     <div>
                         <h5>Maria John</h5>
                         <h6>maria@gmail.com</h6>
@@ -1694,6 +1725,9 @@
                     <div class="match-image-wrapper">
                         <img src="assets/img/user-2.jpg" alt="">
                     </div>
+                    <button class="like-btn">
+                    <span class="heart">&#10084;</span>
+                    </button>
                     <div>
                         <h5>Mohammed Navab</h5>
                         <h6>navab@gmail.com</h6>
@@ -1724,6 +1758,9 @@
                     <div class="match-image-wrapper">
                         <img src="assets/img/user-1.jpg" alt="">
                     </div>
+                    <button class="like-btn">
+                    <span class="heart">&#10084;</span>
+                    </button>
                     <div>
                         <h5>Maria John</h5>
                         <h6>maria@gmail.com</h6>
@@ -1754,6 +1791,9 @@
                     <div class="match-image-wrapper">
                         <img src="assets/img/user-2.jpg" alt="">
                     </div>
+                    <button class="like-btn">
+                    <span class="heart">&#10084;</span>
+                    </button>
                     <div>
                         <h5>Mohammed Navab</h5>
                         <h6>navab@gmail.com</h6>
@@ -1794,6 +1834,9 @@
                     <div class="match-image-wrapper">
                         <img src="assets/img/user-3.jpeg" alt="">
                     </div>
+                    <button class="like-btn">
+                    <span class="heart">&#10084;</span>
+                    </button>
                     <div>
                         <h5>Ahmed Bazil</h5>
                         <h6>bazil@gmail.com</h6>
@@ -1824,6 +1867,9 @@
                     <div class="match-image-wrapper">
                         <img src="assets/img/user-4.jpg" alt="">
                     </div>
+                    <button class="like-btn">
+                    <span class="heart">&#10084;</span>
+                    </button>
                     <div>
                         <h5>Nishida</h5>
                         <h6>nishida@gmail.com</h6>
@@ -1851,9 +1897,11 @@
             
         </div>
     </div>
+      </div>
+      <!-- Matchmaking Detailes -->
     </div>
-    </div>
-    </div>
+  </div>
+
 
     
 
@@ -2095,6 +2143,38 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/font-awsome.js"></script>
+
+    <script>
+        document.querySelectorAll('.like-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('liked');
+  });
+});
+    </script>
+
+
+    <script>
+ const tabs = document.querySelectorAll(".sidebar ul li");
+const contents = document.querySelectorAll(".tab-content");
+
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+    const target = tab.getAttribute("data-tab");
+
+    // Remove active class from all tabs
+    tabs.forEach(t => t.classList.remove("active"));
+
+    // Add active to clicked tab
+    tab.classList.add("active");
+
+    // Hide all tab content
+    contents.forEach(c => c.style.display = "none");
+
+    // Show current
+    document.getElementById(target).style.display = "block";
+  });
+});
+</script>
 
 
 <script>
