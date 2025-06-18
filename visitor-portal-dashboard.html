@@ -20,6 +20,943 @@
             scroll-behavior: smooth;
             overflow-x: hidden !important;
         }
+        .event-info {
+            background: rgba(102, 126, 234, 0.1);
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+            color: #667eea;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: #667eea;
+        }
+
+        .nav-link .badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ef4444;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .profile-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 320px 1fr 360px;
+            gap: 30px;
+            min-height: calc(100vh - 200px);
+        }
+
+        .event-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-number {
+            font-size: 20px;
+            font-weight: 700;
+            color: #156128;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .filter-group {
+            margin-bottom: 20px;
+        }
+
+        .filter-label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .filter-input, .filter-select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+            background: white;
+        }
+
+        .filter-input:focus, .filter-select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            background: #f8fafc;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 13px;
+        }
+
+        .checkbox-item:hover {
+            background: #e5e7eb;
+        }
+
+        .checkbox-item.active {
+            background: #4a126c;
+            color: white;
+        }
+
+        .checkbox-item input {
+            margin: 0;
+            accent-color: white;
+        }
+
+        .apply-filters {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .apply-filters:hover {
+            transform: translateY(-2px);
+        }
+
+        
+
+        .attendees-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .attendees-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .search-container {
+            border-radius: 8px;
+            margin: 0;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .search-wrapper {
+            position: relative;
+            max-width: 100%;
+        }
+
+        .match-making-search-input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .match-making-search-input:focus {
+            outline: none;
+            border-color: #466c13;
+            box-shadow: 0 0 0 3px rgba(70, 108, 19, 0.1);
+        }
+
+        .search-button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: #466c13;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-button:hover {
+            background: #2f4a0d;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .search-container {
+                padding: 15px;
+            }
+            
+            .search-input {
+                padding: 10px 45px 10px 15px;
+            }
+        }
+
+        .attendees-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .attendees-list {
+            display: none;
+        }
+
+        .attendees-list.active {
+            display: block;
+        }
+
+        .attendees-grid.active {
+            display: grid;
+        }
+
+        .attendee-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .attendee-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+
+
+        .attendee-avatar {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                background: #d9f4ff;
+                display: grid;
+                place-content: center;
+                color: #1b4353;
+                font-weight: 600;
+                font-size: 18px;
+                position: relative;
+        }
+
+        .attendee-avatar img{
+            height: 100%;
+            width: 100%;
+            border-radius: 100%;
+
+        }
+
+        .online-indicator {
+            position: absolute;
+            bottom: 2px;
+            right: 2px;
+            width: 16px;
+            height: 16px;
+            background: #1fab11;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+
+        .attendee-basic-info {
+            flex: 1;
+        }
+
+        .attendee-name {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .attendee-title {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 3px;
+        }
+
+        .attendee-company {
+            color: #667eea;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .compatibility-score {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .attendee-info {
+            padding: 0 20px 20px;
+        }
+
+        .attendee-purpose {
+            background: #effff7;
+            color: #45574a;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            margin-bottom: 15px;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .attendee-interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 15px;
+        }
+
+        .interest-tag {
+                background: #f5fffa;
+                color: #086749;
+                padding: 4px 8px;
+                border: 1px solid green;
+                border-radius: 12px;
+                font-size: 11px;
+                font-weight: 500;
+        }
+
+        .attendee-schedule {
+            background: #fef7ff;
+            color: #4a126c;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            margin-bottom: 5px;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .attendee-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 12px;
+        }
+
+        .connect-btn {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+        }
+
+        .connect-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .message-btn {
+            background: #f3f4f6;
+            color: #374151;
+        }
+
+        .message-btn:hover {
+            background: #e5e7eb;
+        }
+
+        .schedule-btn {
+            background: #fef2f2;
+            color: #dc2626;
+        }
+
+        .schedule-btn:hover {
+            background: #fee2e2;
+        }
+
+        .networking-sidebar {
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+        }
+
+        .networking-sidebar h3{
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .networking-header {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .quick-action-btn {
+            padding: 15px;
+            border: 1px solid #6e8365;
+            border-radius: 10px;
+            background: #f9fff5;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .quick-action-btn:hover {
+             border: 1px solid #4f5c49;
+            background: #ecf8e4;
+        }
+
+        .quick-action-icon {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .connections-list {
+            flex: 1;
+            margin-bottom: 20px;
+        }
+
+        .connection-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-bottom: 8px;
+        }
+
+        .connection-item:hover {
+            background: #f8fafc;
+        }
+
+        .connection-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #22741e 0%, #36891d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            position: relative;
+        }
+
+        .new-connection {
+            position: absolute;
+            top: -3px;
+            right: -3px;
+            width: 12px;
+            height: 12px;
+            background: #ef4444;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .connection-info {
+            flex: 1;
+        }
+
+        .connection-name {
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 2px;
+            color: #333;
+        }
+
+        .connection-status {
+            font-size: 11px;
+            color: #666;
+        }
+
+        .connection-time {
+            font-size: 11px;
+            color: #999;
+        }
+
+        .upcoming-sessions {
+            background: linear-gradient(135deg, #FF7B3A, #FF512F, #D3322F, #BF2D1F, #8B1C13);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .sessions-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .session-item {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-size: 12px;
+        }
+
+        .session-time {
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .session-title {
+            opacity: 0.9;
+        }
+
+        .ai-suggestions {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .ai-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .ai-suggestion {
+            font-size: 13px;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .ai-btn {
+            background: white;
+            color: #8b5cf6;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            font-size: 12px;
+        }
+
+        .ai-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .floating-action {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .floating-action:hover {
+            transform: scale(1.1);
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        
+
+        .modal-overlay.show .modal {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .profile-modal-content {
+            text-align: center;
+        }
+
+        .profile-modal-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 32px;
+            margin: 0 auto 20px;
+        }
+
+        .profile-details {
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #f1f3f4;
+        }
+
+        .detail-label {
+            font-weight: 500;
+            color: #666;
+        }
+
+        .detail-value {
+            color: #333;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .modal-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .modal-btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .modal-btn-secondary {
+            background: #f3f4f6;
+            color: #374151;
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .list-attendee-card {
+            display: flex;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .list-attendee-card:hover {
+            transform: translateX(5px);
+        }
+
+        .list-attendee-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 20px;
+            margin: 20px;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .list-attendee-content {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .list-attendee-info {
+            flex: 1;
+        }
+
+        .list-attendee-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .notification-banner {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            animation: slideIn 0.5s ease;
+        }
+
+        .profile-attendee-head{
+            background: white !important;
+            display: flex;
+            gap: 10px;
+        }
+
+        .attendee-match-reason{
+            background: rgb(243, 243, 255);
+            color: rgb(24, 24, 77);
+        }
+
+        .attendee-match-reason span{
+            font-weight: 700;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .notification-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .vip-attendee-card{
+            border: 2px solid green;
+        }
+
+        .attendee-vip{
+            padding: 5px 20px;
+            background: #f4f4f4;
+            border-radius: 4px;
+            color: #089f6f;
+            margin-left: 10px;
+            font-weight: 700;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .main-content {
+                grid-template-columns: 300px 1fr 340px;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .sidebar, .networking-sidebar {
+                order: 2;
+            }
+            
+            .attendees-area {
+                order: 1;
+            }
+
+            .event-stats {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                gap: 20px;
+            }
+            
+            .attendees-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .event-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .quick-actions {
+                grid-template-columns: 1fr;
+            }
+
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .list-attendee-card {
+                flex-direction: column;
+            }
+
+            .list-attendee-content {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+        }
+
+        .success-animation {
+            animation: success 0.6s ease;
+        }
+
+        @keyframes success {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); background: #10b981; }
+            100% { transform: scale(1); }
+        }
     </style>
 </head>
 
@@ -60,9 +997,9 @@
     <div class="sidebar">
         <img src="assets/img/GITEXNIGERIA_AIheadlogo.png" alt="" class="sidebar-logo">
       <ul>
-        <li class="active" data-tab="visitor"><i class="fas fa-user"></i> Visitor Details</li>
+        <li data-tab="visitor"><i class="fas fa-user"></i> Visitor Details</li>
         <li data-tab="badge"><i class="fas fa-id-badge"></i> Badge</li>
-        <li data-tab="matchmaking"><i class="fas fa-handshake"></i> Matchmaking</li>
+        <li class="active" data-tab="matchmaking"><i class="fas fa-handshake"></i> Matchmaking</li>
       </ul>
     </div>
 
@@ -70,16 +1007,197 @@
           <div class="visitor_topright">
             <div class="completed-badge">Event Portal</div>
             <div class="d-flex gap-2 align-items-center">
-                        <a href="notification.html"><div class="visitor-notification">
-                        <i class="far fa-bell"></i>
-                        <span class="notification-dot"></span>
-                    </div></a>
-                <h4>Bishru Rahman</h4>
+    <div class="notification-wrapper">
+        <div class="visitor-notification" id="notificationBtn">
+            <i class="far fa-bell"></i>
+            <span class="notification-dot">4</span>
+        </div>
+        
+        <!-- Notification Popup -->
+                <div id="notificationBackdrop" class="notification-backdrop"></div>
+                <div class="notification-popup" id="notificationPopup">
+                    <div class="notification-header">
+                        <h5>Notifications</h5>
+                        <a href="notification.html" class="view-all">View All</a>
+                    </div>
+                    <div class="notification-list-dashboard">
+                    <!-- Unread Notification -->
+                    <div class="notification-item unread">
+                        <div class="notification-avatar">
+                            <i class="fas fa-bell notification-icon system-update"></i>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-text">
+                                <strong>System Update:</strong> Your exhibitor profile has been verified
+                            </div>
+                            <div class="notification-badge">Important</div>
+                            <div class="notification-time">3 hours ago</div>
+                        </div>
+                        <div class="notification-options">
+                            <div class="dropdown">
+                                <button class="btn btn-link p-0" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end notification-dropdown">
+                                    <li><a class="dropdown-item" href="#"><i class="fas fa-eye"></i> View</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fas fa-bell-slash"></i> Mute</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="fas fa-bookmark"></i> Save</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i>
+                                            Delete</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                <div class="notification-item unread">
+                    <div class="notification-avatar">
+                        <i class="fas fa-calendar notification-icon event"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-text">
+                            <strong>Event Reminder:</strong> GITEX Workshop starts in 2 hours
+                        </div>
+                        <div class="notification-time">5 hours ago</div>
+                        <div class="notification-actions">
+                            <button class="view-btn">View Details</button>
+                            <button class="remind-btn">Remind Later</button>
+                        </div>
+                    </div>
+                    <div class="notification-options">
+                        <div class="dropdown">
+                            <button class="btn btn-link p-0" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end notification-dropdown">
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-eye"></i> View</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-bell-slash"></i> Mute</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-bookmark"></i> Save</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i>
+                                        Delete</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="notification-item">
+                    <div class="notification-avatar">
+                        <i class="fas fa-credit-card notification-icon payment"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-text">
+                            Payment of <strong>€500</strong> has been successfully processed
+                        </div>
+                        <div class="notification-time">1 day ago</div>
+                        <div class="notification-actions">
+                            <button class="download-btn">Download Invoice</button>
+                        </div>
+                    </div>
+                    <div class="notification-options">
+                        <div class="dropdown">
+                            <button class="btn btn-link p-0" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end notification-dropdown">
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-eye"></i> View</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-bell-slash"></i> Mute</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-bookmark"></i> Save</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i>
+                                        Delete</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Document Verification -->
+                <div class="notification-item">
+                    <div class="notification-avatar">
+                        <i class="fas fa-file-alt notification-icon document"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-text">
+                            Your documents are pending verification
+                        </div>
+                        <div class="notification-badge warning">Action Required</div>
+                        <div class="notification-time">2 days ago</div>
+                        <div class="notification-actions">
+                            <button class="upload-btn">Upload Documents</button>
+                        </div>
+                    </div>
+                    <div class="notification-options">
+                        <div class="dropdown">
+                            <button class="btn btn-link p-0" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end notification-dropdown">
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-eye"></i> View</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-bell-slash"></i> Mute</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-bookmark"></i> Save</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i>
+                                        Delete</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Read Notification -->
+                <div class="notification-item">
+                    <div class="notification-avatar">
+                        <i class="fas fa-ticket-alt notification-icon"></i>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-text">
+                            Your ticket has been successfully upgraded to Premium
+                        </div>
+                        <div class="notification-time">1 hour ago</div>
+                    </div>
+                    <div class="notification-options">
+                        <div class="dropdown">
+                            <button class="btn btn-link p-0" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end notification-dropdown">
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-eye"></i> View</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-bell-slash"></i> Mute</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-bookmark"></i> Save</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash-alt"></i>
+                                        Delete</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
+                </div>
+            </div>
+            <h4>Mohammed Navab</h4>
+        </div>
     </div>
 
         <!-- Visitor Detailes -->
-      <div class="tab-content" id="visitor">
+      <div class="tab-content" id="visitor" style="display: none;">
             <h4 class="dash-head">Registration Information</h4>
             <p>Complete your event registration with the required information below</p>
         <div class="row ">
@@ -1385,516 +2503,599 @@
       <!-- Badge Detailes -->
 
        <!-- Matchmaking Detailes -->
-      <div class="tab-content" id="matchmaking" style="display: none;">
-        <div>
-        <section class="matchmakingsection">
-        <h4 class="dash-head">Professional Matchmaking</h4>
-        
-        <!-- Filters Section -->
-        <div class="filters-section">
-            <div class="row align-items-center">
-                <!-- Search Box -->
-                <div class="col-lg-4 col-md-6 col-sm-6 mb-3">
-                    <div class="search-box">
-                        <input type="text" class="form-control" id="searchInput" placeholder="Search by name or email...">
+      <div class="tab-content" id="matchmaking" >
+        <div class="container">
+        <!-- Notification Banner -->
+        <div class="notification-banner" id="notificationBanner" style="display: none;">
+            <span id="notificationText">🎉 Great! You have 5 new connection requests</span>
+            <button class="notification-close" onclick="closeNotification()">&times;</button>
+        </div>
+
+        <!-- Main Content -->
+         <div class="search-container">
+                    <div class="search-wrapper">
+                        <input type="text" class="match-making-search-input" placeholder="Search users...">
+                        <button class="search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
                     </div>
                 </div>
-                
-                <!-- Filter Dropdowns -->
-                <div class="col-lg-3 col-md-6 col-sm-6 mb-3">
-                    <div class="filter-dropdown">
-                        <select class="form-select" id="matchingFilter">
-                            <option style="display: none;" value="">All Matching </option>
-                            <option value="100">100% Match</option>
-                            <option value="90">90% Match</option>
-                            <option value="80">80% Match</option>
-                            <option value="70">70% Match</option>
-                            <option value="60">60% Match</option>
-                            <option value="50">50% Match</option>
-                        </select>
+
+        <div class="main-content">
+            <!-- Filters Sidebar -->
+            <aside class="">
+            
+                <div class="event-stats">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalAttendees">847</div>
+                        <div class="stat-label">Total Attendees</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="onlineNow">156</div>
+                        <div class="stat-label">Online Now</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="nearYou">89</div>
+                        <div class="stat-label">Near You</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="highMatch">42</div>
+                        <div class="stat-label">High Match</div>
                     </div>
                 </div>
+
                 
-                <div class="col-lg-3 col-md-6 col-sm-6 mb-3">
-                    <div class="filter-dropdown">
-                        <select class="form-select" id="statusFilter">
-                            <option style="display: none;" value="">Status</option>
-                            <option value="connections">My Connections (15)</option>
-                            <option value="favorites">Favorites (18)</option>
-                            <option value="send-request">Send Requests (71)</option>
-                            <option value="recieved-request">Recieved Requests (78)</option>
-                            <option value="meeting-request">Meeting Requests (87)</option>
-                        </select>
+
+                <div class="filter-group">
+                    <label class="filter-label">Networking Goal</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item" data-filter="business">
+                        <input type="checkbox" checked>
+                        <span class="checkbox-text">Business Partners</span>
+                        </label>
+
+                        <label class="checkbox-item" data-filter="investors">
+                        <input type="checkbox">
+                        <span class="checkbox-text">Investors</span>
+                        </label>
+
+                        <label class="checkbox-item" data-filter="jobs">
+                        <input type="checkbox">
+                        <span class="checkbox-text">Job Opportunities</span>
+                        </label>
+
+                        <label class="checkbox-item" data-filter="knowledge">
+                        <input type="checkbox">
+                        <span class="checkbox-text">Knowledge Exchange</span>
+                        </label>
+
+                        <label class="checkbox-item" data-filter="mentorship">
+                        <input type="checkbox">
+                        <span class="checkbox-text">Mentorship</span>
+                        </label>
                     </div>
                 </div>
-                
-                <div class="col-lg-2 col-md-6 col-sm-6 mb-3">
-                    <button class="buy-btn violet-btn w-100 m-0" id="clearFilters">
-                        <i class="fas fa-times"></i> Clear
-                    </button>
+
+                <div class="filter-group">
+                    <label class="filter-label">Percentage</label>
+                    <select class="filter-select" id="industryFilter">
+                        <option value="">100%</option>
+                        <option value="technology">90%-99%</option>
+                        <option value="finance">80%-89%</option>
+                        <option value="healthcare">70%-99%</option>
+                        <option value="education">60%-69%</option>
+                        <option value="marketing">50%-59%</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label class="filter-label">Industry</label>
+                    <select class="filter-select" id="industryFilter">
+                        <option value="">All Industries</option>
+                        <option value="technology">Technology</option>
+                        <option value="finance">Finance</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="education">Education</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="consulting">Consulting</option>
+                        <option value="startup">Startup</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                <label class="filter-label">Job Level</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item" data-filter="c-level">
+                    <input type="checkbox" name="job-level" value="c-level">
+                    <span class="checkbox-text">C-Level Executive</span>
+                </label>
+
+                <label class="checkbox-item" data-filter="president">
+                    <input type="checkbox" name="job-level" value="president">
+                    <span class="checkbox-text">President/Owner</span>
+                </label>
+
+                <label class="checkbox-item" data-filter="vp">
+                    <input type="checkbox" name="job-level" value="vp">
+                    <span class="checkbox-text">Vice President</span>
+                </label>
+
+                <label class="checkbox-item" data-filter="director">
+                    <input type="checkbox" name="job-level" value="director">
+                    <span class="checkbox-text">Director</span>
+                </label>
+
+                <label class="checkbox-item" data-filter="senior-manager">
+                    <input type="checkbox" name="job-level" value="senior-manager">
+                    <span class="checkbox-text">Senior Manager</span>
+                </label>
+
+                <label class="checkbox-item" data-filter="manager">
+                    <input type="checkbox" name="job-level" value="manager">
+                    <span class="checkbox-text">Manager</span>
+                </label>
+
+                <label class="checkbox-item" data-filter="specialist">
+                    <input type="checkbox" name="job-level" value="specialist">
+                    <span class="checkbox-text">Specialist/Expert</span>
+                </label>
+
+                <label class="checkbox-item" data-filter="senior">
+                    <input type="checkbox" name="job-level" value="senior">
+                    <span class="checkbox-text">Senior Professional</span>
+                </label>
+                    <script>
+                        document.querySelectorAll('.checkbox-text').forEach(span => {
+  span.addEventListener('click', function () {
+    const checkbox = this.closest('label').querySelector('input[type="checkbox"]');
+    checkbox.checked = !checkbox.checked;
+  });
+});
+                    </script>
+                    <label class="checkbox-item" data-filter="professional">
+                        <input type="checkbox" name="job-level" value="professional">
+                        <span class="checkbox-text">Professional</span>
+                    </label>
+                    <label class="checkbox-item" data-filter="entry">
+                        <input type="checkbox" name="job-level" value="entry">
+                        <span class="checkbox-text">Entry Level</span>
+                    </label>
+                    <label class="checkbox-item" data-filter="consultant">
+                        <input type="checkbox" name="job-level" value="consultant">
+                        <span class="checkbox-text">Consultant</span>
+                    </label>
+                    <label class="checkbox-item" data-filter="other">
+                        <input type="checkbox" name="job-level" value="other">
+                        <span class="checkbox-text">Other</span>
+                    </label>
                 </div>
             </div>
-            
-            <!-- Tab Filters -->
-                            <div class="row mt-3">
-                                <div class="col-12">
-                                    <ul class="nav filter-tabs" id="filterTabs">
-                                        <li class="nav-item">
-                                            <button class="nav-link active" data-filter="all">All Users</button>
-                                        </li>
-                                        <li class="nav-item">
-                                            <button class="nav-link" data-filter="technology">Technology</button>
-                                        </li>
-                                        <li class="nav-item">
-                                            <button class="nav-link" data-filter="business">Business</button>
-                                        </li>
-                                        <li class="nav-item">
-                                            <button class="nav-link" data-filter="startups">Startups</button>
-                                        </li>
-                                        <li class="nav-item">
-                                            <button class="nav-link" data-filter="investment">Investment</button>
-                                        </li>
-                                        <li class="nav-item">
-                                            <button class="nav-link" data-filter="ai-innovation">AI Innovation</button>
-                                        </li>
-                                        <li class="nav-item">
-                                            <button class="nav-link" data-filter="fintech">Fintech</button>
-                                        </li>
-                                    </ul>
-                                    </div>
+            </aside>
+
+            <!-- Attendees Area -->
+            <main class="attendees-area">
+                
+
+                <!-- Grid View -->
+                <div class="attendees-grid active" id="gridView">
+                    <div class="attendee-card vip-attendee-card" onclick="viewProfile('sarah')">
+                        <div class="attendee-header profile-attendee-head">
+                            <div class="attendee-avatar">
+                                SJ
+                                <div class="online-indicator"></div>
+                            </div>
+                            <div class="attendee-basic-info">
+                                <div class="attendee-name">Sarah Johnson</div>
+                                <div class="attendee-title">VP of Product <span class="attendee-vip">VIP</span></div>
+                                <div class="attendee-company">TechFlow Inc.</div>
+                            </div>
+                            <div class="compatibility-score">92% Match</div>
+                        </div>
+                        <div class="attendee-info">
+                            <div class="attendee-purpose">🎯 Seeking: AI partnerships & investment opportunities</div>
+                            <div class="attendee-interests">
+                                <span class="interest-tag">AI/ML</span>
+                                <span class="interest-tag">Product Strategy</span>
+                                <span class="interest-tag">SaaS</span>
+                            </div>
+                            <div class="attendee-schedule">📅 Available: Today 2-4 PM • Coffee break</div>
+                            <div class="attendee-schedule attendee-match-reason"><span>Match Reason:</span> You both share similar industry interests.</div>
+                            <div class="attendee-actions">
+                                <button class="action-btn connect-btn" onclick="connectUser('sarah', event)">Connect</button>
+                                <button class="action-btn message-btn" onclick="messageUser('sarah', event)">Message</button>
+                                <button class="action-btn schedule-btn" onclick="scheduleUser('sarah', event)">Schedule</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="attendee-card vip-attendee-card" onclick="viewProfile('marcus')">
+                        <div class="attendee-header profile-attendee-head">
+                            <div class="attendee-avatar"><img src="assets/img/user-1.jpg" alt=""></div>
+                            <div class="attendee-basic-info">
+                                <div class="attendee-name">Marcus Rodriguez</div>
+                                <div class="attendee-title">Founder & CEO <span class="attendee-vip">VIP</span></div>
+                                <div class="attendee-company">GreenTech Solutions</div>
+                            </div>
+                            <div class="compatibility-score">88% Match</div>
+                        </div>
+                        <div class="attendee-info">
+                            <div class="attendee-purpose">🌱 Seeking: Sustainable tech collaborations</div>
+                            <div class="attendee-interests">
+                                <span class="interest-tag">Sustainability</span>
+                                <span class="interest-tag">Clean Energy</span>
+                                <span class="interest-tag">IoT</span>
+                            </div>
+                            <div class="attendee-schedule">📅 Available: Tomorrow 10-12 PM • Networking lunch</div>
+                            <div class="attendee-schedule attendee-match-reason"><span>Match Reason:</span> You both share similar industry interests.</div>
+                            <div class="attendee-actions">
+                                <button class="action-btn connect-btn" onclick="connectUser('marcus', event)">Connect</button>
+                                <button class="action-btn message-btn" onclick="messageUser('marcus', event)">Message</button>
+                                <button class="action-btn schedule-btn" onclick="scheduleUser('marcus', event)">Schedule</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="attendee-card" onclick="viewProfile('emily')">
+                        <div class="attendee-header profile-attendee-head">
+                            <div class="attendee-avatar">
+                                EC
+                                <div class="online-indicator"></div>
+                            </div>
+                            <div class="attendee-basic-info">
+                                <div class="attendee-name">Emily Chen</div>
+                                <div class="attendee-title">Investment Director</div>
+                                <div class="attendee-company">Venture Capital Partners</div>
+                            </div>
+                            <div class="compatibility-score">94% Match</div>
+                        </div>
+                        <div class="attendee-info">
+                            <div class="attendee-purpose">💰 Seeking: Early-stage startups in AI & FinTech</div>
+                            <div class="attendee-interests">
+                                <span class="interest-tag">Venture Capital</span>
+                                <span class="interest-tag">FinTech</span>
+                                <span class="interest-tag">B2B SaaS</span>
+                            </div>
+                            <div class="attendee-schedule">📅 Available: Today 4-6 PM • VIP networking</div>
+                             <div class="attendee-schedule attendee-match-reason"><span>Match Reason:</span> You both share similar industry interests.</div>
+                            <div class="attendee-actions">
+                                <button class="action-btn connect-btn" onclick="connectUser('emily', event)">Connect</button>
+                                <button class="action-btn message-btn" onclick="messageUser('emily', event)">Message</button>
+                                <button class="action-btn schedule-btn" onclick="scheduleUser('emily', event)">Schedule</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="attendee-card" onclick="viewProfile('david')">
+                        <div class="attendee-header profile-attendee-head">
+                            <div class="attendee-avatar">DK</div>
+                            <div class="attendee-basic-info">
+                                <div class="attendee-name">David Kim</div>
+                                <div class="attendee-title">Head of Engineering</div>
+                                <div class="attendee-company">CloudScale Systems</div>
+                            </div>
+                            <div class="compatibility-score">85% Match</div>
+                        </div>
+                        <div class="attendee-info">
+                            <div class="attendee-purpose">🔧 Seeking: Technical partnerships & talent exchange</div>
+                            <div class="attendee-interests">
+                                <span class="interest-tag">Cloud Infrastructure</span>
+                                <span class="interest-tag">DevOps</span>
+                                <span class="interest-tag">Kubernetes</span>
+                            </div>
+                            <div class="attendee-schedule">📅 Available: Today 12-2 PM • Tech talk session</div>
+                             <div class="attendee-schedule attendee-match-reason"><span>Match Reason:</span> You both share similar industry interests.</div>
+                            <div class="attendee-actions">
+                                <button class="action-btn connect-btn" onclick="connectUser('david', event)">Connect</button>
+                                <button class="action-btn message-btn" onclick="messageUser('david', event)">Message</button>
+                                <button class="action-btn schedule-btn" onclick="scheduleUser('david', event)">Schedule</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="attendee-card" onclick="viewProfile('lisa')">
+                        <div class="attendee-header profile-attendee-head">
+                            <div class="attendee-avatar">
+                                LW
+                                <div class="online-indicator"></div>
+                            </div>
+                            <div class="attendee-basic-info">
+                                <div class="attendee-name">Lisa Wang</div>
+                                <div class="attendee-title">Chief Marketing Officer</div>
+                                <div class="attendee-company">Growth Dynamics</div>
+                            </div>
+                            <div class="compatibility-score">90% Match</div>
+                        </div>
+                        <div class="attendee-info">
+                            <div class="attendee-purpose">📈 Seeking: Marketing partnerships & growth strategies</div>
+                            <div class="attendee-interests">
+                                <span class="interest-tag">Growth Hacking</span>
+                                <span class="interest-tag">MarTech</span>
+                                <span class="interest-tag">Analytics</span>
+                            </div>
+                            <div class="attendee-schedule">📅 Available: Tomorrow 9-11 AM • Breakfast meeting</div>
+                            <div class="attendee-schedule attendee-match-reason"><span>Match Reason:</span> You both share similar industry interests.</div>                            <div class="attendee-actions">
+                                <button class="action-btn connect-btn" onclick="connectUser('lisa', event)">Connect</button>
+                                <button class="action-btn message-btn" onclick="messageUser('lisa', event)">Message</button>
+                                <button class="action-btn schedule-btn" onclick="scheduleUser('lisa', event)">Schedule</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="attendee-card" onclick="viewProfile('james')">
+                        <div class="attendee-header profile-attendee-head">
+                            <div class="attendee-avatar">JB</div>
+                            <div class="attendee-basic-info">
+                                <div class="attendee-name">James Brown</div>
+                                <div class="attendee-title">Research Scientist</div>
+                                <div class="attendee-company">MIT AI Lab</div>
+                            </div>
+                            <div class="compatibility-score">87% Match</div>
+                        </div>
+                        <div class="attendee-info">
+                            <div class="attendee-purpose">🔬 Seeking: Research collaborations & industry applications</div>
+                            <div class="attendee-interests">
+                                <span class="interest-tag">Machine Learning</span>
+                                <span class="interest-tag">NLP</span>
+                                <span class="interest-tag">Computer Vision</span>
+                            </div>
+                            <div class="attendee-schedule">📅 Available: Today 3-5 PM • Research showcase</div>
+                            <div class="attendee-schedule attendee-match-reason"><span>Match Reason:</span> You both share similar industry interests.</div>
+                            <div class="attendee-actions">
+                                <button class="action-btn connect-btn" onclick="connectUser('james', event)">Connect</button>
+                                <button class="action-btn message-btn" onclick="messageUser('james', event)">Message</button>
+                                <button class="action-btn schedule-btn" onclick="scheduleUser('james', event)">Schedule</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- List View -->
+                <div class="attendees-list" id="listView">
+                    <div class="list-attendee-card" onclick="viewProfile('sarah')">
+                        <div class="list-attendee-avatar">
+                            SJ
+                            <div class="online-indicator"></div>
+                        </div>
+                        <div class="list-attendee-content">
+                            <div class="list-attendee-info">
+                                <div class="attendee-name">Sarah Johnson</div>
+                                <div class="attendee-title">VP of Product at TechFlow Inc.</div>
+                                <div class="attendee-purpose">🎯 Seeking: AI partnerships & investment opportunities</div>
+                                <div class="attendee-interests">
+                                    <span class="interest-tag">AI/ML</span>
+                                    <span class="interest-tag">Product Strategy</span>
+                                    <span class="interest-tag">SaaS</span>
                                 </div>
                             </div>
-                            
-                            <!-- Results Info -->
-                        
-        
-        <!-- User Cards Grid -->
-        <div class="row gy-3" id="userGrid">
-            <!-- User 1 -->
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 user-card" data-name="Maria John" data-email="maria@gmail.com" data-match="75" data-status="connections">
-                <div class="match-profile-card">
-                    <div class="match-image-wrapper">
-                        <img src="assets/img/user-1.jpg" alt="">
+                            <div class="list-attendee-actions">
+                                <div class="compatibility-score">92% Match</div>
+                                <button class="action-btn connect-btn" onclick="connectUser('sarah', event)">Connect</button>
+                                <button class="action-btn message-btn" onclick="messageUser('sarah', event)">Message</button>
+                            </div>
+                        </div>
                     </div>
-                    <button class="like-btn">
-                    <span class="heart">&#10084;</span>
-                    </button>
-                    <div>
-                        <h5>Maria John</h5>
-                        <h6>maria@gmail.com</h6>
-                        <div class="demo-item">
-                            <div class="progress-label">
-                                <span>Matching</span>
-                                <span>75%</span>
+
+                    <div class="list-attendee-card" onclick="viewProfile('emily')">
+                        <div class="list-attendee-avatar">
+                            EC
+                            <div class="online-indicator"></div>
+                        </div>
+                        <div class="list-attendee-content">
+                            <div class="list-attendee-info">
+                                <div class="attendee-name">Emily Chen</div>
+                                <div class="attendee-title">Investment Director at Venture Capital Partners</div>
+                                <div class="attendee-purpose">💰 Seeking: Early-stage startups in AI & FinTech</div>
+                                <div class="attendee-interests">
+                                    <span class="interest-tag">Venture Capital</span>
+                                    <span class="interest-tag">FinTech</span>
+                                    <span class="interest-tag">B2B SaaS</span>
+                                </div>
                             </div>
-                            <div class="progress-container" data-percentage="75">
-                                <div class="progress-bar" style="width: 75%"></div>
+                            <div class="list-attendee-actions">
+                                <div class="compatibility-score">94% Match</div>
+                                <button class="action-btn connect-btn" onclick="connectUser('emily', event)">Connect</button>
+                                <button class="action-btn message-btn" onclick="messageUser('emily', event)">Message</button>
                             </div>
-                            <div class="matchmaking-buttons">
-                                <button data-bs-toggle="modal" data-bs-target="#profileModal" type="button">
-                                    <span><i class="fas fa-user-circle"></i></span>View Profile
-                                </button>
-                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
-                                    <span><i class="fas fa-user-plus"></i></span> Connect
-                                </button>
+                        </div>
+                    </div>
+
+                    <div class="list-attendee-card" onclick="viewProfile('lisa')">
+                        <div class="list-attendee-avatar">
+                            LW
+                            <div class="online-indicator"></div>
+                        </div>
+                        <div class="list-attendee-content">
+                            <div class="list-attendee-info">
+                                <div class="attendee-name">Lisa Wang</div>
+                                <div class="attendee-title">Chief Marketing Officer at Growth Dynamics</div>
+                                <div class="attendee-purpose">📈 Seeking: Marketing partnerships & growth strategies</div>
+                                <div class="attendee-interests">
+                                    <span class="interest-tag">Growth Hacking</span>
+                                    <span class="interest-tag">MarTech</span>
+                                    <span class="interest-tag">Analytics</span>
+                                </div>
+                            </div>
+                            <div class="list-attendee-actions">
+                                <div class="compatibility-score">90% Match</div>
+                                <button class="action-btn connect-btn" onclick="connectUser('lisa', event)">Connect</button>
+                                <button class="action-btn message-btn" onclick="messageUser('lisa', event)">Message</button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- User 2 -->
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 user-card" data-name="Mohammed Navab" data-email="navab@gmail.com" data-match="75" data-status="favorites">
-                <div class="match-profile-card">
-                    <div class="match-image-wrapper">
-                        <img src="assets/img/user-2.jpg" alt="">
+            </main>
+
+            <!-- Networking Sidebar -->
+            <aside class="networking-sidebar">
+                <h3>Networking Hub</h3>
+                
+                <div class="quick-actions">
+                    <div class="quick-action-btn" onclick="quickAction('nearby')">
+                        <div class="quick-action-icon">📍</div>
+                        <div>Find Nearby</div>
                     </div>
-                    <button class="like-btn">
-                    <span class="heart">&#10084;</span>
-                    </button>
-                    <div>
-                        <h5>Mohammed Navab</h5>
-                        <h6>navab@gmail.com</h6>
-                        <div class="demo-item">
-                            <div class="progress-label">
-                                <span>Matching</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="progress-container" data-percentage="75">
-                                <div class="progress-bar" style="width: 75%"></div>
-                            </div>
-                            <div class="matchmaking-buttons">
-                                <button data-bs-toggle="modal" data-bs-target="#profileModal" type="button">
-                                    <span><i class="fas fa-user-circle"></i></span>View Profile
-                                </button>
-                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
-                                    <span><i class="fas fa-user-plus"></i></span> Connect
-                                </button>
-                            </div>
-                        </div>
+                    <div class="quick-action-btn" onclick="quickAction('coffee')">
+                        <div class="quick-action-icon">☕</div>
+                        <div>Coffee Break</div>
+                    </div>
+                    <div class="quick-action-btn" onclick="quickAction('lunch')">
+                        <div class="quick-action-icon">🍽️</div>
+                        <div>Lunch Meet</div>
+                    </div>
+                    <div class="quick-action-btn" onclick="quickAction('session')">
+                        <div class="quick-action-icon">📊</div>
+                        <div>Session Buddy</div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- User 3 -->
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 user-card" data-name="Ahmed Bazil" data-email="bazil@gmail.com" data-match="50" data-status="friend">
-                <div class="match-profile-card">
-                    <a href="chat.html">
-                        <div class="chat-icon">
-                            <i class="far fa-comment-dots"></i>
+
+                <div class="connections-list">
+                    <h4 style="font-size: 14px; margin-bottom: 15px; color: #333;">Recent Connections</h4>
+                    
+                    <div class="connection-item" onclick="openChat('sarah')">
+                        <div class="connection-avatar">
+                            SJ
+                            <div class="new-connection"></div>
                         </div>
-                    </a>
-                    <div class="meeting-icon-wrapper">
-                        <button class="meeting-icon" data-bs-toggle="modal" data-bs-target="#meetingModal">
-                            <i class="fa-solid fa-headset"></i>
+                        <div class="connection-info">
+                            <div class="connection-name">Sarah Johnson</div>
+                            <div class="connection-status">Connected 5 min ago</div>
+                        </div>
+                        <div class="connection-time">Now</div>
+                    </div>
+
+                    <div class="connection-item" onclick="openChat('mike')">
+                        <div class="connection-avatar">MT</div>
+                        <div class="connection-info">
+                            <div class="connection-name">Mike Thompson</div>
+                            <div class="connection-status">Wants to schedule a meeting</div>
+                        </div>
+                        <div class="connection-time">2h</div>
+                    </div>
+
+                    <div class="connection-item" onclick="openChat('anna')">
+                        <div class="connection-avatar">AS</div>
+                        <div class="connection-info">
+                            <div class="connection-name">Anna Silva</div>
+                            <div class="connection-status">Shared contact info</div>
+                        </div>
+                        <div class="connection-time">1d</div>
+                    </div>
+
+                    <div class="connection-item" onclick="openChat('robert')">
+                        <div class="connection-avatar">RJ</div>
+                        <div class="connection-info">
+                            <div class="connection-name">Robert Jackson</div>
+                            <div class="connection-status">Mutual connection with Lisa</div>
+                        </div>
+                        <div class="connection-time">2d</div>
+                    </div>
+                </div>
+
+                <div class="upcoming-sessions">
+                    <div class="sessions-title">📅 Your Upcoming Sessions</div>
+                    <div class="session-item">
+                        <div class="session-time">2:30 PM - 3:15 PM</div>
+                        <div class="session-title">AI in Healthcare Panel</div>
+                    </div>
+                    <div class="session-item">
+                        <div class="session-time">4:00 PM - 5:00 PM</div>
+                        <div class="session-title">Networking Happy Hour</div>
+                    </div>
+                    <div class="session-item">
+                        <div class="session-time">Tomorrow 9:00 AM</div>
+                        <div class="session-title">Startup Pitch Competition</div>
+                    </div>
+                </div>
+
+                <div class="ai-suggestions">
+                    <div class="ai-title">🤖 AI Networking Assistant</div>
+                    <div class="ai-suggestion">
+                        "Based on your interests in AI and your startup background, I recommend connecting with Emily Chen (VC) and Sarah Johnson (Product VP) for potential partnerships."
+                    </div>
+                    <button class="ai-btn" onclick="acceptAiSuggestion()">Show Me</button>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Floating Action Button -->
+        <button class="floating-action" onclick="showQRCode()" title="Share Your Profile">
+            📱
+        </button>
+
+        <!-- Profile Modal -->
+        <div class="modal-overlay" id="profileModal">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3 class="modal-title">Attendee Profile</h3>
+                    <button class="modal-close" onclick="closeModal()">&times;</button>
+                </div>
+                <div class="profile-modal-content">
+                    <div class="profile-modal-avatar" id="modalAvatar">SJ</div>
+                    <h2 id="modalName">Sarah Johnson</h2>
+                    <p id="modalTitle">VP of Product at TechFlow Inc.</p>
+                    
+                    <div class="profile-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Industry:</span>
+                            <span class="detail-value" id="modalIndustry">Technology</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Experience:</span>
+                            <span class="detail-value" id="modalExperience">8 years</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Location:</span>
+                            <span class="detail-value" id="modalLocation">San Francisco, CA</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Company Size:</span>
+                            <span class="detail-value" id="modalCompanySize">201-500 employees</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Networking Goal:</span>
+                            <span class="detail-value" id="modalGoal">AI partnerships & investment</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Interests:</span>
+                            <span class="detail-value" id="modalInterests">AI/ML, Product Strategy, SaaS</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Sessions Attending:</span>
+                            <span class="detail-value" id="modalSessions">AI Panel, Product Workshop</span>
+                        </div>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button class="modal-btn modal-btn-primary" onclick="connectWithUser()">
+                            Connect & Message
+                        </button>
+                        <button class="modal-btn modal-btn-secondary" onclick="scheduleWithUser()">
+                            Schedule Meeting
                         </button>
                     </div>
-                    <div class="match-image-wrapper">
-                        <img src="assets/img/user-3.jpeg" alt="">
-                    </div>
-                    <button class="like-btn">
-                    <span class="heart">&#10084;</span>
-                    </button>
-                    <div>
-                        <h5>Ahmed Bazil</h5>
-                        <h6>bazil@gmail.com</h6>
-                        <div class="demo-item">
-                            <div class="progress-label">
-                                <span>Matching</span>
-                                <span>50%</span>
-                            </div>
-                            <div class="progress-container" data-percentage="50">
-                                <div class="progress-bar" style="width: 50%"></div>
-                            </div>
-                            <div class="matchmaking-buttons">
-                                <button data-bs-toggle="modal" data-bs-target="#profileModal" type="button">
-                                    <span><i class="fas fa-user-circle"></i></span>View Profile
-                                </button>
-                                <button class="purple-btn ready-frnd" data-bs-toggle="modal" data-bs-target="#remove_friend">
-                                    <span><i class="fas fa-user-check"></i></span> Connected </button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
-            
-            <!-- User 4 -->
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 user-card" data-name="Nishida" data-email="nishida@gmail.com" data-match="60" data-status="connect">
-                <div class="match-profile-card">
-                    <div class="match-image-wrapper">
-                        <img src="assets/img/user-4.jpg" alt="">
-                    </div>
-                    <button class="like-btn">
-                    <span class="heart">&#10084;</span>
-                    </button>
-                    <div>
-                        <h5>Nishida</h5>
-                        <h6>nishida@gmail.com</h6>
-                        <div class="demo-item">
-                            <div class="progress-label">
-                                <span>Matching</span>
-                                <span>60%</span>
-                            </div>
-                            <div class="progress-container" data-percentage="60">
-                                <div class="progress-bar" style="width: 60%"></div>
-                            </div>
-                            <div class="matchmaking-buttons">
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#profileModal">
-                                    <i class="fas fa-user-circle"></i> View Profile
-                                </button>
-                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
-                                    <span><i class="fas fa-user-plus"></i></span> Connect
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        </div>
 
-            <!-- User 5 -->
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 user-card" data-name="Ahmed Bazil" data-email="bazil@gmail.com" data-match="70" data-status="friend">
-                <div class="match-profile-card">
-                    <a href="chat.html">
-                        <div class="chat-icon">
-                            <i class="far fa-comment-dots"></i>
-                        </div>
-                    </a>
-                    <div class="meeting-icon-wrapper">
-                        <button class="meeting-icon" data-bs-toggle="modal" data-bs-target="#meetingModal">
-                            <i class="fa-solid fa-headset"></i>
+        <!-- QR Code Modal -->
+        <div class="modal-overlay" id="qrModal">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3 class="modal-title">Share Your Profile</h3>
+                    <button class="modal-close" onclick="closeModal()">&times;</button>
+                </div>
+                <div class="profile-modal-content">
+                    <div style="width: 200px; height: 200px; background: #f0f2f5; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin: 20px auto; font-size: 48px;">
+                        📱
+                    </div>
+                    <p style="margin: 20px 0; color: #666;">Other attendees can scan this QR code to view your profile and connect with you instantly.</p>
+                    <div class="modal-actions">
+                        <button class="modal-btn modal-btn-primary" onclick="closeModal()">
+                            Close
                         </button>
                     </div>
-                    <div class="match-image-wrapper">
-                        <img src="assets/img/user-3.jpeg" alt="">
-                    </div>
-                    <button class="like-btn">
-                    <span class="heart">&#10084;</span>
-                    </button>
-                    <div>
-                        <h5>Ahmed Bazil</h5>
-                        <h6>bazil@gmail.com</h6>
-                        <div class="demo-item">
-                            <div class="progress-label">
-                                <span>Matching</span>
-                                <span>70%</span>
-                            </div>
-                            <div class="progress-container" data-percentage="70">
-                                <div class="progress-bar" style="width: 70%"></div>
-                            </div>
-                            <div class="matchmaking-buttons">
-                                <button data-bs-toggle="modal" data-bs-target="#profileModal" type="button">
-                                    <span><i class="fas fa-user-circle"></i></span>View Profile
-                                </button>
-                                <button class="purple-btn ready-frnd" data-bs-toggle="modal" data-bs-target="#remove_friend">
-                                    <span><i class="fas fa-user-check"></i></span> Connected</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
-            
-            <!-- User 6 -->
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 user-card" data-name="Nishida" data-email="nishida@gmail.com" data-match="80" data-status="connect">
-                <div class="match-profile-card">
-                    <div class="match-image-wrapper">
-                        <img src="assets/img/user-4.jpg" alt="">
-                    </div>
-                    <button class="like-btn">
-                    <span class="heart">&#10084;</span>
-                    </button>
-                    <div>
-                        <h5>Nishida</h5>
-                        <h6>nishida@gmail.com</h6>
-                        <div class="demo-item">
-                            <div class="progress-label">
-                                <span>Matching</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="progress-container" data-percentage="80">
-                                <div class="progress-bar" style="width: 80%"></div>
-                            </div>
-                            <div class="matchmaking-buttons">
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#profileModal">
-                                    <i class="fas fa-user-circle"></i> View Profile
-                                </button>
-                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
-                                    <span><i class="fas fa-user-plus"></i></span> Connect
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- User 7 -->
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 user-card" data-name="Maria John" data-email="maria@gmail.com" data-match="90" data-status="connect">
-                <div class="match-profile-card">
-                    <div class="match-image-wrapper">
-                        <img src="assets/img/user-1.jpg" alt="">
-                    </div>
-                    <button class="like-btn">
-                    <span class="heart">&#10084;</span>
-                    </button>
-                    <div>
-                        <h5>Maria John</h5>
-                        <h6>maria@gmail.com</h6>
-                        <div class="demo-item">
-                            <div class="progress-label">
-                                <span>Matching</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="progress-container" data-percentage="90">
-                                <div class="progress-bar" style="width: 90%"></div>
-                            </div>
-                            <div class="matchmaking-buttons">
-                                <button data-bs-toggle="modal" data-bs-target="#profileModal" type="button">
-                                    <span><i class="fas fa-user-circle"></i></span>View Profile
-                                </button>
-                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
-                                    <span><i class="fas fa-user-plus"></i></span> Connect
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- User 8 -->
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 user-card" data-name="Mohammed Navab" data-email="navab@gmail.com" data-match="75" data-status="connect">
-                <div class="match-profile-card">
-                    <div class="match-image-wrapper">
-                        <img src="assets/img/user-2.jpg" alt="">
-                    </div>
-                    <button class="like-btn">
-                    <span class="heart">&#10084;</span>
-                    </button>
-                    <div>
-                        <h5>Mohammed Navab</h5>
-                        <h6>navab@gmail.com</h6>
-                        <div class="demo-item">
-                            <div class="progress-label">
-                                <span>Matching</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="progress-container" data-percentage="75">
-                                <div class="progress-bar" style="width: 75%"></div>
-                            </div>
-                            <div class="matchmaking-buttons">
-                                <button data-bs-toggle="modal" data-bs-target="#profileModal" type="button">
-                                    <span><i class="fas fa-user-circle"></i></span>View Profile
-                                </button>
-                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
-                                    <span><i class="fas fa-user-plus"></i></span> Connect
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- User 1 -->
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 user-card" data-name="Maria John" data-email="maria@gmail.com" data-match="75" data-status="connect">
-                <div class="match-profile-card">
-                    <div class="match-image-wrapper">
-                        <img src="assets/img/user-1.jpg" alt="">
-                    </div>
-                    <button class="like-btn">
-                    <span class="heart">&#10084;</span>
-                    </button>
-                    <div>
-                        <h5>Maria John</h5>
-                        <h6>maria@gmail.com</h6>
-                        <div class="demo-item">
-                            <div class="progress-label">
-                                <span>Matching</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="progress-container" data-percentage="75">
-                                <div class="progress-bar" style="width: 75%"></div>
-                            </div>
-                            <div class="matchmaking-buttons">
-                                <button data-bs-toggle="modal" data-bs-target="#profileModal" type="button">
-                                    <span><i class="fas fa-user-circle"></i></span>View Profile
-                                </button>
-                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
-                                    <span><i class="fas fa-user-plus"></i></span> Connect
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- User 2 -->
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 user-card" data-name="Mohammed Navab" data-email="navab@gmail.com" data-match="75" data-status="connect">
-                <div class="match-profile-card">
-                    <div class="match-image-wrapper">
-                        <img src="assets/img/user-2.jpg" alt="">
-                    </div>
-                    <button class="like-btn">
-                    <span class="heart">&#10084;</span>
-                    </button>
-                    <div>
-                        <h5>Mohammed Navab</h5>
-                        <h6>navab@gmail.com</h6>
-                        <div class="demo-item">
-                            <div class="progress-label">
-                                <span>Matching</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="progress-container" data-percentage="75">
-                                <div class="progress-bar" style="width: 75%"></div>
-                            </div>
-                            <div class="matchmaking-buttons">
-                                <button data-bs-toggle="modal" data-bs-target="#profileModal" type="button">
-                                    <span><i class="fas fa-user-circle"></i></span>View Profile
-                                </button>
-                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
-                                    <span><i class="fas fa-user-plus"></i></span> Connect
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- User 3 -->
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 user-card" data-name="Ahmed Bazil" data-email="bazil@gmail.com" data-match="50" data-status="friend">
-                <div class="match-profile-card">
-                    <a href="chat.html">
-                        <div class="chat-icon">
-                            <i class="far fa-comment-dots"></i>
-                        </div>
-                    </a>
-                    <div class="meeting-icon-wrapper">
-                        <button class="meeting-icon" data-bs-toggle="modal" data-bs-target="#meetingModal">
-                            <i class="fa-solid fa-headset"></i>
-                        </button>
-                    </div>
-                    <div class="match-image-wrapper">
-                        <img src="assets/img/user-3.jpeg" alt="">
-                    </div>
-                    <button class="like-btn">
-                    <span class="heart">&#10084;</span>
-                    </button>
-                    <div>
-                        <h5>Ahmed Bazil</h5>
-                        <h6>bazil@gmail.com</h6>
-                        <div class="demo-item">
-                            <div class="progress-label">
-                                <span>Matching</span>
-                                <span>50%</span>
-                            </div>
-                            <div class="progress-container" data-percentage="50">
-                                <div class="progress-bar" style="width: 50%"></div>
-                            </div>
-                            <div class="matchmaking-buttons">
-                                <button data-bs-toggle="modal" data-bs-target="#profileModal" type="button">
-                                    <span><i class="fas fa-user-circle"></i></span>View Profile
-                                </button>
-                                <button class="purple-btn ready-frnd" data-bs-toggle="modal" data-bs-target="#remove_friend">
-                                    <span><i class="fas fa-user-check"></i></span> Friend
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- User 4 -->
-            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 user-card" data-name="Nishida" data-email="nishida@gmail.com" data-match="50" data-status="connect">
-                <div class="match-profile-card">
-                    <div class="match-image-wrapper">
-                        <img src="assets/img/user-4.jpg" alt="">
-                    </div>
-                    <button class="like-btn">
-                    <span class="heart">&#10084;</span>
-                    </button>
-                    <div>
-                        <h5>Nishida</h5>
-                        <h6>nishida@gmail.com</h6>
-                        <div class="demo-item">
-                            <div class="progress-label">
-                                <span>Matching</span>
-                                <span>50%</span>
-                            </div>
-                            <div class="progress-container" data-percentage="50">
-                                <div class="progress-bar" style="width: 50%"></div>
-                            </div>
-                            <div class="matchmaking-buttons">
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#profileModal">
-                                    <i class="fas fa-user-circle"></i> View Profile
-                                </button>
-                                <button class="purple-btn connect-btn" data-bs-toggle="modal" data-bs-target="#followModal">
-                                    <span><i class="fas fa-user-plus"></i></span> Connect
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
         </div>
     </div>
       </div>
@@ -2713,45 +3914,6 @@ $(document).ready(function() {
 </script>
 
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Get all tabs
-    const tabs = document.querySelectorAll('.nav-link');
-    
-    // Add click event listeners to tabs
-    tabs.forEach(tab => {
-        tab.addEventListener('click', (e) => {
-            e.preventDefault();
-            
-            // Remove active class from all tabs
-            tabs.forEach(t => {
-                t.classList.remove('active');
-                t.setAttribute('aria-selected', 'false');
-            });
-            
-            // Add active class to clicked tab
-            tab.classList.add('active');
-            tab.setAttribute('aria-selected', 'true');
-            
-            // Show corresponding content
-            const targetId = tab.getAttribute('href').substring(1);
-            const tabPanes = document.querySelectorAll('.tab-pane');
-            tabPanes.forEach(pane => {
-                pane.classList.remove('show', 'active');
-            });
-            document.getElementById(targetId).classList.add('show', 'active');
-        });
-    });
-
-    // Handle notification click
-    const notification = document.querySelector('.visitor-notification');
-    notification.addEventListener('click', () => {
-        // Add your notification handling code here
-        console.log('Notification clicked');
-    });
-});
-</script>
-
 
 <script>
         function createProgressBar(container, percentage, tooltipText) {
@@ -2849,7 +4011,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 createProgressBar(container, percentage, tooltipText);
             }
         }
-    </script>
+</script>
     
  <script>
 let lastClickedBtn = null;
@@ -3010,9 +4172,782 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+<!-- New matchmaking -->
+
+<script>
+        // Sample attendee data
+        const attendeeData = {
+            sarah: {
+                name: "Sarah Johnson",
+                title: "VP of Product at TechFlow Inc.",
+                avatar: "SJ",
+                industry: "Technology",
+                experience: "8 years",
+                location: "San Francisco, CA",
+                companySize: "201-500 employees",
+                goal: "AI partnerships & investment",
+                interests: "AI/ML, Product Strategy, SaaS",
+                sessions: "AI Panel, Product Workshop"
+            },
+            marcus: {
+                name: "Marcus Rodriguez",
+                title: "Founder & CEO at GreenTech Solutions",
+                avatar: "MR",
+                industry: "Clean Technology",
+                experience: "12 years",
+                location: "Austin, TX",
+                companySize: "51-200 employees",
+                goal: "Sustainable tech collaborations",
+                interests: "Sustainability, Clean Energy, IoT",
+                sessions: "Green Tech Summit, Startup Showcase"
+            },
+            emily: {
+                name: "Emily Chen",
+                title: "Investment Director at Venture Capital Partners",
+                avatar: "EC",
+                industry: "Venture Capital",
+                experience: "10 years",
+                location: "Palo Alto, CA",
+                companySize: "11-50 employees",
+                goal: "Early-stage startups in AI & FinTech",
+                interests: "Venture Capital, FinTech, B2B SaaS",
+                sessions: "Investor Panel, Pitch Competition"
+            },
+            david: {
+                name: "David Kim",
+                title: "Head of Engineering at CloudScale Systems",
+                avatar: "DK",
+                industry: "Cloud Infrastructure",
+                experience: "9 years",
+                location: "Seattle, WA",
+                companySize: "201-500 employees",
+                goal: "Technical partnerships & talent exchange",
+                interests: "Cloud Infrastructure, DevOps, Kubernetes",
+                sessions: "Tech Architecture, DevOps Workshop"
+            },
+            lisa: {
+                name: "Lisa Wang",
+                title: "Chief Marketing Officer at Growth Dynamics",
+                avatar: "LW",
+                industry: "Marketing Technology",
+                experience: "11 years",
+                location: "New York, NY",
+                companySize: "101-200 employees",
+                goal: "Marketing partnerships & growth strategies",
+                interests: "Growth Hacking, MarTech, Analytics",
+                sessions: "Growth Strategies, MarTech Panel"
+            },
+            james: {
+                name: "James Brown",
+                title: "Research Scientist at MIT AI Lab",
+                avatar: "JB",
+                industry: "Research & Academia",
+                experience: "6 years",
+                location: "Cambridge, MA",
+                companySize: "1000+ employees",
+                goal: "Research collaborations & industry applications",
+                interests: "Machine Learning, NLP, Computer Vision",
+                sessions: "AI Research, Academic Collaborations"
+            }
+        };
+
+        // Filter state
+        let activeFilters = {
+            networking: [],
+            industry: '',
+            jobLevel: [],
+            companySize: '',
+            interests: [],
+            location: '',
+            availability: []
+        };
+
+        // View profile function
+        function viewProfile(attendeeId) {
+            const attendee = attendeeData[attendeeId];
+            if (!attendee) return;
+
+            document.getElementById('modalAvatar').textContent = attendee.avatar;
+            document.getElementById('modalName').textContent = attendee.name;
+            document.getElementById('modalTitle').textContent = attendee.title;
+            document.getElementById('modalIndustry').textContent = attendee.industry;
+            document.getElementById('modalExperience').textContent = attendee.experience;
+            document.getElementById('modalLocation').textContent = attendee.location;
+            document.getElementById('modalCompanySize').textContent = attendee.companySize;
+            document.getElementById('modalGoal').textContent = attendee.goal;
+            document.getElementById('modalInterests').textContent = attendee.interests;
+            document.getElementById('modalSessions').textContent = attendee.sessions;
+
+            document.getElementById('profileModal').classList.add('show');
+        }
+
+        // Show QR code modal
+        function showQRCode() {
+            document.getElementById('qrModal').classList.add('show');
+        }
+
+        // Close modal
+        function closeModal() {
+            document.querySelectorAll('.modal-overlay').forEach(modal => {
+                modal.classList.remove('show');
+            });
+        }
+
+        // Connect with user
+        function connectUser(userId, event) {
+            event.stopPropagation();
+            const button = event.target;
+            
+            // Animation
+            button.classList.add('success-animation');
+            button.textContent = 'Connected!';
+            button.style.background = '#10b981';
+            
+            setTimeout(() => {
+                button.classList.remove('success-animation');
+                button.textContent = 'Connected';
+                button.disabled = true;
+                button.style.opacity = '0.6';
+            }, 600);
+
+            showNotification(`🎉 Connected with ${attendeeData[userId]?.name || userId}! You can now message them.`);
+        }
+
+        // Message user
+        function messageUser(userId, event) {
+            event.stopPropagation();
+            showNotification(`💬 Opening chat with ${attendeeData[userId]?.name || userId}...`);
+        }
+
+        // Schedule with user
+        function scheduleUser(userId, event) {
+            event.stopPropagation();
+            showNotification(`📅 Meeting request sent to ${attendeeData[userId]?.name || userId}!`);
+        }
+
+        // Connect with user from modal
+        function connectWithUser() {
+            showNotification('🎉 Connection request sent! You can now message this attendee.');
+            closeModal();
+        }
+
+        // Schedule with user from modal
+        function scheduleWithUser() {
+            showNotification('📅 Meeting request sent! They will receive your availability and can confirm a time.');
+            closeModal();
+        }
+
+        // Apply filters
+        function applyFilters() {
+            // Collect active filters
+            const checkboxes = document.querySelectorAll('.checkbox-item input:checked');
+            const activeFilterNames = Array.from(checkboxes).map(cb => 
+                cb.closest('.checkbox-item').getAttribute('data-filter')
+            );
+
+            const industry = document.getElementById('industryFilter').value;
+            const companySize = document.getElementById('companySizeFilter').value;
+            const location = document.getElementById('locationFilter').value;
+
+            // Simulate filtering with random results
+            const newResults = Math.floor(Math.random() * 50) + 15;
+            updateStats({
+                total: newResults,
+                online: Math.floor(newResults * 0.3),
+                nearby: Math.floor(newResults * 0.2),
+                highMatch: Math.floor(newResults * 0.15)
+            });
+
+            showNotification(`🔍 Filters applied! Showing ${newResults} matching attendees.`);
+        }
+
+        // Switch view between grid and list
+        function switchView(view) {
+            const buttons = document.querySelectorAll('.view-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            const gridView = document.getElementById('gridView');
+            const listView = document.getElementById('listView');
+            
+            if (view === 'list') {
+                gridView.classList.remove('active');
+                listView.classList.add('active');
+            } else {
+                listView.classList.remove('active');
+                gridView.classList.add('active');
+            }
+        }
+
+        // Quick actions
+        function quickAction(action) {
+            const actions = {
+                nearby: 'Finding attendees within 50 meters of your location...',
+                coffee: 'Looking for attendees available for coffee break...',
+                lunch: 'Finding lunch companions for tomorrow...',
+                session: 'Matching you with attendees going to the same sessions...'
+            };
+            showNotification(actions[action]);
+            
+            // Simulate loading new results
+            setTimeout(() => {
+                const results = Math.floor(Math.random() * 20) + 5;
+                showNotification(`Found ${results} attendees for ${action}!`);
+            }, 2000);
+        }
+
+        // Open chat
+        function openChat(userId) {
+            showNotification(`💬 Opening chat with ${userId}...`);
+        }
+
+        // Accept AI suggestion
+        function acceptAiSuggestion() {
+            showNotification('🤖 Showing AI-recommended connections based on your profile and goals...');
+            
+            // Highlight recommended users
+            setTimeout(() => {
+                const cards = document.querySelectorAll('.attendee-card');
+                cards.forEach((card, index) => {
+                    if (index < 2) { // Highlight first 2 cards
+                        card.style.border = '2px solid #8b5cf6';
+                        card.style.transform = 'scale(1.02)';
+                        setTimeout(() => {
+                            card.style.border = '';
+                            card.style.transform = '';
+                        }, 3000);
+                    }
+                });
+            }, 500);
+        }
+
+        // Show notification
+        function showNotification(message) {
+            // Create notification element if it doesn't exist
+            let banner = document.getElementById('notificationBanner');
+            if (!banner) {
+                banner = document.createElement('div');
+                banner.id = 'notificationBanner';
+                banner.className = 'notification-banner';
+                banner.innerHTML = `
+                    <span id="notificationText">${message}</span>
+                    <button class="notification-close" onclick="closeNotification()">&times;</button>
+                `;
+                document.querySelector('.container').insertBefore(banner, document.querySelector('.main-content'));
+            } else {
+                document.getElementById('notificationText').textContent = message;
+                banner.style.display = 'flex';
+            }
+            
+            // Auto-hide after 5 seconds
+            setTimeout(() => {
+                closeNotification();
+            }, 5000);
+        }
+
+        // Close notification
+        function closeNotification() {
+            const banner = document.getElementById('notificationBanner');
+            if (banner) {
+                banner.style.display = 'none';
+            }
+        }
+
+        // Update stats
+        function updateStats(stats) {
+            document.getElementById('totalAttendees').textContent = stats.total;
+            document.getElementById('onlineNow').textContent = stats.online;
+            document.getElementById('nearYou').textContent = stats.nearby;
+            document.getElementById('highMatch').textContent = stats.highMatch;
+        }
+
+        // Handle checkbox item clicks
+        function handleCheckboxClick(event) {
+            const item = event.currentTarget;
+            const checkbox = item.querySelector('input');
+            
+            if (event.target !== checkbox) {
+                checkbox.checked = !checkbox.checked;
+            }
+            
+            if (checkbox.checked) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        }
+
+        // Initialize checkbox handlers
+        function initializeCheckboxes() {
+            document.querySelectorAll('.checkbox-item').forEach(item => {
+                item.addEventListener('click', handleCheckboxClick);
+                
+                // Set initial state
+                const checkbox = item.querySelector('input');
+                if (checkbox.checked) {
+                    item.classList.add('active');
+                }
+            });
+        }
+
+        // Simulate real-time updates
+        function simulateRealTimeUpdates() {
+            setInterval(() => {
+                // Update online indicators randomly
+                const indicators = document.querySelectorAll('.online-indicator');
+                indicators.forEach(indicator => {
+                    if (Math.random() > 0.8) {
+                        indicator.style.display = indicator.style.display === 'none' ? 'block' : 'none';
+                    }
+                });
+
+                // Update stats occasionally
+                if (Math.random() > 0.9) {
+                    const currentTotal = parseInt(document.getElementById('totalAttendees').textContent);
+                    const change = Math.floor(Math.random() * 10) - 5;
+                    updateStats({
+                        total: Math.max(800, currentTotal + change),
+                        online: Math.floor(Math.random() * 200) + 100,
+                        nearby: Math.floor(Math.random() * 100) + 50,
+                        highMatch: Math.floor(Math.random() * 60) + 30
+                    });
+                }
+            }, 10000);
+        }
+
+        // Initialize search functionality
+        function initializeSearch() {
+            const searchInput = document.querySelector('.filter-input[placeholder*="Search"]');
+            if (searchInput) {
+                searchInput.addEventListener('input', function(e) {
+                    const searchTerm = e.target.value.toLowerCase();
+                    if (searchTerm.length > 2) {
+                        showNotification(`🔍 Searching for "${searchTerm}"...`);
+                        
+                        setTimeout(() => {
+                            const results = Math.floor(Math.random() * 30) + 10;
+                            showNotification(`Found ${results} attendees matching "${searchTerm}"`);
+                        }, 1000);
+                    }
+                });
+            }
+        }
+
+        // Handle window resize for responsive design
+        function handleResponsiveDesign() {
+            function checkScreenSize() {
+                const mainContent = document.querySelector('.main-content');
+                if (window.innerWidth <= 1024) {
+                    mainContent.style.gridTemplateColumns = '1fr';
+                } else if (window.innerWidth <= 1200) {
+                    mainContent.style.gridTemplateColumns = '300px 1fr 340px';
+                } else {
+                    mainContent.style.gridTemplateColumns = '320px 1fr 360px';
+                }
+            }
+
+            window.addEventListener('resize', checkScreenSize);
+            checkScreenSize(); // Initial check
+        }
+
+        // Close modals when clicking outside
+        function initializeModalHandlers() {
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('modal-overlay')) {
+                    closeModal();
+                }
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                    closeNotification();
+                }
+            });
+        }
+
+        // Initialize tooltips for buttons
+        function initializeTooltips() {
+            const buttons = document.querySelectorAll('[title]');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    // Could add custom tooltip implementation here
+                });
+            });
+        }
+
+        // Handle offline/online status
+        function handleConnectionStatus() {
+            window.addEventListener('online', () => {
+                showNotification('🟢 You\'re back online! Syncing latest attendee data...');
+            });
+
+            window.addEventListener('offline', () => {
+                showNotification('🔴 You\'re offline. Some features may be limited.');
+            });
+        }
+
+        // Performance optimization for large lists
+        function optimizePerformance() {
+            // Implement virtual scrolling for large attendee lists
+            const observerOptions = {
+                root: null,
+                rootMargin: '50px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Load more content when scrolling near bottom
+                        if (entry.target.classList.contains('load-more-trigger')) {
+                            loadMoreAttendees();
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Add trigger element for infinite scroll
+            const loadMoreTrigger = document.createElement('div');
+            loadMoreTrigger.className = 'load-more-trigger';
+            loadMoreTrigger.style.height = '1px';
+            const gridView = document.querySelector('.attendees-grid');
+            if (gridView) {
+                gridView.appendChild(loadMoreTrigger);
+                observer.observe(loadMoreTrigger);
+            }
+        }
+
+        // Load more attendees (for infinite scroll)
+        function loadMoreAttendees() {
+            // Simulate loading more attendees
+            console.log('Loading more attendees...');
+            showNotification('📄 Loading more attendees...');
+            // In a real app, this would fetch more data from the server
+        }
+
+        // Export attendee data (for premium users)
+        function exportAttendeeData() {
+            const data = Object.values(attendeeData);
+            const csv = convertToCSV(data);
+            downloadCSV(csv, 'event-attendees.csv');
+            showNotification('📊 Attendee data exported successfully!');
+        }
+
+        // Convert data to CSV format
+        function convertToCSV(data) {
+            const headers = Object.keys(data[0]).join(',');
+            const rows = data.map(obj => Object.values(obj).join(','));
+            return headers + '\n' + rows.join('\n');
+        }
+
+        // Download CSV file
+        function downloadCSV(csv, filename) {
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+
+        // Initialize the application
+        function initializeApp() {
+            console.log('EventConnect Matchmaking App initialized');
+            
+            // Initialize all components
+            initializeCheckboxes();
+            initializeModalHandlers();
+            initializeTooltips();
+            initializeSearch();
+            handleResponsiveDesign();
+            handleConnectionStatus();
+            optimizePerformance();
+            
+            // Start real-time updates
+            simulateRealTimeUpdates();
+            
+            // Show welcome notification
+            setTimeout(() => {
+                showNotification('🎉 Welcome to EventConnect! Start discovering potential connections.');
+            }, 1000);
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializeApp);
+
+        // Service Worker registration for offline functionality
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(registrationError => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+
+        // Analytics tracking (placeholder)
+        function trackEvent(eventName, parameters = {}) {
+            console.log(`Analytics: ${eventName}`, parameters);
+            // In a real app, this would send data to analytics service
+        }
+
+        // Track user interactions
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('connect-btn')) {
+                trackEvent('connect_clicked', { userId: 'unknown' });
+            } else if (e.target.classList.contains('message-btn')) {
+                trackEvent('message_clicked', { userId: 'unknown' });
+            } else if (e.target.classList.contains('schedule-btn')) {
+                trackEvent('schedule_clicked', { userId: 'unknown' });
+            }
+        });
+
+        // Advanced features for premium users
+        function enablePremiumFeatures() {
+            // Advanced filtering
+            // Priority matching
+            // Unlimited connections
+            // Export functionality
+            // Advanced analytics
+            console.log('Premium features enabled');
+        }
+
+        // Networking insights
+        function generateNetworkingInsights() {
+            const insights = [
+                "You have the highest compatibility with people in the AI/ML space",
+                "Consider attending the 'Future of Technology' session - 15 potential matches will be there",
+                "Your profile views increased 40% after adding 'Startup Founder' to your interests",
+                "Best networking time: Coffee break (2-3 PM) when most compatible attendees are active"
+            ];
+            
+            const randomInsight = insights[Math.floor(Math.random() * insights.length)];
+            showNotification(`💡 Insight: ${randomInsight}`);
+        }
+
+        // Schedule optimizer
+        function optimizeSchedule() {
+            const recommendations = [
+                "Block 2-4 PM for networking - 12 high-match attendees are available",
+                "Join the AI Panel at 2:30 PM - Sarah Johnson and Emily Chen will be there",
+                "Coffee break at 3 PM has the most startup founders (your target audience)",
+                "Tomorrow's breakfast session has 8 potential investor connections"
+            ];
+            
+            const randomRec = recommendations[Math.floor(Math.random() * recommendations.length)];
+            showNotification(`📅 Schedule Tip: ${randomRec}`);
+        }
+
+        // Expose global functions for debugging and premium features
+        window.EventConnect = {
+            viewProfile,
+            connectUser,
+            messageUser,
+            scheduleUser,
+            applyFilters,
+            switchView,
+            quickAction,
+            exportAttendeeData,
+            trackEvent,
+            enablePremiumFeatures,
+            generateNetworkingInsights,
+            optimizeSchedule
+        };
+
+        // Auto-refresh data every 5 minutes
+        setInterval(() => {
+            console.log('Refreshing attendee data...');
+            // In a real app, this would fetch fresh data from the server
+        }, 300000);
+
+        // Connection quality indicator
+        function updateConnectionQuality() {
+            const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+            if (connection) {
+                const quality = connection.effectiveType;
+                console.log(`Connection quality: ${quality}`);
+                
+                if (quality === 'slow-2g' || quality === '2g') {
+                    showNotification('📶 Slow connection detected. Some features may be limited.');
+                }
+            }
+        }
+
+        // Initialize connection monitoring
+        if (navigator.connection) {
+            updateConnectionQuality();
+            navigator.connection.addEventListener('change', updateConnectionQuality);
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Ctrl/Cmd + K to focus search
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                const searchInput = document.querySelector('.filter-input');
+                if (searchInput) {
+                    searchInput.focus();
+                }
+            }
+            
+            // Ctrl/Cmd + N for new connection
+            if ((e.ctrlKey || e.metaKey) && e.key === 'n') {
+                e.preventDefault();
+                showQRCode();
+            }
+            
+            // Ctrl/Cmd + E to export data
+            if ((e.ctrlKey || e.metaKey) && e.key === 'e') {
+                e.preventDefault();
+                exportAttendeeData();
+            }
+        });
+    </script>
 
 
+<script>
+   document.addEventListener('DOMContentLoaded', function () {
+    const notificationBtn = document.getElementById('notificationBtn');
+    const notificationPopup = document.getElementById('notificationPopup');
+    const notificationBackdrop = document.getElementById('notificationBackdrop');
 
+    notificationBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const isOpen = notificationPopup.classList.toggle('show');
+        notificationBackdrop.classList.toggle('show', isOpen);
+    });
+
+    // Close popup when clicking outside
+    document.addEventListener('click', function (e) {
+        if (
+            !notificationPopup.contains(e.target) &&
+            !notificationBtn.contains(e.target)
+        ) {
+            notificationPopup.classList.remove('show');
+            notificationBackdrop.classList.remove('show');
+        }
+    });
+
+    // Prevent popup from closing when clicking inside it
+    notificationPopup.addEventListener('click', function (e) {
+        e.stopPropagation();
+    });
+});
+
+</script>
+
+
+ <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize dropdowns
+            var dropdownElementList = [].slice.call(document.querySelectorAll('[data-bs-toggle="dropdown"]'))
+            var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+                return new bootstrap.Dropdown(dropdownToggleEl);
+            });
+
+            // Handle dropdown item clicks
+            document.querySelectorAll('.notification-dropdown .dropdown-item').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const action = this.textContent.trim();
+                    const notificationItem = this.closest('.notification-item');
+                    
+                    switch(action) {
+                        case 'View':
+                            console.log('Viewing notification');
+                            break;
+                        case 'Mute':
+                            console.log('Notification muted');
+                            this.innerHTML = '<i class="fas fa-bell"></i> Unmute';
+                            break;
+                        case 'Save':
+                            console.log('Notification saved');
+                            this.innerHTML = '<i class="fas fa-check"></i> Saved';
+                            break;
+                        case 'Delete':
+                            notificationItem.style.opacity = '0';
+                            setTimeout(() => notificationItem.remove(), 300);
+                            break;
+                    }
+                });
+            });
+        });
+        </script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mark all as read functionality
+            const markAllReadBtn = document.querySelector('.mark-all-read');
+            markAllReadBtn.addEventListener('click', function () {
+                document.querySelectorAll('.notification-item.unread').forEach(item => {
+                    item.classList.remove('unread');
+                });
+            });
+
+            // Filter notifications
+            const filter = document.querySelector('.notification-filter');
+            filter.addEventListener('change', function () {
+                const items = document.querySelectorAll('.notification-item');
+                items.forEach(item => {
+                    switch (this.value) {
+                        case 'unread':
+                            item.style.display = item.classList.contains('unread') ? 'flex' :
+                                'none';
+                            break;
+                        case 'read':
+                            item.style.display = !item.classList.contains('unread') ? 'flex' :
+                                'none';
+                            break;
+                        default:
+                            item.style.display = 'flex';
+                    }
+                });
+            });
+
+            // Handle notification actions
+            document.querySelectorAll('.view-btn, .remind-btn, .download-btn, .upload-btn').forEach(btn => {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const action = this.className;
+                    const item = this.closest('.notification-item');
+
+                    switch (action) {
+                        case 'view-btn':
+                            console.log('Viewing event details');
+                            window.location.href = 'event-details.html';
+                            break;
+                        case 'remind-btn':
+                            item.classList.remove('unread');
+                            this.textContent = 'Reminder Set';
+                            this.disabled = true;
+                            break;
+                        case 'download-btn':
+                            console.log('Downloading invoice');
+                            // Add download logic
+                            break;
+                        case 'upload-btn':
+                            console.log('Opening upload dialog');
+                            // Add upload logic
+                            break;
+                    }
+                });
+            });
+
+            // Add hover effect for options
+            document.querySelectorAll('.notification-options').forEach(option => {
+                option.addEventListener('click', function () {
+
+                });
+            });
+        });
+    </script>
 
 
 

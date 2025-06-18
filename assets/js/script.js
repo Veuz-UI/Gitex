@@ -19,20 +19,21 @@ window.addEventListener('scroll', () => {
 
 
 
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     // Add loaded class to body after window loads
-    setTimeout(function() {
+    setTimeout(function () {
         document.body.classList.add('loaded');
-    }, 1000); // 1 second delay before hiding loader
+    }, 500); // 0.5 second delay
 });
 
 // Prevent scrolling while loader is active
 document.body.style.overflow = 'hidden';
-window.addEventListener('load', function() {
-    setTimeout(function() {
+window.addEventListener('load', function () {
+    setTimeout(function () {
         document.body.style.overflow = 'visible';
-    }, 1000);
+    }, 500); // 0.5 second delay
 });
+
 
 
 // click time not zooming

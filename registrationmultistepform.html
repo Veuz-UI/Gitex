@@ -16,6 +16,40 @@
 
 </head>
 
+
+<style>
+    .ticket-select-box {
+  position: relative;
+  width: 100%;
+}
+
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.custom-select {
+  width: 100%;
+  padding-right: 30px; /* space for close button */
+}
+
+.close-btn {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #333;
+  font-size: 18px;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 0 6px;
+  line-height: 1;
+  border: 1px solid #ccc;
+}
+</style>
 <body>
 
         <!-- loader -->
@@ -1968,10 +2002,10 @@
                 badgeRow.className = 'row';
 
                 const formCol = document.createElement('div');
-                formCol.className = 'col-md-8';
+                formCol.className = 'col-md-8 order-2 order-md-1 mt-3 mt-md-0';
 
                 const badgeCol = document.createElement('div');
-                badgeCol.className = 'col-md-4';
+                badgeCol.className = 'col-md-4 order-1 order-md-2';
 
                 // Move the existing form content (which is inside the <form> tag within the .attendee-form div)
                 // The original structure has: div.attendee-form > div.attendee-header + form#employeeForm_X
@@ -1993,6 +2027,33 @@
                 const badge = document.createElement('div');
                 badge.className = 'card'; // This 'card' is the outer card for the badge column
                 badge.innerHTML = `
+
+
+                        
+
+                            <div class="card-header min-height-77">
+                                <img src="assets/img/banner-img.png" width="100%">
+                                </div>
+
+                                <div class="ticket-select-bg">
+                                    <div class="ticket-select-box">
+                                        <img src="assets/img/ticket.svg" alt="">
+                                        <div class="select-wrapper">
+                                        <select id="redEditSelect" name="redEditSelect" class="custom-select">
+                                            <option value="">PREMIUM PASS - FREEIncl. 19% VAT</option>
+                                            <option value="option1">Visitor 3 Day Access Ticket</option>
+                                            <option value="option2">PREMIUM PASS</option>
+                                            <option value="option3">All Access Conference Ticket</option>
+                                            <option value="option4">All Masterclass Ticket</option>
+                                            <option value="option5">Certified Training Ticket Agentic AI</option>
+                                        </select>
+                                        <span class="close-btn" id="closeSelectBtn" title="Clear">&#10005;</span>
+                                        </div>
+                                    </div>
+                                    </div>
+
+                               
+                        
                                 
                     <div class="card-header min-height-77">
                         <img src="assets/img/banner-img.png" width="100%">
@@ -2751,19 +2812,9 @@
                             data-ticket-price="${ticketPriceString}" 
                             data-ticket-index="${ticketIndex}" 
                             data-attendee-index="${i}">
-                            <div class="attendee-header min-height-77">
-                                <h4>Registration Information ${attendeeIndex + 1}</h4>
-                                <div class="ticket-select-box">
-                                <img src="assets/img/ticket.svg" alt="">
-                                <select id="redEditSelect" name="redEditSelect" class="custom-select">
-                                    <option value="">${ticket.type} - ${ticketPriceString}</option>
-                                    <option value="option1">Visitor 3 Day Access Ticket</option>
-                                    <option value="option2">PREMIUM PASS</option>
-                                    <option value="option3">All Access Conference Ticket</option>
-                                    <option value="option4">All Masterclass Ticket</option>
-                                    <option value="option5">Certified Training Ticket Agentic AI</option>
-                                </select>
-                                </div>
+                            <div class="attendee-header min-height-77 ">
+                                <h4>Registration Information ${attendeeIndex + 1} </h4>
+                                <span class="reg-primary-span">Primary Contact</span>
 
                             </div>
                             <form id="employeeForm_${attendeeIndex}">
@@ -3461,6 +3512,27 @@ $(document).ready(function () {
 
 </script>
 
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const select = document.getElementById('redEditSelect');
+  const closeBtn = document.getElementById('closeSelectBtn');
+
+  select.addEventListener('change', function () {
+    if (select.value !== '') {
+      closeBtn.style.display = 'inline';
+    } else {
+      closeBtn.style.display = 'none';
+    }
+  });
+
+  closeBtn.addEventListener('click', function () {
+    select.value = '';
+    closeBtn.style.display = 'none';
+  });
+});
+</script>
 
 
 
