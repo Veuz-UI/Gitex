@@ -13,6 +13,164 @@
     <link rel="stylesheet" href="assets/fonts/webfont/stylesheet.css">
     <link rel="icon" type="image/png" href="assets/img/fav-icon.png">
 
+
+    <style>
+        .success-checkmark {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    position: relative;
+}
+
+.check-icon {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    border-radius: 50%;
+    box-sizing: content-box;
+    border: 4px solid #4CAF50;
+}
+
+.check-icon::before {
+    top: 3px;
+    left: -2px;
+    width: 30px;
+    transform-origin: 100% 50%;
+    border-radius: 100px 0 0 100px;
+}
+
+.check-icon::after {
+    top: 0;
+    left: 30px;
+    width: 60px;
+    transform-origin: 0 50%;
+    border-radius: 0 100px 100px 0;
+    animation: rotate-circle 4.25s ease-in;
+}
+
+.check-icon::before, .check-icon::after {
+    content: '';
+    height: 100px;
+    position: absolute;
+    background: #FFFFFF;
+    transform: rotate(-45deg);
+}
+
+.icon-line {
+    height: 5px;
+    background-color: #4CAF50;
+    display: block;
+    border-radius: 2px;
+    position: absolute;
+    z-index: 10;
+}
+
+.icon-line.line-tip {
+    top: 46px;
+    left: 14px;
+    width: 25px;
+    transform: rotate(45deg);
+    animation: icon-line-tip 0.75s;
+}
+
+.icon-line.line-long {
+    top: 38px;
+    right: 8px;
+    width: 47px;
+    transform: rotate(-45deg);
+    animation: icon-line-long 0.75s;
+}
+
+.icon-circle {
+    top: -4px;
+    left: -4px;
+    z-index: 10;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+    box-sizing: content-box;
+    border: 4px solid rgba(76, 175, 80, .5);
+}
+
+.icon-fix {
+    top: 8px;
+    width: 5px;
+    left: 26px;
+    z-index: 1;
+    height: 85px;
+    position: absolute;
+    transform: rotate(-45deg);
+    background-color: #FFFFFF;
+}
+
+@keyframes rotate-circle {
+    0% {
+        transform: rotate(-45deg);
+    }
+    5% {
+        transform: rotate(-45deg);
+    }
+    12% {
+        transform: rotate(-405deg);
+    }
+    100% {
+        transform: rotate(-405deg);
+    }
+}
+
+@keyframes icon-line-tip {
+    0% {
+        width: 0;
+        left: 1px;
+        top: 19px;
+    }
+    54% {
+        width: 0;
+        left: 1px;
+        top: 19px;
+    }
+    70% {
+        width: 50px;
+        left: -8px;
+        top: 37px;
+    }
+    84% {
+        width: 17px;
+        left: 21px;
+        top: 48px;
+    }
+    100% {
+        width: 25px;
+        left: 14px;
+        top: 46px;
+    }
+}
+
+@keyframes icon-line-long {
+    0% {
+        width: 0;
+        right: 46px;
+        top: 54px;
+    }
+    65% {
+        width: 0;
+        right: 46px;
+        top: 54px;
+    }
+    84% {
+        width: 55px;
+        right: 0px;
+        top: 35px;
+    }
+    100% {
+        width: 47px;
+        right: 8px;
+        top: 38px;
+    }
+}
+    </style>
+
 </head>
 
 <body>
@@ -48,7 +206,7 @@
 
 
     <div class="content">
-        <div class="row">
+        <div class="row justify-content-center">
 
             <div class="col-lg-6">
                 <div class="ticket-upgrade" data-instance="1">
@@ -186,165 +344,25 @@
 
                     <div class="step" data-step="4">
                         <div class="success-message">
+                            <div class="success-checkmark">
+                                <div class="check-icon">
+                                    <span class="icon-line line-tip"></span>
+                                    <span class="icon-line line-long"></span>
+                                    <div class="icon-circle"></div>
+                                    <div class="icon-fix"></div>
+                                </div>
+                            </div>
                             <h2>Upgrade Successful!</h2>
-                            <p>You will receive a confirmation email shortly.</p>
+                            <p>Your ticket has been successfully upgraded. You will receive a confirmation email shortly.</p>
                             <div class="ticket-details-card">
+                                <div>
                                 <h3 class="final-ticket-type">Premium Ticket</h3>
                                 <p><strong>Order ID:</strong> #MT2023-001-UPG</p>
                                 <p><strong>Confirmation:</strong> #CNF789456123</p>
+                                </div>
                                 <p class="final-ticket-price">$75.00</p>
                             </div>
-                            <button class="btn-return buy-btn">Done</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="ticket-upgrade" data-instance="1">
-                    <div class="step active" data-step="1">
-                        <div class="step-header">
-                            <div class="step-number">1</div>
-                            <div class="step-title">Current Ticket</div>
-                        </div>
-                        <div class="current-ticket">
-                            <div class="upgrade-ticket-info">
-                                <div class="upgrade-ticket-details">
-                                    <h3>Standard Ticket</h3>
-                                    <p>Event access • Basic networking • Standard seating</p>
-                                    <p><strong>Order ID:</strong> #MT2023-001</p>
-                                </div>
-                                <div class="ticket-price">$50.00</div>
-                            </div>
-                            <button class="upgrade-btn buy-btn violet-btn">Upgrade Ticket</button>
-                        </div>
-                    </div>
-
-                    <div class="step" data-step="2">
-                        <div class="step-header">
-                            <div class="step-number">2</div>
-                            <div class="step-title">Select Upgrade Option</div>
-                        </div>
-
-                        <div class="ticket-options">
-                            <div class="ticket-option" data-type="premium" data-price="75">
-                                <div class="ticket-header">
-                                    <div class="ticket-name">Premium Ticket</div>
-                                    <div class="ticket-option-price">$75.00</div>
-                                </div>
-                                <ul class="ticket-features">
-                                    <li>All Standard features</li>
-                                    <li>Priority seating</li>
-                                    <li>VIP networking area</li>
-                                    <li>Welcome refreshments</li>
-                                    <li>Event materials kit</li>
-                                </ul>
-                                <div class="upgrade-info">
-                                    <span>Upgrade fee: $25.00</span>
-                                </div>
-                            </div>
-
-                            <div class="ticket-option" data-type="vip" data-price="120">
-                                <div class="ticket-header">
-                                    <div class="ticket-name">VIP Ticket</div>
-                                    <div class="ticket-option-price">$120.00</div>
-                                </div>
-                                <ul class="ticket-features">
-                                    <li>All Premium features</li>
-                                    <li>Front row seating</li>
-                                    <li>Exclusive VIP lounge</li>
-                                    <li>Meet & greet with speakers</li>
-                                    <li>Premium gift bag</li>
-                                    <li>Complimentary parking</li>
-                                </ul>
-                                <div class="upgrade-info">
-                                    <span>Upgrade fee: $70.00</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="button-group">
-                            <button class="btn-back buy-btn violet-btn">Back</button>
-                            <button class="btn-continue buy-btn" disabled>Continue to Checkout</button>
-                        </div>
-                    </div>
-
-                    <div class="step" data-step="3">
-                        <div class="step-header">
-                            <div class="step-number">3</div>
-                            <div class="step-title">Checkout</div>
-                        </div>
-
-                        <div class="checkout-summary">
-                            <div class="summary-row">
-                                <span class="summary-label">Current Ticket:</span>
-                                <span class="summary-value">Standard Ticket</span>
-                            </div>
-                            <div class="summary-row">
-                                <span class="summary-label">Upgrading to:</span>
-                                <span class="summary-value new-ticket-type">-</span>
-                            </div>
-                            <div class="summary-row">
-                                <span class="summary-label">Upgrade Fee:</span>
-                                <span class="summary-value upgrade-fee">$0.00</span>
-                            </div>
-                            <div class="summary-row">
-                                <span class="summary-label">Processing Fee:</span>
-                                <span class="summary-value">$2.50</span>
-                            </div>
-                            <div class="summary-row">
-                                <span>Total Amount:</span>
-                                <span class="total-amount">$0.00</span>
-                            </div>
-                        </div>
-
-                        <div class="payment-section">
-                            <h3 class="payment-title">Payment Information</h3>
-                            <form class="checkout-form">
-                                <div class="form-group">
-                                    <label>Cardholder Name</label>
-                                    <input class="form-control" type="text" placeholder="Cardholder Name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Card Number</label>
-                                    <input class="form-control" placeholder="Card Number" type="Number" required>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label>Expiry Date</label>
-                                        <input placeholder="Expiry Date" class="form-control" type="date" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>CVV</label>
-                                        <input class="form-control" type="text" required>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Email Address</label>
-                                    <input placeholder="Email Address" class="form-control" type="email" required>
-                                </div>
-                            </form>
-                        </div>
-
-                        <div class="validation-message" style="display:none;"></div>
-
-                        <div class="button-group">
-                            <button class="btn-back buy-btn violet-btn">Back</button>
-                            <button class="btn-complete buy-btn">Complete Upgrade</button>
-                        </div>
-                    </div>
-
-                    <div class="step" data-step="4">
-                        <div class="success-message">
-                            <h2>Upgrade Successful!</h2>
-                            <p>You will receive a confirmation email shortly.</p>
-                            <div class="ticket-details-card">
-                                <h3 class="final-ticket-type">Premium Ticket</h3>
-                                <p><strong>Order ID:</strong> #MT2023-001-UPG</p>
-                                <p><strong>Confirmation:</strong> #CNF789456123</p>
-                                <p class="final-ticket-price">$75.00</p>
-                            </div>
-                            <button class="btn-return buy-btn">Done</button>
+                            <button class="btn-return buy-btn">Return to Dashboard</button>
                         </div>
                     </div>
                 </div>

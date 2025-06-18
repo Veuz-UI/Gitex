@@ -13,43 +13,9 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-
+    
 </head>
 
-
-<style>
-    .ticket-select-box {
-  position: relative;
-  width: 100%;
-}
-
-.select-wrapper {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-}
-
-.custom-select {
-  width: 100%;
-  padding-right: 30px; /* space for close button */
-}
-
-.close-btn {
-  display: none;
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  color: #333;
-  font-size: 18px;
-  background-color: #fff;
-  border-radius: 50%;
-  padding: 0 6px;
-  line-height: 1;
-  border: 1px solid #ccc;
-}
-</style>
 <body>
 
         <!-- loader -->
@@ -2031,26 +1997,26 @@
 
                         
 
-                            <div class="card-header min-height-77">
-                                <img src="assets/img/banner-img.png" width="100%">
+                            <div class="attendee-header min-height-77 ">
+                                <h4>Your Ticket</h4>
                                 </div>
 
                                 <div class="ticket-select-bg">
-                                    <div class="ticket-select-box">
-                                        <img src="assets/img/ticket.svg" alt="">
-                                        <div class="select-wrapper">
-                                        <select id="redEditSelect" name="redEditSelect" class="custom-select">
-                                            <option value="">PREMIUM PASS - FREEIncl. 19% VAT</option>
-                                            <option value="option1">Visitor 3 Day Access Ticket</option>
-                                            <option value="option2">PREMIUM PASS</option>
-                                            <option value="option3">All Access Conference Ticket</option>
-                                            <option value="option4">All Masterclass Ticket</option>
-                                            <option value="option5">Certified Training Ticket Agentic AI</option>
-                                        </select>
-                                        <span class="close-btn" id="closeSelectBtn" title="Clear">&#10005;</span>
-                                        </div>
+                                <div class="ticket-select-box" id="ticket-select-main">
+                                    <img src="assets/img/ticket.svg" alt="">
+                                    <div class="select-wrapper">
+                                    <select id="redEditSelect" name="redEditSelect" class="custom-select">
+                                        <option value="">PREMIUM PASS - FREEIncl. 19% VAT</option>
+                                        <option value="option1">Visitor 3 Day Access Ticket</option>
+                                        <option value="option2">PREMIUM PASS</option>
+                                        <option value="option3">All Access Conference Ticket</option>
+                                        <option value="option4">All Masterclass Ticket</option>
+                                        <option value="option5">Certified Training Ticket Agentic AI</option>
+                                    </select>
+                                    <span class="close-btn" id="closeSelectBtn" title="Clear">&#10005;</span>
                                     </div>
-                                    </div>
+                                </div>
+                                </div>
 
                                
                         
@@ -2817,8 +2783,31 @@
                                 <span class="reg-primary-span">Primary Contact</span>
 
                             </div>
+
+                            
+
+                            
                             <form id="employeeForm_${attendeeIndex}">
+                                
                                 <div class="card form-card">
+                                    <div class="social-register-section" id="social-register-main${attendeeIndex}">
+                                <h2>Register with your social media account & join the community</h2>
+                                <p class="subtext">Post to your social feed. See who’s going. Invite your network.</p>
+                                
+                                <div class="social-buttons">
+                                    <a href="#" class="social-btn linkedin">
+                                    <i class="fab fa-linkedin"></i> Register with LinkedIn
+                                    </a>
+
+                                    <a href="#" class="social-btn facebook">
+                                    <i class="fab fa-facebook-f"></i> Register with Facebook
+                                    </a>
+
+                                    <a href="#" class="social-btn twitter">
+                                    <i class="fab fa-twitter"></i> Register with Twitter
+                                    </a>
+                                </div>
+                                </div>
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-6">
@@ -2933,11 +2922,14 @@
                                         
                                         <div class="row">
                                             <div class="form-end-btn">
-                                                <label for="servicepopup_${attendeeIndex}" class="form-label required-field">Select Your Areas of Interest</label>
+                                                <label for="servicepopup_${attendeeIndex}" class="form-label required-field">What products & services are you interested in?</label>
                                                 <div class="invalid-feedback" id="servicepopupError_${attendeeIndex}"></div>
-                                                <div>
+                                                <div class="d-flex gap-1">
+                                                    <button type="button" class="back-btn">
+                                                        Clear Selection
+                                                    </button>
                                                     <button type="button" class="buy-btn solution-btn pink-btn" data-bs-toggle="modal" data-bs-target="#solutionsModal">
-                                                        Select solution/Products <span class="arrow-right">→</span>
+                                                        ADD
                                                     </button>
                                                 </div>
                                             </div>
@@ -3535,7 +3527,33 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const select = document.getElementById('redEditSelect');
+  const closeBtn = document.getElementById('closeSelectBtn');
+  const bgBox = document.querySelector('#ticket-select-main');
 
+  function updateBackground() {
+    if (select.value === "") {
+      bgBox.classList.remove('green');
+    } else {
+      bgBox.classList.add('green');
+    }
+  }
+
+  // Initial check
+  updateBackground();
+
+  // On change
+  select.addEventListener('change', updateBackground);
+
+  // Clear selection
+  closeBtn.addEventListener('click', function () {
+    select.value = "";
+    updateBackground();
+  });
+});
+</script>
     
 
 </body>

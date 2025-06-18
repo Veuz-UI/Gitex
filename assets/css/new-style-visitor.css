@@ -589,8 +589,16 @@ body.loaded #loader-wrapper {
     background-color: transparent;
     color: #000;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+
+.back-btn:hover{
+    background-color: rgb(11, 44, 61);
+    color: #fff;
+    transition: all 0.3s ease-in-out;
 }
 
 /* inner-banner */
@@ -1079,6 +1087,7 @@ a {
 .modal-content {
     border-radius: 30px !important;
     border: none;
+    overflow: hidden;
 }
 
 .event-info h2 {
@@ -1383,6 +1392,18 @@ form .form-select {
     margin-top: 10px;
 }
 
+.tags-main-wrapper {
+  border: 1px solid #ebebeb;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
 .prom-div h4 {
     font-size: 14px;
     font-weight: 600;
@@ -1568,9 +1589,9 @@ input[type=number] {
 }
 
 .sub-selected-tags span {
-    background: #505050 !important;
-    border: 1px solid #d0d0d0;
-    color: rgb(255, 255, 255);
+    background: #fae4ff !important;
+    border: 1px solid #5e3169;
+    color: rgb(94 49 105);
     padding: 5px 12px;
     border-radius: 20px;
     display: inline-flex;
@@ -2826,12 +2847,12 @@ ul.accordion-list {
 
 .select-sub-tag {
     display: inline-block;
-    background: #505050;
-    border: 1px solid #d0d0d0;
+    background: #fae4ff !important;
+    border: 1px solid #5e3169;
+    color: rgb(94 49 105);
     border-radius: 20px;
     padding: 5px 12px;
     font-size: 14px;
-    color: rgb(253 253 253);
     margin-bottom: 15px;
     font-weight: 300;
     white-space: normal;
@@ -2889,13 +2910,21 @@ ul.accordion-list {
     font-weight: 600;
 }
 
+    .ticket-select-box {
+    background-color: #f8d7da !important;
+    border: 1px solid #b88386 !important;
+    }
+
+    .ticket-select-bg .green {
+    background: #e7ffed !important;
+    border: 1px solid #22c75973 !important;
+    }
+
 .ticket-select-box {
-    background: #e7ffed;
+    
     display: flex;
-    border: 1px solid gray;
     align-items: center;
     padding: 10px;
-    border: 1px solid #22c75973;
     border-radius: 8px;
     position: relative;
     width: 100%;
@@ -2935,7 +2964,7 @@ ul.accordion-list {
 
 
 #redEditSelect {
-    color: rgb(18 64 34);
+    color: rgb(12, 12, 12);
     background: #ffffff23;
     border: none;
     border-radius: 8px;
@@ -3278,13 +3307,7 @@ select.form-control {
     padding: 10px 25px;
 }
 
-.btn-continue {
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 25px;
-    font-weight: bold;
-}
+
 
 .ticket-info {
     margin-top: 5px;
@@ -4081,7 +4104,9 @@ select.form-control {
     background: linear-gradient(91deg, #9c1414 -0.01%, #390202 99.99%) !important;
     width: fit-content;
     border: none !important;
+    transition: .5s;
 }
+
 
 .violet-btn {
     background: linear-gradient(91deg, #63316f -0.01%, #421d4e 99.99%) !important;
@@ -4423,6 +4448,72 @@ select.form-control {
     color: #008800;
     padding: 5px;
 }
+
+
+/* forms social media */
+.social-register-section {
+    text-align: center;
+    margin: 20px 0px;
+}
+
+.social-register-section h2 {
+    font-size: 18px;
+    font-weight: 300;
+    color: #0f0f1e;
+    width: 70%;
+    text-align: center;
+    margin: auto;
+}
+
+.social-register-section .subtext {
+    font-size: 14px;
+    color: #b1b1b1;
+    margin: 10px 0 10px;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: 300;
+    font-size: 14px;
+    padding: 8px 11px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.social-btn .social-btn i {
+    font-size: 18px;
+}
+
+/* Button Colors */
+.social-btn.linkedin {
+    background-color: #0077b5;
+}
+
+.social-btn.facebook {
+    background-color: #3b5998;
+}
+
+.social-btn.twitter {
+    background-color: #1da1f2;
+}
+
+.social-btn:hover {
+    opacity: 0.9;
+}
+
+/* forms social media */
 
 
 
@@ -5281,7 +5372,7 @@ select.form-control {
 /* view ticket */
 
 .min-height-77 {
-    min-height: 77px;
+    min-height: 66px;
 }
 
 .table-row h6 {
@@ -6568,6 +6659,13 @@ td {
     background: #008f46;
 }
 
+.table-print-badge svg, .fas{
+    color : white;
+    display: initial;
+    background: transparent;
+    border: none;
+}
+
 
 /* Animation for new notifications */
 @keyframes slideIn {
@@ -6821,10 +6919,6 @@ td {
 
 .step {
     display: none;
-    background: white;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    margin-bottom: 2rem;
 }
 
 .step.active {
@@ -6835,6 +6929,19 @@ td {
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
+}
+
+.btn-return{
+    width: fit-content;
+    margin: auto ;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    display: block  ;
+}
+
+.ticket-upgrade .success-message{
+    margin-bottom: 0px;
+    padding: 0px 110px;
 }
 
 .step-number {
@@ -7064,8 +7171,8 @@ td {
 
 .button-group {
     display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
+    gap: 5px;
+    margin-top: 5px;
 }
 
 .button-group .btn {
@@ -7100,7 +7207,7 @@ td {
 .success-message p {
     color: #5f5e5e;
     font-size: 17px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .upgrade-ticket-details-card {
@@ -7108,6 +7215,31 @@ td {
     border-radius: 0.75rem;
     padding: 1.5rem;
     margin: 2rem 0;
+}
+
+
+.ticket-details-card{
+    background:#fefdfd;
+    padding: 15px 40px;
+    border-radius: 8px;
+    border: 1px solid #ebebeb;
+    width: fit-content;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 140px;
+    text-align: left;
+}
+
+.final-ticket-price{
+    color: #0f9330 !important;
+    font-weight: 700;
+}
+
+.final-ticket-type{
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .checkout-form .form-group label {
@@ -7124,6 +7256,17 @@ td {
     font-weight: 500;
 }
 
+.ticket-upgrade{
+    padding: 10px;
+    padding-bottom: 0px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.ticket-upgrade .button-group button{
+    width: fit-content;
+}
+
 .ticket-upgrade .step {
     display: none;
 }
@@ -7135,26 +7278,6 @@ td {
 .ticket-upgrade .ticket-option.selected {
     border: 2px solid green;
     background: #f0fff0;
-}
-
-/* Add your styling for buttons, form fields, etc. */
-
-@media (max-width: 768px) {
-
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-
-    .button-group {
-        flex-direction: column-reverse;
-        gap: 0px;
-    }
-
-    .upgrade-ticket-info {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-    }
 }
 
 
@@ -7176,6 +7299,17 @@ td {
 
 
 @media (max-width: 992px) {
+
+    .social-register-section h2 {
+        font-size: 15px;
+        width: 80%;
+    }
+
+    .social-btn{
+        font-size: 11px;
+        font-weight: 300;
+    }
+
     .applied-promo {
         flex-direction: column;
     }
@@ -7348,6 +7482,20 @@ td {
 }
 
 @media (max-width: 768px) {
+     .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .button-group {
+        flex-direction: column-reverse;
+        gap: 0px;
+    }
+
+    .upgrade-ticket-info {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
     .match-profile-card {
         padding: 15px;
     }
@@ -7655,7 +7803,6 @@ td {
 
 /* style Css */
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 
 
@@ -7669,26 +7816,6 @@ td {
     --main-font: "Alexandria";
 }
 
-
-html {
-    /* scroll-behavior: smooth; */
-    overflow-x: hidden;
-}
-
-body {
-    font-family: var(--main-font) !important;
-    position: relative;
-    overflow-x: clip;
-}
-
-a {
-    text-decoration: none !important;
-}
-
-img {
-    height: auto;
-    max-width: 100%;
-}
 
 
 /* home page */
@@ -8760,7 +8887,7 @@ img {
     line-height: 1.6;
 }
 
-.afterbadgedetailes{
+.afterbadgedetailes {
     text-align: center;
 }
 
@@ -9392,7 +9519,7 @@ textarea {
     }
 
     .partner-logo {
-        width: 390px;
+        width: 80%;
     }
 
     .abt-cntnt h3 {
@@ -9683,7 +9810,9 @@ textarea {
     color: var(--white-color);
     transition: 1s;
     border-radius: 50px;
-    /* border: 1px solid var(--primary-color); */
+    width: fit-content;
+    margin: auto;
+    border-radius: 50px;
 }
 
 .secondary-btn:hover {
@@ -9692,9 +9821,13 @@ textarea {
 }
 
 .reg-primary-span {
-    /* background: white; */
-    color: white;
+    color: #ddffd5;
     font-size: 15px;
+    background: green;
+    padding: 5px 15px;
+    background: #ffffff1f;
+    border: 1px solid #d5cfcf63;
+    border-radius: 35px;
 }
 
 
@@ -10027,6 +10160,14 @@ textarea {
 
     .ticket-outer h3 {
         margin-bottom: 10px;
+    }
+    .ticket-upgrade .success-message{
+        padding: 0px;
+    }
+
+    .tags-container, .main-selected-tags, .sub-selected-tags{
+        max-height: 150px;
+        overflow: scroll;
     }
 
 }
