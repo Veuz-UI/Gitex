@@ -60,6 +60,7 @@ document.addEventListener('touchend', function (e) {
 // click time not zooming
 
 
+// like button
 
 
 

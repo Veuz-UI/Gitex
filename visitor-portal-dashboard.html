@@ -16,10 +16,6 @@
     
 
     <style>
-        body {
-            scroll-behavior: smooth;
-            overflow-x: hidden !important;
-        }
         .event-info {
             background: rgba(102, 126, 234, 0.1);
             padding: 10px 20px;
@@ -31,57 +27,7 @@
             color: #667eea;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
 
-        .nav-link {
-            text-decoration: none;
-            color: #555;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            color: #667eea;
-        }
-
-        .nav-link .badge {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: #ef4444;
-            color: white;
-            border-radius: 50%;
-            width: 18px;
-            height: 18px;
-            font-size: 11px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-        }
-
-        .user-profile {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .profile-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 600;
-        }
 
         .main-content {
             display: grid;
@@ -195,9 +141,6 @@
         .apply-filters:hover {
             transform: translateY(-2px);
         }
-
-        
-
         .attendees-header {
             display: flex;
             justify-content: space-between;
@@ -530,11 +473,11 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #22741e 0%, #36891d 100%);
+            background: #d9f4ff;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: #1b4353;
             font-weight: 600;
             font-size: 14px;
             position: relative;
@@ -644,14 +587,15 @@
             right: 30px;
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #22741e 0%, #36891d 100%);
             border-radius: 50%;
             border: none;
-            color: white;
+            color: #1b4353;
             font-size: 24px;
             cursor: pointer;
-            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 4px 20px rgba(4, 105, 29, 0.4);
             transition: transform 0.3s ease;
+            z-index: 999;
         }
 
         .floating-action:hover {
@@ -2298,7 +2242,7 @@
                         <div class="detail-value">20/3/2025</div>
                     </div>
                 </div>
-                <div class="d-flex gap-2 justify-content-center flex-column justify-content-center">
+                <div class="d-flex gap-2 justify-content-center justify-content-center flex-wrap">
                             <a href="#">
                                 <button type="button" class="table-upgrade-btn" data-bs-toggle="modal" data-bs-target="#upgradeModal">
                                     <i class="fas fa-arrow-up-wide-short"></i>
@@ -2356,7 +2300,7 @@
                         <div class="detail-value">20/3/2025</div>
                     </div>
                 </div>
-                <div class="d-flex gap-2 justify-content-center flex-column justify-content-center">
+                <div class="d-flex gap-2 justify-content-center justify-content-center flex-wrap">
                             <a href="#">
                                 <button type="button" class="table-upgrade-btn" data-bs-toggle="modal" data-bs-target="#upgradeModal">
                                     <i class="fas fa-arrow-up-wide-short"></i>
@@ -2414,7 +2358,7 @@
                         <div class="detail-value">20/3/2025</div>
                     </div>
                 </div>
-                <div class="d-flex gap-2 justify-content-center flex-column justify-content-center">
+                <div class="d-flex gap-2 justify-content-center justify-content-center flex-wrap">
                             <a href="#">
                                 <button type="button" class="table-upgrade-btn" data-bs-toggle="modal" data-bs-target="#upgradeModal">
                                     <i class="fas fa-arrow-up-wide-short"></i>
@@ -2472,7 +2416,7 @@
                         <div class="detail-value">20/3/2025</div>
                     </div>
                 </div>
-                <div class="d-flex gap-2 justify-content-center flex-column justify-content-center">
+                <div class="d-flex gap-2 justify-content-center justify-content-center flex-wrap">
                             <a href="#">
                                 <button type="button" class="table-upgrade-btn" data-bs-toggle="modal" data-bs-target="#upgradeModal">
                                     <i class="fas fa-arrow-up-wide-short"></i>
@@ -2630,14 +2574,7 @@
                     <input type="checkbox" name="job-level" value="senior">
                     <span class="checkbox-text">Senior Professional</span>
                 </label>
-                    <script>
-                        document.querySelectorAll('.checkbox-text').forEach(span => {
-  span.addEventListener('click', function () {
-    const checkbox = this.closest('label').querySelector('input[type="checkbox"]');
-    checkbox.checked = !checkbox.checked;
-  });
-});
-                    </script>
+                    
                     <label class="checkbox-item" data-filter="professional">
                         <input type="checkbox" name="job-level" value="professional">
                         <span class="checkbox-text">Professional</span>
@@ -2655,7 +2592,7 @@
                         <span class="checkbox-text">Other</span>
                     </label>
                 </div>
-            </div>
+                </div>
             </aside>
 
             <!-- Attendees Area -->
@@ -2664,7 +2601,8 @@
 
                 <!-- Grid View -->
                 <div class="attendees-grid active" id="gridView">
-                    <div class="attendee-card vip-attendee-card" onclick="viewProfile('sarah')">
+                    <div class="attendee-card vip-attendee-card">
+                        
                         <div class="attendee-header profile-attendee-head">
                             <div class="attendee-avatar">
                                 SJ
@@ -2675,8 +2613,13 @@
                                 <div class="attendee-title">VP of Product <span class="attendee-vip">VIP</span></div>
                                 <div class="attendee-company">TechFlow Inc.</div>
                             </div>
-                            <div class="compatibility-score">92% Match</div>
-                        </div>
+                                <div>
+                                <button class="like-btn">
+                                <span class="heart">&#10084;</span>
+                                </button>
+                                    <div class="compatibility-score">92% Match</div>
+                                </div>
+                            </div>
                         <div class="attendee-info">
                             <div class="attendee-purpose">🎯 Seeking: AI partnerships & investment opportunities</div>
                             <div class="attendee-interests">
@@ -2694,7 +2637,7 @@
                         </div>
                     </div>
 
-                    <div class="attendee-card vip-attendee-card" onclick="viewProfile('marcus')">
+                    <div class="attendee-card vip-attendee-card">
                         <div class="attendee-header profile-attendee-head">
                             <div class="attendee-avatar"><img src="assets/img/user-1.jpg" alt=""></div>
                             <div class="attendee-basic-info">
@@ -2702,7 +2645,12 @@
                                 <div class="attendee-title">Founder & CEO <span class="attendee-vip">VIP</span></div>
                                 <div class="attendee-company">GreenTech Solutions</div>
                             </div>
-                            <div class="compatibility-score">88% Match</div>
+                            <div>
+                                <button class="like-btn">
+                                <span class="heart">&#10084;</span>
+                                </button>
+                                    <div class="compatibility-score">88% Match</div>
+                                </div>
                         </div>
                         <div class="attendee-info">
                             <div class="attendee-purpose">🌱 Seeking: Sustainable tech collaborations</div>
@@ -2721,7 +2669,7 @@
                         </div>
                     </div>
 
-                    <div class="attendee-card" onclick="viewProfile('emily')">
+                    <div class="attendee-card">
                         <div class="attendee-header profile-attendee-head">
                             <div class="attendee-avatar">
                                 EC
@@ -2732,7 +2680,12 @@
                                 <div class="attendee-title">Investment Director</div>
                                 <div class="attendee-company">Venture Capital Partners</div>
                             </div>
-                            <div class="compatibility-score">94% Match</div>
+                                <div>
+                                <button class="like-btn">
+                                <span class="heart">&#10084;</span>
+                                </button>
+                                    <div class="compatibility-score">94% Match</div>
+                                </div>
                         </div>
                         <div class="attendee-info">
                             <div class="attendee-purpose">💰 Seeking: Early-stage startups in AI & FinTech</div>
@@ -2751,7 +2704,7 @@
                         </div>
                     </div>
 
-                    <div class="attendee-card" onclick="viewProfile('david')">
+                    <div class="attendee-card">
                         <div class="attendee-header profile-attendee-head">
                             <div class="attendee-avatar">DK</div>
                             <div class="attendee-basic-info">
@@ -2759,7 +2712,12 @@
                                 <div class="attendee-title">Head of Engineering</div>
                                 <div class="attendee-company">CloudScale Systems</div>
                             </div>
-                            <div class="compatibility-score">85% Match</div>
+                                <div>
+                                <button class="like-btn">
+                                <span class="heart">&#10084;</span>
+                                </button>
+                                    <div class="compatibility-score">85% Match</div>
+                                </div>
                         </div>
                         <div class="attendee-info">
                             <div class="attendee-purpose">🔧 Seeking: Technical partnerships & talent exchange</div>
@@ -2778,7 +2736,7 @@
                         </div>
                     </div>
 
-                    <div class="attendee-card" onclick="viewProfile('lisa')">
+                    <div class="attendee-card">
                         <div class="attendee-header profile-attendee-head">
                             <div class="attendee-avatar">
                                 LW
@@ -2789,7 +2747,12 @@
                                 <div class="attendee-title">Chief Marketing Officer</div>
                                 <div class="attendee-company">Growth Dynamics</div>
                             </div>
-                            <div class="compatibility-score">90% Match</div>
+                                <div>
+                                <button class="like-btn">
+                                <span class="heart">&#10084;</span>
+                                </button>
+                                    <div class="compatibility-score">85% Match</div>
+                                </div>
                         </div>
                         <div class="attendee-info">
                             <div class="attendee-purpose">📈 Seeking: Marketing partnerships & growth strategies</div>
@@ -2807,7 +2770,7 @@
                         </div>
                     </div>
 
-                    <div class="attendee-card" onclick="viewProfile('james')">
+                    <div class="attendee-card">
                         <div class="attendee-header profile-attendee-head">
                             <div class="attendee-avatar">JB</div>
                             <div class="attendee-basic-info">
@@ -2815,7 +2778,12 @@
                                 <div class="attendee-title">Research Scientist</div>
                                 <div class="attendee-company">MIT AI Lab</div>
                             </div>
-                            <div class="compatibility-score">87% Match</div>
+                                <div>
+                                <button class="like-btn">
+                                <span class="heart">&#10084;</span>
+                                </button>
+                                    <div class="compatibility-score">85% Match</div>
+                                </div>
                         </div>
                         <div class="attendee-info">
                             <div class="attendee-purpose">🔬 Seeking: Research collaborations & industry applications</div>
@@ -3004,7 +2972,7 @@
         </div>
 
         <!-- Floating Action Button -->
-        <button class="floating-action" onclick="showQRCode()" title="Share Your Profile">
+        <button class="floating-action">
             📱
         </button>
 
@@ -3472,6 +3440,18 @@
     </script>
 
     <!-- like Button -->
+
+
+    <!-- label clicking -->
+        <script>
+                document.querySelectorAll('.checkbox-text').forEach(span => {
+            span.addEventListener('click', function () {
+                const checkbox = this.closest('label').querySelector('input[type="checkbox"]');
+                checkbox.checked = !checkbox.checked;
+            });
+            });
+            </script>
+    <!-- label clicking -->
 
     <!-- siebar ui -->
     <script>
@@ -4137,82 +4117,6 @@ document.getElementById('confirmUnfollow').addEventListener('click', function() 
 <!-- New matchmaking -->
 
 <script>
-        // Sample attendee data
-        const attendeeData = {
-            sarah: {
-                name: "Sarah Johnson",
-                title: "VP of Product at TechFlow Inc.",
-                avatar: "SJ",
-                industry: "Technology",
-                experience: "8 years",
-                location: "San Francisco, CA",
-                companySize: "201-500 employees",
-                goal: "AI partnerships & investment",
-                interests: "AI/ML, Product Strategy, SaaS",
-                sessions: "AI Panel, Product Workshop"
-            },
-            marcus: {
-                name: "Marcus Rodriguez",
-                title: "Founder & CEO at GreenTech Solutions",
-                avatar: "MR",
-                industry: "Clean Technology",
-                experience: "12 years",
-                location: "Austin, TX",
-                companySize: "51-200 employees",
-                goal: "Sustainable tech collaborations",
-                interests: "Sustainability, Clean Energy, IoT",
-                sessions: "Green Tech Summit, Startup Showcase"
-            },
-            emily: {
-                name: "Emily Chen",
-                title: "Investment Director at Venture Capital Partners",
-                avatar: "EC",
-                industry: "Venture Capital",
-                experience: "10 years",
-                location: "Palo Alto, CA",
-                companySize: "11-50 employees",
-                goal: "Early-stage startups in AI & FinTech",
-                interests: "Venture Capital, FinTech, B2B SaaS",
-                sessions: "Investor Panel, Pitch Competition"
-            },
-            david: {
-                name: "David Kim",
-                title: "Head of Engineering at CloudScale Systems",
-                avatar: "DK",
-                industry: "Cloud Infrastructure",
-                experience: "9 years",
-                location: "Seattle, WA",
-                companySize: "201-500 employees",
-                goal: "Technical partnerships & talent exchange",
-                interests: "Cloud Infrastructure, DevOps, Kubernetes",
-                sessions: "Tech Architecture, DevOps Workshop"
-            },
-            lisa: {
-                name: "Lisa Wang",
-                title: "Chief Marketing Officer at Growth Dynamics",
-                avatar: "LW",
-                industry: "Marketing Technology",
-                experience: "11 years",
-                location: "New York, NY",
-                companySize: "101-200 employees",
-                goal: "Marketing partnerships & growth strategies",
-                interests: "Growth Hacking, MarTech, Analytics",
-                sessions: "Growth Strategies, MarTech Panel"
-            },
-            james: {
-                name: "James Brown",
-                title: "Research Scientist at MIT AI Lab",
-                avatar: "JB",
-                industry: "Research & Academia",
-                experience: "6 years",
-                location: "Cambridge, MA",
-                companySize: "1000+ employees",
-                goal: "Research collaborations & industry applications",
-                interests: "Machine Learning, NLP, Computer Vision",
-                sessions: "AI Research, Academic Collaborations"
-            }
-        };
-
         // Filter state
         let activeFilters = {
             networking: [],
@@ -4243,10 +4147,7 @@ document.getElementById('confirmUnfollow').addEventListener('click', function() 
             document.getElementById('profileModal').classList.add('show');
         }
 
-        // Show QR code modal
-        function showQRCode() {
-            document.getElementById('qrModal').classList.add('show');
-        }
+  
 
         // Close modal
         function closeModal() {
@@ -4453,29 +4354,7 @@ document.getElementById('confirmUnfollow').addEventListener('click', function() 
         }
 
         // Simulate real-time updates
-        function simulateRealTimeUpdates() {
-            setInterval(() => {
-                // Update online indicators randomly
-                const indicators = document.querySelectorAll('.online-indicator');
-                indicators.forEach(indicator => {
-                    if (Math.random() > 0.8) {
-                        indicator.style.display = indicator.style.display === 'none' ? 'block' : 'none';
-                    }
-                });
-
-                // Update stats occasionally
-                if (Math.random() > 0.9) {
-                    const currentTotal = parseInt(document.getElementById('totalAttendees').textContent);
-                    const change = Math.floor(Math.random() * 10) - 5;
-                    updateStats({
-                        total: Math.max(800, currentTotal + change),
-                        online: Math.floor(Math.random() * 200) + 100,
-                        nearby: Math.floor(Math.random() * 100) + 50,
-                        highMatch: Math.floor(Math.random() * 60) + 30
-                    });
-                }
-            }, 10000);
-        }
+        
 
         // Initialize search functionality
         function initializeSearch() {
