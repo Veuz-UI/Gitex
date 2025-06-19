@@ -52,9 +52,9 @@
     <div class="sidebar">
         <img src="assets/img/GITEXNIGERIA_AIheadlogo.png" alt="" class="sidebar-logo">
       <ul>
-        <li data-tab="visitor"><a href=""><i class="fas fa-user"></i> Visitor Details</a></li>
-        <li data-tab="badge"><a href=""><i class="fas fa-id-badge"></i> Badge</a></li>
-        <li class="active" data-tab="matchmaking"><a href=""><i class="fas fa-handshake"></i> Matchmaking</a></li>
+        <li data-tab="visitor"><a href="#"><i class="fas fa-user"></i> Visitor Details</a></li>
+        <li data-tab="badge"><a href="#"><i class="fas fa-id-badge"></i> Badge</a></li>
+        <li class="active" data-tab="matchmaking"><a href="#"><i class="fas fa-handshake"></i> Matchmaking</a></li>
       </ul>
     </div>
 
@@ -1589,9 +1589,10 @@
                 </div>
 
         <div class="matchmaking-main-content">
-            <!-- Filters Sidebar -->
-            <aside class="">
-            
+
+            <div class="row">
+                <div class="col-xl-4 col-lg-6 col-md-6 order-lg-1 order-xl-1">
+                    <aside class="">
                 <div class="event-stats">
                     <div class="stat-card">
                         <div class="stat-number" id="totalAttendees">847</div>
@@ -1730,12 +1731,11 @@
                     </label>
                 </div>
                 </div>
-            </aside>
+                </aside>
+                </div>
 
-            <!-- Attendees Area -->
-            <main class="attendees-area">
-                
-
+                <div class="col-xl-4 col-lg-6 col-md-6 order-lg-3 order-xl-2">
+                    <main class="attendees-area">
                 <!-- Grid View -->
                 <div class="attendees-grid active" id="gridView">
                     <div class="attendee-card vip-attendee-card">
@@ -2015,9 +2015,10 @@
                     </div>
                 </div>
             </main>
+                </div>
 
-            <!-- Networking Sidebar -->
-            <aside class="networking-sidebar">
+                <div class="col-xl-4 col-lg-6 col-md-6 order-lg-2 order-xl-3">
+                <aside class="networking-sidebar">
                 <h3>Networking Hub</h3>
                 
                 <div class="quick-actions">
@@ -2106,6 +2107,15 @@
                     <button class="ai-btn" onclick="acceptAiSuggestion()">Show Me</button>
                 </div>
             </aside>
+                </div>
+            </div>
+            
+
+            <!-- Attendees Area -->
+            
+
+            <!-- Networking Sidebar -->
+          
         </div>
 
         <!-- Floating Action Button -->
@@ -2389,162 +2399,139 @@
             </div>
             <div class="modal-body">
                 <div class="ticket-upgrade" data-instance="1">
-                    <div class="step active" data-step="1">
-                        <div class="step-header">
-                            <div class="step-number">1</div>
-                            <div class="step-title">Current Ticket</div>
-                        </div>
-                        <div class="current-ticket">
-                            <div class="upgrade-ticket-info">
-                                <div class="upgrade-ticket-details">
-                                    <h3>Masterclass</h3>
-                                    <p>Event access • Basic networking • Standard seating</p>
-                                    <p><strong>Order ID:</strong> #MT2023-001</p>
-                                </div>
-                                <div class="ticket-price">$50.00</div>
-                            </div>
-                            <button class="upgrade-btn buy-btn violet-btn">Upgrade Ticket</button>
-                        </div>
-                    </div>
-
-                    <div class="step" data-step="2">
-                        <div class="step-header">
-                            <div class="step-number">2</div>
-                            <div class="step-title">Select Upgrade Option</div>
-                        </div>
-
-                        <div class="ticket-options">
-                            <div class="ticket-option" data-type="premium" data-price="75">
-                                <div class="ticket-header">
-                                    <div class="ticket-name">Premium Ticket</div>
-                                    <div class="ticket-option-price">$75.00</div>
-                                </div>
-                                <ul class="ticket-features">
-                                    <li>All Standard features</li>
-                                    <li>Priority seating</li>
-                                    <li>VIP networking area</li>
-                                    <li>Welcome refreshments</li>
-                                    <li>Event materials kit</li>
-                                </ul>
-                                <div class="upgrade-info">
-                                    <span>Upgrade fee: $25.00</span>
-                                </div>
+                        <div class="step active" data-step="1">
+                            <div class="step-header">
+                                <div class="step-number">1</div>
+                                <div class="step-title">Select Upgrade Option</div>
                             </div>
 
-                            <div class="ticket-option" data-type="vip" data-price="120">
-                                <div class="ticket-header">
-                                    <div class="ticket-name">VIP Ticket</div>
-                                    <div class="ticket-option-price">$120.00</div>
-                                </div>
-                                <ul class="ticket-features">
-                                    <li>All Premium features</li>
-                                    <li>Front row seating</li>
-                                    <li>Exclusive VIP lounge</li>
-                                    <li>Meet & greet with speakers</li>
-                                    <li>Premium gift bag</li>
-                                    <li>Complimentary parking</li>
-                                </ul>
-                                <div class="upgrade-info">
-                                    <span>Upgrade fee: $70.00</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="button-group">
-                            <button class="btn-back buy-btn violet-btn">Back</button>
-                            <button class="btn-continue buy-btn" disabled>Continue to Checkout</button>
-                        </div>
-                    </div>
-
-                    <div class="step" data-step="3">
-                        <div class="step-header">
-                            <div class="step-number">3</div>
-                            <div class="step-title">Checkout</div>
-                        </div>
-
-                        <div class="checkout-summary">
-                            <div class="summary-row">
-                                <span class="summary-label">Current Ticket:</span>
-                                <span class="summary-value">Standard Ticket</span>
-                            </div>
-                            <div class="summary-row">
-                                <span class="summary-label">Upgrading to:</span>
-                                <span class="summary-value new-ticket-type">-</span>
-                            </div>
-                            <div class="summary-row">
-                                <span class="summary-label">Upgrade Fee:</span>
-                                <span class="summary-value upgrade-fee">$0.00</span>
-                            </div>
-                            <div class="summary-row">
-                                <span class="summary-label">Processing Fee:</span>
-                                <span class="summary-value">$2.50</span>
-                            </div>
-                            <div class="summary-row">
-                                <span>Total Amount:</span>
-                                <span class="total-amount">$0.00</span>
-                            </div>
-                        </div>
-
-                        <div class="payment-section">
-                            <h3 class="payment-title">Payment Information</h3>
-                            <form class="checkout-form">
-                                <div class="form-group">
-                                    <label>Cardholder Name</label>
-                                    <input class="form-control" type="text" placeholder="Cardholder Name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Card Number</label>
-                                    <input class="form-control" placeholder="Card Number" type="Number" required>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label>Expiry Date</label>
-                                        <input placeholder="Expiry Date" class="form-control" type="date" required>
+                            <div class="ticket-options">
+                                <div class="ticket-option" data-type="premium" data-price="75">
+                                    <div class="ticket-header">
+                                        <div class="ticket-name">Premium Ticket</div>
+                                        <div class="ticket-option-price">$75.00</div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>CVV</label>
-                                        <input class="form-control" type="text" required>
+                                    <ul class="ticket-features">
+                                        <li>All Standard features</li>
+                                        <li>Priority seating</li>
+                                        <li>VIP networking area</li>
+                                        <li>Welcome refreshments</li>
+                                        <li>Event materials kit</li>
+                                    </ul>
+                                    <div class="upgrade-info">
+                                        <span>Upgrade fee: $25.00</span>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label>Email Address</label>
-                                    <input placeholder="Email Address" class="form-control" type="email" required>
-                                </div>
-                            </form>
-                        </div>
 
-                        <div class="validation-message" style="display:none;"></div>
-
-                        <div class="button-group">
-                            <button class="btn-back buy-btn violet-btn">Back</button>
-                            <button class="btn-complete buy-btn">Complete Upgrade</button>
-                        </div>
-                    </div>
-
-                    <div class="step" data-step="4">
-                        <div class="success-message">
-                            <div class="success-checkmark">
-                                <div class="check-icon">
-                                    <span class="icon-line line-tip"></span>
-                                    <span class="icon-line line-long"></span>
-                                    <div class="icon-circle"></div>
-                                    <div class="icon-fix"></div>
+                                <div class="ticket-option" data-type="vip" data-price="120">
+                                    <div class="ticket-header">
+                                        <div class="ticket-name">VIP Ticket</div>
+                                        <div class="ticket-option-price">$120.00</div>
+                                    </div>
+                                    <ul class="ticket-features">
+                                        <li>All Premium features</li>
+                                        <li>Front row seating</li>
+                                        <li>Exclusive VIP lounge</li>
+                                        <li>Meet & greet with speakers</li>
+                                        <li>Premium gift bag</li>
+                                        <li>Complimentary parking</li>
+                                    </ul>
+                                    <div class="upgrade-info">
+                                        <span>Upgrade fee: $70.00</span>
+                                    </div>
                                 </div>
                             </div>
-                            <h2>Upgrade Successful!</h2>
-                            <p>Your ticket has been successfully upgraded. You will receive a confirmation email shortly.</p>
-                            <div class="ticket-details-card">
-                                <div>
-                                <h3 class="final-ticket-type">Premium Ticket</h3>
-                                <p><strong>Order ID:</strong> #MT2023-001-UPG</p>
-                                <p><strong>Confirmation:</strong> #CNF789456123</p>
-                                </div>
-                                <p class="final-ticket-price">$75.00</p>
+
+                            <div class="button-group">
+                                <button class="btn-continue buy-btn" disabled>Continue to Checkout</button>
                             </div>
-                            <button class="btn-return buy-btn">Return to Dashboard</button>
+                        </div>
+
+                        <div class="step" data-step="2">
+                            <div class="step-header">
+                                <div class="step-number">2</div>
+                                <div class="step-title">Checkout</div>
+                            </div>
+
+                            <div class="checkout-summary">
+                                <div class="promo-code-section">
+                    <div class="promo-code-header">
+                        <h5>Have a promo code?</h5>
+                    </div>
+                                <div class="promo-code-input">
+                                    <input type="text" id="promoCodeInput" class="form-control" placeholder="Enter promo code">
+                                    <button id="applyPromoBtn" class="buy-btn pink-btn">Apply</button>
+                                </div>
+                                <div id="promoCodeApplied" class="applied-promo" style="display: none;">
+                                    <div class="applied-promo-details">
+                                        <div>
+                                            <span class="promo-label">Promo code applied:</span>
+                                            <span class="promo-value" id="appliedPromoValue"></span>
+                                        </div>
+                                        <div>
+                                            <span class="promo-label">Discount:</span>
+                                            <span class="promo-value" id="appliedPromoDiscount"></span>
+                                        </div>
+                                        <div>
+                                            <span class="promo-label">Applied to:</span>
+                                            <span class="promo-value" id="appliedPromoTickets"></span>
+                                        </div>
+                                    </div>
+                                    <button id="removePromoBtn" class="btn btn-sm btn-outline-danger">Remove</button>
+                                </div>
+                            </div>
+                                <div class="summary-row">
+                                    <span class="summary-label">Current Ticket:</span>
+                                    <span class="summary-value">Standard Ticket</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span class="summary-label">Upgrading to:</span>
+                                    <span class="summary-value new-ticket-type">-</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span class="summary-label">Upgrade Fee:</span>
+                                    <span class="summary-value upgrade-fee">$0.00</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span class="summary-label">Processing Fee:</span>
+                                    <span class="summary-value">$2.50</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span>Total Amount:</span>
+                                    <span class="total-amount">$0.00</span>
+                                </div>
+                            </div>
+
+                            <div class="button-group">
+                                <button class="btn-back buy-btn violet-btn">Back</button>
+                                <button class="btn-complete buy-btn">Complete Upgrade</button>
+                            </div>
+                        </div>
+
+                        <div class="step" data-step="3">
+                            <div class="success-message">
+                                <div class="success-checkmark">
+                                    <div class="check-icon">
+                                        <span class="icon-line line-tip"></span>
+                                        <span class="icon-line line-long"></span>
+                                        <div class="icon-circle"></div>
+                                        <div class="icon-fix"></div>
+                                    </div>
+                                </div>
+                                <h2>Upgrade Successful!</h2>
+                                <p>Your ticket has been successfully upgraded. You will receive a confirmation email shortly.</p>
+                                <div class="ticket-details-card">
+                                    <div>
+                                    <h3 class="final-ticket-type">Premium Ticket</h3>
+                                    <p><strong>Order ID:</strong> #MT2023-001-UPG</p>
+                                    <p><strong>Confirmation:</strong> #CNF789456123</p>
+                                    </div>
+                                    <p class="final-ticket-price">$75.00</p>
+                                </div>
+                                <button class="btn-return buy-btn">Return to Dashboard</button>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </div>
             </div>
            
@@ -2617,76 +2604,56 @@ tabs.forEach(tab => {
 
     <!-- ticket stepform -->
      <script>
-document.querySelectorAll('.ticket-upgrade').forEach(component => {
-    let selectedType = null;
-    let selectedPrice = 0;
+ document.querySelectorAll('.ticket-upgrade').forEach(component => {
+            let selectedType = null;
+            let selectedPrice = 0;
 
-    const steps = component.querySelectorAll('.step');
-    const btnUpgrade = component.querySelector('.upgrade-btn');
-    const btnBacks = component.querySelectorAll('.btn-back');
-    const btnContinue = component.querySelector('.btn-continue');
-    const btnComplete = component.querySelector('.btn-complete');
-    const btnReturn = component.querySelector('.btn-return');
-    const validationMessage = component.querySelector('.validation-message');
+            const steps = component.querySelectorAll('.step');
+            const btnBacks = component.querySelectorAll('.btn-back');
+            const btnContinue = component.querySelector('.btn-continue');
+            const btnComplete = component.querySelector('.btn-complete');
+            const btnReturn = component.querySelector('.btn-return');
 
-    const updateStep = (stepNum) => {
-        steps.forEach((step, index) => {
-            step.classList.toggle('active', index === stepNum - 1);
+            const updateStep = (stepNum) => {
+                steps.forEach((step, index) => {
+                    step.classList.toggle('active', index === stepNum - 1);
+                });
+            };
+
+            const updateSummary = () => {
+                const fee = selectedPrice - 50;
+                component.querySelector('.new-ticket-type').textContent = selectedType === 'vip' ? 'VIP Ticket' : 'Premium Ticket';
+                component.querySelector('.upgrade-fee').textContent = `$${fee.toFixed(2)}`;
+                component.querySelector('.total-amount').textContent = `$${(fee + 2.50).toFixed(2)}`;
+            };
+
+            btnBacks.forEach(btn => {
+                btn.addEventListener('click', () => updateStep(1));
+            });
+
+            component.querySelectorAll('.ticket-option').forEach(option => {
+                option.addEventListener('click', () => {
+                    component.querySelectorAll('.ticket-option').forEach(opt => opt.classList.remove('selected'));
+                    option.classList.add('selected');
+                    selectedType = option.dataset.type;
+                    selectedPrice = parseFloat(option.dataset.price);
+                    updateSummary();
+                    btnContinue.disabled = false;
+                });
+            });
+
+            btnContinue.addEventListener('click', () => updateStep(2));
+
+            btnComplete.addEventListener('click', () => {
+                const ticketText = selectedType === 'vip' ? 'VIP Ticket' : 'Premium Ticket';
+                const finalPrice = `${selectedPrice.toFixed(2)}`;
+                component.querySelector('.final-ticket-type').textContent = ticketText;
+                component.querySelector('.final-ticket-price').textContent = finalPrice;
+                updateStep(3);
+            });
+
+            btnReturn.addEventListener('click', () => updateStep(1));
         });
-    };
-
-    const updateSummary = () => {
-        const fee = selectedPrice - 50;
-        component.querySelector('.new-ticket-type').textContent = selectedType === 'vip' ? 'VIP Ticket' : 'Premium Ticket';
-        component.querySelector('.upgrade-fee').textContent = `$${fee.toFixed(2)}`;
-        component.querySelector('.total-amount').textContent = `$${(fee + 2.50).toFixed(2)}`;
-    };
-
-    btnUpgrade.addEventListener('click', () => updateStep(2));
-
-    btnBacks.forEach(btn => {
-        btn.addEventListener('click', () => updateStep(1));
-    });
-
-    component.querySelectorAll('.ticket-option').forEach(option => {
-        option.addEventListener('click', () => {
-            component.querySelectorAll('.ticket-option').forEach(opt => opt.classList.remove('selected'));
-            option.classList.add('selected');
-            selectedType = option.dataset.type;
-            selectedPrice = parseFloat(option.dataset.price);
-            updateSummary();
-            btnContinue.disabled = false;
-        });
-    });
-
-    btnContinue.addEventListener('click', () => updateStep(3));
-
-    btnComplete.addEventListener('click', () => {
-        const form = component.querySelector('.checkout-form');
-        if (form.checkValidity()) {
-            // Hide validation message if valid
-            if (validationMessage) {
-                validationMessage.textContent = '';
-                validationMessage.style.display = 'none';
-            }
-
-            const ticketText = selectedType === 'vip' ? 'VIP Ticket' : 'Premium Ticket';
-            const finalPrice = `$${selectedPrice.toFixed(2)}`;
-            component.querySelector('.final-ticket-type').textContent = ticketText;
-            component.querySelector('.final-ticket-price').textContent = finalPrice;
-            updateStep(4);
-        } else {
-            // Show validation message
-            if (validationMessage) {
-                validationMessage.textContent = 'Please complete all required fields.';
-                validationMessage.style.display = 'block';
-                validationMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-        }
-    });
-
-    btnReturn.addEventListener('click', () => updateStep(1));
-});
         </script>
     <!-- ticket stepform -->
 

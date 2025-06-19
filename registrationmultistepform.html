@@ -46,7 +46,8 @@
 
             <div>
                 <div class="registration-text">GITEX NIGERIA TECH EXPO +  <br> FUTURE ECONOMY SUMMIT</div>
-            <a href="login.html"><button class="btn-main"><i class="animation"></i>
+            <a href="login.html">
+                <button class="btn-main"><i class="animation"></i>
                                         Login<i class="animation"></i>
                                     </button></a>
             </div>
@@ -68,11 +69,68 @@
                             </div>
                             <div id="ticket-summary-container">
                             </div>
+                            <div class=""></div>
+                            
                             <div class="total-row">
                                 <span>Total:</span>
                                 <span id="summary-total">EUR 0</span>
                             </div>
                             <div class="vat-info">VAT amount will be included here</div>
+
+                            <h4 class="bill-info-head">Review Billing Information</h4>
+                            <div class="row">
+                                <div class="col-md-4 d-flex flex-column justify-content-end">
+                                    <div class="input-box">
+                                        <label class="form-label required-field" for="b-firstname">Full Name </label>
+                                        <input id="b-firstname" autocomplete="off" class="form-control" type="text" value="Mohammed Navab">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 d-flex flex-column justify-content-end">
+                                    <div class="input-box">
+                                        <label class="form-label required-field" for="job-title" >Job Title</label>
+                                        <input id="job-title" name="lastname" type="text" class="form-control" required="" value="IT Manager">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 d-flex flex-column justify-content-end">
+                                    <div class="input-box">
+                                        <label class="form-label required-field" for="b-company-name">Company Name</label>
+                                        <input id="b-company-name" name="lastname" type="text" class="form-control" required="" value="Veuz Concepts">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 d-flex flex-column justify-content-end">
+                                    <div class="input-box">
+                                        <label for="Nationality_${attendeeIndex}" class="form-label required-field">Company Country </label>
+                                        <select id="Nationality_${attendeeIndex}" name="Nationality" class="form-control select2-dropdown" required>
+                                            <option value="">Please Select</option>
+                                        </select>
+                                        <div class="invalid-feedback" id="NationalityError_${attendeeIndex}"></div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-4 d-flex flex-column justify-content-end">
+                                    <div class="input-box">
+                                        <label class="form-label" for="b-vat">Your Company VAT Number (For invoicing purposes)</label>
+                                        <input id="b-vat" name="lastname" type="text" class="form-control" required="" value="">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 d-flex flex-column justify-content-end">
+                                    <div class="input-box">
+                                        <label class="form-label required-field" for="b-po-box">P.O. Box</label>
+                                        <input id="b-po-box" name="b-po-box" type="text" class="form-control" required="" value="">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="input-box">
+                                        <label class="form-label required-field" for="b-po-box">Address</label>
+                                        <textarea rows="3" class="form-control"  id="" style="min-height: 100px;"></textarea>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

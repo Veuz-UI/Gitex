@@ -317,6 +317,12 @@ body.loaded #loader-wrapper {
     color: #1f1e1e;
 }
 
+.bill-info-head{
+    font-size: 20px;
+    font-weight: 700;
+    margin: 20px 0px;
+}
+
 .pass-cards {
     margin-bottom: 40px;
 }
@@ -4914,10 +4920,8 @@ select.form-control {
 .vat-info {
     font-size: 12px;
     margin-left: 10px;
-    color: #cecece;
+    color: #6f6f6f;
 }
-
-
 
 
 
@@ -6994,6 +6998,13 @@ td {
     font-size: 1.5rem;
     font-weight: 700;
     color: #108a26;
+}
+
+.ticket-upgrade .button-group{
+    position: sticky;
+    bottom: 0px;
+    background: #fff;
+    width: 100%;
 }
 
 
@@ -10333,8 +10344,12 @@ textarea {
         padding: 10px 40px 10px 15px;
     }
     .sidebar ul li{
-        padding: 8px 15px;
+        padding: 0px;
     }
+
+     .sidebar ul li a{
+        margin-bottom: 0px;
+     }
     .visitor_topright{
         display: flex;
         flex-direction: column;
@@ -10358,9 +10373,6 @@ textarea {
         }
 
         .matchmaking-main-content {
-            display: grid;
-            grid-template-columns: 320px 1fr 360px;
-            gap: 30px;
             min-height: calc(100vh - 200px);
         }
 
@@ -11126,24 +11138,7 @@ textarea {
         }
 
         /* Responsive Design */
-        @media (max-width: 1200px) {
-            .matchmaking-main-content {
-                grid-template-columns: 300px 1fr 340px;
-                gap: 20px;
-            }
-        }
 
-        @media (max-width: 1024px) {
-            .matchmaking-main-content {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-        
-
-            .event-stats {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
 
         @media (max-width: 768px) {
             
