@@ -3616,7 +3616,7 @@ select.form-control {
 .ticket-info-to .badge-fullname {
     font-weight: bold;
     font-size: 19px;
-    color: #8f959e;
+    color: #232324;
     text-transform: uppercase;
     margin-bottom: 20px;
 }
@@ -3624,7 +3624,7 @@ select.form-control {
 .ticket-info-to .badge-jobtitle,
 .ticket-info-to .badge-companyname {
     font-weight: 400;
-    color: #a4aab3;
+    color: #232324;
     text-transform: uppercase;
     margin-bottom: 20px;
     font-size: 18px;
@@ -8784,7 +8784,7 @@ td {
     margin-bottom: 10px;
 }
 
-#detailsContent_1{
+.details-section{
     border: 1px solid #ebebeb;
     border-top: none;
     padding: 10px;
@@ -8810,6 +8810,11 @@ td {
 
 .visa-modal-cntnt .form-group{
     margin-bottom: 15px !important;
+}
+
+.visa-modal{
+    max-height: 400px;
+    overflow: scroll;
 }
 
 .visa-modal-cntnt h5{
