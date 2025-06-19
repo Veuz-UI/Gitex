@@ -8774,12 +8774,20 @@ td {
     margin-bottom: 20px;
 }
 
-.visa-modal-cntnt-main{
+.visa-modal-cntnt{
     border: 1px solid #ebebeb;
     padding: 10px;
-    background: #fcfcfc;
+    background: #e8e8e8;
+}
+
+.visa-modal-cntnt-main{
     margin-bottom: 10px;
-    border-radius: 8px;
+}
+
+#detailsContent_1{
+    border: 1px solid #ebebeb;
+    border-top: none;
+    padding: 10px;
 }
 
 .visa-modal-cntnt h6{
