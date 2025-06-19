@@ -23,14 +23,7 @@
         box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.10);
     }
 
-    /* .head-bg-img{
-    background-image: url(../card.png);
-    background-repeat: no-repeat;
-    background-position: top;
-    height: 100px;
-} */
-
-    .header-logos {
+    .badge-main-div .header-logos {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -41,7 +34,7 @@
         background-size: cover;
     }
 
-    .header-logos img {
+    .badge-main-div .header-logos img {
         width: 220px;
         background: rgb(255, 255, 255);
         padding: 10px 40px;
@@ -53,13 +46,13 @@
 
     }
 
-    .badge-body {
+    .badge-main-div .badge-body {
         padding: 0px 0px;
         position: relative;
         z-index: 1;
     }
 
-    .badge-body::after {
+    .badge-main-div .badge-body::after {
         content: "";
         position: absolute;
         top: 0;
@@ -75,11 +68,11 @@
     }
 
 
-    .info {
+    .badge-main-div .info {
         text-transform: uppercase;
     }
 
-    .info h4 {
+    .badge-main-div .info h4 {
         font-size: 30px;
         line-height: 30px;
         margin-bottom: 0px;
@@ -90,7 +83,7 @@
         text-transform: uppercase;
     }
 
-    .info h6 {
+    .badge-main-div .info h6 {
         font-size: 17px;
         margin: 20px 0px;
         text-align: center;
@@ -98,7 +91,7 @@
         font-weight: 300;
     }
 
-    .info h5 {
+    .badge-main-div .info h5 {
         font-size: 18px;
         margin-bottom: 30px;
         text-align: center;
@@ -109,7 +102,7 @@
 
 
 
-    .qr-code {
+    .badge-main-div .qr-code {
         background: #fff;
         box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.10);
         padding: 10px;
@@ -118,7 +111,7 @@
         margin-bottom: 40px;
     }
 
-    .qr-code img {
+    .badge-main-div .qr-code img {
         width: 130px;
         height: 140px;
         object-fit: contain;
@@ -127,7 +120,7 @@
 
     }
 
-    .footer {
+    .badge-main-div .footer {
         text-align: center;
         display: flex;
         color: black;
@@ -138,23 +131,23 @@
         background-position: center;
     }
 
-    .badge-bg-1 {
+    .badge-main-div .badge-bg-1 {
         background-image: url(assets/img/banner.webp);
     }
 
-    .badge-bg-2 {
+    .badge-main-div .badge-bg-2 {
         background-image: url(assets/img/orange-bg.webp);
     }
 
-    .badge-bg-3 {
+    .badge-main-div .badge-bg-3 {
         background-image: url(assets/img/purple-bg.webp);
     }
 
-    .badge-bg-4 {
+    .badge-main-div .badge-bg-4 {
         background-image: url(assets/img/blue-bg.webp);
     }
 
-    .footer-title h4 {
+    .badge-main-div .footer-title h4 {
         font-size: 18px;
         margin-bottom: 0px;
         text-align: center;
@@ -165,7 +158,7 @@
         text-transform: uppercase;
     }
 
-    .footer-title h6 {
+    .badge-main-div .footer-title h6 {
         font-size: 15px;
         margin-bottom: 5px;
         text-align: center;
@@ -174,13 +167,14 @@
         margin-top: 0px;
     }
 
-    .footer-title h6 span {
+    .badge-main-div .footer-title h6 span {
         font-weight: 600;
     }
 </style>
 
 <body>
     <div style="display: flex;justify-content: center; flex-wrap: wrap; gap: 20px;">
+        <!-- badge 1 -->
         <div class="badge-main-div">
             <div class="badge-body">
                 <div class="header-logos">
@@ -206,11 +200,10 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
-
-        <div class="badge-main-div">
+        <!-- badge 1 -->
+        <!-- badge 2 -->
+         <div class="badge-main-div">
             <div class="badge-body">
                 <div class="header-logos">
                     <img src="assets/img/gitex-ai-logo.webp" alt="">
@@ -238,7 +231,8 @@
 
 
         </div>
-
+        <!-- badge 2 -->
+        <!-- badge 3 -->
         <div class="badge-main-div">
             <div class="badge-body">
                 <div class="header-logos">
@@ -267,7 +261,8 @@
 
 
         </div>
-
+        <!-- badge 3 -->
+        <!-- badge 4 -->
          <div class="badge-main-div">
             <div class="badge-body">
                 <div class="header-logos">
@@ -296,6 +291,7 @@
 
 
         </div>
+        <!-- badge 4 -->
     </div>
 
 </body>

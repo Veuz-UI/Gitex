@@ -1012,6 +1012,10 @@
     font-size: 13px;
     color: #666;
 }
+
+.ch-ag-btn{
+    
+}
 </style>
 </head>
 
@@ -1196,15 +1200,15 @@
 
                     <div class="prifile-view-controls mb-2">
                           <div class="tab-header">
-                            <button class="view-btn active" data-tab="agenda">
+                            <button class="ch-ag-btn active" data-tab="agenda">
                                 <i class="fas fa-calendar-alt"></i> Agenda
                             </button>
-                            <button class="view-btn" data-tab="chat-history">
+                            <button class="ch-ag-btn" data-tab="chat-history">
                                 <i class="fas fa-history"></i> Chat History
                             </button>
                         </div>
-                        <div>
-                            <button class="view-btn active" onclick="switchView('timeline')">Timeline</button>
+                        <div class="d-flex gap-2">
+                            <button class="view-btn" onclick="switchView('timeline')">Timeline</button>
                             <button class="view-btn" onclick="switchView('list')">List</button>
                         </div>
                       
@@ -1345,111 +1349,6 @@
                                 <!-- 1:00 PM -->
                                 <div class="event-slot">
                                     <!-- Free time slot -->
-                                </div>
-
-                                <!-- 2:00 PM -->
-                                <div class="event-slot">
-                                    <div class="event-item session" onclick="openEventModal('ai-panel')" style="top: 5px; height: 40px;">
-                                        <div class="event-title">AI in Healthcare Panel</div>
-                                        <div class="event-details">
-                                            <div class="event-location">
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
-                                                </svg>
-                                                Conference Room A
-                                            </div>
-                                            <div class="event-attendees">
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M16,4C18.11,4 19.99,5.89 19.99,8C19.99,10.11 18.11,12 16,12C13.89,12 12,10.11 12,8C12,5.89 13.89,4 16,4M16,14C20.42,14 24,15.79 24,18V20H8V18C8,15.79 11.58,14 16,14Z"/>
-                                                </svg>
-                                                Sarah Johnson +4
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- 3:00 PM -->
-                                <div class="event-slot">
-                                    <div class="event-item meeting" onclick="openEventModal('coffee-sarah')" style="top: 5px; height: 40px;">
-                                        <div class="event-title">Coffee with Sarah Johnson</div>
-                                        <div class="event-details">
-                                            <div class="event-location">
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
-                                                </svg>
-                                                Networking Lounge
-                                            </div>
-                                            <div class="event-attendees">
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M16,4C18.11,4 19.99,5.89 19.99,8C19.99,10.11 18.11,12 16,12C13.89,12 12,10.11 12,8C12,5.89 13.89,4 16,4M16,14C20.42,14 24,15.79 24,18V20H8V18C8,15.79 11.58,14 16,14Z"/>
-                                                </svg>
-                                                1-on-1 meeting
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- 4:00 PM -->
-                                <div class="event-slot">
-                                    <div class="event-item networking" onclick="openEventModal('networking-hour')" style="top: 5px; height: 40px;">
-                                        <div class="event-title">Networking Happy Hour</div>
-                                        <div class="event-details">
-                                            <div class="event-location">
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
-                                                </svg>
-                                                VIP Lounge
-                                            </div>
-                                            <div class="event-attendees">
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M16,4C18.11,4 19.99,5.89 19.99,8C19.99,10.11 18.11,12 16,12C13.89,12 12,10.11 12,8C12,5.89 13.89,4 16,4M16,14C20.42,14 24,15.79 24,18V20H8V18C8,15.79 11.58,14 16,14Z"/>
-                                                </svg>
-                                                Premium attendees
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- 5:00 PM -->
-                                <div class="event-slot">
-                                    <div class="event-item meeting" onclick="openEventModal('investor-meeting')" style="top: 5px; height: 40px;">
-                                        <div class="event-title">Investor Roundtable</div>
-                                        <div class="event-details">
-                                            <div class="event-location">
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
-                                                </svg>
-                                                Boardroom
-                                            </div>
-                                            <div class="event-attendees">
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M16,4C18.11,4 19.99,5.89 19.99,8C19.99,10.11 18.11,12 16,12C13.89,12 12,10.11 12,8C12,5.89 13.89,4 16,4M16,14C20.42,14 24,15.79 24,18V20H8V18C8,15.79 11.58,14 16,14Z"/>
-                                                </svg>
-                                                Emily Chen +5
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- 6:00 PM -->
-                                <div class="event-slot">
-                                    <div class="event-item session" onclick="openEventModal('closing')" style="top: 5px; height: 40px;">
-                                        <div class="event-title">Closing Remarks & Awards</div>
-                                        <div class="event-details">
-                                            <div class="event-location">
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
-                                                </svg>
-                                                Main Auditorium
-                                            </div>
-                                            <div class="event-attendees">
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M16,4C18.11,4 19.99,5.89 19.99,8C19.99,10.11 18.11,12 16,12C13.89,12 12,10.11 12,8C12,5.89 13.89,4 16,4M16,14C20.42,14 24,15.79 24,18V20H8V18C8,15.79 11.58,14 16,14Z"/>
-                                                </svg>
-                                                All attendees
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
 
                                 <!-- 7:00 PM -->
@@ -1770,7 +1669,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                    </div>
 
                 <div class="tab-content active" id="agenda">
         <div class="agenda-list">
@@ -1849,7 +1748,7 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-    const tabButtons = document.querySelectorAll('.view-btn');
+    const tabButtons = document.querySelectorAll('.ch-ag-btn');
     const tabContents = document.querySelectorAll('.tab-content');
 
     tabButtons.forEach(button => {
