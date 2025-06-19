@@ -13,18 +13,1062 @@
     <link rel="stylesheet" href="assets/fonts/webfont/stylesheet.css">
     <link rel="icon" type="image/png" href="assets/img/fav-icon.png">
 
-       
+       <style>
+        /* Schedule Sidebar */
+
+
+        .sidebar-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mini-calendar {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .calendar-month {
+            font-weight: 600;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .calendar-nav {
+            display: flex;
+            gap: 5px;
+        }
+
+        .calendar-nav-btn {
+            width: 30px;
+            height: 30px;
+            border: none;
+            border-radius: 50%;
+            background: white;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .calendar-nav-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+
+        .calendar-day {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .calendar-day.header {
+            font-weight: 600;
+            color: #666;
+            cursor: default;
+        }
+
+        .calendar-day.today {
+            background: #667eea;
+            color: white;
+        }
+
+        .calendar-day.has-events {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .calendar-day:hover:not(.header) {
+            background: rgba(102, 126, 234, 0.2);
+        }
+
+        .quick-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .upcoming-meetings {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .upcoming-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .meeting-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            transition: background 0.3s ease;
+            cursor: pointer;
+        }
+
+        .meeting-item:hover {
+            background: #f8fafc;
+        }
+
+        .meeting-time-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 600;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .meeting-info {
+            flex: 1;
+        }
+
+        .meeting-title {
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 2px;
+            color: #333;
+        }
+
+        .meeting-attendee {
+            font-size: 11px;
+            color: #666;
+        }
+
+        .ai-recommendations {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .ai-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .ai-suggestion {
+            font-size: 13px;
+            opacity: 0.9;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .ai-btn {
+            background: white;
+            color: #8b5cf6;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            font-size: 12px;
+        }
+
+        .ai-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Schedule Main Area */
+        .schedule-main {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .schedule-header {
+            padding: 30px;
+            border-bottom: 1px solid #e5e7eb;
+            background: white;
+        }
+
+        .schedule-header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .schedule-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .schedule-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .action-btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+
+
+        .prifile-view-controls {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+            align-items: center;
+            
+        }
+
+        .view-btn {
+            padding: 8px 16px;
+            border: 2px solid #e5e7eb;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .view-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .view-btn:hover:not(.active) {
+            border-color: #667eea;
+            color: #667eea;
+        }
+
+        .date-navigation {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .current-date {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .date-nav-btn {
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            background: #f3f4f6;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .date-nav-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Schedule Content */
+        .schedule-content {
+            padding: 30px;
+        }
+
+        .time-grid {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 20px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .time-column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .time-slot {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .events-column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            position: relative;
+        }
+
+        .event-slot {
+            height: 60px;
+            position: relative;
+            border-left: 2px solid #f1f3f4;
+        }
+
+        .event-item {
+            position: absolute;
+            left: 10px;
+            right: 10px;
+            background: white;
+            border-radius: 8px;
+            padding: 12px 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #667eea;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            height: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .event-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .event-item.session {
+            border-left-color: #10b981;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(5, 150, 105, 0.05) 100%);
+        }
+
+        .event-item.meeting {
+            border-left-color: #f59e0b;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, rgba(217, 119, 6, 0.05) 100%);
+        }
+
+        .event-item.networking {
+            border-left-color: #ec4899;
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.05) 0%, rgba(190, 24, 93, 0.05) 100%);
+        }
+
+        .event-item.break {
+            border-left-color: #8b5cf6;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
+        }
+
+        .event-title {
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 2px;
+            color: #333;
+        }
+
+        .event-details {
+            font-size: 11px;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .event-location {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .event-attendees {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* List View */
+        .schedule-list {
+            display: none;
+        }
+
+        .schedule-list.active {
+            display: block;
+        }
+
+        .list-day-section {
+            margin-bottom: 30px;
+        }
+
+        .day-header {
+            background: #f8fafc;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .day-title {
+            font-weight: 600;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .day-summary {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .list-event-item {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #667eea;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .list-event-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .list-event-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .list-event-title {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .list-event-time {
+            background: #667eea;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .list-event-description {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .list-event-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Event Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .modal {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.show .modal {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+            padding: 5px;
+        }
+
+        .modal-content {
+            line-height: 1.6;
+        }
+
+        .event-detail-section {
+            margin-bottom: 20px;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .detail-value {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .attendees-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .attendee-card {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .attendee-avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .attendee-info {
+            flex: 1;
+        }
+
+        .attendee-name {
+            font-weight: 600;
+            font-size: 13px;
+            color: #333;
+        }
+
+        .attendee-title {
+            font-size: 11px;
+            color: #666;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            justify-content: flex-end;
+        }
+
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+
+            .schedule-sidebar {
+                order: 2;
+            }
+
+            .schedule-main {
+                order: 1;
+            }
+
+            .schedule-header-top {
+                flex-direction: column;
+                gap: 15px;
+                align-items: stretch;
+            }
+
+            .schedule-actions {
+                justify-content: center;
+            }
+
+            .time-grid {
+                grid-template-columns: 60px 1fr;
+                gap: 10px;
+            }
+
+            .quick-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .modal {
+                width: 95%;
+                padding: 30px 20px;
+            }
+
+            .attendees-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        .event-item {
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Custom Scrollbar */
+        .time-grid::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .time-grid::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .time-grid::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 3px;
+        }
+
+        .time-grid::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+
+
+
+        /* profile */
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            color: #555;
+            min-width: 120px;
+        }
+
+        .schedule-sidebar{
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+        }
+
+        .schedule-sidebar .match-profile-card{
+            border-radius: 8px;
+            background-color: transparent;
+            box-shadow: none;
+            border: 1px solid #eaeaea;
+        }
+
+        .info-row .info-label{
+            font-size: 15px;
+            font-weight: 500;
+            text-align: left;
+        }
+        
+       </style>
+
+
+<style>
+    .custom-tabs {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.tab-header {
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.view-btn {
+    padding: 10px 20px;
+    border: none;
+    background: transparent;
+    color: #666;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.view-btn i {
+    font-size: 16px;
+}
+
+.view-btn:hover {
+    background: #f8f9fa;
+    color: #466c13;
+}
+
+.view-btn.active {
+    background: #466c13;
+    color: #fff;
+}
+
+/* Tab Content Styles */
+.tab-content {
+    display: none;
+    padding: 20px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Agenda Styles */
+.agenda-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.agenda-item {
+    display: flex;
+    gap: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background: #f8f9fa;
+    border-left: 4px solid #466c13;
+}
+
+.agenda-item.upcoming {
+    border-left-color: #2196F3;
+}
+
+.agenda-time {
+    text-align: center;
+    min-width: 100px;
+}
+
+.agenda-time .time {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+.agenda-time .date {
+    font-size: 13px;
+    color: #666;
+}
+
+.agenda-details {
+    flex: 1;
+}
+
+.agenda-details h4 {
+    margin: 0 0 5px 0;
+    color: #333;
+}
+
+.attendees {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.agenda-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-join, .btn-reschedule {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+}
+
+.btn-join {
+    background: #466c13;
+    color: white;
+}
+
+.btn-reschedule {
+    background: transparent;
+    border: 1px solid #ddd;
+}
+
+/* Chat History Styles */
+.chat-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.chat-item {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    background: #fff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.chat-item:hover {
+    background: #f8f9fa;
+}
+
+.chat-item.unread {
+    background: #f0f7ff;
+}
+
+.chat-avatar {
+    position: relative;
+    width: 45px;
+    height: 45px;
+}
+
+.chat-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.status-dot {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+.status-dot.online {
+    background: #4CAF50;
+}
+
+.status-dot.offline {
+    background: #999;
+}
+
+.chat-info {
+    flex: 1;
+}
+
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.chat-header h4 {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.chat-time {
+    font-size: 12px;
+    color: #888;
+}
+
+.last-message {
+    margin: 0;
+    font-size: 13px;
+    color: #666;
+}
+</style>
 </head>
 
 <body>
 
-        <div class="schedule-container">
-            <!-- Schedule Sidebar -->
+    <div class="content">
+        <div class="row">
+        <div class="col-lg-4">
             <div class="schedule-sidebar">
-                <h2 class="sidebar-title">📅 My Schedule</h2>
+
+                <div class="match-attendee-profile">
+                    <div class="match-profile-card">
+                    <div class="match-image-wrapper">
+                        <img src="assets/img/user-2.jpg" alt="">
+                    </div>
+                    <div class="mb-3">
+                        <h5>Mohammed Navab</h5>
+                        <h6>navab@gmail.com</h6>
+                    </div>
+                    <div class="">
+                        <div class="info-row">
+                            <span class="info-label">Email:</span>
+                            <span class="info-value">nishida@gmail.com</span>
+                        </div>
+                        
+                        <div class="info-row">
+                            <span class="info-label">Phone:</span>
+                            <span class="info-value">+81 90-1234-5678</span>
+                        </div>
+                        
+                        <div class="info-row">
+                            <span class="info-label">Country:</span>
+                            <span class="info-value">India</span>
+                        </div>
+                        
+                        <div class="info-row">
+                            <span class="info-label">Nationality:</span>
+                            <span class="info-value">India</span>
+                        </div>
+                        
+                        <div class="info-row">
+                            <span class="info-label">Company:</span>
+                            <span class="info-value">Tech Solutions Inc.</span>
+                        </div>
+                        
+                        <div class="info-row">
+                            <span class="info-label">Job Title:</span>
+                            <span class="info-value">Software Engineer</span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
                 
+                <h2 class="sidebar-title">📅 My Schedule</h2>
                 <!-- Mini Calendar -->
-                <div class="mini-calendar">
+                <!-- <div class="mini-calendar">
                     <div class="calendar-header">
                         <div class="calendar-month">June 2025</div>
                         <div class="calendar-nav">
@@ -65,7 +1109,7 @@
                         <div class="calendar-day">20</div>
                         <div class="calendar-day">21</div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Quick Stats -->
                 <div class="quick-stats">
@@ -116,8 +1160,6 @@
                     </div>
                 </div>
 
-                <!-- AI Recommendations -->
-                <!-- AI Recommendations -->
                 <div class="ai-recommendations">
                     <div class="ai-title">🤖 Schedule Optimizer</div>
                     <div class="ai-suggestion">
@@ -126,9 +1168,13 @@
                     <button class="ai-btn" onclick="optimizeSchedule()">Optimize</button>
                 </div>
             </div>
+        </div>
 
-            <!-- Schedule Main Area -->
-            <div class="schedule-main">
+
+
+
+        <div class="col-lg-8">
+             <div class="schedule-main">
                 <div class="schedule-header">
                     <div class="schedule-header-top">
                         <h1 class="schedule-title">June 16, 2025</h1>
@@ -148,10 +1194,20 @@
                         </div>
                     </div>
 
-                    <div class="view-controls">
-                        <button class="view-btn active" onclick="switchView('timeline')">Timeline</button>
-                        <button class="view-btn" onclick="switchView('list')">List</button>
-                        <button class="view-btn" onclick="switchView('agenda')">Agenda</button>
+                    <div class="prifile-view-controls mb-2">
+                          <div class="tab-header">
+                            <button class="view-btn active" data-tab="agenda">
+                                <i class="fas fa-calendar-alt"></i> Agenda
+                            </button>
+                            <button class="view-btn" data-tab="chat-history">
+                                <i class="fas fa-history"></i> Chat History
+                            </button>
+                        </div>
+                        <div>
+                            <button class="view-btn active" onclick="switchView('timeline')">Timeline</button>
+                            <button class="view-btn" onclick="switchView('list')">List</button>
+                        </div>
+                      
                     </div>
 
                     <div class="date-navigation">
@@ -715,11 +1771,101 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="tab-content active" id="agenda">
+        <div class="agenda-list">
+            <div class="agenda-item">
+                <div class="agenda-time">
+                    <span class="time">09:30 AM</span>
+                    <span class="date">Mar 20, 2024</span>
+                </div>
+                <div class="agenda-details">
+                    <h4>Product Demo Meeting</h4>
+                    <p class="attendees">With: John Doe, Sarah Smith</p>
+                    <div class="agenda-actions">
+                        <button class="btn-join"><i class="fas fa-video"></i> Join</button>
+                        <button class="btn-reschedule"><i class="fas fa-clock"></i> Reschedule</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="agenda-item upcoming">
+                <div class="agenda-time">
+                    <span class="time">02:00 PM</span>
+                    <span class="date">Mar 21, 2024</span>
+                </div>
+                <div class="agenda-details">
+                    <h4>Team Sync-up</h4>
+                    <p class="attendees">With: Development Team</p>
+                    <div class="agenda-actions">
+                        <button class="btn-join"><i class="fas fa-video"></i> Join</button>
+                        <button class="btn-reschedule"><i class="fas fa-clock"></i> Reschedule</button>
+                    </div>
+                </div>
             </div>
         </div>
+                    </div>
+
+                    <!-- Chat History Content -->
+                <div class="tab-content" id="chat-history">
+                    <div class="chat-list">
+                        <div class="chat-item">
+                            <div class="chat-avatar">
+                                <img src="assets/img/user-1.jpg" alt="User">
+                                <span class="status-dot online"></span>
+                            </div>
+                            <div class="chat-info">
+                                <div class="chat-header">
+                                    <h4>John Doe</h4>
+                                    <span class="chat-time">2h ago</span>
+                                </div>
+                                <p class="last-message">Great meeting! Let's connect again next week.</p>
+                            </div>
+                        </div>
+
+                        <div class="chat-item unread">
+                            <div class="chat-avatar">
+                                <img src="assets/img/user-2.jpg" alt="User">
+                                <span class="status-dot offline"></span>
+                            </div>
+                            <div class="chat-info">
+                                <div class="chat-header">
+                                    <h4>Sarah Smith</h4>
+                                    <span class="chat-time">5h ago</span>
+                                </div>
+                                <p class="last-message">Please review the project proposal.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+</div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
    
 
-  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const tabButtons = document.querySelectorAll('.view-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons and contents
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            // Add active class to clicked button and corresponding content
+            button.classList.add('active');
+            const tabId = button.getAttribute('data-tab');
+            document.getElementById(tabId).classList.add('active');
+        });
+    });
+});
+  </script>
 
 <script>
         // Event data

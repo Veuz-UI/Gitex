@@ -178,7 +178,6 @@ body.loaded #loader-wrapper {
 
 
 .header {
-    background: linear-gradient(90deg, #000066 0%, #000088 100%);
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -6354,14 +6353,6 @@ td {
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
 }
 
-.notification-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* margin-bottom: 1.5rem; */
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #eee;
-}
 
 .notification-header h2 {
     font-size: 18px;
@@ -6706,7 +6697,7 @@ td {
 
 
 .notification-header {
-    padding: 15px;
+    padding: 15px 0px;
     border-bottom: 1px solid #eee;
     display: flex;
     justify-content: space-between;
@@ -11146,19 +11137,8 @@ textarea {
         }
 
         @media (max-width: 768px) {
-            .container {
-                padding: 15px;
-            }
             
-            .header {
-                padding: 15px 20px;
-                flex-direction: column;
-                gap: 15px;
-            }
             
-            .nav-links {
-                gap: 20px;
-            }
             
             .attendees-grid {
                 grid-template-columns: 1fr;
