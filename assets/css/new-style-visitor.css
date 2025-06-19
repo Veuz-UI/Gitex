@@ -3284,9 +3284,6 @@ select.form-control {
     align-self: center;
 }
 
-.form-group {
-    margin-bottom: 20px;
-}
 
 
 
@@ -8770,6 +8767,55 @@ td {
     fill: #003087;
 }
 
+.visa-title{
+    font-size: 16px;
+    font-weight: 500;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+.visa-modal-cntnt-main{
+    border: 1px solid #ebebeb;
+    padding: 10px;
+    background: #fcfcfc;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+.visa-modal-cntnt h6{
+    margin: 0;
+    width: fit-content;
+    font-weight: 600;
+}
+
+.visa-modal-cntnt h4{
+    background: #008f46;
+    padding: 5px 10px;
+    border-radius: 30px;
+    color: white;
+    font-weight: 300;
+    text-align: left;
+    font-size: 15px;
+    width: fit-content;
+    margin-top: 5px;
+}
+
+.visa-modal-cntnt .form-group{
+    margin-bottom: 15px !important;
+}
+
+.visa-modal-cntnt h5{
+    font-size: 15px;
+    color: #707070;
+    margin-bottom: 6px;
+}
+
+.visa-modal-cntnt .form-check-input{
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+
 
 
 
@@ -10291,6 +10337,11 @@ textarea {
     .reg-confirmed__badge-columns>div {
         flex: 1 1 100%;
     }
+    .visa-modal-footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
 }
 

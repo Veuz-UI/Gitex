@@ -66,7 +66,10 @@
                                 <a href="#"><i class="fa-solid fa-envelope"></i> Download Confirmation Email</a>
                                 <a href="#"><i class="fa-solid fa-receipt"></i> Download Payment Receipt</a>
                                 <a href="#"><i class="fa-solid fa-file-invoice"></i> Download Tax Invoice</a>
-                                <a href="#"><i class="fa-solid fa-passport"></i> Apply for Visa Invitation Letter</a>
+                                <a href="#" class="visa-link" data-bs-toggle="modal" data-bs-target="#visaModal">
+                                    <i class="fa-solid fa-passport"></i> Apply for Visa Invitation Letter
+                                </a>
+
                                 <a href="#"><i class="fa-solid fa-pen"></i> Start New Registration</a>
                             </div>
                         </div>
@@ -139,81 +142,87 @@
             </div>
         </div>
         <div class="row">
-                <div class="gitex-promo">
-                    <div class="gitex-promo__wrapper">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="gitex-promo__card gitex-promo__card--left">
-                            <div class="gitex-promo__attending">
-                                <div class="gitex-promo__event">
-                                    <p class="gitex-promo__iam">I am attending</p>
-                                    <img src="assets/img/gitex-ai-logo.webp" alt="Gitex Logo"
-                                        class="gitex-promo__logo" />
-                                    <p class="gitex-promo__date">21 – 23 MAY 2025<br /><small>MESSE BERLIN —
-                                            GERMANY</small></p>
-                                    <p class="gitex-promo__desc">
-                                        The <strong>Nigeria's Most Global, Collaborative, and Cross-Industry Tech Summit
-                                            & Expo</strong>
+            <div class="gitex-promo">
+                <div class="gitex-promo__wrapper">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="gitex-promo__card gitex-promo__card--left">
+                                <div class="gitex-promo__attending">
+                                    <div class="gitex-promo__event">
+                                        <p class="gitex-promo__iam">I am attending</p>
+                                        <img src="assets/img/gitex-ai-logo.webp" alt="Gitex Logo"
+                                            class="gitex-promo__logo" />
+                                        <p class="gitex-promo__date">21 – 23 MAY 2025<br /><small>MESSE BERLIN —
+                                                GERMANY</small></p>
+                                        <p class="gitex-promo__desc">
+                                            The <strong>Nigeria's Most Global, Collaborative, and Cross-Industry Tech
+                                                Summit
+                                                & Expo</strong>
+                                        </p>
+                                        <a href="#" class="gitex-promo__btn buy-btn violet-btn">GET YOUR PASS</a>
+                                    </div>
+                                </div>
+
+                                <div class="gitex-promo__share">
+                                    <h4>Let your network know</h4>
+                                    <div class="gitex-promo__message">
+                                        I’m attending GITEX NIGERIA 2025, The Nigeria Most Global, Collaborative, and
+                                        Cross-Industry Tech Summit & Expo <br />
+                                        <a href="">https://gitex-nigeria.com</a> #gitexnigeria
+                                    </div>
+                                    <div class="social-buttons">
+                                        <a href="#" class="social-btn linkedin"><i class="fab fa-linkedin"></i> Register
+                                            with LinkedIn</a>
+                                        <a href="#" class="social-btn twitter"><i class="fab fa-twitter"></i> Register
+                                            with Twitter</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="gitex-promo__card gitex-promo__card--right">
+                                <div class="gitex-promo__mobile-header">
+                                    <img src="assets/img/mobile.webp" alt="Mobile App Promo"
+                                        class="gitex-promo__mockup" />
+                                </div>
+                                <div class="gitex-promo__mobile-content">
+                                    <h4>Download GITEX EUROPE mobile app</h4>
+                                    <p>
+                                        Get fast, convenient and up-to-date access to show information, networking,
+                                        exhibitors and the conference agenda.
                                     </p>
-                                    <a href="#" class="gitex-promo__btn buy-btn violet-btn">GET YOUR PASS</a>
-                                </div>
-                            </div>
-
-                            <div class="gitex-promo__share">
-                                <h4>Let your network know</h4>
-                                <div class="gitex-promo__message">
-                                    I’m attending GITEX NIGERIA 2025, The Nigeria Most Global, Collaborative, and
-                                    Cross-Industry Tech Summit & Expo <br />
-                                    <a href="">https://gitex-nigeria.com</a> #gitexnigeria
-                                </div>
-                                <div class="social-buttons">
-                                    <a href="#" class="social-btn linkedin"><i class="fab fa-linkedin"></i> Register with LinkedIn</a>
-                                    <a href="#" class="social-btn twitter"><i class="fab fa-twitter"></i> Register with Twitter</a>
+                                    <div class="gitex-promo__stores">
+                                        <img src="assets/img/AppStorebadge.png" alt="App Store" />
+                                        <img src="assets/img/PlayStorebadge.png" alt="Google Play" />
+                                        <img src="assets/img/AppGallery badge.png" alt="AppGallery" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="gitex-promo__card gitex-promo__card--right">
-                            <div class="gitex-promo__mobile-header">
-                                <img src="assets/img/mobile.webp" alt="Mobile App Promo" class="gitex-promo__mockup" />
-                            </div>
-                            <div class="gitex-promo__mobile-content">
-                                <h4>Download GITEX EUROPE mobile app</h4>
-                                <p>
-                                    Get fast, convenient and up-to-date access to show information, networking,
-                                    exhibitors and the conference agenda.
-                                </p>
-                                <div class="gitex-promo__stores">
-                                    <img src="assets/img/AppStorebadge.png" alt="App Store" />
-                                    <img src="assets/img/PlayStorebadge.png" alt="Google Play" />
-                                    <img src="assets/img/AppGallery badge.png" alt="AppGallery" />
+                        <div class="col-lg-4">
+                            <div class="gitex-promo__card gitex-promo__card--right">
+                                <div class="gitex-promo__mobile-header">
+                                    <img src="assets/img/upgrade-banner.webp" alt="Mobile App Promo"
+                                        class="gitex-promo__mockup" />
+                                </div>
+                                <div class="gitex-promo__mobile-content">
+                                    <h4>Upgrade your pass</h4>
+                                    <p>Do you want to get access to more features? Upgrade your pass to receive even
+                                        more benefits.</p>
+                                    <button class="after-reg-upgrade-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                            <path d="M11 20h2v-8h3l-4-5-4 5h3v8zm-7 2h16v-2H4v2z" />
+                                        </svg>
+                                        Upgrade Your Pass
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="gitex-promo__card gitex-promo__card--right">
-                            <div class="gitex-promo__mobile-header">
-                                <img src="assets/img/upgrade-banner.webp" alt="Mobile App Promo" class="gitex-promo__mockup" />
-                            </div>
-                            <div class="gitex-promo__mobile-content">
-                                <h4>Upgrade your pass</h4>
-                                <p>Do you want to get access to more features? Upgrade your pass to receive even more benefits.</p>
-                                <button class="after-reg-upgrade-btn">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M11 20h2v-8h3l-4-5-4 5h3v8zm-7 2h16v-2H4v2z"/>
-                                </svg>
-                                Upgrade Your Pass
-                            </button>
-                            </div>
-                        </div>
-                            </div>
-                        </div>
-
                     </div>
+
                 </div>
             </div>
+        </div>
     </div>
 
 
@@ -235,6 +244,172 @@
 
 
 
+    <div class="modal fade" id="visaModal" tabindex="-1" aria-labelledby="visaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header premium-header">
+                    <h5 class="modal-title" id="visaModalLabel">Visa Invitation Letter Application</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+
+                    <!-- first details -->
+                     <h5 class="visa-title">Would you like to apply for visa application:</h5>
+                    <div class="visa-modal-cntnt-main">
+                        <div class="visa-modal-cntnt">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6>Mohammed Navab</h6>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input custom-checkbox" type="checkbox"
+                                    id="showDetailsCheckbox_1" data-details="detailsContent_1">
+                            </div>
+                        </div>
+                    </div>
+
+         
+                    <div id="detailsContent_1" class="details-section mt-3" style="display: none;">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label class="form-label">Full names as in International Passport </label>
+                                    <input type="text" class="form-control" value="John Doe" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label class="form-label">Date of Birth</label>
+                                    <div class="d-flex gap-2">
+                                        <input style="width: 80px;" type="number" class="form-control" placeholder="DD">
+                                        <input style="width: 80px;" type="number" class="form-control" placeholder="MM">
+                                        <input style="width: 100px;" type="text" class="form-control"
+                                            placeholder="YYYY">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label class="form-label">Passport Number </label>
+                                    <input type="number" class="form-control" value="John Doe">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label class="form-label">Passport Expiry date </label>
+                                   <div class="d-flex gap-2">
+                                        <input style="width: 80px;" type="number" class="form-control" placeholder="DD">
+                                        <input style="width: 80px;" type="number" class="form-control" placeholder="MM">
+                                        <input style="width: 100px;" type="text" class="form-control"
+                                            placeholder="YYYY">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label class="form-label">Nationality </label>
+                                    <input type="text" class="form-control" value="INDIA">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label class="form-label">Country of residence </label>
+                                    <input type="text" class="form-control" value="INDIA">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+                     <div class="visa-modal-cntnt-main">
+                        <div class="visa-modal-cntnt">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                 <h6>Mohammed Navab</h6>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input custom-checkbox" type="checkbox"
+                                    id="showDetailsCheckbox_1" data-details="detailsContent_2">
+                            </div>
+                        </div>
+                    </div>
+
+         
+                    <div id="detailsContent_2" class="details-section mt-3" style="display: none;">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label class="form-label">Full names as in International Passport </label>
+                                    <input type="text" class="form-control" value="John Doe" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label class="form-label">Date of Birth</label>
+                                    <div class="d-flex gap-2">
+                                        <input style="width: 80px;" type="number" class="form-control" placeholder="DD">
+                                        <input style="width: 80px;" type="number" class="form-control" placeholder="MM">
+                                        <input style="width: 100px;" type="text" class="form-control"
+                                            placeholder="YYYY">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label class="form-label">Passport Number </label>
+                                    <input type="number" class="form-control" value="John Doe">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label class="form-label">Passport Expiry date </label>
+                                   <div class="d-flex gap-2">
+                                        <input style="width: 80px;" type="number" class="form-control" placeholder="DD">
+                                        <input style="width: 80px;" type="number" class="form-control" placeholder="MM">
+                                        <input style="width: 100px;" type="text" class="form-control"
+                                            placeholder="YYYY">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label class="form-label">Nationality </label>
+                                    <input type="text" class="form-control" value="INDIA">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label class="form-label">Country of residence </label>
+                                    <input type="text" class="form-control" value="INDIA">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+
+                    
+                </div>
+                <div class="modal-footer visa-modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" form="visaForm" class="btn btn-primary" data-bs-dismiss="modal">Submit Application</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
 
 
 
@@ -247,38 +422,67 @@
     <script src="assets/js/font-awsome.js"></script>
 
 
-    <script>
-        function switchTab(tabName) {
-            // Get all tabs and content panels
-            const tabs = document.querySelectorAll('.badgeafterTab.tab');
-            const contents = document.querySelectorAll('.badgeafterTab.content-panel');
+    <body>
+        <script>
+            function switchTab(tabName) {
+                // Get all tabs and content panels
+                const tabs = document.querySelectorAll('.badgeafterTab.tab');
+                const contents = document.querySelectorAll('.badgeafterTab.content-panel');
 
-            // Remove active class from all tabs
-            tabs.forEach(tab => {
-                tab.classList.remove('active');
-                tab.classList.add('inactive');
-            });
+                // Remove active class from all tabs
+                tabs.forEach(tab => {
+                    tab.classList.remove('active');
+                    tab.classList.add('inactive');
+                });
 
-            // Hide all content panels
-            contents.forEach(content => {
-                content.classList.remove('active');
-            });
+                // Hide all content panels
+                contents.forEach(content => {
+                    content.classList.remove('active');
+                });
 
-            // Activate the selected tab
-            if (tabName === 'registration') {
-                tabs[0].classList.add('active');
-                tabs[0].classList.remove('inactive');
-                document.getElementById('registration-content').classList.add('active');
-            } else if (tabName === 'badge') {
-                tabs[1].classList.add('active');
-                tabs[1].classList.remove('inactive');
-                document.getElementById('badge-content').classList.add('active');
+                // Activate the selected tab
+                if (tabName === 'registration') {
+                    tabs[0].classList.add('active');
+                    tabs[0].classList.remove('inactive');
+                    document.getElementById('registration-content').classList.add('active');
+                } else if (tabName === 'badge') {
+                    tabs[1].classList.add('active');
+                    tabs[1].classList.remove('inactive');
+                    document.getElementById('badge-content').classList.add('active');
+                }
             }
-        }
-    </script>
+        </script>
+
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Get all checkboxes
+                const checkboxes = document.querySelectorAll('.custom-checkbox');
+
+                checkboxes.forEach(checkbox => {
+                    checkbox.addEventListener('change', function () {
+                        // Get the corresponding details section
+                        const detailsId = this.getAttribute('data-details');
+                        const detailsContent = document.getElementById(detailsId);
+
+                        if (this.checked) {
+                            detailsContent.style.display = 'block';
+                            setTimeout(() => {
+                                detailsContent.classList.add('show');
+                            }, 10);
+                        } else {
+                            detailsContent.classList.remove('show');
+                            setTimeout(() => {
+                                detailsContent.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        </script>
 
 
 
-</body>
+    </body>
 
 </html>
