@@ -64,7 +64,9 @@
                         </div>
 
                         <div class="registration-summary step-content" id="summary-step">
-                            <div class="summary-header">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="summary-header">
                                 <h4>Registration Summary</h4>
                             </div>
                             <div id="ticket-summary-container">
@@ -128,6 +130,51 @@
                                     <div class="input-box">
                                         <label class="form-label required-field" for="b-po-box">Address</label>
                                         <textarea rows="3" class="form-control"  id="" style="min-height: 100px;"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card-header min-height-77">
+                                        <img src="assets/img/banner-img.png" width="100%">
+                                    </div>
+                                    <div class="promo-code-section badge-right-promo">
+                                        <div class="promo-code-header">
+                                            <h5>Have a promo code?</h5>
+                                        </div>
+                                        <div class="promo-code-input">
+                                            <input type="text" id="promoCodeInput" class="form-control" placeholder="Enter promo code">
+                                            <button id="applyPromoBtn" class="buy-btn pink-btn">Apply</button>
+                                        </div>
+                                        <div id="promoCodeMessage" class="mt-1"></div>
+                                        <div id="promoCodeApplied" class="applied-promo" style="display: none;">
+                                            <div class="applied-promo-details">
+                                                <div>
+                                                    <span class="promo-label">Promo code applied:</span>
+                                                    <span class="promo-value" id="appliedPromoValue"></span>
+                                                </div>
+                                                <div>
+                                                    <span class="promo-label">Discount:</span>
+                                                    <span class="promo-value" id="appliedPromoDiscount"></span>
+                                                </div>
+                                                <div>
+                                                    <span class="promo-label">Applied to:</span>
+                                                    <span class="promo-value" id="appliedPromoTickets"></span>
+                                                </div>
+                                            </div>
+                                            <button id="removePromoBtn" class="btn btn-sm btn-outline-danger">Remove</button>
+                                        </div>
+                                    </div>
+                                    <div class="ticket-summary-item">
+                                        <div class="ticket-item-details">
+                                            <strong>PREMIUM PASS</strong> 
+                                            <div class="ticket-info-small">20(X2)</div>
+                                        </div>
+                                        <div class="ticket-item-price">25USD <br> <span>Incl. 19% VAT</span></div>
+                                    </div>
+                                    <div class="ticket-info-ft badge-bg-4">
+                                        <h6>BADGE CATEGORY</h6>
+                                        <h4>PREMIUM</h4>
                                     </div>
                                 </div>
                             </div>
@@ -2064,7 +2111,7 @@
                                     <img src="assets/img/ticket.svg" alt="">
                                     <div class="select-wrapper">
                                     <select id="redEditSelect" name="redEditSelect" class="custom-select">
-                                        <option value="">PREMIUM PASS - FREEIncl. 19% VAT</option>
+                                        <option value="">PREMIUM PASS </option>
                                         <option value="option1">Visitor 3 Day Access Ticket</option>
                                         <option value="option2">PREMIUM PASS</option>
                                         <option value="option3">All Access Conference Ticket</option>
@@ -2074,6 +2121,7 @@
                                     <span class="close-btn" id="closeSelectBtn" title="Clear">&#10005;</span>
                                     </div>
                                 </div>
+                                <h4>FREEIncl. 19% VAT</h4>
                                 </div>
 
                                
@@ -2215,33 +2263,7 @@
             }
 
             const promoCodeHTML = `
-                <div class="promo-code-section">
-                    <div class="promo-code-header">
-                        <h5>Have a promo code?</h5>
-                    </div>
-                    <div class="promo-code-input">
-                        <input type="text" id="promoCodeInput" class="form-control" placeholder="Enter promo code">
-                        <button id="applyPromoBtn" class="buy-btn pink-btn">Apply</button>
-                    </div>
-                    <div id="promoCodeMessage" class="mt-2"></div>
-                    <div id="promoCodeApplied" class="applied-promo" style="display: none;">
-                        <div class="applied-promo-details">
-                            <div>
-                                <span class="promo-label">Promo code applied:</span>
-                                <span class="promo-value" id="appliedPromoValue"></span>
-                            </div>
-                            <div>
-                                <span class="promo-label">Discount:</span>
-                                <span class="promo-value" id="appliedPromoDiscount"></span>
-                            </div>
-                            <div>
-                                <span class="promo-label">Applied to:</span>
-                                <span class="promo-value" id="appliedPromoTickets"></span>
-                            </div>
-                        </div>
-                        <button id="removePromoBtn" class="btn btn-sm btn-outline-danger">Remove</button>
-                    </div>
-                </div>
+                
             `;
             $('.total-row').before(promoCodeHTML);
         }
@@ -3447,8 +3469,8 @@
 
                 ticketItem.innerHTML = `
                     <div class="ticket-item-details">
-                        <strong>${ticket.type}</strong> (x${quantity})
-                        <div class="ticket-info-small">Price per ticket: ${currencySymbol} ${pricePerTicketClean.toFixed(2)}</div>
+                        <strong>${ticket.type}</strong> 
+                        <div class="ticket-info-small">Price per ticket: ${currencySymbol} ${pricePerTicketClean.toFixed(2)}<span>(x${quantity})</span></div>
                     </div>
                     <div class="ticket-item-price">${currencySymbol} ${itemTotal.toFixed(2)}</div>
                 `;

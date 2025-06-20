@@ -1365,12 +1365,7 @@ form .form-select {
     padding: 10px;
 }
 
-.tags-container,
-.main-selected-tags,
-.sub-selected-tags {
-    max-height: 150px;
-    overflow: scroll;
-}
+
 
 .tag {
     display: inline-block;
@@ -1406,7 +1401,6 @@ form .form-select {
 }
 
 .tags-main-wrapper {
-    border: 1px solid #cfcbcb;
     padding: 10px;
     display: flex;
     flex-direction: row;
@@ -1418,9 +1412,6 @@ form .form-select {
     width: 100%;
     overflow: hidden;
     width: fit-content;
-    border-radius: 10px;
-    background: white;
-    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.1);
 }
 
 .prom-div h4 {
@@ -2475,11 +2466,11 @@ ul.accordion-list {
 .total-row {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 15px 0;
     font-weight: bold;
     font-size: 18px;
     margin-top: 10px;
-    border-top: 2px solid #eee;
 }
 
 
@@ -2950,7 +2941,14 @@ ul.accordion-list {
     background-color: #fff;
     border: 1px solid #ebebeb;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+.ticket-select-bg h4{
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 0px;
 }
 
 
@@ -3908,6 +3906,18 @@ select.form-control {
     background-color: #f0fff0;
 }
 
+.badge-right-promo{
+    margin: 0px;
+    border-radius: 0px;
+    border-top: none;
+}
+
+.ticket-item-price span{
+    font-size: 13px;
+    font-weight: 300;
+    color: #535353;
+}
+
 .promo-code-header h5 {
     font-size: 16px;
     font-weight: 600;
@@ -3971,11 +3981,6 @@ select.form-control {
     color: #dc3545 !important;
 }
 
-/* Adjust the total row for the strikethrough price */
-.total-row {
-    display: flex;
-    align-items: center;
-}
 
 /* Highlighted discounted tickets */
 .discounted-ticket {
@@ -4090,6 +4095,7 @@ select.form-control {
     border: none;
     transform: scale(1.18);
     font-size: 16px;
+    cursor: pointer;
 }
 
 .registration-container .step-circle.active::after {
@@ -4241,8 +4247,9 @@ select.form-control {
     position: relative;
     flex-shrink: 0;
     /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); */
-    cursor: default;
+    cursor: pointer;
 }
+
 
 
 .registration-step {
@@ -4917,7 +4924,7 @@ select.form-control {
 .vat-info {
     font-size: 12px;
     margin-left: 10px;
-    color: #6f6f6f;
+    color: #bbbbbb;
 }
 
 
@@ -6611,8 +6618,16 @@ td {
 .remind-btn:hover,
 .download-btn:hover,
 .upload-btn:hover {
-    background: #e9ecef;
-    color: #212529;
+    background: #83bbff;
+    color: #fff;
+}
+
+.view-btn.active,
+.remind-btn.active,
+.download-btn.active,
+.upload-btn.active {
+    background: #83bbff;
+    color: #fff;
 }
 
 .download-btn {
