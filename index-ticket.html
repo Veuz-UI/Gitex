@@ -525,8 +525,8 @@
                         <div class="pass-card color-green-gr">
                             <div class="pass-header premium">
 
-                                <div class="pass-type">Certified Training Ticket Agentic AI: Build
-                                    Your First AI Agent<br>
+                                <div class="pass-type">Certified Training Ticket Agentic AI: <br><span class="ticket-name-dics"> Build
+                                    Your First AI Agent</span><br>
                                     <a href="#" class="pass-details-btn" style="font-size: 13px;
                                             text-align: left;
                                             ">VIEW DETAILS → </a>
@@ -613,7 +613,7 @@
                         <div class="pass-card color-red-gr">
                             <div class="pass-header premium">
 
-                                <div class="pass-type">Student Ticket <span>Access On Day 3 Only</span><br>
+                                <div class="pass-type">Student Ticket <br> <span>Access On Day 3 Only</span><br>
                                     <a href="#" class="pass-details-btn">VIEW DETAILS → </a>
                                 </div>
                             </div>
@@ -702,7 +702,24 @@
 
         <section class="footer">
         <div class="container">
-            <img src="assets/img/logo.png" alt="" class="logo-width">
+                    <img src="assets/img/logo.png" alt="" class="logo-width">
+        
+            <!-- <div class="row">
+                <div class="col-lg-4">
+                </div>
+                <div class="col-lg-4">
+                    <h6>Show Time & Location</h6>
+                    <h5>GITEX EUROPE</h5>
+                    <h4><span><i class="fa-solid fa-location-dot"></i></span>MESSE BERLIN, SOUTH ENTRANCE</h4>
+                </div>
+                <div class="col-lg-4">
+                    <h6>LET’S TALK</h6>
+                    <h4>SALES INQUIRY: <span> sales@gitex-europe.com</span></h4>
+                    <h4>MARKETING INQUIRY <span> marketing@gitex-europe.com</span></h4>
+                    <h4>BECOMA A PARTNER: <span>gitexpartnerships@dwtc.com</span></h4>
+                </div>
+            </div> -->
+            
             <div class="social-icons">
                 <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
@@ -837,9 +854,15 @@
         <div class="checkout-right-aligned">
             <div class="total-section">
                 <div class="total-amount-row">
-                    <span class="total-label">Total:</span>
-                    <span class="total-amount" id="total-amount">EUR 0</span>
-                    <span class="vat-info">Incl. 19% VAT</span>
+                    <div class="d-flex">
+                        <span class="total-label">Total:</span>
+                    <div class="d-flex flex-column">
+                        <span class="total-amount" id="total-amount">EUR 0</span>
+                        <span class="vat-info">Incl. 19% VAT</span>
+                    </div>
+                    
+                    </div>
+                    
                 </div>
                 <div class="ticket-summary-link">
                     <a href="#" id="view-ticket-summary">View ticket summary</a>
@@ -1286,6 +1309,9 @@ function showToast(message) {
         }
 
 </script>
+
+
+
 
 
 </body>

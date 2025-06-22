@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Ticket Receipt</title>
+    <link rel="stylesheet" href="assets/css/new-style-visitor.css">
+    <style>
+        
+
+        
+        
+    </style>
+</head>
+<body>
+
+    <div class="main-body-ticket-reciept-body">
+<div class="receipt-container">
+        <div class="receipt-header">
+            <div class="success-icon">✓</div>
+            <div class="receipt-title">Payment Successful</div>
+            <div class="receipt-subtitle">Your tickets have been confirmed</div>
+        </div>
+
+        <div class="receipt-body">
+            <div class="event-info">
+                <div class="event-name">FORGING THE RISE OF DIGITAL NIGERIA</div>
+                <div class="event-details">
+                    📅 1-4 SEPT 2025<br>
+                    📍 ABUJA | LAGOS<br>
+                    🎫 Multiple Sessions
+                </div>
+            </div>
+
+            <div class="tickets-section">
+                <h3 style="color: #1e3c72; font-size: 16px; margin-bottom: 15px; font-weight: 700;">Ticket Details</h3>
+                
+                <div class="ticket-item">
+                    <div class="ticket-header">
+                        <span class="ticket-type">VIP Early Access</span>
+                        <span class="ticket-price">$85.00</span>
+                    </div>
+                    <div class="ticket-details-small">
+                        📅 July 15, 2025 - 5:00 PM<br>
+                        👤 1 Person | 🎫 Ticket #VIP-001
+                    </div>
+                </div>
+
+                <div class="ticket-item">
+                    <div class="ticket-header">
+                        <span class="ticket-type">General Admission - Day 1</span>
+                        <span class="ticket-price">$45.00</span>
+                    </div>
+                    <div class="ticket-details-small">
+                        📅 July 15, 2025 - 7:00 PM<br>
+                        👤 2 People | 🎫 Tickets #GA-001, #GA-002
+                    </div>
+                </div>
+
+                <div class="ticket-item">
+                    <div class="ticket-header">
+                        <span class="ticket-type">General Admission - Day 2</span>
+                        <span class="ticket-price">$45.00</span>
+                    </div>
+                    <div class="ticket-details-small">
+                        📅 July 16, 2025 - 7:00 PM<br>
+                        👤 1 Person | 🎫 Ticket #GA-003
+                    </div>
+                </div>
+            </div>
+
+            <div class="receipt-details">
+                <div class="detail-row">
+                    <span class="detail-label">Order ID</span>
+                    <span class="detail-value">#SMF-2025-001234</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Total Tickets</span>
+                    <span class="detail-value">4 Tickets</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Subtotal</span>
+                    <span class="detail-value">$220.00</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Service Fee</span>
+                    <span class="detail-value">$18.50</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Processing Fee</span>
+                    <span class="detail-value">$3.00</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Tax</span>
+                    <span class="detail-value">$19.32</span>
+                </div>
+                <div class="detail-row total-row">
+                    <span class="detail-label">Total Paid</span>
+                    <span class="detail-value">$260.82</span>
+                </div>
+            </div>
+
+            <div class="ticket-tear"></div>
+
+            
+
+            <div style="text-align: center;">
+                <div class="confirmation-number">
+                    Master Confirmation: CNF-789456123
+                </div>
+              
+            </div>
+        </div>
+
+       
+    </div>
+    </div>
+    
+
+    <script>
+        // Add some interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate the success icon
+            const successIcon = document.querySelector('.success-icon');
+            setTimeout(() => {
+                successIcon.style.transform = 'scale(1.1)';
+                successIcon.style.transition = 'transform 0.3s ease';
+                setTimeout(() => {
+                    successIcon.style.transform = 'scale(1)';
+                }, 300);
+            }, 500);
+
+            // Make the QR code interactive
+            const qrCode = document.querySelector('.qr-placeholder');
+            qrCode.addEventListener('click', function() {
+                alert('In a real implementation, this would open the QR code scanner or show a larger version.');
+            });
+
+            // Add print functionality
+            document.addEventListener('keydown', function(e) {
+                if (e.ctrlKey && e.key === 'p') {
+                    e.preventDefault();
+                    window.print();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

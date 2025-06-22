@@ -19,7 +19,8 @@ body {
 }
 
 body.modal-open {
-    padding-right: 0 !important;
+  overflow: auto !important; /* Don't hide the scrollbar */
+  padding-right: 0 !important; /* Prevent layout jump */
 }
 
 
@@ -312,7 +313,7 @@ body.loaded #loader-wrapper {
 }
 
 .select-title {
-    font-size: 26px;
+    font-size: 23px;
     font-weight: 600;
     color: #1f1e1e;
 }
@@ -401,16 +402,18 @@ body.loaded #loader-wrapper {
 
 .pass-type a {
     color: #e6ff00 !important;
-    font-weight: bold;
+    font-weight: 400;
     font-size: 13px;
     text-transform: uppercase;
 }
 
 .pass-type span {
-    color: #f41010;
-    font-style: italic !important;
-    margin-left: 3px;
+    color: #ffffff;
+    font-weight: 300;
+    
 }
+
+
 
 .pass-details-btn {
     /* position: absolute; */
@@ -557,7 +560,7 @@ body.loaded #loader-wrapper {
     padding: 10px 20px;
     text-align: center;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 15px;
     border-radius: 8px;
     margin-top: 10px;
     cursor: pointer;
@@ -766,7 +769,7 @@ a {
 }
 
 .footer {
-    padding: 30px 80px 15px;
+    padding: 17px 80px 15px;
     background-image: url(../img/banner.webp);
     background-color: #000000;
     height: 100%;
@@ -1260,8 +1263,10 @@ a {
 }
 
 .form-control {
-    height: 50px;
+    height: 45px;
     padding: 0px 20px;
+    font-size: 14px;
+    font-weight: 300;
 }
 
 .form-select {
@@ -1302,7 +1307,7 @@ a {
 }
 
 form label {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
 }
 
@@ -1341,6 +1346,12 @@ form .form-select {
 
 .iti__search-input {
     padding: 10px !important;
+}
+
+.iti--allow-dropdown .iti__flag-container, .iti--separate-dial-code .iti__flag-container{
+    height: 45px !important;
+    border-radius: 8px 0px 0px 8px !important;
+    overflow: hidden;
 }
 
 
@@ -1583,7 +1594,7 @@ input[type=number] {
 }
 
 .input-box label {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 /* .selected-categories {
@@ -2168,7 +2179,7 @@ ul.accordion-list {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: linear-gradient(91deg, #2ba943 -0.01%, #0f341e 99.99%);
+    background: linear-gradient(91deg, #001000 -0.01% -0.01%, #013c00 99.99%);
     color: white;
     padding: 15px;
     display: flex;
@@ -2197,6 +2208,7 @@ ul.accordion-list {
 .total-label {
     font-size: 16px;
     margin-right: 10px;
+    margin-top: 7px;
 }
 
 .total-amount {
@@ -2211,7 +2223,7 @@ ul.accordion-list {
     border: none;
     border-radius: 5px;
     padding: 12px 30px;
-    font-size: 18px;
+    font-size: 13px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -2263,7 +2275,7 @@ ul.accordion-list {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 15px;
+    padding: 8px 15px;
     background: linear-gradient(91deg, #2ba943 -0.01%, #0f341e 99.99%) !important;
     color: white;
 }
@@ -2278,16 +2290,11 @@ ul.accordion-list {
     background: none;
     border: none;
     color: white;
-    font-size: 22px;
+    font-size: 40px;
     cursor: pointer;
     line-height: 1;
 }
 
-.ticket-summary-content {
-    padding: 15px;
-    max-height: 400px;
-    overflow-y: auto;
-}
 
 .ticket-item {
     border-bottom: 1px solid #eee;
@@ -2437,8 +2444,11 @@ ul.accordion-list {
 }
 
 /* Rendered text alignment */
-.select2-container--default .select2-selection--single .select2-selection__rendered {
-    line-height: 30px !important;
+
+
+.select2-container--default .select2-selection--single .select2-selection__placeholder{
+    font-size: 14px;
+    font-weight: 300;
 }
 
 /* Dropdown arrow button */
@@ -2810,7 +2820,7 @@ ul.accordion-list {
 .attendee-header {
     background: linear-gradient(91deg, #2ba642 -0.01%, #123d21 99.99%);
     color: white;
-    padding: 15px;
+    padding: 10px;
     border-radius: 5px 5px 0px 0px;
     display: flex;
     justify-content: space-between;
@@ -2914,12 +2924,13 @@ ul.accordion-list {
 
 .attendee-header h4 {
     margin: 0px;
-    font-weight: 600;
+    font-weight: 400;
+    font-size: 20px;
 }
 
 .ticket-select-box {
-    background-color: #f8d7da !important;
-    border: 1px solid #b88386 !important;
+    background-color: #ffffff !important;
+    border: 2px solid #f00000 !important
 }
 
 .ticket-select-bg .green {
@@ -2931,32 +2942,45 @@ ul.accordion-list {
 
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 5px 10px;
     border-radius: 8px;
     position: relative;
     width: 100%;
 }
 
 .ticket-select-bg {
-    background-color: #fff;
+     background-color: #fff;
     border: 1px solid #ebebeb;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 15px 20px 25px 20px;
+    margin-bottom: -5px;
+    border-bottom: none;
 }
 
 .ticket-select-bg h4{
-    font-size: 15px;
-    font-weight: 600;
-    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 400;
     margin-bottom: 0px;
+    /* margin-top: 20px; */
 }
 
 .ticket-select-bg h4 span{
     font-size: 12px;
-    font-weight: 100;
+    font-weight: 300;
     color: #07458c;
 }
 
+.ticket-am-vat{
+    font-size: 12px;
+    color: gray;
+    font-weight: 400;
+}
+
+.select-ticket-amount-count{
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
 
 .select-wrapper {
     position: relative;
@@ -2988,8 +3012,8 @@ ul.accordion-list {
     background: #ffffff23;
     border: none;
     border-radius: 8px;
-    font-size: 15px;
-    font-weight: 700;
+    font-size: 14px;
+    font-weight: 400;
     padding-right: 40px;
     max-width: 100%;
     min-width: 200px;
@@ -3044,7 +3068,7 @@ ul.accordion-list {
 .checkout-right-aligned {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 40px;
 }
 
 
@@ -3081,29 +3105,14 @@ ul.accordion-list {
 
 }
 
-.ticket-summary-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 15px;
-    background: linear-gradient(91deg, #1F2383 -0.01%, #0B0442 99.99%);
-    color: white;
-}
+
 
 .ticket-summary-header h3 {
     margin: 0;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 300;
 }
 
-.close-summary {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 22px;
-    cursor: pointer;
-    line-height: 1;
-}
 
 .ticket-summary-content {
     padding: 15px;
@@ -3111,11 +3120,6 @@ ul.accordion-list {
     overflow-y: auto;
 }
 
-.ticket-item {
-    border-bottom: 1px solid #eee;
-    padding-bottom: 12px;
-    margin-bottom: 12px;
-}
 
 
 .ticket-details {
@@ -3342,7 +3346,7 @@ select.form-control {
 }
 
 .ticket-select-box img {
-    width: 30px;
+    width: 25px;
     /* filter: invert(1); */
 }
 
@@ -3618,11 +3622,11 @@ select.form-control {
 
 
 .ticket-info-to .badge-fullname {
-    font-weight: bold;
-    font-size: 19px;
+    font-weight: 400;
+    font-size: 17px;
     color: #232324;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 35px;
 }
 
 .ticket-info-to .badge-jobtitle,
@@ -3631,14 +3635,15 @@ select.form-control {
     color: #232324;
     text-transform: uppercase;
     margin-bottom: 20px;
-    font-size: 18px;
+    font-size: 17px;
 }
 
 .ticket-info-to .badge-country {
     font-weight: 400;
     color: #000000;
     text-transform: uppercase;
-    font-size: 18px;
+    font-size: 17px;
+    margin-bottom: 20px;
 }
 
 .ticket-info-ft {
@@ -3676,7 +3681,7 @@ select.form-control {
 
 
 .ticket-info-ft h6 {
-    font-weight: 400;
+    font-weight: 300;
     color: #ffffff;
     text-transform: uppercase;
     margin-bottom: 10px;
@@ -3722,6 +3727,9 @@ select.form-control {
 .select2-container--default .select2-selection--single .select2-selection__rendered {
     padding-left: 0;
     color: #333;
+    font-size: 14px;
+    line-height: 25px !important;
+    font-weight: 300;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__arrow {
@@ -3888,13 +3896,16 @@ select.form-control {
     font-weight: 600;
 }
 
+.list-group-item.fw-bold {
+    background: #ececec !important;
+    padding: 5px 10px !important;
+    color: #1f1f1f;
+    
+}
+
 .reg-form-width {
     padding: 30px 150px;
 }
-
-
-
-
 
 
 /* Initially hide the selected-data-container */
@@ -4482,9 +4493,9 @@ select.form-control {
 
 .social-register-section h2 {
     font-size: 18px;
-    font-weight: 300;
+    font-weight: 400;
     color: #0f0f1e;
-    width: 70%;
+    width: 100%;
     text-align: center;
     margin: auto;
 }
@@ -4533,21 +4544,49 @@ select.form-control {
     background-color: #0077b512;
     border: 1px solid #3b5998;
     transition: .5s ease;
+    padding: 6px 11px;
+    font-size: 12px;
 }
 
-.social-btn.linkedin:hover,
+/* .social-btn.linkedin:hover,
 .social-btn.facebook:hover,
 .social-btn.twitter:hover {
     background-color: #3b5998;
     border: 1px solid #3b5998;
     color: white;
     transition: .5s ease;
-}
+} */
 
 
 .social-btn:hover {
     opacity: 0.9;
 }
+
+.reg-form-social-btn .social-btn.linkedin{
+    background-color: #0072B1;
+    color: #ffffff;
+}
+
+.reg-form-social-btn .social-btn{
+    border: none;
+}
+
+.reg-form-social-btn .social-btn i{
+    color: #ffffff;
+}
+
+.reg-form-social-btn .social-btn.facebook{
+    background-color: #4267B2;
+    color: #ffffff;
+}
+
+.reg-form-social-btn .social-btn.twitter{
+    background-color: #1DA1F2;
+    color: #ffffff;
+    
+}
+
+
 
 /* forms social media */
 
@@ -4929,7 +4968,7 @@ select.form-control {
 
 .vat-info {
     font-size: 12px;
-    margin-left: 10px;
+    /* margin-left: 10px; */
     color: #bbbbbb;
 }
 
@@ -5390,7 +5429,7 @@ select.form-control {
 /* view ticket */
 
 .min-height-77 {
-    min-height: 66px;
+    min-height: 50px;
 }
 
 .table-row h6 {
@@ -7169,9 +7208,17 @@ td {
 
 .form-label {
     display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    color: #374151;
+    margin-bottom: 5px;
+    font-weight: 300;
+    color: #1f2124;
+}
+
+.iti--separate-dial-code .iti__selected-dial-code{
+    font-size: 12px !important;
+}
+
+.iti--allow-dropdown input, .iti--allow-dropdown input[type=text], .iti--allow-dropdown input[type=tel], .iti--separate-dial-code input, .iti--separate-dial-code input[type=text], .iti--separate-dial-code input[type=tel]{
+    font-size: 13px !important;
 }
 
 .form-input {
@@ -8542,6 +8589,7 @@ td {
     font-weight: 700;
     font-size: 24px;
     margin-bottom: 10px;
+    text-transform: uppercase;
 }
 
 .reg-confirmed__desc {
@@ -9162,7 +9210,7 @@ td {
 }
 
 .select2-container .select2-selection--single {
-    height: 50px !important;
+    height: 45px !important;
     width: 100% !important;
     border-radius: 10px !important;
     padding-left: 18px !important;
@@ -9845,10 +9893,7 @@ textarea {
     text-align: center;
 }
 
-.pass-type span {
-    color: rgb(226, 54, 58);
-    font-style: italic;
-}
+
 
 
 .login-input {
@@ -9911,7 +9956,7 @@ textarea {
 
 .reg-primary-span {
     color: #ddffd5;
-    font-size: 15px;
+    font-size: 11px;
     background: green;
     padding: 5px 15px;
     background: #ffffff1f;
@@ -11455,14 +11500,8 @@ textarea {
 
 
 /* Tab Content Styles */
-.tab-content {
-    display: none;
-    padding: 20px;
-}
 
-.tab-content.active {
-    display: block;
-}
+
 
 /* Agenda Styles */
 .agenda-list {
@@ -11635,604 +11674,279 @@ textarea {
 
 
 
+/* payment reciept */
 
-
-/* matchmaking profile */
-
-.sidebar-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 25px;
-            color: #333;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .quick-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-
-        .upcoming-meetings {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 25px;
-        }
-
-        .upcoming-title {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        .meeting-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            transition: background 0.3s ease;
-            cursor: pointer;
-        }
-
-        .meeting-item:hover {
-            background: #f8fafc;
-        }
-
-        .meeting-time-badge {
-            background: linear-gradient(91deg, #2ba642 -0.01%, #123d21 99.99%);
-            color: white;
-            padding: 6px 10px;
-            border-radius: 8px;
-            font-size: 11px;
-            font-weight: 600;
-            min-width: 50px;
-            text-align: center;
-        }
-
-        .meeting-info {
-            flex: 1;
-        }
-
-        .meeting-title {
-            font-weight: 600;
-            font-size: 13px;
-            margin-bottom: 2px;
-            color: #333;
-        }
-
-        .meeting-attendee {
-            font-size: 11px;
-            color: #666;
-        }
-
-        .ai-recommendations {
-            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 15px;
-        }
-
-        .ai-title {
-            font-weight: 600;
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
-
-        .ai-suggestion {
-            font-size: 13px;
-            opacity: 0.9;
-            margin-bottom: 15px;
-            line-height: 1.4;
-        }
-
-        .ai-btn {
-            background: white;
-            color: #8b5cf6;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            font-size: 12px;
-        }
-
-        .ai-btn:hover {
-            transform: scale(1.05);
-        }
-
-        /* Schedule Main Area */
-        .schedule-main {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .schedule-header {
-            padding: 30px;
-            border-bottom: 1px solid #e5e7eb;
-            background: white;
-        }
-
-        .schedule-header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .schedule-title {
-            font-size: 28px;
-            font-weight: 700;
-            color: #333;
-        }
-
-        .schedule-actions {
-            display: flex;
-            gap: 10px;
-            width: 40%;
-        }
-
-        .action-btn {
-            padding: 12px 20px;
-            border: none;
-            border-radius: 10px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-
-
-        .prifile-view-controls {
-            display: flex;
-            gap: 10px;
-            justify-content: space-between;
-            align-items: center;
-            
-        }
-
-
-        .date-navigation {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .current-date {
-            font-size: 20px;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .date-nav-btn {
-            width: 40px;
-            height: 40px;
-            border: none;
-            border-radius: 50%;
-            background: #f3f4f6;
-            color: #666;
-            cursor: pointer;
-            transition: all 0.3s ease;
+.main-body-ticket-reciept-body {
+            background: linear-gradient(135deg, #38dc52 0%, #000000 100%);
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 20px;
         }
 
-        .date-nav-btn:hover {
-            background: #667eea;
+        .main-body-ticket-reciept-body .receipt-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            max-width: 450px;
+            width: 100%;
+            position: relative;
+        }
+
+        .main-body-ticket-reciept-body .receipt-header {
+            background: linear-gradient(9deg, #2ea641 0%, #0c4214 100%);
+            padding: 30px 25px;
+            text-align: center;
             color: white;
+            position: relative;
         }
 
-        /* Schedule Content */
-        .schedule-content {
-            padding: 30px;
+        .main-body-ticket-reciept-body .receipt-header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: white;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
         }
 
-        .time-grid {
-            display: grid;
-            grid-template-columns: 80px 1fr;
-            gap: 20px;
-            max-height: 600px;
-            overflow-y: auto;
-        }
-
-        .time-column {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .time-slot {
+        .main-body-ticket-reciept-body .success-icon {
+            background: rgba(255,255,255,0.2);
+            width: 60px;
             height: 60px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            font-size: 12px;
-            color: #666;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 24px;
+        }
+
+        .main-body-ticket-reciept-body .receipt-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .main-body-ticket-reciept-body .receipt-subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .main-body-ticket-reciept-body .receipt-body {
+            padding: 40px 25px 30px;
+        }
+
+        .main-body-ticket-reciept-body .event-info {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
+            border-radius: 15px;
+            border: 2px dashed #e0e7ff;
+        }
+
+        .main-body-ticket-reciept-body .event-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #106b39;
+            margin-bottom: 8px;
+        }
+
+        .main-body-ticket-reciept-body .event-details {
+            font-size: 16px;
+            font-weight: 400;
+            color: #073621c9;
+            line-height: 1.6;
+        }
+
+        .main-body-ticket-reciept-body .receipt-details {
+            margin-bottom: 25px;
+        }
+
+        .main-body-ticket-reciept-body .detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .main-body-ticket-reciept-body .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .main-body-ticket-reciept-body .detail-label {
+            font-size: 14px;
+            color: #64748b;
             font-weight: 500;
         }
 
-        .events-column {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            position: relative;
-        }
-
-        .event-slot {
-            height: 60px;
-            position: relative;
-            border-left: 2px solid #f1f3f4;
-        }
-
-        .event-item {
-            position: absolute;
-            left: 10px;
-            right: 10px;
-            background: white;
-            border-radius: 8px;
-            padding: 12px 15px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            border-left: 4px solid #667eea;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            height: 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .event-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-        }
-
-        .event-item.session {
-            border-left-color: #10b981;
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(5, 150, 105, 0.05) 100%);
-        }
-
-        .event-item.meeting {
-            border-left-color: #f59e0b;
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, rgba(217, 119, 6, 0.05) 100%);
-        }
-
-        .event-item.networking {
-            border-left-color: #ec4899;
-            background: linear-gradient(135deg, rgba(236, 72, 153, 0.05) 0%, rgba(190, 24, 93, 0.05) 100%);
-        }
-
-        .event-item.break {
-            border-left-color: #8b5cf6;
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
-        }
-
-        .event-title {
+        .main-body-ticket-reciept-body .detail-value {
+            font-size: 14px;
+            color: #1e293b;
             font-weight: 600;
-            font-size: 13px;
-            margin-bottom: 2px;
-            color: #333;
         }
 
-        .event-details {
-            font-size: 11px;
-            color: #666;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .event-location {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .event-attendees {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        /* List View */
-        .schedule-list {
-            display: none;
-        }
-
-        .schedule-list.active {
-            display: block;
-        }
-
-        .list-day-section {
-            margin-bottom: 30px;
-        }
-
-        .day-header {
-            background: #f8fafc;
-            padding: 15px 20px;
+        .main-body-ticket-reciept-body .total-row {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            margin: 0 -10px;
+            padding: 15px 10px;
             border-radius: 10px;
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            border: 2px solid #e2e8f0;
         }
 
-        .day-title {
-            font-weight: 600;
-            color: #333;
+        .main-body-ticket-reciept-body .total-row .detail-label {
             font-size: 16px;
+            font-weight: 700;
+            color: #1e293b;
         }
 
-        .day-summary {
-            font-size: 13px;
-            color: #666;
+        .main-body-ticket-reciept-body .total-row .detail-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e3c72;
         }
 
-        .list-event-item {
-            background: white;
-            border-radius: 10px;
+        .main-body-ticket-reciept-body .qr-code {
+            text-align: center;
+            margin: 25px 0;
             padding: 20px;
-            margin-bottom: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid #468f4b;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .list-event-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .list-event-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 10px;
-        }
-
-        .list-event-title {
-            font-weight: 600;
-            font-size: 16px;
-            margin-bottom: 5px;
-            color: #333;
-        }
-
-        .list-event-time {
-            background: #667eea;
-            color: white;
-            padding: 6px 12px;
+            background: #f8fafc;
             border-radius: 15px;
+        }
+
+        .main-body-ticket-reciept-body .qr-placeholder {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, #e2e8f0 25%, transparent 25%), 
+                        linear-gradient(-45deg, #e2e8f0 25%, transparent 25%), 
+                        linear-gradient(45deg, transparent 75%, #e2e8f0 75%), 
+                        linear-gradient(-45deg, transparent 75%, #e2e8f0 75%);
+            background-size: 10px 10px;
+            background-position: 0 0, 0 5px, 5px -5px, -5px 0px;
+            margin: 0 auto 10px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
             font-size: 12px;
             font-weight: 600;
         }
 
-        .list-event-description {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 15px;
+        .main-body-ticket-reciept-body .qr-text {
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 5px;
+        }
+
+        .main-body-ticket-reciept-body .receipt-footer {
+            text-align: center;
+            padding: 20px 25px;
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .main-body-ticket-reciept-body .footer-text {
+            font-size: 12px;
+            color: #64748b;
             line-height: 1.5;
         }
 
-        .list-event-meta {
-            display: flex;
-            align-items: center;
-            gap: 20px;
+        .main-body-ticket-reciept-body .confirmation-number {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
             font-size: 12px;
-            color: #666;
-        }
-
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .event-detail-section {
-            margin-bottom: 20px;
-        }
-
-        .detail-label {
             font-weight: 600;
-            color: #333;
-            margin-bottom: 5px;
-            font-size: 14px;
-        }
-
-        .detail-value {
-            color: #666;
-            font-size: 14px;
-        }
-
-        .attendees-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
+            display: inline-block;
             margin-top: 10px;
         }
 
-        .attendee-card {
-            background: #f8fafc;
+        @media print {
+            .main-body-ticket-reciept-body {
+                background: white;
+                padding: 0;
+            }
+            
+            .main-body-ticket-reciept-body .receipt-container {
+                box-shadow: none;
+                max-width: none;
+            }
+        }
+
+        .main-body-ticket-reciept-body .tickets-section {
+            margin-bottom: 25px;
+        }
+
+        .main-body-ticket-reciept-body .ticket-item {
+            background: linear-gradient(135deg, #f8faff 0%, #f0f2ff 100%);
+            border: 2px solid #e0e7ff;
+            border-radius: 12px;
             padding: 15px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            margin-bottom: 12px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .attendee-avatar {
-            width: 35px;
-            height: 35px;
+        .main-body-ticket-reciept-body .ticket-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background: white;
             border-radius: 50%;
-            background: linear-gradient(91deg, #2ba642 -0.01%, #123d21 99.99%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 600;
-            font-size: 12px;
+            box-shadow: 0 0 0 2px #e0e7ff;
         }
 
-        .attendee-info {
-            flex: 1;
+        .main-body-ticket-reciept-body .ticket-item::after {
+            content: '';
+            position: absolute;
+            right: -5px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 2px #e0e7ff;
         }
 
-        .attendee-name {
-            font-weight: 600;
-            font-size: 13px;
-            color: #333;
-        }
-
-        .attendee-title {
-            font-size: 11px;
-            color: #666;
-        }
-
-        .modal-actions {
-            display: flex;
-            gap: 15px;
-            margin-top: 25px;
-            justify-content: flex-end;
-        }
-
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 15px;
-            }
-
-            .header {
-                padding: 15px 20px;
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .nav-links {
-                gap: 20px;
-            }
-
-
-            .schedule-sidebar {
-                order: 2;
-            }
-
-            .schedule-main {
-                order: 1;
-            }
-
-            .schedule-header-top {
-                flex-direction: column;
-                gap: 15px;
-                align-items: stretch;
-            }
-
-            .schedule-actions {
-                justify-content: center;
-            }
-
-            .time-grid {
-                grid-template-columns: 60px 1fr;
-                gap: 10px;
-            }
-
-            .quick-stats {
-                grid-template-columns: 1fr;
-            }
-
-            .modal {
-                width: 95%;
-                padding: 30px 20px;
-            }
-
-            .attendees-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Animations */
-        .event-item {
-            animation: slideIn 0.3s ease;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Custom Scrollbar */
-        .time-grid::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .time-grid::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-        .time-grid::-webkit-scrollbar-thumb {
-            background: #c1c1c1;
-            border-radius: 3px;
-        }
-
-        .time-grid::-webkit-scrollbar-thumb:hover {
-            background: #a8a8a8;
-        }
-
-
-
-        /* profile */
-
-        .info-row {
+        .main-body-ticket-reciept-body .ticket-header {
             display: flex;
             justify-content: space-between;
-            padding: 5px 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .info-label {
-            font-weight: bold;
-            color: #555;
-            min-width: 120px;
+            align-items: center;
+            margin-bottom: 8px;
         }
 
-        .schedule-sidebar{
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
+        .main-body-ticket-reciept-body .ticket-type {
+            font-weight: 700;
+            color: #1e3c72;
+            font-size: 14px;
         }
 
-        .schedule-sidebar .match-profile-card{
-            border-radius: 8px;
-            background-color: transparent;
-            box-shadow: none;
-            border: 1px solid #eaeaea;
+        .main-body-ticket-reciept-body .ticket-price {
+            font-weight: 700;
+            color: #059669;
+            font-size: 16px;
         }
 
-        .info-row .info-label{
-            font-size: 15px;
-            font-weight: 500;
-            text-align: left;
+        .main-body-ticket-reciept-body .ticket-details-small {
+            font-size: 12px;
+            color: #64748b;
+            line-height: 1.4;
+            position: relative;
+            margin: 20px 0;
         }
-        
 
-        
-/* matchmaking profile */
+
+        /* payment reciept */

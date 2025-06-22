@@ -2075,7 +2075,14 @@
                                     </div>
                                    
                                 </div>
-                                 <h4>Ticket Amount: 40 USD <span>Incl. 15% VAT</span</h4>
+                                 <div class="d-flex align-items-center mt-2 gap-3">
+                                    <h4>Ticket Amount: </h4>
+                                 <div class="select-ticket-amount-count">
+                                    40 USD
+                                <span class="ticket-am-vat">Incl. 15% VAT</span>
+                                </div>
+                                </div>
+                                 
                                 </div>
 
                                
@@ -2854,7 +2861,7 @@
                                 <h2>Register with your social media account & join the community</h2>
                                 <p class="subtext">Post to your social feed. See who’s going. Invite your network.</p>
                                 
-                                <div class="social-buttons">
+                                <div class="social-buttons reg-form-social-btn">
                                     <a href="#" class="social-btn linkedin">
                                     <i class="fab fa-linkedin"></i> Register with LinkedIn
                                     </a>
@@ -3615,6 +3622,30 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
     
+
+<script>
+    function openModal() {
+  const hasVerticalScrollbar = window.innerWidth > document.documentElement.clientWidth;
+  const scrollBarWidth = hasVerticalScrollbar
+    ? window.innerWidth - document.documentElement.clientWidth
+    : 0;
+
+  document.body.classList.add('modal-open');
+  document.body.style.overflow = 'hidden';
+  document.body.style.paddingRight = scrollBarWidth + 'px';
+
+  document.getElementById('myModal').style.display = 'flex';
+}
+
+function closeModal() {
+  document.body.classList.remove('modal-open');
+  document.body.style.overflow = '';
+  document.body.style.paddingRight = '';
+
+  document.getElementById('myModal').style.display = 'none';
+}
+
+</script>
 
 </body>
 
