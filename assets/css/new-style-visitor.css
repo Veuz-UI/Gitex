@@ -480,6 +480,7 @@ body.loaded #loader-wrapper {
     margin-bottom: 10px;
     position: relative;
     z-index: 999;
+    min-height: 60px;
 }
 
 .pass-content span a{
@@ -1102,7 +1103,6 @@ a {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    background-image: url(assets/img/card.png);
 }
 
 .premium-header {
@@ -3819,6 +3819,11 @@ select.form-control {
 .badge-bg-5 {
     background: linear-gradient(91deg, #F27809 -0.01%, #C32E23 99.99%) !important;
 }
+
+.badge-bg-6 {
+    background: linear-gradient(91deg, #5D2B7E -0.01%, #431B5A 99.99%) !important;
+}
+
 
 .lg-badge-hide {
   display: none !important;
@@ -12373,6 +12378,12 @@ textarea {
         .form-card .form-control, .form-card .form-select {
             font-size: 14px !important;
         }
+        
+         @media (max-width: 1100px) {
+            .form-end-btn{
+                flex-direction: column;
+            }
+         }
 
 
         @media (max-width: 1024px) {
@@ -12383,7 +12394,77 @@ textarea {
             .user-history-tabs .nav-link{
                 font-size: 12px;
             }
+            
+        }
+
+        @media (max-width: 768px) {}
+
+        @media (max-width: 420px) {
+            .reg-form-width {
+                padding: 30px 5px;
+            }
+            .registration-container {
+        padding: 0px 5px 15px 5px;
+            }
+            .applied-promo-details{
+                font-size: 13px;
+            }
+            .reg-confirmed__left{
+                margin-bottom: 30px;
+                border-bottom: 1px solid #b0b0b0;
+                padding-bottom: 15px;
+            }
+            .reg-confirmed__title{
+                font-size: 20px;
+            }
+            .form-end-btn label{
+                max-width: 80%;
+                text-align: left;
+            }
+            .form-end-btn{
+                align-items: start;
+            }
+            .min-height-70 {
+            min-height: calc(88vh - 80px);
+        }
         }
 
 
+
+        @media (max-width: 375px) {}
+
+            .coming-soon{
+                position: relative;
+            }
+
+            .coming-soon::after{
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    height: 100%;
+                    width: 100%;
+                    background-image: url(../img/coming.png);
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: 60%;
+                    background-color: rgba(0, 0, 0, 0.84);
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                    content: "";
+                    z-index: 9999999999;
+
+                    /* key part: enable backdrop blur */
+                    -webkit-backdrop-filter: blur(10px); /* for Safari */
+                    backdrop-filter: blur(10px);         /
+            } 
+
+
+
+
+
+
+
+            /* input */
+
             
+            /* input */
