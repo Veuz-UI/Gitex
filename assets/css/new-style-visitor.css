@@ -23,6 +23,7 @@ body.modal-open {
   padding-right: 0 !important; /* Prevent layout jump */
 }
 
+
 /* button */
 .green-stroke-btn{
     background: white !important;
@@ -296,7 +297,7 @@ body.loaded #loader-wrapper {
 }
 
 .content {
-    padding: 30px 60px;
+    padding: 3% 5%;
     background: rgb(255, 255, 255);
     -webkit-backdrop-filter: blur(8px);
     background-image: url(../img/CircleElement.webp) !important;
@@ -2666,6 +2667,7 @@ ul.accordion-list {
 @media (max-width: 991px) {
     .inner-banner img {
         width: auto;
+        margin-bottom:10px;
     }
 
     .card {
@@ -2692,7 +2694,7 @@ ul.accordion-list {
 
     .inner-banner {
         height: auto;
-        padding: 20px 30px;
+        padding: 20px 16px;
         flex-direction: column;
     }
 
@@ -2744,9 +2746,9 @@ ul.accordion-list {
         justify-content: end;
     }
 
-    .sm-hide-logo {
+    /* .sm-hide-logo {
         display: none !important;
-    }
+    } */
 
     .sm-show-logo {
         display: block !important;
@@ -12397,7 +12399,11 @@ textarea {
             
         }
 
-        @media (max-width: 768px) {}
+        @media (max-width: 768px) {
+            .rate-count{
+                flex-direction: column;
+            }
+        }
 
         @media (max-width: 420px) {
             .reg-form-width {
@@ -12426,6 +12432,9 @@ textarea {
             }
             .min-height-70 {
             min-height: calc(88vh - 80px);
+        }
+        .details-grid{
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         }
         }
 

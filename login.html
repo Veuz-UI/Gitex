@@ -4,84 +4,364 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GITEX NIGERIA</title>
-  <link rel="stylesheet" href="assets/css/aos.css">
+  <title>GITEX NIGERIA 2025</title>
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/font-awesome.css">
-  <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-  <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
   <link rel="stylesheet" href="assets/css/new-style-visitor.css">
   <link rel="stylesheet" href="assets/fonts/webfont/stylesheet.css">
   <link rel="icon" href="assets/img/fav-icon.png" type="image/p">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="icon" type="image/png" href="assets/img/fav-icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
-
 <style>
-  .input-container {
-               padding: 15px 20px;
-          background: white;
-          border-top: none;
-          display: flex
-      ;
-          align-items: center;
-          gap: 10px;
-          position: sticky;
-          bottom: 0px;
-          left: 0px;
-          width: 440px;
-          margin: auto;
-        }
+.bg-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
 
-        .input-field {
-            width: 100%;
-            padding: 16px 12px 8px 12px;
-            border: 1px solid #dadce0;
-            border-radius: 10px;
-            font-size: 16px;
-            background: white;
-            outline: none;
-            transition: all 0.3s ease;
-            box-sizing: border-box;
-        }
+.particle {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
 
-      
+.particle:nth-child(1) { width: 80px; height: 80px; left: 10%; animation-delay: 0s; }
+.particle:nth-child(2) { width: 60px; height: 60px; left: 20%; animation-delay: 1s; }
+.particle:nth-child(3) { width: 40px; height: 40px; left: 70%; animation-delay: 2s; }
+.particle:nth-child(4) { width: 100px; height: 100px; left: 80%; animation-delay: 3s; }
+.particle:nth-child(5) { width: 30px; height: 30px; left: 50%; animation-delay: 4s; }
 
-        .input-label {
-            position: absolute;
-            left: 32px;
-            top: 30px;
-            color: #5f6368;
-            font-size: 16px;
-            pointer-events: none;
-            transition: all 0.3s ease;
-            background: white;
-            padding: 0 4px;
-            transform-origin: left top;
-        }
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-100px) rotate(180deg);
+    opacity: 0.3;
+  }
+}
 
-        .input-field:focus + .input-label,
-        .input-field:not(:placeholder-shown) + .input-label,
-        .input-field.has-value + .input-label {
-            transform: translateY(-24px) scale(0.75);
-        }
+.content {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  flex: 1;
+  padding: 40px 0;
+}
 
-        .input-field:focus + .input-label {
-        }
+.login-form-container {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  padding: 50px 40px;
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transform: translateY(0);
+  transition: all 0.3s ease;
+  animation: slideInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-        .input-field:not(:focus):not(:placeholder-shown) + .input-label,
-        .input-field:not(:focus).has-value + .input-label {
-            color: #5f6368;
-        }
+.login-form-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #037938, #61ad1d, #558b29);
+  border-radius: 24px 24px 0 0;
+}
+
+
+.login-form-container h4 {
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #105a1c, #5dab1b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.login-form-container h4::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #055d26, #639830);
+  border-radius: 2px;
+}
+
+.sub-wrapper-cntnt p {
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.4;
+  padding-bottom: 35px;
+  font-weight: 300;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 32px;
+  text-align: left;
+}
+
+.input-field {
+  width: 100%;
+  padding: 20px 20px 20px 56px;
+  border: 2px solid #e5e7eb;
+  border-radius: 16px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
+}
+
+.input-field:focus {
+  border-color: #40872e;
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-2px);
+  animation: focusPulse 0.3s ease-out;
+  box-shadow:
+    0 0 0 4px rgba(79, 70, 229, 0.1),
+    0 8px 25px rgba(79, 70, 229, 0.15);
+}
+
+.input-label {
+  position: absolute;
+  left: 56px;
+  top: 20px;
+  color: #9ca3af;
+  font-size: 16px;
+  font-weight: 500;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: left center;
+  z-index: 2;
+}
+
+.input-field:focus + .input-label,
+.input-field:not(:placeholder-shown) + .input-label {
+  transform: translateY(-36px) translateX(-36px) scale(0.82);
+  color: #448b30;
+  font-weight: 600;
+  padding: 4px 12px;
+  background-color: #fff;
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.input-icon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.input-field:focus ~ .input-icon {
+  color: #40872e;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.get-otp-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #0c581c, #4c9232, #90cf38);
+  background-size: 200% 200%;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  padding: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 20px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
+}
+
+.get-otp-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.get-otp-btn:hover {
+  background-position: 100% 0;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(79, 70, 229, 0.4);
+}
+
+.get-otp-btn:hover::before {
+  left: 100%;
+}
+
+.get-otp-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
+}
+
+.security-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.security-badge i {
+  color: #10b981;
+  font-size: 16px;
+}
+
+.footer {
+  margin-top: auto;
+}
+
+.success-animation {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #10b981;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  scale: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+}
+
+.success-animation.show {
+  opacity: 1;
+  scale: 1;
+}
+
+.success-animation i {
+  color: white;
+  font-size: 24px;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes focusPulse {
+  0% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.3); }
+  70% { box-shadow: 0 0 0 8px rgba(79, 70, 229, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); }
+}
+
+@media (max-width: 480px) {
+  .login-form-container {
+    padding: 40px 12px;
+    border-radius: 20px;
+    margin: 0;
+  }
+
+  .login-form-container h4 {
+    font-size: 20px;
+  }
+
+    .input-field {
+      padding: 14px 18px 13px 52px;
+      font-size: 12px;
+  }
+
+  .input-label {
+    left: 52px;
+    top: 18px;
+    font-size: 11px;
+  }
+
+  .sub-wrapper-cntnt p{
+    font-size: 15px;
+    padding-bottom: 15px;
+  }
+
+  .input-field:focus + .input-label,
+  .input-field:not(:placeholder-shown) + .input-label {
+    transform: translateY(-34px) translateX(-34px) scale(0.82);
+  }
+
+  .input-icon {
+    left: 18px;
+  }
+  .get-otp-btn{
+    padding: 10px;
+  }
+  .security-badge{
+    text-align: left;
+  }
+}
+
 </style>
 
-
-
 <body>
+  <!-- Animated background -->
+  <div class="bg-animation">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
 
   <!-- loader -->
-  <div id="loader-wrapper">
+  <div id="loader-wrapper" style="display: none;">
     <div class="loader">
       <svg viewBox="0 0 80 80">
         <circle id="test" cx="40" cy="40" r="32"></circle>
@@ -100,45 +380,47 @@
   </div>
   <!-- loader -->
 
-
-
-
-
   <div class="inner-banner">
     <a href="index.html"><img src="assets/img/ni-header.png" class="img-fluid"></a>
     <div>
-      <div class="registration-text">GITEX NIGERIA TECH EXPO + <br> FUTURE ECONOMY SUMMIT</div>
+      <div class="registration-text">VISITOR PORTAL ACCESS</div>
     </div>
   </div>
-
-
 
   <section class="content min-height-70">
     <div class="custom-container">
       <div class="sub-wrapper">
-        <h4>Log In</h4>
-        <div class="sub-wrapper-cntnt">
-          <p>We will send you a one time password to <br> your registered Email ID</p>
+        <div class="login-form-container" data-aos="fade-up" data-aos-duration="800">
+          <h4>Welcome Back</h4>
+          <div class="sub-wrapper-cntnt">
+            <p>Enter your email address and we'll send you a secure one-time password to access your account.</p>
 
-          
-        <div class="input-container">
-            <input 
-                type="email" 
-                class="input-field" 
-                id="email"
-                placeholder="example@youremail.com"
-                autocomplete="email"
-            >
-            <label for="email" class="input-label">Enter your email address</label>
-        </div>
-    </div>
+            <form id="loginForm">
+              <div class="input-group">
+                <input 
+                    type="email" 
+                    id="email" 
+                    class="input-field" 
+                    placeholder=""
+                    required
+                >
+                <label for="email" class="input-label">Enter your email address</label>
+                <i class="fas fa-envelope input-icon"></i>
+              </div>
+              
+              <button type="submit" class="get-otp-btn">
+                <span class="btn-text">Get Secure OTP</span>
+              </button>
 
-
-          <a href="otp.html"><button class="secondary-btn" onclick="location.href='otp.html'">Get OTP</button></a>
+              <div class="security-badge">
+                <i class="fas fa-shield-alt"></i>
+                <span>Your data is protected with end-to-end encryption</span>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-
   </section>
 
   <section class="footer">
@@ -154,35 +436,113 @@
     </div>
   </section>
 
-
-
-
-
-
   <script src="assets/js/script.js"></script>
-
   <script src="assets/js/bootstrap.min.js"></script>
   <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/bootstrap.bundle.js"></script>
-  <script src="assets/js/popper.min.js"></script>
-  <script src="assets/js/owl.carousel.min.js"></script>
   <script src="assets/js/font-awsome.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.3/gsap.min.js"></script>
-
-
-
-
 
   <script>
-    AOS.init();
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+
+    // Enhanced form validation and submission
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const email = document.getElementById('email').value;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const button = document.querySelector('.get-otp-btn');
+        const buttonText = document.querySelector('.btn-text');
+        
+        if (!emailRegex.test(email)) {
+            // Shake animation for invalid email
+            document.querySelector('.input-field').style.animation = 'shake 0.5s ease-in-out';
+            setTimeout(() => {
+                document.querySelector('.input-field').style.animation = '';
+            }, 500);
+            
+            alert('Please enter a valid email address');
+            return;
+        }
+        
+        // Loading state
+        button.classList.add('loading');
+        buttonText.textContent = 'Sending OTP...';
+        
+        // Simulate API call
+        setTimeout(() => {
+            // Redirect to OTP page directly without success animation
+            window.location.href = 'otp.html';
+        }, 2000);
+    });
+
+    // Enhanced input interactions
+    const inputField = document.getElementById('email');
+    const inputIcon = document.querySelector('.input-icon');
+
+    // Show placeholder only when focused
+    inputField.addEventListener('focus', function() {
+        this.placeholder = 'e.g., your.email@example.com';
+    });
+
+    inputField.addEventListener('blur', function() {
+        this.placeholder = '';
+    });
+
+    inputField.addEventListener('input', function() {
+        if (this.value) {
+            this.classList.add('has-value');
+            inputIcon.style.color = '#4f46e5';
+        } else {
+            this.classList.remove('has-value');
+            inputIcon.style.color = '#9ca3af';
+        }
+    });
+
+    // Add shake animation for validation errors
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+        20%, 40%, 60%, 80% { transform: translateX(5px); }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Smooth scroll and parallax effects
+    const particles = document.querySelectorAll('.particle');
+    
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5;
+        
+        particles.forEach((particle, index) => {
+            const speed = (index + 1) * 0.1;
+            particle.style.transform = `translateY(${rate * speed}px) rotate(${scrolled * 0.1}deg)`;
+        });
+    });
+
+    // Add typing effect for the title
+    const title = document.querySelector('.login-form-container h4');
+    const originalText = title.textContent;
+    title.textContent = '';
+    
+    let i = 0;
+    const typeWriter = () => {
+        if (i < originalText.length) {
+            title.textContent += originalText.charAt(i);
+            i++;
+            setTimeout(typeWriter, 100);
+        }
+    };
+    
+    // Start typing effect after page load
+    setTimeout(typeWriter, 500);
   </script>
-
-  
-
-
-
 
 </body>
 
