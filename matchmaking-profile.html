@@ -19,7 +19,7 @@
 /* matchmaking profile */
 
 .sidebar-title {
-            font-size: 20px;
+            font-size: 16px;
             font-weight: 700;
             margin-bottom: 25px;
             color: #333;
@@ -151,15 +151,20 @@
         }
 
         .schedule-title {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 700;
             color: #333;
+            margin: 0px;
         }
 
         .schedule-actions {
             display: flex;
             gap: 10px;
             width: 40%;
+        }
+
+        .schedule-actions .buy-btn{
+            margin: 0px;
         }
 
         .action-btn {
@@ -392,7 +397,7 @@
         }
 
         .list-event-time {
-            background: #667eea;
+            background: #0d7220;
             color: white;
             padding: 6px 12px;
             border-radius: 15px;
@@ -611,6 +616,31 @@
             font-weight: 500;
             text-align: left;
         }
+
+        .chat-item h4{
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0px;
+        }
+
+        @media (max-width: 991px) {
+            .prifile-view-controls{
+                flex-direction: column;
+            }
+            .current-date{
+                font-size: 15px;
+            }
+            .schedule-actions{
+                width: 100%;
+            }
+            .schedule-content {
+                padding: 15px;
+            }
+            .sidebar-title{
+                margin: 10px 0px;
+                font-size: 16px;
+            }
+        }
         
     </style>
 
@@ -620,729 +650,19 @@
 
 <body>
 
-    <div class="content">
-        <div class="row">
-        <div class="col-lg-4">
-            <div class="schedule-sidebar">
+    <div class="inner-banner">
+        <a href="">
+            <img src="assets/img/ni-header.png" class="img-fluid ">
+        </a>
 
-                <div class="match-attendee-profile">
-                    <div class="match-profile-card">
-                    <div class="match-image-wrapper">
-                        <img src="assets/img/user-2.jpg" alt="">
-                    </div>
-                    <div class="mb-3">
-                        <h5>Mohammed Navab</h5>
-                        <h6>navab@gmail.com</h6>
-                    </div>
-                    <div class="">
-                        <div class="info-row">
-                            <span class="info-label">Email:</span>
-                            <span class="info-value">navab@gmail.com</span>
-                        </div>
-                        
-                        <div class="info-row">
-                            <span class="info-label">Phone:</span>
-                            <span class="info-value">+81 90-1234-5678</span>
-                        </div>
-                        
-                        <div class="info-row">
-                            <span class="info-label">Country:</span>
-                            <span class="info-value">India</span>
-                        </div>
-                        
-                        <div class="info-row">
-                            <span class="info-label">Nationality:</span>
-                            <span class="info-value">India</span>
-                        </div>
-                        
-                        <div class="info-row">
-                            <span class="info-label">Company:</span>
-                            <span class="info-value">Tech Solutions Inc.</span>
-                        </div>
-                        
-                        <div class="info-row">
-                            <span class="info-label">Job Title:</span>
-                            <span class="info-value">Software Engineer</span>
-                        </div>
-                    </div>
-                </div>
-                </div>
-
-                
-                <h2 class="sidebar-title">📅 My Schedule</h2>
-                <!-- Mini Calendar -->
-                <!-- <div class="mini-calendar">
-                    <div class="calendar-header">
-                        <div class="calendar-month">June 2025</div>
-                        <div class="calendar-nav">
-                            <button class="calendar-nav-btn">‹</button>
-                            <button class="calendar-nav-btn">›</button>
-                        </div>
-                    </div>
-                    <div class="calendar-grid">
-                        <div class="calendar-day header">S</div>
-                        <div class="calendar-day header">M</div>
-                        <div class="calendar-day header">T</div>
-                        <div class="calendar-day header">W</div>
-                        <div class="calendar-day header">T</div>
-                        <div class="calendar-day header">F</div>
-                        <div class="calendar-day header">S</div>
-                        
-                        <div class="calendar-day">1</div>
-                        <div class="calendar-day">2</div>
-                        <div class="calendar-day">3</div>
-                        <div class="calendar-day">4</div>
-                        <div class="calendar-day">5</div>
-                        <div class="calendar-day">6</div>
-                        <div class="calendar-day">7</div>
-                        
-                        <div class="calendar-day">8</div>
-                        <div class="calendar-day">9</div>
-                        <div class="calendar-day">10</div>
-                        <div class="calendar-day">11</div>
-                        <div class="calendar-day">12</div>
-                        <div class="calendar-day">13</div>
-                        <div class="calendar-day">14</div>
-                        
-                        <div class="calendar-day">15</div>
-                        <div class="calendar-day today has-events">16</div>
-                        <div class="calendar-day has-events">17</div>
-                        <div class="calendar-day">18</div>
-                        <div class="calendar-day">19</div>
-                        <div class="calendar-day">20</div>
-                        <div class="calendar-day">21</div>
-                    </div>
-                </div> -->
-
-                <!-- Quick Stats -->
-                <div class="quick-stats">
-                    <div class="stat-card">
-                        <div class="stat-number">8</div>
-                        <div class="stat-label">Today's Events</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">5</div>
-                        <div class="stat-label">Meetings</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">12</div>
-                        <div class="stat-label">Attendees</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">3</div>
-                        <div class="stat-label">Sessions</div>
-                    </div>
-                </div>
-
-                <!-- Upcoming Meetings -->
-                <div class="upcoming-meetings">
-                    <h3 class="upcoming-title">Next Up</h3>
-                    
-                    <div class="meeting-item" onclick="openEventModal('ai-panel')">
-                        <div class="meeting-time-badge">2:30</div>
-                        <div class="meeting-info">
-                            <div class="meeting-title">AI in Healthcare Panel</div>
-                            <div class="meeting-attendee">with Sarah Johnson +3</div>
-                        </div>
-                    </div>
-
-                    <div class="meeting-item" onclick="openEventModal('coffee-sarah')">
-                        <div class="meeting-time-badge">3:00</div>
-                        <div class="meeting-info">
-                            <div class="meeting-title">Coffee with Sarah</div>
-                            <div class="meeting-attendee">Networking Lounge</div>
-                        </div>
-                    </div>
-
-                    <div class="meeting-item" onclick="openEventModal('networking-hour')">
-                        <div class="meeting-time-badge">4:00</div>
-                        <div class="meeting-info">
-                            <div class="meeting-title">Happy Hour</div>
-                            <div class="meeting-attendee">VIP Lounge</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="ai-recommendations">
-                    <div class="ai-title">🤖 Schedule Optimizer</div>
-                    <div class="ai-suggestion">
-                        You have a 30-min gap at 1:00 PM. Perfect time to connect with 3 high-match attendees who are free then!
-                    </div>
-                    <button class="ai-btn" onclick="optimizeSchedule()">Optimize</button>
-                </div>
-            </div>
-        </div>
-
-
-
-
-        <div class="col-lg-8">
-             <div class="schedule-main">
-                <div class="schedule-header">
-                    <div class="schedule-header-top">
-                        <h1 class="schedule-title">June 16, 2025</h1>
-                        <div class="schedule-actions">
-                            <button class="action-btn btn-secondary" onclick="exportSchedule()">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
-                                </svg>
-                                Export
-                            </button>
-                            <button class="action-btn btn-primary" onclick="addNewEvent()">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"/>
-                                </svg>
-                                Add Event
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="prifile-view-controls mb-2">
-                          <div class="tab-header">
-                            <button class="ch-ag-btn active" data-tab="agenda">
-                                <i class="fas fa-calendar-alt"></i> Agenda
-                            </button>
-                            <button class="ch-ag-btn" data-tab="chat-history">
-                                <i class="fas fa-history"></i> Chat History
-                            </button>
-                        </div>
-                        <div class="d-flex gap-2">
-                            <button class="view-btn" onclick="switchView('timeline')"><i class="fa-regular fa-clock"></i></button>
-                            <button class="view-btn" onclick="switchView('list')"><i class="fa-solid fa-grip-vertical"></i></button>
-                        </div>
-                      
-                    </div>
-
-                    <div class="date-navigation">
-                        <button class="date-nav-btn" onclick="previousDay()">‹</button>
-                        <div class="current-date">Today • Tech Summit Day 2</div>
-                        <button class="date-nav-btn" onclick="nextDay()">›</button>
-                    </div>
-                </div>
-                
-
-                <div class="schedule-content">
-                    <!-- Timeline View -->
-                    <div class="schedule-timeline active" id="timelineView">
-                        <div class="time-grid">
-                            <div class="time-column">
-                                <div class="time-slot">8:00 AM</div>
-                                <div class="time-slot">9:00 AM</div>
-                                <div class="time-slot">10:00 AM</div>
-                                <div class="time-slot">11:00 AM</div>
-                                <div class="time-slot">12:00 PM</div>
-                                <div class="time-slot">1:00 PM</div>
-                                <div class="time-slot">2:00 PM</div>
-                                <div class="time-slot">3:00 PM</div>
-                                <div class="time-slot">4:00 PM</div>
-                                <div class="time-slot">5:00 PM</div>
-                                <div class="time-slot">6:00 PM</div>
-                                <div class="time-slot">7:00 PM</div>
-                            </div>
-
-                            <div class="events-column">
-                                <!-- 8:00 AM -->
-                                <div class="event-slot">
-                                    <div class="event-item networking" onclick="openEventModal('registration')" style="top: 5px; height: 40px;">
-                                        <div class="event-title">Registration & Welcome Coffee</div>
-                                        <div class="event-details">
-                                            <div class="event-location">
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
-                                                </svg>
-                                                Main Lobby
-                                            </div>
-                                            <div class="event-attendees">
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M16,4C18.11,4 19.99,5.89 19.99,8C19.99,10.11 18.11,12 16,12C13.89,12 12,10.11 12,8C12,5.89 13.89,4 16,4M16,14C20.42,14 24,15.79 24,18V20H8V18C8,15.79 11.58,14 16,14Z"/>
-                                                </svg>
-                                                All attendees
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- 9:00 AM -->
-                                <div class="event-slot">
-                                    <div class="event-item session" onclick="openEventModal('keynote')" style="top: 5px; height: 40px;">
-                                        <div class="event-title">Opening Keynote: Future of AI</div>
-                                        <div class="event-details">
-                                            <div class="event-location">
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
-                                                </svg>
-                                                Main Auditorium
-                                            </div>
-                                            <div class="event-attendees">
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M16,4C18.11,4 19.99,5.89 19.99,8C19.99,10.11 18.11,12 16,12C13.89,12 12,10.11 12,8C12,5.89 13.89,4 16,4M16,14C20.42,14 24,15.79 24,18V20H8V18C8,15.79 11.58,14 16,14Z"/>
-                                                </svg>
-                                                500+ attendees
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- 10:00 AM -->
-                                <div class="event-slot">
-                                    <div class="event-item meeting" onclick="openEventModal('startup-pitch')" style="top: 5px; height: 40px;">
-                                        <div class="event-title">Startup Pitch Session</div>
-                                        <div class="event-details">
-                                            <div class="event-location">
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
-                                                </svg>
-                                                Innovation Hall
-                                            </div>
-                                            <div class="event-attendees">
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M16,4C18.11,4 19.99,5.89 19.99,8C19.99,10.11 18.11,12 16,12C13.89,12 12,10.11 12,8C12,5.89 13.89,4 16,4M16,14C20.42,14 24,15.79 24,18V20H8V18C8,15.79 11.58,14 16,14Z"/>
-                                                </svg>
-                                                Emily Chen +12
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- 11:00 AM -->
-                                <div class="event-slot">
-                                    <div class="event-item break" onclick="openEventModal('coffee-break')" style="top: 5px; height: 40px;">
-                                        <div class="event-title">Networking Coffee Break</div>
-                                        <div class="event-details">
-                                            <div class="event-location">
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
-                                                </svg>
-                                                Expo Hall
-                                            </div>
-                                            <div class="event-attendees">
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M16,4C18.11,4 19.99,5.89 19.99,8C19.99,10.11 18.11,12 16,12C13.89,12 12,10.11 12,8C12,5.89 13.89,4 16,4M16,14C20.42,14 24,15.79 24,18V20H8V18C8,15.79 11.58,14 16,14Z"/>
-                                                </svg>
-                                                Open networking
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- 12:00 PM -->
-                                <div class="event-slot">
-                                    <div class="event-item session" onclick="openEventModal('tech-showcase')" style="top: 5px; height: 40px;">
-                                        <div class="event-title">Technology Showcase</div>
-                                        <div class="event-details">
-                                            <div class="event-location">
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
-                                                </svg>
-                                                Demo Stage
-                                            </div>
-                                            <div class="event-attendees">
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M16,4C18.11,4 19.99,5.89 19.99,8C19.99,10.11 18.11,12 16,12C13.89,12 12,10.11 12,8C12,5.89 13.89,4 16,4M16,14C20.42,14 24,15.79 24,18V20H8V18C8,15.79 11.58,14 16,14Z"/>
-                                                </svg>
-                                                David Kim +8
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- 1:00 PM -->
-                                <div class="event-slot">
-                                    <!-- Free time slot -->
-                                </div>
-
-                                <!-- 7:00 PM -->
-                                <div class="event-slot">
-                                    <!-- Free time -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Timeline View -->
-
-                    <!-- List View -->
-                    
-                    <div class="schedule-list" id="listView">
-                        <div class="list-day-section">
-                            <div class="day-header">
-                                <div class="day-title">Monday, June 16, 2025</div>
-                                <div class="day-summary">8 events • 3 meetings • 2 sessions</div>
-                            </div>
-
-                            <div class="list-event-item" onclick="openEventModal('registration')">
-                                <div class="list-event-header">
-                                    <div>
-                                        <div class="list-event-title">Registration & Welcome Coffee</div>
-                                        <div class="list-event-description">Welcome attendees and enjoy morning coffee while networking with fellow participants.</div>
-                                    </div>
-                                    <div class="list-event-time">8:00 AM</div>
-                                </div>
-                                <div class="list-event-meta">
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
-                                        </svg>
-                                        Main Lobby
-                                    </div>
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M16,4C18.11,4 19.99,5.89 19.99,8C19.99,10.11 18.11,12 16,12C13.89,12 12,10.11 12,8C12,5.89 13.89,4 16,4M16,14C20.42,14 24,15.79 24,18V20H8V18C8,15.79 11.58,14 16,14Z"/>
-                                        </svg>
-                                        All attendees
-                                    </div>
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.9L16.2,16.2Z"/>
-                                        </svg>
-                                        30 minutes
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="list-event-item" onclick="openEventModal('keynote')">
-                                <div class="list-event-header">
-                                    <div>
-                                        <div class="list-event-title">Opening Keynote: Future of AI</div>
-                                        <div class="list-event-description">Explore the transformative potential of artificial intelligence and its impact on various industries.</div>
-                                    </div>
-                                    <div class="list-event-time">9:00 AM</div>
-                                </div>
-                                <div class="list-event-meta">
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
-                                        </svg>
-                                        Main Auditorium
-                                    </div>
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M16,4C18.11,4 19.99,5.89 19.99,8C19.99,10.11 18.11,12 16,12C13.89,12 12,10.11 12,8C12,5.89 13.89,4 16,4M16,14C20.42,14 24,15.79 24,18V20H8V18C8,15.79 11.58,14 16,14Z"/>
-                                        </svg>
-                                        500+ attendees
-                                    </div>
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.9L16.2,16.2Z"/>
-                                        </svg>
-                                        45 minutes
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="list-event-item" onclick="openEventModal('startup-pitch')">
-                                <div class="list-event-header">
-                                    <div>
-                                        <div class="list-event-title">Startup Pitch Session</div>
-                                        <div class="list-event-description">Innovative startups present their groundbreaking ideas to investors and industry experts.</div>
-                                    </div>
-                                    <div class="list-event-time">10:00 AM</div>
-                                </div>
-                                <div class="list-event-meta">
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
-                                        </svg>
-                                        Innovation Hall
-                                    </div>
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M16,4C18.11,4 19.99,5.89 19.99,8C19.99,10.11 18.11,12 16,12C13.89,12 12,10.11 12,8C12,5.89 13.89,4 16,4M16,14C20.42,14 24,15.79 24,18V20H8V18C8,15.79 11.58,14 16,14Z"/>
-                                        </svg>
-                                        Emily Chen +12
-                                    </div>
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.9L16.2,16.2Z"/>
-                                        </svg>
-                                        60 minutes
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="list-event-item" onclick="openEventModal('coffee-break')">
-                                <div class="list-event-header">
-                                    <div>
-                                        <div class="list-event-title">Networking Coffee Break</div>
-                                        <div class="list-event-description">Connect with peers and expand your professional network over coffee and light refreshments.</div>
-                                    </div>
-                                    <div class="list-event-time">11:00 AM</div>
-                                </div>
-                                <div class="list-event-meta">
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
-                                        </svg>
-                                        Expo Hall
-                                    </div>
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M16,4C18.11,4 19.99,5.89 19.99,8C19.99,10.11 18.11,12 16,12C13.89,12 12,10.11 12,8C12,5.89 13.89,4 16,4M16,14C20.42,14 24,15.79 24,18V20H8V18C8,15.79 11.58,14 16,14Z"/>
-                                        </svg>
-                                        Open networking
-                                    </div>
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.9L16.2,16.2Z"/>
-                                        </svg>
-                                        30 minutes
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="list-event-item" onclick="openEventModal('tech-showcase')">
-                                <div class="list-event-header">
-                                    <div>
-                                        <div class="list-event-title">Technology Showcase</div>
-                                        <div class="list-event-description">Live demonstrations of cutting-edge technologies and innovative solutions from leading companies.</div>
-                                    </div>
-                                    <div class="list-event-time">12:00 PM</div>
-                                </div>
-                                <div class="list-event-meta">
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
-                                        </svg>
-                                        Demo Stage
-                                    </div>
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M16,4C18.11,4 19.99,5.89 19.99,8C19.99,10.11 18.11,12 16,12C13.89,12 12,10.11 12,8C12,5.89 13.89,4 16,4M16,14C20.42,14 24,15.79 24,18V20H8V18C8,15.79 11.58,14 16,14Z"/>
-                                        </svg>
-                                        David Kim +8
-                                    </div>
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.9L16.2,16.2Z"/>
-                                        </svg>
-                                        45 minutes
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="list-event-item" onclick="openEventModal('ai-panel')">
-                                <div class="list-event-header">
-                                    <div>
-                                        <div class="list-event-title">AI in Healthcare Panel</div>
-                                        <div class="list-event-description">Expert panel discussion on artificial intelligence applications in healthcare and medical research.</div>
-                                    </div>
-                                    <div class="list-event-time">2:30 PM</div>
-                                </div>
-                                <div class="list-event-meta">
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
-                                        </svg>
-                                        Conference Room A
-                                    </div>
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M16,4C18.11,4 19.99,5.89 19.99,8C19.99,10.11 18.11,12 16,12C13.89,12 12,10.11 12,8C12,5.89 13.89,4 16,4M16,14C20.42,14 24,15.79 24,18V20H8V18C8,15.79 11.58,14 16,14Z"/>
-                                        </svg>
-                                        Sarah Johnson +4
-                                    </div>
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.9L16.2,16.2Z"/>
-                                        </svg>
-                                        60 minutes
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="list-event-item" onclick="openEventModal('coffee-sarah')">
-                                <div class="list-event-header">
-                                    <div>
-                                        <div class="list-event-title">Coffee with Sarah Johnson</div>
-                                        <div class="list-event-description">One-on-one networking session to discuss collaboration opportunities in healthcare AI.</div>
-                                    </div>
-                                    <div class="list-event-time">3:00 PM</div>
-                                </div>
-                                <div class="list-event-meta">
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
-                                        </svg>
-                                        Networking Lounge
-                                    </div>
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M16,4C18.11,4 19.99,5.89 19.99,8C19.99,10.11 18.11,12 16,12C13.89,12 12,10.11 12,8C12,5.89 13.89,4 16,4M16,14C20.42,14 24,15.79 24,18V20H8V18C8,15.79 11.58,14 16,14Z"/>
-                                        </svg>
-                                        1-on-1 meeting
-                                    </div>
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.9L16.2,16.2Z"/>
-                                        </svg>
-                                        30 minutes
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="list-event-item" onclick="openEventModal('networking-hour')">
-                                <div class="list-event-header">
-                                    <div>
-                                        <div class="list-event-title">Networking Happy Hour</div>
-                                        <div class="list-event-description">Exclusive networking event for premium attendees with refreshments and entertainment.</div>
-                                    </div>
-                                    <div class="list-event-time">4:00 PM</div>
-                                </div>
-                                <div class="list-event-meta">
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
-                                        </svg>
-                                        VIP Lounge
-                                    </div>
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M16,4C18.11,4 19.99,5.89 19.99,8C19.99,10.11 18.11,12 16,12C13.89,12 12,10.11 12,8C12,5.89 13.89,4 16,4M16,14C20.42,14 24,15.79 24,18V20H8V18C8,15.79 11.58,14 16,14Z"/>
-                                        </svg>
-                                        Premium attendees
-                                    </div>
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.9L16.2,16.2Z"/>
-                                        </svg>
-                                        90 minutes
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="list-event-item" onclick="openEventModal('investor-meeting')">
-                                <div class="list-event-header">
-                                    <div>
-                                        <div class="list-event-title">Investor Roundtable</div>
-                                        <div class="list-event-description">Strategic discussion with venture capitalists and angel investors about funding opportunities.</div>
-                                    </div>
-                                    <div class="list-event-time">5:00 PM</div>
-                                </div>
-                                <div class="list-event-meta">
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
-                                        </svg>
-                                        Boardroom
-                                    </div>
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M16,4C18.11,4 19.99,5.89 19.99,8C19.99,10.11 18.11,12 16,12C13.89,12 12,10.11 12,8C12,5.89 13.89,4 16,4M16,14C20.42,14 24,15.79 24,18V20H8V18C8,15.79 11.58,14 16,14Z"/>
-                                        </svg>
-                                        Emily Chen +5
-                                    </div>
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.9L16.2,16.2Z"/>
-                                        </svg>
-                                        45 minutes
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="list-event-item" onclick="openEventModal('closing')">
-                                <div class="list-event-header">
-                                    <div>
-                                        <div class="list-event-title">Closing Remarks & Awards</div>
-                                        <div class="list-event-description">Concluding ceremony with award presentations and final thoughts from event organizers.</div>
-                                    </div>
-                                    <div class="list-event-time">6:00 PM</div>
-                                </div>
-                                <div class="list-event-meta">
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
-                                        </svg>
-                                        Main Auditorium
-                                    </div>
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M16,4C18.11,4 19.99,5.89 19.99,8C19.99,10.11 18.11,12 16,12C13.89,12 12,10.11 12,8C12,5.89 13.89,4 16,4M16,14C20.42,14 24,15.79 24,18V20H8V18C8,15.79 11.58,14 16,14Z"/>
-                                        </svg>
-                                        All attendees
-                                    </div>
-                                    <div class="meta-item">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.9L16.2,16.2Z"/>
-                                        </svg>
-                                        30 minutes
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- List View -->
-                    </div>
-
-                    <div class="tab-content active" id="agenda">
-        <div class="agenda-list">
-            <div class="agenda-item">
-                <div class="agenda-time">
-                    <span class="time">09:30 AM</span>
-                    <span class="date">Mar 20, 2024</span>
-                </div>
-                <div class="agenda-details">
-                    <h4>Product Demo Meeting</h4>
-                    <p class="attendees">With: John Doe, Sarah Smith</p>
-                    <div class="agenda-actions">
-                        <button class="btn-join"><i class="fas fa-video"></i> Join</button>
-                        <button class="btn-reschedule"><i class="fas fa-clock"></i> Reschedule</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="agenda-item upcoming">
-                <div class="agenda-time">
-                    <span class="time">02:00 PM</span>
-                    <span class="date">Mar 21, 2024</span>
-                </div>
-                <div class="agenda-details">
-                    <h4>Team Sync-up</h4>
-                    <p class="attendees">With: Development Team</p>
-                    <div class="agenda-actions">
-                        <button class="btn-join"><i class="fas fa-video"></i> Join</button>
-                        <button class="btn-reschedule"><i class="fas fa-clock"></i> Reschedule</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-                    </div>
-
-                    <!-- Chat History Content -->
-                <div class="tab-content" id="chat-history">
-                    <div class="chat-list">
-                        <div class="chat-item">
-                            <div class="chat-avatar">
-                                <img src="assets/img/user-1.jpg" alt="User">
-                                <span class="status-dot online"></span>
-                            </div>
-                            <div class="chat-info">
-                                <div class="chat-header">
-                                    <h4>John Doe</h4>
-                                    <span class="chat-time">2h ago</span>
-                                </div>
-                                <p class="last-message">Great meeting! Let's connect again next week.</p>
-                            </div>
-                        </div>
-
-                        <div class="chat-item unread">
-                            <div class="chat-avatar">
-                                <img src="assets/img/user-2.jpg" alt="User">
-                                <span class="status-dot offline"></span>
-                            </div>
-                            <div class="chat-info">
-                                <div class="chat-header">
-                                    <h4>Sarah Smith</h4>
-                                    <span class="chat-time">5h ago</span>
-                                </div>
-                                <p class="last-message">Please review the project proposal.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-</div>
-            </div>
+        <div>
+            <div class="registration-text">GITEX NIGERIA TECH EXPO +  <br> FUTURE ECONOMY SUMMIT</div>
+        <a href="login.html"><button class="btn-main"><i class="animation"></i>
+                                    Login<i class="animation"></i>
+                                </button></a>
         </div>
     </div>
+
 
 
     <section class="footer">

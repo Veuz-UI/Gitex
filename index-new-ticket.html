@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Event Tickets</title>
+    <link rel="stylesheet" href="assets/css/new-style-visitor.css">
+    <link rel="stylesheet" href="assets/css/ticket.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="assets/fonts/webfont/stylesheet.css">
+
+
+
+
+</head>
+
+<body>
+    <div class="inner-banner">
+        <a href=""><img src="assets/img/ni-header.png" class="img-fluid sm-hide-logo"></a>
+        <div class="registration-text">VISITOR REGISTRATION</div>
+        <a href="login.html"><button class="btn-main"><i class="animation"></i>
+                Login<i class="animation"></i>
+            </button></a>
+
+    </div>
+
+
+       
+
+    <div class="container py-5">
+        <div class="head-text-buttons">
+                <!-- <div class="ticketTab tab-container ticket-change-button">
+                    <button class="badgeafterTab tab active">Visitor Pass</button>
+                    <button class="badgeafterTab tab">Delegeta Pass</button>
+                    </div> -->
+                    
+               <div class="d-flex align-items-center gap-2  flex-wrap justify-content-center">
+                 <div class="currency-dropdown-warpper">
+                    <div class="currency-container">
+                          <select name="" id="">
+                                    <option value="NGN">NGN</option>
+                                    <option value="USD">USD</option>
+                                    <option value="EUR">EUR</option>
+
+                                </select>
+                    </div>
+                </div>
+
+                  <div class="ticketTab tab-container">
+                    <button class="badgeafterTab tab active" onclick="switchTicketTab('registrationTicket')"><span><i class="fa-solid fa-ticket"></i></span> Card View</button>
+                    <button class="badgeafterTab tab" onclick="switchTicketTab('badgeTicket')"><span><i class="fa-solid fa-code-compare"></i></span> Compare View</button>
+                    </div>
+
+               </div>
+                </div>
+
+                <div id="registrationTicket" class="tab-section active">
+                         <div class=" row g-2 g-md-3 g-lg-4">
+            <div class="col-lg-6">
+                <div class="horizondal-ticket ticket-bg-green">
+                    <div class="horizondal-ticket-left">
+                        <div class="floating-particles">
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                        </div>
+                        <div class="ticket-left-content pass-card-animated-free">
+                            <div class="horizondal-ticket-tag horizondal-ticket-free">
+                                FREE
+                            </div>
+                            <div class="horizondal-ticket-rate horizondal-ticket-rate-animated-free">
+                                <h4>FREE</h4>
+                                <h6>Ticket</h6>
+                            </div>
+
+                            <div class="ticket-logo-box">
+                                <img src="assets/img/kaspersky.png" alt="">
+                            </div>
+
+                            <div>
+                                <a href="registrationmultistepform-2.html">
+                                    <button type="button" class="horizonal-ticket-button">REGISTER YOUR INTREST </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="horizondal-ticket-right">
+                         <div class="horizondal-ticket-best-seller-wrapper">
+                            <div class="horizondal-ticket-best-seller">
+                                <span>BEST SELLER</span>
+                            </div>
+                         </div>
+                        <div class="ticket-right-content">
+                            <h3>GITEX NIGERIA STARTUP FESTIVAL PASS</h3>
+                            <button data-bs-toggle="modal" data-bs-target="#detailsModal" class="">View Details
+                                <span>→</span></button>
+
+                            <p>This Visitor Pass Provides  <span>TWO DAY </span>access to: <span>GITEX Nigeria</span>
+                                Startup Festival | 3-4 Sept 2025, Landmark Centre, Lagos</p>
+
+                            <ul class="horizondal-ticket-features">
+                                <li>Unplugged Lounge</li>
+                                <li>Mentorship Clinic</li>
+                                <li>Innovation Zone</li>
+                                <li>Elevate Stage</li>
+                                <li>AWS Ai Lab Mentorship Clinic</li>
+                            </ul>
+                            <button class="horizondal-ticket-workshop-btn" type="button">
+                                Select Workshop
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="horizondal-ticket ticket-bg-blue">
+                    <div class="horizondal-ticket-left">
+                        <div class="floating-particles">
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                        </div>
+                        <div class="ticket-left-content">
+                            <div class="horizondal-ticket-tag ">
+                                Early Bird
+                            </div>
+                            <div class="horizondal-ticket-rate horizondal-ticket-offer">
+                                <h4><span>NGN</span> 50,000</h4>
+                                <h4> <span class="horizondal-ticket-offer-line">25,000</span></h4>
+                                <h6>Incl. 7.5% VAT</h6>
+                            </div>
+
+                             <div class="ticket-logo-box">
+                                <img src="assets/img/aws.png" alt="">
+                            </div>
+
+                            <div>
+                               <div class="horizondal-ticket-plus-minus-container">
+                                <div class="minus">−</div>
+                                <div class="number" id="ticket-counter">1</div>
+                                <div class="plus">+</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="horizondal-ticket-right ">
+                        <div class="ticket-right-content">
+                            <div class="horizondal-ticket-title-height">
+                                <h3>GITEX NIGERIA STARTUP FESTIVAL PASS</h3>
+                            <button data-bs-toggle="modal" data-bs-target="#detailsModal" class="">View Details
+                                <span>→</span></button>
+                                <p>This Visitor Pass Provides  <span>TWO DAY </span>access to: <span>GITEX Nigeria</span>
+                                Startup Festival | 3-4 Sept 2025, Landmark Centre, Lagos</p>
+                            </div>
+
+                            
+
+                            <ul class="horizondal-ticket-features">
+                                <li>Unplugged Lounge</li>
+                                <li>Mentorship Clinic</li>
+                                <li>Innovation Zone</li>
+                                <li>Elevate Stage</li>
+                                <li>AWS Ai Lab Mentorship Clinic</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="horizondal-ticket  ticket-bg-red">
+                    <div class="horizondal-ticket-left">
+                        <div class="floating-particles">
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                        </div>
+                        <div class="ticket-left-content">
+                            <div class="horizondal-ticket-tag ">
+                                Early Bird
+                            </div>
+                            <div class="horizondal-ticket-rate">
+                                <h4><span>NGN</span> 25,000</h4>
+                                <h6>Incl. 7.5% VAT</h6>
+                            </div>
+                            <div class="ticket-logo-box">
+                                <img src="assets/img/lagos.jpg" alt="">
+                            </div>
+
+                            <div>
+                                <a href="registrationmultistepform-2.html">
+                                    <button type="button" class="horizonal-ticket-button">GET YOUR PASS </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="horizondal-ticket-right ">
+                        <div class="ticket-right-content">
+                            <h3>GITEX NIGERIA STARTUP FESTIVAL PASS</h3>
+                            <button data-bs-toggle="modal" data-bs-target="#detailsModal" class="">View Details
+                                <span>→</span></button>
+
+                            <p>This Visitor Pass Provides  <span>TWO DAY </span>access to: <span>GITEX Nigeria</span>
+                                Startup Festival | 3-4 Sept 2025, Landmark Centre, Lagos</p>
+
+                            <ul class="horizondal-ticket-features">
+                                <li>Unplugged Lounge</li>
+                                <li>Mentorship Clinic</li>
+                                <li>Innovation Zone</li>
+                                <li>Elevate Stage</li>
+                                <li>AWS Ai Lab Mentorship Clinic</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="horizondal-ticket ticket-bg-light-green">
+                    <div class="horizondal-ticket-left">
+                        <div class="floating-particles">
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                        </div>
+                        <div class="ticket-left-content">
+                            <div class="horizondal-ticket-tag ">
+                                Early Bird
+                            </div>
+                            <div class="horizondal-ticket-rate">
+                                <h4><span>NGN</span> 25,000</h4>
+                                <h6>Incl. 7.5% VAT</h6>
+                            </div>
+
+                            <div class="ticket-logo-box">
+                                <img src="assets/img/nvidia.png" alt="">
+                            </div>
+                            <div>
+                                <a href="registrationmultistepform-2.html">
+                                    <button type="button" class="horizonal-ticket-button">GET YOUR PASS </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="horizondal-ticket-right ">
+                        <div class="ticket-right-content">
+                            <h3>GITEX NIGERIA STARTUP FESTIVAL PASS</h3>
+                            <button data-bs-toggle="modal" data-bs-target="#detailsModal" class="">View Details
+                                <span>→</span></button>
+
+                            <p>This Visitor Pass Provides  <span>TWO DAY </span>access to: <span>GITEX Nigeria</span>
+                                Startup Festival | 3-4 Sept 2025, Landmark Centre, Lagos</p>
+
+                            <ul class="horizondal-ticket-features">
+                                <li>Unplugged Lounge</li>
+                                <li>Mentorship Clinic</li>
+                                <li>Innovation Zone</li>
+                                <li>Elevate Stage</li>
+                                <li>AWS Ai Lab Mentorship Clinic</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-6">
+                <div class="horizondal-ticket ticket-bg-orange">
+                    <div class="horizondal-ticket-left">
+                        <div class="floating-particles">
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                        </div>
+
+                        <div class="ticket-left-content">
+                            <div class="horizondal-ticket-tag ">
+                                Early Bird
+                            </div>
+                            <div class="horizondal-ticket-rate">
+                                <h4><span>NGN</span> 25,000</h4>
+                                <h6>Incl. 7.5% VAT</h6>
+                            </div>
+
+                            <div>
+                                <a href="registrationmultistepform-2.html">
+                                    <button type="button" class="horizonal-ticket-button">GET YOUR PASS </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="horizondal-ticket-right ">
+                        <div class="ticket-right-content">
+                            <h3>GITEX NIGERIA STARTUP FESTIVAL PASS</h3>
+                            <button data-bs-toggle="modal" data-bs-target="#detailsModal" class="">View Details
+                                <span>→</span></button>
+
+                            <p>This Visitor Pass Provides  <span>TWO DAY </span>access to: <span>GITEX Nigeria</span>
+                                Startup Festival | 3-4 Sept 2025, Landmark Centre, Lagos</p>
+
+                            <ul class="horizondal-ticket-features">
+                                <li>Unplugged Lounge</li>
+                                <li>Mentorship Clinic</li>
+                                <li>Innovation Zone</li>
+                                <li>Elevate Stage</li>
+                                <li>AWS Ai Lab Mentorship Clinic</li>
+                                <li class="horizondal-ticket-ftr-unavlbl">AWS Ai Lab Mentorship Clinic</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="horizondal-ticket ticket-bg-purple horizondal-coming-soon">
+                    <div class="horizondal-ticket-left">
+                        <div class="floating-particles">
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                        </div>
+                        <div class="ticket-left-content">
+                            <div class="horizondal-ticket-tag ">
+                                Super Early Bird
+                            </div>
+                            <div class="horizondal-ticket-rate">
+                                <h4><span>NGN</span> 25,000</h4>
+                                <h6>Incl. 7.5% VAT</h6>
+                            </div>
+
+                            <div>
+                                <a href="registrationmultistepform-2.html">
+                                    <button type="button" class="horizonal-ticket-button">GET YOUR PASS </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="horizondal-ticket-right ">
+                        <div class="ticket-right-content">
+                            <h3>GITEX NIGERIA STARTUP FESTIVAL PASS</h3>
+                            <button data-bs-toggle="modal" data-bs-target="#detailsModal" class="">View Details
+                                <span>→</span></button>
+
+                            <p>This Visitor Pass Provides  <span>TWO DAY </span>access to: <span>GITEX Nigeria</span>
+                                Startup Festival | 3-4 Sept 2025, Landmark Centre, Lagos</p>
+
+                            <ul class="horizondal-ticket-features">
+                                <li>Unplugged Lounge</li>
+                                <li>Mentorship Clinic</li>
+                                <li>Innovation Zone</li>
+                                <li>Elevate Stage</li>
+                                <li>AWS Ai Lab Mentorship Clinic</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                </div>
+
+                 <div id="badgeTicket" class="tab-section"  style="display: none;" >
+                    <div class="cmp-row">
+                        <div class="cmp-row_first">
+                            <div class="cm-header d-flex align-items-center gap-2 justify-content-center feature-main-header"> 
+                                <img src="assets/img/features.png" alt="" class="cm-header-img">
+                                <h6 class="cm-features">features</h6>
+                            </div>
+                                <div class="cmp-accss_rows-main-wrapper">
+                                <div class="cmp-accss_rows">
+                                    <img src="assets/img/3-Days-Access.png" alt="">
+                                    <h5>3 Days Access to the Show</h5>
+                                </div>
+                                <div class="cmp-accss_rows">
+                                    <img src="assets/img/access-all-lounge.png" alt="">
+                                    <h5>Access All Lounge</h5>
+                                </div>
+                                <div class="cmp-accss_rows">
+                                    <img src="assets/img/networking-events.png" alt="">
+                                    <h5>Networking Events</h5>
+                                </div>
+                                <div class="cmp-accss_rows">
+                                    <img src="assets/img/gitex-africa-summit.png" alt="">
+                                    <h5>GITEX AFRICA Digital <span>Summit</span></h5>
+                                </div>
+                                <div class="cmp-accss_rows">
+                                    <img src="assets/img/africa-future.png" alt="">
+                                    <h5>AFRICA FUTURE CONNECTIVITY SUMMIT</h5>
+                                </div>
+                                <div class="cmp-accss_rows">
+                                    <img src="assets/img/all-conference.png" alt="">
+                                    <h5>All Conference Tracks</h5>
+                                </div>
+                                <div class="cmp-accss_rows">
+                                    <img src="assets/img/10+masterclass.png" alt="">
+                                    <h5>10+ Masterclasses</h5>
+                                </div>
+                                <div class="cmp-accss_rows">
+                                    <img src="assets/img/certified.png" alt="">
+                                    <h5>Certified Training</h5>
+                                </div>
+                                </div>
+                                
+                                
+                        </div>
+                            <div class="cmp-row_second">
+                                    <div class="slider-arrow slider-arrow-left" id="cmpSliderPrev">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </div>
+                                <div class="cmp-slider-track" id="cmpSliderTrack">
+                                        <!-- All your .cmp-ticket-wrapper elements go here -->
+                            <div class="cmp-ticket-wrapper">
+                                <div class="cm-header ticket-bg-green">
+                                    <div class="pass-header hrz-cmp-head">
+                                       
+                                        
+                                        <input type="checkbox" class="pass-select-checkbox" checked >
+                                        <div class="pass-type">All Access Conference Ticket<br>
+                                            <a href="#" class="pass-details-btn" data-bs-toggle="modal" data-bs-target="#detailsModal2" style="font-size: 13px;
+                                                    text-align: left;
+                                                    ">VIEW DETAILS → </a>
+                                        </div>
+                                        <div class="floating-particles">
+                                            <div class="particle"></div>
+                                            <div class="particle"></div>
+                                            <div class="particle"></div>
+                                            <div class="particle"></div>
+                                            <div class="particle"></div>
+                                            <div class="particle"></div>
+                                            <div class="particle"></div>
+                                            <div class="particle"></div>
+                                            <div class="particle"></div>
+                                            <div class="particle"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="pass-price-out">
+                                <div class="rate-count justify-content-center align-items-center flex-column gap-1">
+                                    <div class="hrz-cmp-tag-main-wrapper">
+                                        <div class="hrz-cmp-best-seller-exc"> <div class="sliding-text">
+    Super Early Bird&nbsp;&nbsp;•&nbsp;&nbsp;Super Early Bird&nbsp;&nbsp;\&nbsp;&nbsp;Super Early Bird&nbsp;&nbsp;•&nbsp;&nbsp;Super Early Bird
+  </div></div>
+                                        <div class="hrz-cmp-best-seller">Best Seller</div>
+                                    </div>
+                                    <div class="cmp-offer-cut">
+                                        <div class="pass-price">NGN 40,000</div>
+                                         <div class="d-flex flex-column align-items-center mb-2">
+                                             <span class="price-offer">NGN 60,000</span>
+                                             <span class="vat">Incl. 19% VAT</span>
+                                         </div>
+                                    </div>
+                                    
+                                    <button type="button" class="ticket-btn">Apply Now</button>
+                                </div>
+                                
+                            </div>
+                                </div>
+                            
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                            </div>
+                            <div class="cmp-ticket-wrapper">
+                                <div class="cm-header">
+                                    <div class="pass-header premium exc-title-padding badge-bg-3">
+                                        <input type="checkbox" class="pass-select-checkbox" checked >
+                                        <div class="ticket-exclusive ticket-best-seller ticket-best-seller-exclusive">
+                                            <h6>Exclusive</h6>
+                                        </div>
+                                        <div class="pass-type">All Access Conference Ticket<br>
+                                            <a href="#" class="pass-details-btn" data-bs-toggle="modal" data-bs-target="#detailsModal2" style="font-size: 13px;
+                                                    text-align: left;
+                                                    ">VIEW DETAILS → </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="pass-price-out">
+                                <div class="rate-count justify-content-center align-items-center flex-column gap-1">
+                                    <div class="pass-price">EUR 40 <span class="vat">Incl. 19% VAT</span></div>
+                                    <button type="button" class="ticket-btn">Apply Now</button>
+                                </div>
+                                
+                            </div>
+                                </div>
+                            
+                                  <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div>  
+                            </div>
+
+                            <div class="cmp-ticket-wrapper">
+                                <div class="cm-header">
+                                    <div class="pass-header premium exc-title-padding badge-bg-4" >
+                                        <input type="checkbox" class="pass-select-checkbox" >
+                                        <div class="ticket-exclusive ticket-best-seller ticket-best-seller-exclusive">
+                                            <h6>Exclusive</h6>
+                                        </div>
+                                        <div class="pass-type">All Access Conference Ticket<br>
+                                            <a href="#" class="pass-details-btn" data-bs-toggle="modal" data-bs-target="#detailsModal2" style="font-size: 13px; text-align: left;">VIEW DETAILS → </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="pass-price-out">
+                                <div class="rate-count justify-content-center align-items-center flex-column gap-1">
+                                    <div class="pass-price">EUR 40 <span class="vat">Incl. 19% VAT</span></div>
+                                    <!-- <button type="button" class="ticket-btn">Apply Now</button> -->
+                                      <div>
+                                            <div class="number-input-container">
+                                                <button class="minus" onclick="changeNumber('minus', this)">-</button>
+                                                <input type="number" value="0" class="number-input" min="0" max="99"
+                                                    onchange="validateInput(this)">
+                                                <button class="plus" onclick="changeNumber('plus', this)">+</button>
+                                            </div>
+                                        </div>
+                                </div>
+                                
+                            </div>
+                                </div>
+                            
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/black-tick.png" alt="" class="tick-mark">
+                                    <h6><span>One </span>Conference of your choice</h6>
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                            </div>
+                            <div class="cmp-ticket-wrapper">
+                                <div class="cm-header">
+                                    <div class="pass-header premium exc-title-padding badge-bg-5">
+                                        <input type="checkbox" class="pass-select-checkbox" checked >
+                                        <div class="ticket-exclusive ticket-best-seller ticket-best-seller-exclusive">
+                                            <h6>Exclusive</h6>
+                                        </div>
+                                        <div class="pass-type">All Access Conference Ticket<br>
+                                            <a href="#" class="pass-details-btn" data-bs-toggle="modal" data-bs-target="#detailsModal2" style="font-size: 13px;
+                                                    text-align: left;
+                                                    ">VIEW DETAILS → </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="pass-price-out">
+                                <div class="rate-count justify-content-center align-items-center flex-column gap-1">
+                                    <div class="pass-price">EUR 40 <span class="vat">Incl. 19% VAT</span></div>
+                                    <button type="button" class="ticket-btn">Apply Now</button>
+                                </div>
+                                
+                            </div>
+                                </div>
+                            
+                                  <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div>  
+                            </div>
+
+                            <div class="cmp-ticket-wrapper">
+                                <div class="cm-header">
+                                    <div class="pass-header premium exc-title-padding badge-bg-1">
+                                        <input type="checkbox" class="pass-select-checkbox" checked >
+                                        <div class="ticket-exclusive ticket-best-seller ticket-best-seller-exclusive">
+                                            <h6>Exclusive</h6>
+                                        </div>
+                                        <div class="pass-type">All Access Conference Ticket<br>
+                                            <a href="#" class="pass-details-btn" data-bs-toggle="modal" data-bs-target="#detailsModal2" style="font-size: 13px;
+                                                    text-align: left;
+                                                    ">VIEW DETAILS → </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="pass-price-out">
+                                <div class="rate-count justify-content-center align-items-center flex-column gap-1">
+                                    <div class="pass-price">EUR 40 <span class="vat">Incl. 19% VAT</span></div>
+                                    <button type="button" class="ticket-btn">Apply Now</button>
+                                </div>
+                                
+                            </div>
+                                </div>
+                            
+                                 <div class="coming-soon">
+                                    <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+                                 </div>
+
+                            </div>
+                            <div class="cmp-ticket-wrapper">
+                                <div class="cm-header">
+                                    <div class="pass-header premium exc-title-padding badge-bg-3">
+                                        <input type="checkbox" class="pass-select-checkbox" checked >
+                                        <div class="ticket-exclusive ticket-best-seller ticket-best-seller-exclusive">
+                                            <h6>Exclusive</h6>
+                                        </div>
+                                        <div class="pass-type">All Access Conference Ticket<br>
+                                            <a href="#" class="pass-details-btn" data-bs-toggle="modal" data-bs-target="#detailsModal2" style="font-size: 13px;
+                                                    text-align: left;
+                                                    ">VIEW DETAILS → </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="pass-price-out">
+                                <div class="rate-count justify-content-center align-items-center flex-column gap-1">
+                                    <div class="pass-price">EUR 40 <span class="vat">Incl. 19% VAT</span></div>
+                                    <button type="button" class="ticket-btn">Apply Now</button>
+                                </div>
+                                
+                            </div>
+                                </div>
+                            
+                                  <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div>  
+                            </div>
+
+                            <div class="cmp-ticket-wrapper">
+                                <div class="cm-header">
+                                    <div class="pass-header premium exc-title-padding badge-bg-4">
+                                        <input type="checkbox" class="pass-select-checkbox" checked >
+                                        <div class="ticket-exclusive ticket-best-seller ticket-best-seller-exclusive">
+                                            <h6>Exclusive</h6>
+                                        </div>
+                                        <div class="pass-type">All Access Conference Ticket<br>
+                                            <a href="#" class="pass-details-btn" data-bs-toggle="modal" data-bs-target="#detailsModal2" style="font-size: 13px;
+                                                    text-align: left;
+                                                    ">VIEW DETAILS → </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="pass-price-out">
+                                <div class="rate-count justify-content-center align-items-center flex-column gap-1">
+                                    <div class="pass-price">EUR 40 <span class="vat">Incl. 19% VAT</span></div>
+                                    <button type="button" class="ticket-btn">Apply Now</button>
+                                </div>
+                                
+                            </div>
+                                </div>
+                            
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                            </div>
+                            <div class="cmp-ticket-wrapper">
+                                <div class="cm-header">
+                                    <div class="pass-header premium exc-title-padding badge-bg-5">
+                                        <input type="checkbox" class="pass-select-checkbox" checked >
+                                        <div class="ticket-exclusive ticket-best-seller ticket-best-seller-exclusive">
+                                            <h6>Exclusive</h6>
+                                        </div>
+                                        <div class="pass-type">All Access Conference Ticket<br>
+                                            <a href="#" class="pass-details-btn" data-bs-toggle="modal" data-bs-target="#detailsModal2" style="font-size: 13px;
+                                                    text-align: left;
+                                                    ">VIEW DETAILS → </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="pass-price-out">
+                                <div class="rate-count justify-content-center align-items-center flex-column gap-1">
+                                    <div class="pass-price">EUR 40 <span class="vat">Incl. 19% VAT</span></div>
+                                    <button type="button" class="ticket-btn">Apply Now</button>
+                                </div>
+                                
+                            </div>
+                                </div>
+                            
+                                  <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div>  
+                            </div>
+        <!-- Add more .cmp-ticket-wrapper as needed -->
+    </div>
+    <div class="slider-arrow slider-arrow-right" id="cmpSliderNext">
+        <i class="fas fa-chevron-right"></i>
+    </div>
+                            </div>
+                    </div>
+                    </div>
+   
+    </div>
+
+    <footer class="gitex-global-footer">
+        <div class="container">
+            <div class="gitex-global-footer-content">
+    <div class="gitex-global-footer-left">
+      <img src="assets/img/GITEXNIGERIA_AIheadlogo.png" alt="" class="gitex-global-footer-logo" />
+    </div>
+
+    <div class="gitex-global-footer-right">
+      <h3>LET'S TALK</h3>
+      <div class="gitex-global-footer-columns">
+        <div class="gitex-global-footer-column">
+          <p><strong>VISITOR AND REGISTRATION INQUIRIES</strong><br />
+            <a target="_blank" href="mailto:support@gitexnigeria.ng">support@gitexnigeria.ng</a></p>
+
+          <p><strong>MARKETING INQUIRY</strong><br />
+            <a target="_blank" href="mailto:marketing@gitexnigeria.ng">marketing@gitexnigeria.ng</a></p>
+        </div>
+
+        <div class="gitex-global-footer-column">
+          <p><strong>SALES INQUIRY</strong><br />
+            <a target="_blank" href="mailto:sales@gitexnigeria.ng">sales@gitexnigeria.ng</a></p>
+
+          <p><strong>CONFERENCES</strong><br />
+            <a target="_blank" href="mailto:visit@gitexnigeria.ng">visit@gitexnigeria.ng</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+        </div>
+  
+
+  <div class="gitex-global-footer-bottom">
+    <a href="#">Manage Cookie Preferences</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms & Conditions</a>
+  </div>
+</footer>
+
+
+
+
+
+
+
+    <div class="modal fade customModal" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="premium-card">
+                    <div class="premium-header d-flex justify-content-between align-items-center">
+                        PREMIUM TICKET
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="premium-content">
+                            <p>The <b>Premium Ticket</b> grants you 3 days access to GITEX NIGERIA exhibition in
+                                addition
+                                to the
+                                following key features:</p>
+                            <ul class="premium-list">
+                                <li>Lounge Access: ConneXions and Investor Lounges</li>
+                                <li>Networking events (TBC closer to the show days)</li>
+                                <li>All Conferences Tracks</li>
+                                <li>All Masterclasses</li>
+                            </ul>
+                        </div>
+                        <div class="event-info">
+                            <h2>Date &amp; Time</h2>
+                            <p><strong>21–23 MAY 2025 | 09.30 AM – 17.00 PM</strong></p>
+                            <p class="location"><span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="19"
+                                        viewBox="0 0 13 19" fill="none">
+                                        <path
+                                            d="M6.5 0C2.90643 0 0 2.9735 0 6.65C0 11.6375 6.5 19 6.5 19C6.5 19 13 11.6375 13 6.65C13 2.9735 10.0936 0 6.5 0ZM6.5 9.025C5.21857 9.025 4.17857 7.961 4.17857 6.65C4.17857 5.339 5.21857 4.275 6.5 4.275C7.78143 4.275 8.82143 5.339 8.82143 6.65C8.82143 7.961 7.78143 9.025 6.5 9.025Z"
+                                            fill="#013788"></path>
+                                    </svg></span> MESSE BERLIN, SOUTH ENTRANCE</p>
+
+                            <div class="note">
+                                <h3>Note:</h3>
+
+
+                                <div class="premium-content">
+                                    <ul class="premium-list">
+                                        <li>Visitors under the age of 21 will not be admitted, and admission to the
+                                            exhibition is restricted to trade and business professionals only.</li>
+                                        <li>Students above 16 and below 18 can attend only if accompanied by a school or
+                                            faculty member.</li>
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="premium-footer">
+                        <div>
+                            <div class="price">EUR 2,000</div>
+                            <div class="vat">Incl. 19% VAT</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/font-awsome.js"></script>
+    <script src="https://kit.fontawesome.com/{your-kit-code}.js" crossorigin="anonymous"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <!-- or -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+<script>
+    // CSS Styles for the gap animation
+const animationStyles = `
+<style>
+.horizondal-ticket {
+    position: relative;
+    opacity: 0;
+    transition: all 0.8s ease;
+}
+
+.horizondal-ticket.animate-in {
+    opacity: 1;
+}
+
+.horizondal-ticket-left {
+    transform: translateX(-5px);
+    opacity: 0.8;
+    transition: all 0.8s ease;
+}
+
+.horizondal-ticket-right {
+    transform: translateX(5px);
+    opacity: 0.8;
+    transition: all 0.8s ease;
+}
+
+.horizondal-ticket.slide-in .horizondal-ticket-left {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.horizondal-ticket.slide-in .horizondal-ticket-right {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.ticket-left-content {
+    opacity: 0;
+    transition: all 0.6s ease;
+}
+
+.ticket-right-content {
+    opacity: 0;
+    transition: all 0.6s ease;
+}
+
+.horizondal-ticket.content-visible .ticket-left-content {
+    opacity: 1;
+}
+
+.horizondal-ticket.content-visible .ticket-right-content {
+    opacity: 1;
+}
+
+.horizondal-ticket-features li {
+    opacity: 0;
+    transform: translateX(-5px);
+    transition: all 0.4s ease;
+}
+
+.horizondal-ticket-features li.feature-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+
+.horizonal-ticket-button {
+    transition: all 0.3s ease;
+}
+
+
+
+@media (max-width: 768px) {
+    .horizondal-ticket-left,
+    .horizondal-ticket-right {
+        transform: translateX(-20px);
+    }
+    
+    .horizondal-ticket.slide-in .horizondal-ticket-left,
+    .horizondal-ticket.slide-in .horizondal-ticket-right {
+        transform: translateX(0);
+    }
+}
+</style>
+`;
+
+// Animation function
+function animateHorizontalTicket() {
+    // Add styles to head
+    if (!document.getElementById('ticket-animation-styles')) {
+        const styleElement = document.createElement('div');
+        styleElement.id = 'ticket-animation-styles';
+        styleElement.innerHTML = animationStyles;
+        document.head.appendChild(styleElement);
+    }
+
+    // Get all ticket elements
+    const tickets = document.querySelectorAll('.horizondal-ticket');
+    
+    tickets.forEach((ticket, index) => {
+        // Add delay for multiple tickets
+        const baseDelay = index * 200;
+        
+        // Start animation sequence
+        setTimeout(() => {
+            // Step 1: Fade in ticket
+            ticket.classList.add('animate-in');
+            
+            // Step 2: Slide in sections
+            setTimeout(() => {
+                ticket.classList.add('slide-in');
+                
+                // Step 3: Show content
+                setTimeout(() => {
+                    ticket.classList.add('content-visible');
+                    
+                    // Step 4: Animate features list
+                    const features = ticket.querySelectorAll('.horizondal-ticket-features li');
+                    features.forEach((feature, featureIndex) => {
+                        setTimeout(() => {
+                            feature.classList.add('feature-visible');
+                        }, featureIndex * 150);
+                    });
+                    
+                }, 400);
+            }, 300);
+        }, baseDelay);
+    });
+}
+
+// Intersection Observer for scroll-triggered animation
+function setupScrollAnimation() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const ticket = entry.target;
+                if (!ticket.classList.contains('animate-in')) {
+                    animateSingleTicket(ticket);
+                }
+            }
+        });
+    }, {
+        threshold: 0.3
+    });
+
+    document.querySelectorAll('.horizondal-ticket').forEach(ticket => {
+        observer.observe(ticket);
+    });
+}
+
+// Animate single ticket
+function animateSingleTicket(ticket) {
+    // Step 1: Fade in ticket
+    ticket.classList.add('animate-in');
+    
+    // Step 2: Slide in sections
+    setTimeout(() => {
+        ticket.classList.add('slide-in');
+        
+        // Step 3: Show content
+        setTimeout(() => {
+            ticket.classList.add('content-visible');
+            
+            // Step 4: Animate features list
+            const features = ticket.querySelectorAll('.horizondal-ticket-features li');
+            features.forEach((feature, featureIndex) => {
+                setTimeout(() => {
+                    feature.classList.add('feature-visible');
+                }, featureIndex * 150);
+            });
+            
+        }, 400);
+    }, 300);
+}
+
+// Initialize animation on page load
+document.addEventListener('DOMContentLoaded', function() {
+    // Choose animation type:
+    
+    // Option 1: Animate immediately on page load
+    animateHorizontalTicket();
+    
+    // Option 2: Animate when scrolled into view (uncomment to use)
+    // setupScrollAnimation();
+});
+
+// Manual trigger function (you can call this anytime)
+function triggerTicketAnimation() {
+    // Reset all tickets first
+    document.querySelectorAll('.horizondal-ticket').forEach(ticket => {
+        ticket.classList.remove('animate-in', 'slide-in', 'content-visible');
+        ticket.querySelectorAll('.horizondal-ticket-features li').forEach(feature => {
+            feature.classList.remove('feature-visible');
+        });
+    });
+    
+    // Start animation
+    setTimeout(() => {
+        animateHorizontalTicket();
+    }, 100);
+}
+
+// Export functions for manual use
+window.ticketAnimation = {
+    animate: animateHorizontalTicket,
+    trigger: triggerTicketAnimation,
+    setupScroll: setupScrollAnimation
+};
+</script>
+
+ <script>
+  function switchTicketTab(tabId) {
+    // Remove 'active' from all tab buttons
+    document.querySelectorAll('.badgeafterTab.tab').forEach(btn => btn.classList.remove('active'));
+
+    // Hide all content sections
+    document.querySelectorAll('.tab-section').forEach(sec => {
+      sec.classList.remove('active');
+      sec.style.display = 'none';
+    });
+
+    // Activate the clicked tab button
+    const tabButtons = document.querySelectorAll('.badgeafterTab.tab');
+    if (tabId === 'registrationTicket') {
+      tabButtons[0].classList.add('active');
+    } else if (tabId === 'badgeTicket') {
+      tabButtons[1].classList.add('active');
+    }
+
+    // Show the corresponding tab section
+    const activeSection = document.getElementById(tabId);
+    if (activeSection) {
+      activeSection.classList.add('active');
+      activeSection.style.display = '';
+    }
+  }
+</script>
+
+
+</body>
+
+</html>

@@ -147,6 +147,50 @@
                                     </div>
                                 
                             </div>
+
+                            <div class="reg-billing-form">
+                                <div class="payment_methode">
+        <div class="payment-container">
+            <label class="payment-option selected" for="local-cards">
+                <input type="radio" id="local-cards" name="payment-method" value="local" checked>
+                <div class="radio-container">
+                    <div class="custom-radio"></div>
+                    <div class="payment-content">
+                        <div class="payment-title">Local Moroccan Cards</div>
+                        <div class="payment-subtitle">You will be charged in Moroccan Dirhams (MAD)</div>
+                    </div>
+                </div>
+                <div class="payment-logos">
+                    <div class="logo visa">VISA</div>
+                    <div class="logo mastercard"></div>
+                    <div class="logo cmi">CMI</div>
+                </div>
+            </label>
+
+            <label class="payment-option unselected" for="international-cards">
+                <input type="radio" id="international-cards" name="payment-method" value="international">
+                <div class="radio-container">
+                    <div class="custom-radio"></div>
+                    <div class="payment-content">
+                        <div class="payment-title">International Cards</div>
+                        <div class="payment-subtitle">You will be charged in US dollars (USD)</div>
+                    </div>
+                </div>
+                <div class="payment-logos">
+                    <div class="logo visa">VISA</div>
+                    <div class="logo mastercard"></div>
+                    <div class="logo amex">AMEX</div>
+                    <div class="logo apple-pay">Apple Pay</div>
+                    <div class="logo samsung-pay">
+                        <span class="samsung">SAMSUNG</span>
+                        <span class="pay">Pay</span>
+                    </div>
+                </div>
+            </label>
+        </div>
+    </div>
+                                
+                            </div>
                         </div>
                     </div>
 
@@ -181,6 +225,8 @@
                 </div>
         </div>
     </section>
+               
+   
     </div>
 
 
@@ -222,6 +268,8 @@
                 </div>
             </div>
         </div>
+
+                 
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -232,6 +280,45 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/product-data.js"></script>
+    
+
+   <script>
+        const paymentMethode = document.querySelector('.payment_methode');
+        const paymentOptions = paymentMethode.querySelectorAll('.payment-option');
+        const radioInputs = paymentMethode.querySelectorAll('input[type="radio"]');
+
+        paymentOptions.forEach((option, index) => {
+            option.addEventListener('click', () => {
+                // Remove selected class from all options
+                paymentOptions.forEach(opt => {
+                    opt.classList.remove('selected');
+                    opt.classList.add('unselected');
+                });
+                
+                // Add selected class to clicked option
+                option.classList.remove('unselected');
+                option.classList.add('selected');
+                
+                // Update radio button
+                radioInputs[index].checked = true;
+            });
+        });
+
+        // Handle radio button changes
+        radioInputs.forEach((radio, index) => {
+            radio.addEventListener('change', () => {
+                if (radio.checked) {
+                    paymentOptions.forEach(opt => {
+                        opt.classList.remove('selected');
+                        opt.classList.add('unselected');
+                    });
+                    
+                    paymentOptions[index].classList.remove('unselected');
+                    paymentOptions[index].classList.add('selected');
+                }
+            });
+        });
+    </script>
 
 
     <script>
@@ -2094,15 +2181,57 @@
 
 
 
-                                 <div class="d-flex align-items-center justify-content-between mt-2 gap-2">
-                                    <h4>Ticket Amount: </h4>
-                                 <div class="select-ticket-amount-count">
-                                     FREE
-                                </div>
-                                </div>
                                  
+
+                        <div class="ticket-body">
+                        
+
+                        <!-- Offer Badge -->
+                        <div class="offer-badge">
+                        <div class="d-flex flex-column">
+                            <span class="offer-text">Promocode Offer</span>
+                            <span class="offer-text-name">Promocode Offer</span>
+                            </div>
+
+                        <div class="d-flex gap-2">
+                            <span>100% OFF</span>
+                            <span class="promo-code-closebutton">×</span>
+                            </div>
+                        </div>
+
+                        <hr class="ticket-divider">
+
+                        <!-- Final Price -->
+                        <div class="d-flex align-items-center justify-content-between mt-2 gap-2">
+                                    <h4>Ticket Amount: </h4>
+                                 <span><span class="original-price-promo">NGN <span class="original-price-promo-amount">10,500</span></span></span>
                                 </div>
+                        <div class="final-price-row">
+                        <div class="final-price-details">
+                            <div class="final-price">NGN 5,000</div>
+                            <div class="vat-text">incl. 20% VAT</div>
+                        </div>
+                        </div>
                     </div>
+
+                                
+                    </div>
+
+
+                     
+                    
+
+                     <div class="reg-form-promodiv">
+                     <div class="reg-form-promodiv-inner">
+                           <h6>If you have PROMO CODE use it here</h6>
+                        <input type="text" placeholder="Enter Your PromoCode">
+                        <div class="promo_error">Invalid Promocode</div>
+                        <button class="promo-bg-btn buy-btn" type="button">VALIDATE</button>
+                     </div>
+                    </div>
+                    
+
+                   
 
                                
                         

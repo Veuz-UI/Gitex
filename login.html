@@ -130,7 +130,7 @@
   width: 100%;
   padding: 20px 20px 20px 56px;
   border: 2px solid #e5e7eb;
-  border-radius: 16px;
+  border-radius: 16px !important;
   font-size: 16px;
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
@@ -151,6 +151,7 @@
     0 8px 25px rgba(79, 70, 229, 0.15);
 }
 
+/* Safari-compatible label styling */
 .input-label {
   position: absolute;
   left: 56px;
@@ -162,18 +163,36 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transform-origin: left center;
   z-index: 2;
+
 }
 
-.input-field:focus + .input-label,
-.input-field:not(:placeholder-shown) + .input-label {
-  transform: translateY(-36px) translateX(-36px) scale(0.82);
+/* Simplified active state for better Safari compatibility */
+.input-label.active {
+  top: -16px;
+  left: 20px;
+  font-size: 13px;
   color: #448b30;
   font-weight: 600;
   padding: 4px 12px;
   background-color: #fff;
-  backdrop-filter: blur(10px);
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.8);
+
+}
+
+/* Fallback for browsers that support :not(:placeholder-shown) */
+.input-field:focus + .input-label,
+.input-field:not(:placeholder-shown) + .input-label {
+  top: -16px;
+  left: 20px;
+  font-size: 13px;
+  color: #448b30;
+  font-weight: 600;
+  padding: 4px 12px;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+
 }
 
 .input-icon {
@@ -185,12 +204,9 @@
   font-size: 18px;
   transition: all 0.3s ease;
   z-index: 2;
+
 }
 
-.input-field:focus ~ .input-icon {
-  color: #40872e;
-  transform: translateY(-50%) scale(1.1);
-}
 
 .get-otp-btn {
   width: 100%;
@@ -304,6 +320,12 @@
   100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); }
 }
 
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
 @media (max-width: 480px) {
   .login-form-container {
     padding: 40px 12px;
@@ -317,7 +339,7 @@
 
   .input-field {
     padding: 14px 18px 13px 52px;
-    font-size: 16px; /* <-- Fix: set to 16px or higher */
+    font-size: 16px;
   }
 
   .input-label {
@@ -326,22 +348,20 @@
     font-size: 11px;
   }
 
+
   .sub-wrapper-cntnt p{
     font-size: 15px;
     padding-bottom: 15px;
   }
 
-  .input-field:focus + .input-label,
-  .input-field:not(:placeholder-shown) + .input-label {
-    transform: translateY(-34px) translateX(-34px) scale(0.82);
-  }
-
   .input-icon {
     left: 18px;
   }
+  
   .get-otp-btn{
     padding: 10px;
   }
+  
   .security-badge{
     text-align: left;
   }
@@ -385,8 +405,8 @@
     </div>
   </div>
 
-  <!-- Changed class from 'login-content' to 'content' as per your request -->
-  <section class="content min-height-70">
+
+    <section class="content min-height-70">
     <div class="custom-container">
       <div class="sub-wrapper">
         <div class="login-form-container" data-aos="fade-up" data-aos-duration="800">
@@ -400,7 +420,7 @@
                     type="email" 
                     id="email" 
                     class="input-field" 
-                    placeholder=""
+                    placeholder=" "
                     required
                 >
                 <label for="email" class="input-label">Enter your email address</label>
@@ -421,6 +441,8 @@
       </div>
     </div>
   </section>
+
+
 
   <section class="footer">
     <div class="container">
@@ -478,39 +500,49 @@
         }, 2000);
     });
 
-    // Enhanced input interactions
-    const inputField = document.getElementById('email');
-    const inputIcon = document.querySelector('.input-icon');
+    // Safari-compatible input handling
+    const emailInput = document.getElementById('email');
+    const emailLabel = document.querySelector('label[for="email"]');
 
-    // Show placeholder only when focused
-    inputField.addEventListener('focus', function() {
-        this.placeholder = 'e.g., your.email@example.com';
+    // Handle focus state
+    emailInput.addEventListener('focus', function() {
+        emailLabel.classList.add('active');
+        // Set placeholder for focus helper
+        this.setAttribute('data-focused', 'true');
     });
 
-    inputField.addEventListener('blur', function() {
-        this.placeholder = '';
-    });
-
-    inputField.addEventListener('input', function() {
-        if (this.value) {
-            this.classList.add('has-value');
-            inputIcon.style.color = '#4f46e5';
-        } else {
-            this.classList.remove('has-value');
-            inputIcon.style.color = '#9ca3af';
+    // Handle blur state
+    emailInput.addEventListener('blur', function() {
+        this.removeAttribute('data-focused');
+        // Only remove active class if input is empty
+        if (!this.value.trim()) {
+            emailLabel.classList.remove('active');
         }
     });
 
-    // Add shake animation for validation errors
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes shake {
-        0%, 100% { transform: translateX(0); }
-        10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-        20%, 40%, 60%, 80% { transform: translateX(5px); }
-      }
-    `;
-    document.head.appendChild(style);
+    // Handle input changes
+    emailInput.addEventListener('input', function() {
+        if (this.value.trim()) {
+            emailLabel.classList.add('active');
+        } else {
+            // Only remove if not focused
+            if (!this.hasAttribute('data-focused')) {
+                emailLabel.classList.remove('active');
+            }
+        }
+    });
+
+    // Initial check for pre-filled values (e.g., autofill)
+    function checkInitialValue() {
+        if (emailInput.value.trim()) {
+            emailLabel.classList.add('active');
+        }
+    }
+
+    // Check on page load and after a short delay for autofill
+    checkInitialValue();
+    setTimeout(checkInitialValue, 100);
+    setTimeout(checkInitialValue, 500);
 
     // Smooth scroll and parallax effects
     const particles = document.querySelectorAll('.particle');
@@ -521,7 +553,9 @@
         
         particles.forEach((particle, index) => {
             const speed = (index + 1) * 0.1;
-            particle.style.transform = `translateY(${rate * speed}px) rotate(${scrolled * 0.1}deg)`;
+            const transform = `translateY(${rate * speed}px) rotate(${scrolled * 0.1}deg)`;
+            particle.style.transform = transform;
+            particle.style.webkitTransform = transform;
         });
     });
 
@@ -541,16 +575,9 @@
     
     // Start typing effect after page load
     setTimeout(typeWriter, 500);
+
+ 
   </script>
-
-  <script>
-  document.getElementById('email').addEventListener('focus', function() {
-    setTimeout(() => {
-      this.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 300);
-  });
-</script>
-
 </body>
 
 </html>

@@ -51,26 +51,49 @@
        <div class="inner-banner">
             <a href=""><img src="assets/img/ni-header.png" class="img-fluid sm-hide-logo"></a>
 
-            <div>
-                <div class="registration-text">GITEX NIGERIA TECH EXPO +  <br> FUTURE ECONOMY SUMMIT</div>
+           
+                <div class="registration-text">VISITOR REGISTRATION</div>
             <a href="login.html"><button class="btn-main"><i class="animation"></i>
                                         Login<i class="animation"></i>
                                     </button></a>
-            </div>
+            
         </div>
 
         <div class="content">
 
-            <div class="head-text-buttons">
-                <h1 class="select-title">Select your pass</h1>
+                <div class="head-text-buttons">
+                <div class="ticketTab tab-container ticket-change-button">
+                    <button class="badgeafterTab tab active">Visitor Pass</button>
+                    <button class="badgeafterTab tab">Delegeta Pass</button>
+                    </div>
+                    
+               <div class="d-flex align-items-center gap-2  flex-wrap justify-content-center">
+                 <div class="currency-dropdown-warpper">
+                    <div class="currency-container">
+                          <select name="" id="">
+                                    <option value="NGN">NGN</option>
+                                    <option value="USD">USD</option>
+                                    <option value="EUR">EUR</option>
 
-            </div>
+                                </select>
+                    </div>
+                </div>
+
+                  <div class="ticketTab tab-container">
+                    <button class="badgeafterTab tab active" onclick="switchTicketTab('registrationTicket')"><span><i class="fa-solid fa-ticket"></i></span> Card View</button>
+                    <button class="badgeafterTab tab" onclick="switchTicketTab('badgeTicket')"><span><i class="fa-solid fa-code-compare"></i></span> Compare View</button>
+                    </div>
+
+               </div>
+                </div>
 
 
-            <div class="pass-cards">
-                <!-- Visitor Pass -->
+       <!-- Tab Buttons -->
+                 
 
-                 <div class="row g-4">
+                    <!-- Tab Contents -->
+                    <div id="registrationTicket" class="tab-section active">
+                        <div class="row g-4">
                     <div class="col-xl-4 col-lg-6">
                         <div class="pass-card">
                             <div class="pass-header premium badge-bg-1" style="
@@ -166,10 +189,17 @@
                     </div>
 
                     <div class="col-xl-4 col-lg-6">
-                        <div class="pass-card ">
-                            <div class="pass-header premium badge-bg-2">
-
-                                <div class="pass-type">PREMIUM PASS<br>
+                        <div class="pass-card pass-card-animated-free">
+                            <div class="ticket-best-seller">
+                                <div class="zoom-wrapper">
+                                    <span class="shine-text">Best Seller</span>
+                                </div>
+                                </div>
+                            <div class="ticket-exclusive free-badge-label">
+                                    <h6>FREE</span></h6>
+                                </div>
+                            <div class="pass-header premium exc-title-padding premium badge-bg-6">
+                                <div class="pass-type">GITEX NIGERIA STARTUP FESTIVAL PASS<br>
                                     <a href="#" class="pass-details-btn" data-bs-toggle="modal"
                                         data-bs-target="#detailsModal"
                                         style="font-size: 13px; text-align: left;">
@@ -177,7 +207,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="pass-content coming-soon">
+                            <div class="pass-content ">
                                 <h6 class="ticket-disc-main">The <span>PREMIUM TICKET </span> grants you 3 days access to GITEX EUROPE exhibition in addition to the following key features:</h6>
                                 <div class="features">
                                     <div class="feature-pill">
@@ -261,7 +291,9 @@
                     <div class="col-xl-4 col-lg-6">
                         <div class="pass-card">
                             <div class="pass-header premium badge-bg-3">
-
+                               <div class="ticket-best-seller">
+                                <span class="shine-text">Best Seller</span>
+                                </div>
                                 <div class="pass-type">PREMIUM Pass<br>
                                     <a href="#" class="pass-details-btn" data-bs-toggle="modal"
                                         data-bs-target="#detailsModal"
@@ -270,7 +302,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="pass-content">
+                            <div class="pass-content coming-soon">
                                 <h6 class="ticket-disc-main">The <span><a href="">PREMIUM TICKET </a></span> grants you 3 days access to GITEX EUROPE exhibition in addition to the following key features:</h6>
                                 <div class="features">
                                     <div class="feature-pill">
@@ -327,11 +359,11 @@
                                     </div>
 
                                 </div>
-                                <div class="select-workshop">
+                                <!-- <div class="select-workshop">
                                 <button class="buy-btn" type="button" data-bs-toggle="modal" data-bs-target="#workShop">
                                     Select Workshop
                                     </button>
-                            </div>
+                            </div> -->
                             </div>
 
                         
@@ -349,7 +381,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button type="button" class="ticket-btn">Applay Now</button>
+                                <button type="button" class="ticket-btn">Apply Now</button>
                             </div>
                         </div>
                     </div>
@@ -357,6 +389,9 @@
                     <div class="col-xl-4 col-lg-6">
                         <div class="pass-card">
                             <div class="pass-header premium exc-title-padding badge-bg-4">
+                                  <div class="ticket-best-seller">
+                                <span class="shine-text">Best Seller</span>
+                                </div>
                                 <div class="ticket-exclusive ticket-best-seller ticket-best-seller-exclusive">
                                     <h6>Exclusive</h6>
                                 </div>
@@ -445,6 +480,9 @@
                     <div class="col-xl-4 col-lg-6">
                         <div class="pass-card pass-card ">
                             <div class="pass-header badge-bg-4 premium exc-title-padding badge-bg-5">
+                                   <div class="ticket-best-seller">
+                                <span class="shine-text">Best Seller</span>
+                                </div>
                                 <div class="ticket-exclusive ticket-best-seller">
                                     <h6>Best <br> <span>seller</span></h6>
                                 </div>
@@ -454,7 +492,7 @@
                                             ">VIEW DETAILS → </a>
                                 </div>
                             </div>
-                            <div class="pass-content">
+                            <div class="pass-content ">
                                 <div class="features">
                                     <div class="feature-pill gry-out">
                                         <span class="check-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14"
@@ -685,8 +723,8 @@
                             <div class="pass-price-out last-pass-price-out">
                                 <div class="rate-count">
                                     <div class="pass-price">
-                                        <h6>EUR<span class="offer-cut"> 50</span> <span class="price-offer">40</span>
-                                            <span class="aprvl-sub">SUBJECT TO APPROVAL</span></h6>
+                                        <h6>NGN<span class="offer-cut"> 50,000</span> <span class="price-offer">NGN 40,000</span>
+                                           <br>
                                         <span class="vat">Incl. 19% VAT</span>
                                     </div>
                                     <div>
@@ -704,7 +742,576 @@
                         </div>
                     </div>
                 </div>
-            </div>
+                    </div>
+                    
+                    <div id="badgeTicket" class="tab-section"  style="display: none;" >
+                    <div class="cmp-row">
+                        <div class="cmp-row_first">
+                            <div class="cm-header d-flex align-items-center gap-2 justify-content-center feature-main-header"> 
+                                <img src="assets/img/features.png" alt="" class="cm-header-img">
+                                <h6 class="cm-features">features</h6>
+                            </div>
+                                <div class="cmp-accss_rows-main-wrapper">
+                                <div class="cmp-accss_rows">
+                                    <img src="assets/img/3-Days-Access.png" alt="">
+                                    <h5>3 Days Access to the Show</h5>
+                                </div>
+                                <div class="cmp-accss_rows">
+                                    <img src="assets/img/access-all-lounge.png" alt="">
+                                    <h5>Access All Lounge</h5>
+                                </div>
+                                <div class="cmp-accss_rows">
+                                    <img src="assets/img/networking-events.png" alt="">
+                                    <h5>Networking Events</h5>
+                                </div>
+                                <div class="cmp-accss_rows">
+                                    <img src="assets/img/gitex-africa-summit.png" alt="">
+                                    <h5>GITEX AFRICA Digital <span>Summit</span></h5>
+                                </div>
+                                <div class="cmp-accss_rows">
+                                    <img src="assets/img/africa-future.png" alt="">
+                                    <h5>AFRICA FUTURE CONNECTIVITY SUMMIT</h5>
+                                </div>
+                                <div class="cmp-accss_rows">
+                                    <img src="assets/img/all-conference.png" alt="">
+                                    <h5>All Conference Tracks</h5>
+                                </div>
+                                <div class="cmp-accss_rows">
+                                    <img src="assets/img/10+masterclass.png" alt="">
+                                    <h5>10+ Masterclasses</h5>
+                                </div>
+                                <div class="cmp-accss_rows">
+                                    <img src="assets/img/certified.png" alt="">
+                                    <h5>Certified Training</h5>
+                                </div>
+                                </div>
+                                
+                                
+                        </div>
+                            <div class="cmp-row_second">
+                                    <div class="slider-arrow slider-arrow-left" id="cmpSliderPrev">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </div>
+                                <div class="cmp-slider-track" id="cmpSliderTrack">
+                                        <!-- All your .cmp-ticket-wrapper elements go here -->
+                            <div class="cmp-ticket-wrapper">
+                                <div class="cm-header">
+                                    <div class="pass-header premium exc-title-padding badge-bg-1">
+                                        <div class="ticket-best-seller">
+                                <span class="shine-text">Best Seller</span>
+                                </div>
+                                        <input type="checkbox" class="pass-select-checkbox" checked >
+                                        <div class="ticket-exclusive ticket-best-seller ticket-best-seller-exclusive">
+                                            <h6>Exclusive</h6>
+                                        </div>
+                                        <div class="pass-type">All Access Conference Ticket<br>
+                                            <a href="#" class="pass-details-btn" data-bs-toggle="modal" data-bs-target="#detailsModal2" style="font-size: 13px;
+                                                    text-align: left;
+                                                    ">VIEW DETAILS → </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="pass-price-out">
+                                <div class="rate-count justify-content-center align-items-center flex-column gap-1">
+                                    <div class="cmp-offer-cut">
+                                        
+                                        <div class="pass-price">NGN 40,000</div>
+                                         <div class="d-flex flex-column align-items-center mb-2">
+                                             <span class="price-offer">NGN 60,000</span>
+                                             <span class="vat">Incl. 19% VAT</span>
+                                         </div>
+                                    </div>
+                                    
+                                    <button type="button" class="ticket-btn">Apply Now</button>
+                                </div>
+                                
+                            </div>
+                                </div>
+                            
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                            </div>
+                            <div class="cmp-ticket-wrapper">
+                                <div class="cm-header">
+                                    <div class="pass-header premium exc-title-padding badge-bg-3">
+                                        <input type="checkbox" class="pass-select-checkbox" checked >
+                                        <div class="ticket-exclusive ticket-best-seller ticket-best-seller-exclusive">
+                                            <h6>Exclusive</h6>
+                                        </div>
+                                        <div class="pass-type">All Access Conference Ticket<br>
+                                            <a href="#" class="pass-details-btn" data-bs-toggle="modal" data-bs-target="#detailsModal2" style="font-size: 13px;
+                                                    text-align: left;
+                                                    ">VIEW DETAILS → </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="pass-price-out">
+                                <div class="rate-count justify-content-center align-items-center flex-column gap-1">
+                                    <div class="pass-price">EUR 40 <span class="vat">Incl. 19% VAT</span></div>
+                                    <button type="button" class="ticket-btn">Apply Now</button>
+                                </div>
+                                
+                            </div>
+                                </div>
+                            
+                                  <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div>  
+                            </div>
+
+                            <div class="cmp-ticket-wrapper">
+                                <div class="cm-header">
+                                    <div class="pass-header premium exc-title-padding badge-bg-4" >
+                                        <input type="checkbox" class="pass-select-checkbox" >
+                                        <div class="ticket-exclusive ticket-best-seller ticket-best-seller-exclusive">
+                                            <h6>Exclusive</h6>
+                                        </div>
+                                        <div class="pass-type">All Access Conference Ticket<br>
+                                            <a href="#" class="pass-details-btn" data-bs-toggle="modal" data-bs-target="#detailsModal2" style="font-size: 13px; text-align: left;">VIEW DETAILS → </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="pass-price-out">
+                                <div class="rate-count justify-content-center align-items-center flex-column gap-1">
+                                    <div class="pass-price">EUR 40 <span class="vat">Incl. 19% VAT</span></div>
+                                    <!-- <button type="button" class="ticket-btn">Apply Now</button> -->
+                                      <div>
+                                            <div class="number-input-container">
+                                                <button class="minus" onclick="changeNumber('minus', this)">-</button>
+                                                <input type="number" value="0" class="number-input" min="0" max="99"
+                                                    onchange="validateInput(this)">
+                                                <button class="plus" onclick="changeNumber('plus', this)">+</button>
+                                            </div>
+                                        </div>
+                                </div>
+                                
+                            </div>
+                                </div>
+                            
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/black-tick.png" alt="" class="tick-mark">
+                                    <h6><span>One </span>Conference of your choice</h6>
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                            </div>
+                            <div class="cmp-ticket-wrapper">
+                                <div class="cm-header">
+                                    <div class="pass-header premium exc-title-padding badge-bg-5">
+                                        <input type="checkbox" class="pass-select-checkbox" checked >
+                                        <div class="ticket-exclusive ticket-best-seller ticket-best-seller-exclusive">
+                                            <h6>Exclusive</h6>
+                                        </div>
+                                        <div class="pass-type">All Access Conference Ticket<br>
+                                            <a href="#" class="pass-details-btn" data-bs-toggle="modal" data-bs-target="#detailsModal2" style="font-size: 13px;
+                                                    text-align: left;
+                                                    ">VIEW DETAILS → </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="pass-price-out">
+                                <div class="rate-count justify-content-center align-items-center flex-column gap-1">
+                                    <div class="pass-price">EUR 40 <span class="vat">Incl. 19% VAT</span></div>
+                                    <button type="button" class="ticket-btn">Apply Now</button>
+                                </div>
+                                
+                            </div>
+                                </div>
+                            
+                                  <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div>  
+                            </div>
+
+                            <div class="cmp-ticket-wrapper">
+                                <div class="cm-header">
+                                    <div class="pass-header premium exc-title-padding badge-bg-1">
+                                        <input type="checkbox" class="pass-select-checkbox" checked >
+                                        <div class="ticket-exclusive ticket-best-seller ticket-best-seller-exclusive">
+                                            <h6>Exclusive</h6>
+                                        </div>
+                                        <div class="pass-type">All Access Conference Ticket<br>
+                                            <a href="#" class="pass-details-btn" data-bs-toggle="modal" data-bs-target="#detailsModal2" style="font-size: 13px;
+                                                    text-align: left;
+                                                    ">VIEW DETAILS → </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="pass-price-out">
+                                <div class="rate-count justify-content-center align-items-center flex-column gap-1">
+                                    <div class="pass-price">EUR 40 <span class="vat">Incl. 19% VAT</span></div>
+                                    <button type="button" class="ticket-btn">Apply Now</button>
+                                </div>
+                                
+                            </div>
+                                </div>
+                            
+                                 <div class="coming-soon">
+                                    <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+                                 </div>
+
+                            </div>
+                            <div class="cmp-ticket-wrapper">
+                                <div class="cm-header">
+                                    <div class="pass-header premium exc-title-padding badge-bg-3">
+                                        <input type="checkbox" class="pass-select-checkbox" checked >
+                                        <div class="ticket-exclusive ticket-best-seller ticket-best-seller-exclusive">
+                                            <h6>Exclusive</h6>
+                                        </div>
+                                        <div class="pass-type">All Access Conference Ticket<br>
+                                            <a href="#" class="pass-details-btn" data-bs-toggle="modal" data-bs-target="#detailsModal2" style="font-size: 13px;
+                                                    text-align: left;
+                                                    ">VIEW DETAILS → </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="pass-price-out">
+                                <div class="rate-count justify-content-center align-items-center flex-column gap-1">
+                                    <div class="pass-price">EUR 40 <span class="vat">Incl. 19% VAT</span></div>
+                                    <button type="button" class="ticket-btn">Apply Now</button>
+                                </div>
+                                
+                            </div>
+                                </div>
+                            
+                                  <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div>  
+                            </div>
+
+                            <div class="cmp-ticket-wrapper">
+                                <div class="cm-header">
+                                    <div class="pass-header premium exc-title-padding badge-bg-4">
+                                        <input type="checkbox" class="pass-select-checkbox" checked >
+                                        <div class="ticket-exclusive ticket-best-seller ticket-best-seller-exclusive">
+                                            <h6>Exclusive</h6>
+                                        </div>
+                                        <div class="pass-type">All Access Conference Ticket<br>
+                                            <a href="#" class="pass-details-btn" data-bs-toggle="modal" data-bs-target="#detailsModal2" style="font-size: 13px;
+                                                    text-align: left;
+                                                    ">VIEW DETAILS → </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="pass-price-out">
+                                <div class="rate-count justify-content-center align-items-center flex-column gap-1">
+                                    <div class="pass-price">EUR 40 <span class="vat">Incl. 19% VAT</span></div>
+                                    <button type="button" class="ticket-btn">Apply Now</button>
+                                </div>
+                                
+                            </div>
+                                </div>
+                            
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                            </div>
+                            <div class="cmp-ticket-wrapper">
+                                <div class="cm-header">
+                                    <div class="pass-header premium exc-title-padding badge-bg-5">
+                                        <input type="checkbox" class="pass-select-checkbox" checked >
+                                        <div class="ticket-exclusive ticket-best-seller ticket-best-seller-exclusive">
+                                            <h6>Exclusive</h6>
+                                        </div>
+                                        <div class="pass-type">All Access Conference Ticket<br>
+                                            <a href="#" class="pass-details-btn" data-bs-toggle="modal" data-bs-target="#detailsModal2" style="font-size: 13px;
+                                                    text-align: left;
+                                                    ">VIEW DETAILS → </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="pass-price-out">
+                                <div class="rate-count justify-content-center align-items-center flex-column gap-1">
+                                    <div class="pass-price">EUR 40 <span class="vat">Incl. 19% VAT</span></div>
+                                    <button type="button" class="ticket-btn">Apply Now</button>
+                                </div>
+                                
+                            </div>
+                                </div>
+                            
+                                  <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div> 
+
+                                 <div class="cmp-check-box-div">
+                                    <img src="assets/img/tick-mark.png" alt="" class="tick-mark">
+                                 </div>   
+                               
+
+                                 <div class="cmp-check-box-div cmp-uncheck-box-div">
+                                    <img src="assets/img/wrong.png" alt="" class="tick-mark">
+                                 </div>  
+                            </div>
+        <!-- Add more .cmp-ticket-wrapper as needed -->
+    </div>
+    <div class="slider-arrow slider-arrow-right" id="cmpSliderNext">
+        <i class="fas fa-chevron-right"></i>
+    </div>
+                            </div>
+                    </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+            
 
      
         </div>
@@ -901,6 +1508,36 @@
     <script src="assets/js/font-awsome.js"></script>
 
 
+    
+
+    <script>
+  function switchTicketTab(tabId) {
+    // Remove 'active' from all tab buttons
+    document.querySelectorAll('.badgeafterTab.tab').forEach(btn => btn.classList.remove('active'));
+
+    // Hide all content sections
+    document.querySelectorAll('.tab-section').forEach(sec => {
+      sec.classList.remove('active');
+      sec.style.display = 'none';
+    });
+
+    // Activate the clicked tab button
+    const tabButtons = document.querySelectorAll('.badgeafterTab.tab');
+    if (tabId === 'registrationTicket') {
+      tabButtons[0].classList.add('active');
+    } else if (tabId === 'badgeTicket') {
+      tabButtons[1].classList.add('active');
+    }
+
+    // Show the corresponding tab section
+    const activeSection = document.getElementById(tabId);
+    if (activeSection) {
+      activeSection.classList.add('active');
+      activeSection.style.display = '';
+    }
+  }
+</script>
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const maxSelections = 6;
@@ -939,6 +1576,76 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const track = document.getElementById('cmpSliderTrack');
+    const wrappers = track.querySelectorAll('.cmp-ticket-wrapper');
+    const prevBtn = document.getElementById('cmpSliderPrev');
+    const nextBtn = document.getElementById('cmpSliderNext');
+    let activeIndex = 0;
+
+    function setActive(index) {
+        wrappers.forEach((el, i) => {
+            el.classList.toggle('active', i === index);
+        });
+
+        const activeCard = wrappers[index];
+        if (activeCard) {
+            const cardOffsetLeft = activeCard.offsetLeft;
+            const cardWidth = activeCard.offsetWidth;
+            const trackWidth = track.offsetWidth;
+
+            const targetScroll = cardOffsetLeft - (trackWidth / 2 - cardWidth / 2);
+            smoothScrollTo(track, targetScroll, 400);
+        }
+    }
+
+    function smoothScrollTo(element, target, duration) {
+        const start = element.scrollLeft;
+        const change = target - start;
+        const startTime = performance.now();
+
+        function animateScroll(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            element.scrollLeft = start + change * easeInOutQuad(progress);
+            if (progress < 1) {
+                requestAnimationFrame(animateScroll);
+            }
+        }
+        requestAnimationFrame(animateScroll);
+    }
+
+    function easeInOutQuad(t) {
+        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    }
+
+    prevBtn.addEventListener('click', () => {
+        if (activeIndex > 0) {
+            activeIndex--;
+            setActive(activeIndex);
+        }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (activeIndex < wrappers.length - 1) {
+            activeIndex++;
+            setActive(activeIndex);
+        }
+    });
+
+    wrappers.forEach((el, i) => {
+        el.addEventListener('click', () => {
+            activeIndex = i;
+            setActive(activeIndex);
+        });
+    });
+
+    // Initial active setup
+    setActive(activeIndex);
+});
+</script>
 
 
 <script>
@@ -1320,7 +2027,57 @@ function showToast(message) {
 </script>
 
 
-
+<script>
+        const dropdown = document.getElementById('currencyDropdown');
+        const toggle = dropdown.querySelector('.dropdown-toggle');
+        const selectedText = document.getElementById('selectedText');
+        const menuItems = dropdown.querySelectorAll('.dropdown-menu li');
+        
+        let selectedValue = '';
+        
+        // Toggle dropdown
+        toggle.addEventListener('click', function() {
+            dropdown.classList.toggle('open');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('open');
+            }
+        });
+        
+        // Handle keyboard navigation
+        toggle.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                dropdown.classList.toggle('open');
+            } else if (e.key === 'Escape') {
+                dropdown.classList.remove('open');
+            }
+        });
+        
+        // Handle item selection
+        menuItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // Remove previous selection
+                menuItems.forEach(i => i.classList.remove('selected'));
+                
+                // Add selection to clicked item
+                this.classList.add('selected');
+                
+                // Update selected text
+                selectedText.textContent = this.textContent;
+                selectedValue = this.dataset.value;
+                
+                // Close dropdown
+                dropdown.classList.remove('open');
+                
+                // Log selection
+                console.log('Selected currency:', selectedValue);
+            });
+        });
+    </script>
 
 
 </body>

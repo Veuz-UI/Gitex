@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="assets/css/new-style-visitor.css">
     <link rel="stylesheet" href="assets/fonts/webfont/stylesheet.css">
     <link rel="icon" type="image/png" href="assets/img/fav-icon.png">
-
+ 
 </head>
 
 <body>
@@ -50,7 +50,9 @@
 
      <div class="dashboard">
     <div class="sidebar">
-        <img src="assets/img/GITEXNIGERIA_AIheadlogo.png" alt="" class="sidebar-logo">
+        <a href="index.html">
+            <img src="assets/img/GITEXNIGERIA_AIheadlogo.png" alt="" class="sidebar-logo">
+        </a>
       <ul>
         <li data-tab="visitor"><a href="#"><i class="fas fa-user"></i> Visitor Details</a></li>
         <li data-tab="badge"><a href="#"><i class="fas fa-id-badge"></i> Badge</a></li>
@@ -58,6 +60,27 @@
         <li data-tab="user-history"><a href="#"><i class="fa-solid fa-clock-rotate-left"></i> User History</a></li>
         <li data-tab="logout"><a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
       </ul>
+
+       <div class="side-bar-main-head" id="mobileSidebarNav">
+  <div class="d-flex align-items-center justify-content-between">
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle Menu">
+      <span class="toggle-bar"></span>
+      <span class="toggle-bar"></span>
+      <span class="toggle-bar"></span>
+    </button>
+    <img src="assets/img/GITEXNIGERIA_AIheadlogo.png" alt="">
+  </div>
+        </div>
+
+        <div class="sidebar" id="sidebarNav">
+        <ul>
+            <li data-tab="visitor"><a href="#"><i class="fas fa-user"></i> Visitor Details</a></li>
+            <li data-tab="badge"><a href="#"><i class="fas fa-id-badge"></i> Badge</a></li>
+            <li class="active" data-tab="matchmaking"><a href="#"><i class="fas fa-handshake"></i> Matchmaking</a></li>
+            <li data-tab="user-history"><a href="#"><i class="fa-solid fa-clock-rotate-left"></i> User History</a></li>
+            <li data-tab="logout"><a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+        </div>
     </div>
 
     <div class="main-dashboard">
@@ -998,7 +1021,9 @@
     </div>
 
 
-        <div class="table-main-div">
+    <div>
+        <div class="table-main-wrapper">
+            <div class="table-responsive-wrapper">
             <table class="badge-table">
             <thead>
                 <tr>
@@ -1025,7 +1050,7 @@
                     </td>
                     <td>mariya@gmail.com</td>
                     <td>Premium</td>
-                    <td class="badge-status"><span>Pending</span></td>
+                    <td class="badge-status"><span>Pending for approvel</span></td>
                     <td>USD 300</td>
                     <td>20/3/2025</td>
                     <td>
@@ -1332,9 +1357,9 @@
                     
                 </tbody>
             </table>
-           
         </div>
-        
+        </div>
+    </div>
 
         <div class="mobile-table-card-wrapper">
             <div class="row">
@@ -2261,7 +2286,7 @@
                 </div>
                                 </div>
 
-                                <div class="table-main-div-scrollable">
+                                <div class="table-main-div">
                                     <table class="badge-table">
                                         <thead>
                                             <tr>
@@ -2321,6 +2346,134 @@
                                         </tbody>
                                     </table>
                                 </div>
+
+                                <div class="mobile-table-card-wrapper">
+                                        <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="mobile-table-card">
+                                        <div class="mobile-card-profile ">
+                                            <div class="d-flex align-items-center gap-3">
+                                                <img src="assets/img/user-1.jpg" alt="">
+                                            <div class="mobile-card-header">
+                                                <h5>Mohammed Navab</h5>
+                                                <h6>User logged in successfully</h6>
+                                            </div>
+                                            </div>
+                                            
+                                        </div>
+
+                                                <div class="details-grid">
+                                            <div class="detail-item">
+                                                <div class="detail-label">Activity</div>
+                                                <div class="detail-value">Ticket Upgrade</div>
+                                            </div>
+                                            <div class="detail-item">
+                                                <div class="detail-label">Status</div>
+                                                <div class="detail-value">
+                                                    <span class="status-badge">Pending</span>
+                                                </div>
+                                            </div>
+                                            <div class="detail-item">
+                                                <div class="detail-label">Performed By</div>
+                                                <div class="detail-value">Ahmed Bazil<span class="primary-user">Primary</span></div>
+                                            </div>
+                                            <div class="detail-item">
+                                                <div class="detail-label">IP Address</div>
+                                                <div class="detail-value">192.168.1.10</div>
+                                            </div>
+                                            <div class="detail-item">
+                                                <div class="detail-label">Date & Time</div>
+                                                <div class="detail-value">24/06/2025 10:32 AM</div>
+                                            </div>
+                                        </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="mobile-table-card">
+                                        <div class="mobile-card-profile ">
+                                            <div class="d-flex align-items-center gap-3">
+                                                <img src="assets/img/user-1.jpg" alt="">
+                                            <div class="mobile-card-header">
+                                                <h5>Mohammed Navab</h5>
+                                                <h6>User logged in successfully</h6>
+                                            </div>
+                                            </div>
+                                            
+                                        </div>
+
+                                                <div class="details-grid">
+                                                    <div class="detail-item">
+                                                        <div class="detail-label">Activity</div>
+                                                        <div class="detail-value">Ticket Upgrade</div>
+                                                    </div>
+                                                    <div class="detail-item">
+                                                        <div class="detail-label">Status</div>
+                                                        <div class="detail-value">
+                                                            <span class="status-badge">Pending</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="detail-item">
+                                                        <div class="detail-label">Performed By</div>
+                                                        <div class="detail-value">Ahmed Bazil<span class="primary-user">Primary</span></div>
+                                                    </div>
+                                                    <div class="detail-item">
+                                                        <div class="detail-label">IP Address</div>
+                                                        <div class="detail-value">192.168.1.10</div>
+                                                    </div>
+                                                    <div class="detail-item">
+                                                        <div class="detail-label">Date & Time</div>
+                                                        <div class="detail-value">24/06/2025 10:32 AM</div>
+                                                    </div>
+                                        </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4">
+                                            <div class="mobile-table-card">
+                                        <div class="mobile-card-profile ">
+                                            <div class="d-flex align-items-center gap-3">
+                                                <img src="assets/img/user-1.jpg" alt="">
+                                            <div class="mobile-card-header">
+                                                <h5>Mohammed Navab</h5>
+                                                <h6>User logged in successfully</h6>
+                                            </div>
+                                            </div>
+                                            
+                                        </div>
+
+                                                <div class="details-grid">
+                                            <div class="detail-item">
+                                                <div class="detail-label">Activity</div>
+                                                <div class="detail-value">Ticket Upgrade</div>
+                                            </div>
+                                            <div class="detail-item">
+                                                <div class="detail-label">Status</div>
+                                                <div class="detail-value">
+                                                    <span class="status-badge">Pending</span>
+                                                </div>
+                                            </div>
+                                            <div class="detail-item">
+                                                <div class="detail-label">Performed By</div>
+                                                <div class="detail-value">Ahmed Bazil<span class="primary-user">Primary</span></div>
+                                            </div>
+                                            <div class="detail-item">
+                                                <div class="detail-label">IP Address</div>
+                                                <div class="detail-value">192.168.1.10</div>
+                                            </div>
+                                            <div class="detail-item">
+                                                <div class="detail-label">Date & Time</div>
+                                                <div class="detail-value">24/06/2025 10:32 AM</div>
+                                            </div>
+                                        </div>
+
+                                            </div>
+                                        </div>
+                                </div>
+                                </div>
+
+                                
                         </div>
 
                         <div class="tab-pane fade" id="upgrade-pane" role="tabpanel" aria-labelledby="upgrade-tab">
@@ -2382,7 +2535,7 @@
                                 </div>
                                                 </div>
 
-                                                <div class="table-main-div-scrollable">
+                                                <div class="table-main-div">
                                         <table class="badge-table">
                                             <thead>
                                                 <tr>
@@ -2438,7 +2591,7 @@
                                                     <td>Visitor Ticket</td>
                                                     <td>USD 150</td>
                                                     <td>Bank Transfer</td>
-                                                    <td><span class="badge-status badge-pending">Pending</span></td>
+                                                    <td><span class="badge-status badge-pending">Pending for Approvel</span></td>
                                                     <td> Child</td>
                                                     <td>
                                                         <div class="d-flex gap-2 justify-content-center">
@@ -2454,14 +2607,76 @@
                                                 <!-- Add more rows as needed -->
                                             </tbody>
                                         </table>
-                                    </div>
+                                                </div>
+
+                                                <div class="mobile-table-card-wrapper">
+                                        <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="mobile-table-card">
+                                        <div class="mobile-card-profile ">
+                                            <div class="d-flex align-items-center gap-3">
+                                                <img src="assets/img/user-1.jpg" alt="">
+                                            <div class="mobile-card-header">
+                                                <h5>Mohammed Navab</h5>
+                                                <h6>User logged in successfully</h6>
+                                            </div>
+                                            </div>
+                                            
+                                        </div>
+
+                                                <div class="details-grid">
+                                             <div class="detail-item">
+                                                <div class="detail-label">Transaction ID</div>
+                                                <div class="detail-value">TXN-789456123</div>
+                                            </div>
+                                            <div class="detail-item">
+                                                <div class="detail-label">Date & Time</div>
+                                                <div class="detail-value">24/06/2025 10:32 AM</div>
+                                            </div>
+                                            <div class="detail-item">
+                                                <div class="detail-label">Transaction Type</div>
+                                                <div class="detail-value">Ticket Upgrade</div>
+                                            </div>
+                                            <div class="detail-item">
+                                                <div class="detail-label">Ticket Details</div>
+                                                <div class="detail-value">ticket Name</div>
+                                            </div>
+                                            <div class="detail-item">
+                                                <div class="detail-label">Amount</div>
+                                                <div class="detail-value">NGN 65</div>
+                                            </div>
+                                            <div class="detail-item">
+                                                <div class="detail-label">Payment Methode</div>
+                                                <div class="detail-value">Card</div>
+                                            </div>
+                                            <div class="detail-item">
+                                                <div class="detail-label">Payment Methode</div>
+                                                <div class="detail-value">Card</div>
+                                            </div>
+                                            <div class="detail-item">
+                                                <div class="detail-label">Status</div>
+                                                <div class="detail-value">
+                                                    <span class="status-badge">Pending</span>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="d-flex gap-2 justify-content-center justify-content-center flex-wrap">
+                                                
+                                                <a href="badge.html"><button class="table-upgrade-btn table-print-badge"><i class="fas fa-download"></i> Download</button></a>
+                                            </div>
+
+                                            </div>
+                                        </div>
+                                </div>
+                                                </div>
                         </div>
                     </div>
                 </div>
       </div>
       <!-- User History -->
     </div>
-  </div>
+    </div>
 
 
     
@@ -2485,24 +2700,7 @@
 
 
 
-    <div class="crop-modal" id="cropModal">
-        <div class="crop-container">
-            <h3 class="crop-title">Crop Your Image</h3>
-            <div class="crop-area" id="cropArea">
-                <img class="crop-image" id="cropImage" draggable="false">
-                <div class="crop-overlay" id="cropOverlay">
-                    <div class="crop-handle nw"></div>
-                    <div class="crop-handle ne"></div>
-                    <div class="crop-handle sw"></div>
-                    <div class="crop-handle se"></div>
-                </div>
-            </div>
-            <div class="crop-buttons">
-                <button class="crop-btn crop-btn-primary" id="applyCrop">Apply Crop</button>
-                <button class="crop-btn crop-btn-secondary" id="cancelCrop">Cancel</button>
-            </div>
-        </div>
-    </div>
+
 
 
 
@@ -2966,9 +3164,6 @@ tabs.forEach(tab => {
         </script>
     <!-- ticket stepform -->
 
-    
-
-
 
 
 <script>
@@ -2991,7 +3186,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
-    <script>
+<script>
 $(document).ready(function() {
     // Initialize Select2 for Nationality dropdown
     $('#Nationality').select2({
@@ -4058,7 +4253,7 @@ document.getElementById('confirmUnfollow').addEventListener('click', function() 
                 exportAttendeeData();
             }
         });
-    </script>
+</script>
 
 
 <script>
@@ -4128,76 +4323,107 @@ document.getElementById('confirmUnfollow').addEventListener('click', function() 
                 });
             });
         });
-        </script>
+ </script>
 
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Mark all as read functionality
-            const markAllReadBtn = document.querySelector('.mark-all-read');
-            markAllReadBtn.addEventListener('click', function () {
-                document.querySelectorAll('.notification-item.unread').forEach(item => {
-                    item.classList.remove('unread');
-                });
-            });
-
-            // Filter notifications
-            const filter = document.querySelector('.notification-filter');
-            filter.addEventListener('change', function () {
-                const items = document.querySelectorAll('.notification-item');
-                items.forEach(item => {
-                    switch (this.value) {
-                        case 'unread':
-                            item.style.display = item.classList.contains('unread') ? 'flex' :
-                                'none';
-                            break;
-                        case 'read':
-                            item.style.display = !item.classList.contains('unread') ? 'flex' :
-                                'none';
-                            break;
-                        default:
-                            item.style.display = 'flex';
-                    }
-                });
-            });
-
-            // Handle notification actions
-            document.querySelectorAll('.view-btn, .remind-btn, .download-btn, .upload-btn').forEach(btn => {
-                btn.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const action = this.className;
-                    const item = this.closest('.notification-item');
-
-                    switch (action) {
-                        case 'view-btn':
-                            console.log('Viewing event details');
-                            window.location.href = 'event-details.html';
-                            break;
-                        case 'remind-btn':
-                            item.classList.remove('unread');
-                            this.textContent = 'Reminder Set';
-                            this.disabled = true;
-                            break;
-                        case 'download-btn':
-                            console.log('Downloading invoice');
-                            // Add download logic
-                            break;
-                        case 'upload-btn':
-                            console.log('Opening upload dialog');
-                            // Add upload logic
-                            break;
-                    }
-                });
-            });
-
-            // Add hover effect for options
-            document.querySelectorAll('.notification-options').forEach(option => {
-                option.addEventListener('click', function () {
-
-                });
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Mark all as read functionality
+        const markAllReadBtn = document.querySelector('.mark-all-read');
+        markAllReadBtn.addEventListener('click', function () {
+            document.querySelectorAll('.notification-item.unread').forEach(item => {
+                item.classList.remove('unread');
             });
         });
-    </script>
+
+        // Filter notifications
+        const filter = document.querySelector('.notification-filter');
+        filter.addEventListener('change', function () {
+            const items = document.querySelectorAll('.notification-item');
+            items.forEach(item => {
+                switch (this.value) {
+                    case 'unread':
+                        item.style.display = item.classList.contains('unread') ? 'flex' :
+                            'none';
+                        break;
+                    case 'read':
+                        item.style.display = !item.classList.contains('unread') ? 'flex' :
+                            'none';
+                        break;
+                    default:
+                        item.style.display = 'flex';
+                }
+            });
+        });
+
+        // Handle notification actions
+        document.querySelectorAll('.view-btn, .remind-btn, .download-btn, .upload-btn').forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                const action = this.className;
+                const item = this.closest('.notification-item');
+
+                switch (action) {
+                    case 'view-btn':
+                        console.log('Viewing event details');
+                        window.location.href = 'event-details.html';
+                        break;
+                    case 'remind-btn':
+                        item.classList.remove('unread');
+                        this.textContent = 'Reminder Set';
+                        this.disabled = true;
+                        break;
+                    case 'download-btn':
+                        console.log('Downloading invoice');
+                        // Add download logic
+                        break;
+                    case 'upload-btn':
+                        console.log('Opening upload dialog');
+                        // Add upload logic
+                        break;
+                }
+            });
+        });
+
+        // Add hover effect for options
+        document.querySelectorAll('.notification-options').forEach(option => {
+            option.addEventListener('click', function () {
+
+            });
+        });
+    });
+</script>
+
+
+<script>
+  const toggleBtn = document.getElementById("sidebarToggle");
+  const sidebar = document.getElementById("sidebarNav");
+  const body = document.body;
+
+  // Toggle sidebar open/close
+  toggleBtn.addEventListener("click", function (event) {
+    event.stopPropagation(); // Prevent bubbling up to document
+    sidebar.classList.toggle("open");
+    toggleBtn.classList.toggle("open");
+    body.classList.toggle("sidebar-open");
+  });
+
+  // Close sidebar if clicked outside
+  document.addEventListener("click", function (event) {
+    const isClickInsideSidebar = sidebar.contains(event.target);
+    const isClickOnToggle = toggleBtn.contains(event.target);
+
+    if (!isClickInsideSidebar && !isClickOnToggle) {
+      sidebar.classList.remove("open");
+      toggleBtn.classList.remove("open");
+      body.classList.remove("sidebar-open");
+    }
+  });
+</script>
+
+
+
+
 
 
 

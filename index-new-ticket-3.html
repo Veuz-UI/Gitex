@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Event Tickets</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/new-style-visitor.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/fonts/webfont/stylesheet.css">
+    <style>
+        :root {
+            --primary-green: #00a236;
+            --primary-red: #C02926;
+            --primary-blue: #0081C5;
+            --primary-orange: #F27809;
+            --primary-purple: #5D2B7E;
+            --primary-cyan: #00B95E;
+            --white: #ffffff;
+            --black: #000000;
+            --glass: rgba(255, 255, 255, 0.1);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(
+            circle at 50% 30%,
+            #6ee66e 0%,
+            #00c46b 20%,
+            #007f4f 40%,
+            #003d26 65%,
+            #000000 100%
+            );
+            min-height: 100vh;
+            font-family: 'Poppins' !important;
+            overflow-x: hidden;
+        }
+
+          .registration-text{
+            font-family: 'Poppins' !important;
+        }
+
+         .inner-banner{
+            background: transparent !important;
+            height: auto;
+            padding-top: 20px;
+        }
+
+        .footer{
+            padding: 0px;
+            background: none;
+        }
+
+        .container {
+            padding: 30px 15px;
+            max-width: 1400px;
+        }
+
+        /* Compact Ticket Container */
+         .ticket-container {
+            perspective: 1000px;
+            height: 100%;
+            overflow: visible;
+        }
+
+        .ticket-card {
+            display: flex;
+            min-height: 280px; /* Reduced from 400px */
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px; /* Reduced from 20px */
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(20px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 0px;
+            height: 100%;
+        }
+
+        .ticket-card:hover {
+            transform: translateY(-5px) rotateX(3deg); /* Reduced hover effect */
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Animated Background Orbs - Smaller */
+        .background-orbs {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .orb:nth-child(1) { width: 40px; height: 40px; top: 20%; left: 10%; animation-delay: 0s; } /* Reduced from 60px */
+        .orb:nth-child(2) { width: 25px; height: 25px; top: 60%; left: 80%; animation-delay: 2s; } /* Reduced from 40px */
+        .orb:nth-child(3) { width: 50px; height: 50px; top: 80%; left: 20%; animation-delay: 4s; } /* Reduced from 80px */
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+            50% { transform: translateY(-15px) rotate(180deg); opacity: 1; } /* Reduced movement */
+        }
+
+        /* Left Section - Pricing - More compact */
+        .ticket-left {
+            width: 30%; /* Reduced from 35% */
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px; /* Reduced from 30px */
+            color: white;
+        }
+
+        .ticket-left::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            z-index: -1;
+        }
+
+        .ticket-left::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -15px; /* Reduced from -20px */
+            transform: translateY(-50%);
+            width: 30px; /* Reduced from 40px */
+            height: 30px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 8px white; /* Reduced from 10px */
+        }
+
+        /* Geometric Patterns - Smaller */
+        .geometric-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: 
+                radial-gradient(circle at 20% 20%, white 1.5px, transparent 1.5px),
+                radial-gradient(circle at 80% 80%, white 1.5px, transparent 1.5px);
+            background-size: 20px 20px; /* Reduced from 30px */
+            animation: patternMove 20s linear infinite;
+        }
+
+        @keyframes patternMove {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(20px) translateY(20px); } /* Reduced from 30px */
+        }
+
+        /* Compact Price Tag */
+        .price-tag {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 12px; /* Reduced from 15px */
+            padding: 15px; /* Reduced from 20px */
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin: 15px 0; /* Reduced from 20px */
+            transition: all 0.3s ease;
+        }
+
+        .price-tag:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .price {
+            font-size: 2rem; /* Reduced from 2.5rem */
+            font-weight: 700;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .price-sub {
+            font-size: 0.8rem; /* Reduced from 0.9rem */
+            opacity: 0.9;
+            margin: 5px 0 0 0;
+        }
+
+        /* Compact Badge */
+        .ticket-badge {
+            position: absolute;
+            top: 0;
+            right: 0%;
+            /* transform: translateX(-50%); */
+            background: rgba(255, 255, 255, 0.9);
+            transform: none !important;
+            color: var(--primary-color);
+            padding: 6px 15px; /* Reduced from 8px 20px */
+            border-radius: 0 0 0px 12px;
+            font-weight: 600;
+            font-size: 0.8rem; /* Reduced from 0.9rem */
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); /* Reduced shadow */
+            z-index: 10;
+        }
+
+        /* Compact Premium Button */
+        .premium-button {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            color: white;
+            padding: 12px 20px; /* Reduced from 15px 25px */
+            border-radius: 40px; /* Reduced from 50px */
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+            font-size: 0.8rem; /* Added smaller font size */
+        }
+
+        .premium-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .premium-button:hover {
+            transform: translateY(-2px); /* Reduced from -3px */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Reduced shadow */
+            background: rgba(255, 255, 255, 0.3);
+            border-color: white;
+        }
+
+        .premium-button:hover::before {
+            left: 100%;
+        }
+
+        /* Right Section - Details - More compact */
+        .ticket-right {
+            width: 70%; /* Increased from 65% */
+            padding: 10px; /* Reduced from 40px */
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+            backdrop-filter: blur(20px);
+            position: relative;
+        }
+
+        .ticket-title {
+            font-size: 1.2rem; /* Reduced from 1.5rem */
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 10px; /* Reduced from 15px */
+            line-height: 1.3;
+        }
+
+        .ticket-subtitle {
+            color: #666;
+            margin-bottom: 15px; /* Reduced from 20px */
+            font-size: 0.9rem; /* Reduced from 1rem */
+        }
+
+        .event-details {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6));
+            border-radius: 12px; /* Reduced from 15px */
+            padding: 15px; /* Reduced from 20px */
+            margin: 15px 0; /* Reduced from 20px */
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+            font-size: 0.85rem; /* Added smaller font size */
+        }
+
+        .event-details p {
+            margin-bottom: 5px; /* Reduced spacing */
+        }
+
+        /* Compact Features Grid */
+        .features-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px; /* Reduced from 15px */
+        }
+
+        .feature-item {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+            border-radius: 10px; /* Reduced from 12px */
+            padding: 6px; /* Reduced from 15px */
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-item:hover {
+            transform: translateX(3px); /* Reduced from 5px */
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15); /* Reduced shadow */
+            background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.9));
+        }
+
+        .feature-icon {
+            width: 20px; /* Reduced from 40px */
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px; /* Reduced from 15px */
+            color: white;
+            font-size: 0.8rem; /* Reduced from 0.9rem */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Reduced shadow */
+        }
+
+        .feature-text {
+            font-weight: 500;
+            color: var(--black);
+            font-size: 0.8rem; /* Reduced from 0.9rem */
+        }
+
+        /* Color Variants */
+        .ticket-green { --primary-color: var(--primary-green); --secondary-color: #003c14; }
+        .ticket-red { --primary-color: var(--primary-red); --secondary-color: #470706; }
+        .ticket-blue { --primary-color: var(--primary-blue); --secondary-color: #050FAE; }
+        .ticket-orange { --primary-color: var(--primary-orange); --secondary-color: #C32E23; }
+        .ticket-purple { --primary-color: var(--primary-purple); --secondary-color: #431B5A; }
+        .ticket-cyan { --primary-color: var(--primary-cyan); --secondary-color: #A8EA58; }
+
+        /* Special Effects */
+        .free-badge {
+            background: linear-gradient(45deg, #FFD700, #FFA500) !important;
+            color: var(--black) !important;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.05); }
+            100% { transform: translateX(-50%) scale(1); }
+        }
+
+        .coming-soon {
+            position: relative;
+        }
+
+        .coming-soon::before {
+            content: 'COMING SOON';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 15px 30px; /* Reduced from 20px 40px */
+            border-radius: 12px; /* Reduced from 15px */
+            font-size: 1.2rem; /* Reduced from 1.5rem */
+            font-weight: 700;
+            letter-spacing: 2px;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border: 2px solid white;
+        }
+
+        .coming-soon::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 99;
+            border-radius: 15px; /* Reduced from 20px */
+        }
+
+        /* Responsive Design for smaller screens */
+        @media (max-width: 1200px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr); /* Force 2 columns on medium screens */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .ticket-card {
+                flex-direction: column;
+                min-height: auto;
+            }
+            
+            .ticket-left, .ticket-right {
+                width: 100%;
+            }
+            
+            .ticket-left {
+                min-height: 180px; /* Reduced from 250px */
+            }
+            
+            .ticket-left::after {
+                top: auto;
+                bottom: -15px; /* Reduced from -20px */
+                right: 50%;
+                transform: translateX(50%);
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 15px 10px; /* Reduced padding */
+            }
+
+        }
+
+        /* Enhanced Animations - More subtle */
+        .ticket-container {
+            opacity: 0;
+            transform: translateY(30px); /* Reduced from 50px */
+            animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .ticket-container:nth-child(2) { animation-delay: 0.1s; }
+        .ticket-container:nth-child(3) { animation-delay: 0.2s; }
+        .ticket-container:nth-child(4) { animation-delay: 0.3s; }
+        .ticket-container:nth-child(5) { animation-delay: 0.4s; }
+        .ticket-container:nth-child(6) { animation-delay: 0.5s; }
+
+        @keyframes slideInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Compact Header Section */
+        .page-header {
+            text-align: center;
+            margin-bottom: 30px; /* Reduced from 50px */
+            color: white;
+        }
+
+        .page-title {
+            font-size: 2.5rem; /* Reduced from 3rem */
+            font-weight: 700;
+            margin-bottom: 10px; /* Reduced from 15px */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-subtitle {
+            font-size: 1.1rem; /* Reduced from 1.2rem */
+            opacity: 0.9;
+            margin-bottom: 20px; /* Reduced from 30px */
+        }
+
+        /* Ensure 4 tickets fit on 15" screen (optimized for ~1366px width) */
+        @media (min-width: 1200px) and (max-width: 1400px) {
+            .col-lg-6 {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+            
+            .ticket-card {
+                min-height: 260px; /* Even more compact for medium screens */
+            }
+            
+            .container {
+                max-width: 1200px;
+            }
+        }
+
+        /* For smaller laptops and 15" screens */
+        @media (min-width: 1024px) and (max-width: 1366px) {
+            .container {
+                padding: 20px 10px;
+            }
+            
+            .ticket-card {
+                min-height: 250px; /* Very compact */
+            }
+            
+            .ticket-left {
+                padding: 15px;
+            }
+            
+            .ticket-right {
+                padding: 20px;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+            
+            .feature-item {
+                padding: 8px;
+            }
+            
+            .feature-text {
+                font-size: 0.75rem;
+            }
+        }
+
+         @media (max-width: 400px) {
+            .coming-soon::before{
+                width: 250px;
+                text-align: center;
+            }
+         }
+
+        /* Flash the FREE Limited Time price box */
+.ticket-green .price-tag {
+    animation: flashPriceBox 1.5s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.ticket-green .price-tag::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s linear infinite;
+}
+
+.ticket-green .price {
+    animation: textFlash 1s ease-in-out infinite alternate;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.ticket-green .price-sub {
+    animation: subTextPulse 1.2s ease-in-out infinite;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+@keyframes flashPriceBox {
+    0%, 100% {
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        transform: scale(1);
+    }
+    50% {
+        background: rgba(255, 255, 255, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.2);
+        transform: scale(1.02);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+}
+
+@keyframes textFlash {
+    0% {
+        color: rgba(255, 255, 255, 1);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    100% {
+        color: rgba(255, 255, 255, 0.9);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 215, 0, 0.6);
+    }
+}
+
+@keyframes subTextPulse {
+    0%, 100% {
+        opacity: 0.9;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+    }
+}
+
+
+.floating-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.29);
+            animation: particleFloat 15s linear infinite;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .particle:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { top: 20%; left: 80%; animation-delay: 0.5s; }
+        .particle:nth-child(3) { top: 60%; left: 20%; animation-delay: 1s; }
+        .particle:nth-child(4) { top: 80%; left: 70%; animation-delay: 1.5s; }
+        .particle:nth-child(5) { top: 30%; left: 60%; animation-delay: 2s; }
+        .particle:nth-child(6) { top: 70%; left: 40%; animation-delay: 2.5s; }
+        .particle:nth-child(7) { top: 40%; left: 90%; animation-delay: 3s; }
+        .particle:nth-child(8) { top: 90%; left: 30%; animation-delay: 3.5s; }
+        .particle:nth-child(9) { top: 50%; left: 10%; animation-delay: 4s; }
+        .particle:nth-child(10) { top: 15%; left: 50%; animation-delay: 4.5s; }
+
+        /* floating particles */
+    </style>
+</head>
+
+
+<body>
+       <div class="inner-banner">
+            <a href=""><img src="assets/img/ni-header.png" class="img-fluid sm-hide-logo"></a>
+
+           
+                <div class="registration-text">VISITOR REGISTRATION</div>
+            <a href="login.html"><button class="btn-main"><i class="animation"></i>
+                                        Login<i class="animation"></i>
+                                    </button></a>
+            
+        </div>
+<div class="container">
+   <!-- <div class="page-header">
+       <h1 class="page-title">GITEX Nigeria 2025</h1>
+       <p class="page-subtitle">Choose Your Premium Experience</p>
+   </div> -->
+
+   <div class="row g-3">
+       <!-- Free Ticket -->
+       <div class="col-lg-6">
+           <div class="ticket-container">
+               <div class="ticket-card ticket-green premium-glow">
+                   <div class="background-orbs">
+                       <div class="orb"></div>
+                       <div class="orb"></div>
+                       <div class="orb"></div>
+                   </div>
+
+                     <div class="floating-particles">
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                        </div>
+                   
+                   <div class="ticket-badge free-badge">FREE PASS</div>
+                   
+                   <div class="ticket-left">
+                       <div class="geometric-pattern"></div>
+                       
+                       <div>
+                           <div class="price-tag">
+                               <h3 class="price">FREE</h3>
+                               <p class="price-sub">Limited Time</p>
+                           </div>
+                       </div>
+                       
+                       <a href="registrationmultistepform-2.html">
+                        <button class="premium-button">
+                           GET YOUR PASS
+                       </button>
+                       </a>
+                   </div>
+                   
+                   <div class="ticket-right">
+                       <h3 class="ticket-title">GITEX Nigeria Startup Festival Pass</h3>
+                       <p class="ticket-subtitle">Experience the future of technology</p>
+                       
+                       <div class="event-details">
+                           <p><strong>Event:</strong> GITEX Nigeria Startup Festival</p>
+                           <p><strong>Date:</strong> September 3-4, 2025</p>
+                           <p><strong>Venue:</strong> Landmark Centre, Lagos</p>
+                       </div>
+                       
+                      <div class="features-grid">
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">Unplugged Lounge</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">Mentorship Clinic</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">Innovation Zone</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">Elevate Stage</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">AWS AI Lab</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">Networking Hub</div>
+                            </div>
+                        </div>
+
+                   </div>
+               </div>
+           </div>
+       </div>
+
+       <!-- Early Bird Red -->
+       <div class="col-lg-6">
+           <div class="ticket-container">
+               <div class="ticket-card ticket-red">
+                   <div class="background-orbs">
+                       <div class="orb"></div>
+                       <div class="orb"></div>
+                       <div class="orb"></div>
+                   </div>
+
+                     <div class="floating-particles">
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                        </div>
+                   
+                   <div class="ticket-badge">EARLY BIRD</div>
+                   
+                   <div class="ticket-left">
+                       <div class="geometric-pattern"></div>
+                       
+                       <div>
+                           <div class="price-tag">
+                               <h3 class="price">₦25,000</h3>
+                               <p class="price-sub">Incl. 7.5% VAT</p>
+                           </div>
+                       </div>
+                       
+                       <a href="registrationmultistepform-2.html">
+                        <button class="premium-button">
+                           GET YOUR PASS
+                       </button>
+                       </a>
+                   </div>
+                   
+                   <div class="ticket-right">
+                       <h3 class="ticket-title">Premium Festival Experience</h3>
+                       <p class="ticket-subtitle">Enhanced access with exclusive benefits</p>
+                       
+                       <div class="event-details">
+                           <p><strong>Event:</strong> GITEX Nigeria Startup Festival</p>
+                           <p><strong>Date:</strong> September 3-4, 2025</p>
+                           <p><strong>Venue:</strong> Landmark Centre, Lagos</p>
+                       </div>
+                       
+                     <div class="features-grid">
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">VIP Lounge</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">Premium Catering</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">1-on-1 Mentoring</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">Premium WiFi</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">Welcome Kit</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">Photo Ops</div>
+                            </div>
+                        </div>
+
+                   </div>
+               </div>
+           </div>
+       </div>
+
+       <!-- Blue Executive -->
+       <div class="col-lg-6">
+           <div class="ticket-container">
+               <div class="ticket-card ticket-blue premium-glow">
+                   <div class="background-orbs">
+                       <div class="orb"></div>
+                       <div class="orb"></div>
+                       <div class="orb"></div>
+                   </div>
+
+                     <div class="floating-particles">
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                        </div>
+                   
+                   <div class="ticket-badge">EXECUTIVE</div>
+                   
+                   <div class="ticket-left">
+                       <div class="geometric-pattern"></div>
+                       
+                       <div>
+                           <div class="price-tag">
+                               <h3 class="price">₦45,000</h3>
+                               <p class="price-sub">Incl. 7.5% VAT</p>
+                           </div>
+                       </div>
+                       
+                       <a href="registrationmultistepform-2.html">
+                        <button class="premium-button">
+                           GET YOUR PASS
+                       </button>
+                       </a>
+                   </div>
+                   
+                   <div class="ticket-right">
+                       <h3 class="ticket-title">Executive Business Package</h3>
+                       <p class="ticket-subtitle">Maximum networking and business opportunities</p>
+                       
+                       <div class="event-details">
+                           <p><strong>Event:</strong> GITEX Nigeria Startup Festival</p>
+                           <p><strong>Date:</strong> September 3-4, 2025</p>
+                           <p><strong>Venue:</strong> Landmark Centre, Lagos</p>
+                       </div>
+                       
+                       <div class="features-grid">
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">Executive Lounge</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">Private Networking</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">Exclusive Sessions</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">Valet Parking</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">Priority Access</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">Event Summary</div>
+                            </div>
+                        </div>
+
+                   </div>
+               </div>
+           </div>
+       </div>
+
+       <!-- Cyan Startup -->
+       <div class="col-lg-6">
+           <div class="ticket-container">
+               <div class="ticket-card ticket-cyan">
+                   <div class="background-orbs">
+                       <div class="orb"></div>
+                       <div class="orb"></div>
+                       <div class="orb"></div>
+                   </div>
+
+                     <div class="floating-particles">
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                        </div>
+                   
+                   <div class="ticket-badge">SUPER EARLY BIRD</div>
+                   
+                   <div class="ticket-left">
+                       <div class="geometric-pattern"></div>
+                       
+                       <div>
+                           <div class="price-tag">
+                               <h3 class="price">₦15,000</h3>
+                               <p class="price-sub">For Startups Only</p>
+                           </div>
+                       </div>
+                       
+                       <a href="registrationmultistepform-2.html">
+                        <button class="premium-button">
+                           GET YOUR PASS
+                       </button>
+                       </a>
+                   </div>
+                   
+                   <div class="ticket-right">
+                       <h3 class="ticket-title">Startup Accelerator Pass</h3>
+                       <p class="ticket-subtitle">Perfect for emerging startups and entrepreneurs</p>
+                       
+                       <div class="event-details">
+                           <p><strong>Event:</strong> GITEX Nigeria Startup Festival</p>
+                           <p><strong>Date:</strong> September 3-4, 2025</p>
+                           <p><strong>Venue:</strong> Landmark Centre, Lagos</p>
+                       </div>
+                       
+                       <div class="features-grid">
+                                <div class="feature-item">
+                                    <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                    <div class="feature-text">Startup Showcase</div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                    <div class="feature-text">Investor Meetups</div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                    <div class="feature-text">Pitch Training</div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                    <div class="feature-text">Innovation Labs</div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                    <div class="feature-text">Partnership Hub</div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                    <div class="feature-text">Startup Awards</div>
+                                </div>
+                            </div>
+
+                   </div>
+               </div>
+           </div>
+       </div>
+
+       <!-- Orange Developer -->
+       <div class="col-lg-6">
+           <div class="ticket-container">
+               <div class="ticket-card ticket-orange">
+                   <div class="background-orbs">
+                       <div class="orb"></div>
+                       <div class="orb"></div>
+                       <div class="orb"></div>
+                   </div>
+
+                     <div class="floating-particles">
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                        </div>
+                   
+                   <div class="ticket-badge">EXCLUSIVE</div>
+                   
+                   <div class="ticket-left">
+                       <div class="geometric-pattern"></div>
+                       
+                       <div>
+                           <div class="price-tag">
+                               <h3 class="price">₦20,000</h3>
+                               <p class="price-sub">Tech Focused</p>
+                           </div>
+                       </div>
+                       
+                       <a href="registrationmultistepform-2.html">
+                        <button class="premium-button">
+                           GET YOUR PASS
+                       </button>
+                       </a>
+                   </div>
+                   
+                   <div class="ticket-right">
+                       <h3 class="ticket-title">Developer & Tech Professional</h3>
+                       <p class="ticket-subtitle">Technical workshops and coding sessions</p>
+                       
+                       <div class="event-details">
+                           <p><strong>Event:</strong> GITEX Nigeria Startup Festival</p>
+                           <p><strong>Date:</strong> September 3-4, 2025</p>
+                           <p><strong>Venue:</strong> Landmark Centre, Lagos</p>
+                       </div>
+                       
+                       <div class="features-grid">
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">Coding Workshops</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">Tech Sessions</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">AI/ML Demos</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">Developer Tools</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">Open Source</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">Certifications</div>
+                            </div>
+                        </div>
+
+                   </div>
+               </div>
+           </div>
+       </div>
+
+       <!-- Purple VIP Coming Soon -->
+       <div class="col-lg-6">
+           <div class="ticket-container">
+               <div class="ticket-card ticket-purple coming-soon">
+                   <div class="background-orbs">
+                       <div class="orb"></div>
+                       <div class="orb"></div>
+                       <div class="orb"></div>
+                   </div>
+
+                     <div class="floating-particles">
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                        </div>
+                   
+                   <div class="ticket-badge">VIP PLATINUM</div>
+                   
+                   <div class="ticket-left">
+                       <div class="geometric-pattern"></div>
+                       
+                       <div>
+                           <div class="price-tag">
+                               <h3 class="price">₦100,000</h3>
+                               <p class="price-sub">Ultimate Experience</p>
+                           </div>
+                       </div>
+                       
+                       <a href="registrationmultistepform-2.html">
+                        <button class="premium-button">
+                           GET YOUR PASS
+                       </button>
+                       </a>
+                   </div>
+                   
+                   <div class="ticket-right">
+                       <h3 class="ticket-title">VIP Platinum Experience</h3>
+                       <p class="ticket-subtitle">The ultimate luxury tech conference experience</p>
+                       
+                       <div class="event-details">
+                           <p><strong>Event:</strong> GITEX Nigeria Startup Festival</p>
+                           <p><strong>Date:</strong> September 3-4, 2025</p>
+                           <p><strong>Venue:</strong> Landmark Centre, Lagos</p>
+                       </div>
+                       
+                       <div class="features-grid">
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">VIP Transport</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">Personal Concierge</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">Exclusive Reception</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">Private Meetings</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">Wellness Suite</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check"></i></div>
+                                <div class="feature-text">Lifetime Membership</div>
+                            </div>
+                        </div>
+
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
+
+      <section class="footer">
+        <div class="container">
+                    <img src="assets/img/logo.png" alt="" class="logo-width">
+        
+            <!-- <div class="row">
+                <div class="col-lg-4">
+                </div>
+                <div class="col-lg-4">
+                    <h6>Show Time & Location</h6>
+                    <h5>GITEX EUROPE</h5>
+                    <h4><span><i class="fa-solid fa-location-dot"></i></span>MESSE BERLIN, SOUTH ENTRANCE</h4>
+                </div>
+                <div class="col-lg-4">
+                    <h6>LET’S TALK</h6>
+                    <h4>SALES INQUIRY: <span> sales@gitex-europe.com</span></h4>
+                    <h4>MARKETING INQUIRY <span> marketing@gitex-europe.com</span></h4>
+                    <h4>BECOMA A PARTNER: <span>gitexpartnerships@dwtc.com</span></h4>
+                </div>
+            </div> -->
+            
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+        </div>
+            </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Enhanced animations and interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add intersection observer for scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                        
+                        // Add staggered feature animations
+                        const features = entry.target.querySelectorAll('.feature-item');
+                        features.forEach((feature, index) => {
+                            setTimeout(() => {
+                                feature.style.opacity = '1';
+                                feature.style.transform = 'translateX(0)';
+                            }, index * 100);
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all ticket containers
+            document.querySelectorAll('.ticket-container').forEach(container => {
+                observer.observe(container);
+                
+                // Initialize feature items for animation
+                const features = container.querySelectorAll('.feature-item');
+                features.forEach(feature => {
+                    feature.style.opacity = '0';
+                    feature.style.transform = 'translateX(-20px)';
+                    feature.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+                });
+            });
+
+            // Enhanced button interactions
+            document.querySelectorAll('.premium-button').forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px) scale(1.05)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+                
+                button.addEventListener('click', function(e) {
+                    // Create ripple effect
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.cssText = `
+                        position: absolute;
+                        width: ${size}px;
+                        height: ${size}px;
+                        left: ${x}px;
+                        top: ${y}px;
+                        background: rgba(255, 255, 255, 0.6);
+                        border-radius: 50%;
+                        transform: scale(0);
+                        animation: ripple 0.6s linear;
+                        pointer-events: none;
+                    `;
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+
+            // Add hover effects to ticket cards
+            document.querySelectorAll('.ticket-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    const orbs = this.querySelectorAll('.orb');
+                    orbs.forEach(orb => {
+                        orb.style.animationDuration = '3s';
+                    });
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    const orbs = this.querySelectorAll('.orb');
+                    orbs.forEach(orb => {
+                        orb.style.animationDuration = '6s';
+                    });
+                });
+            });
+
+            // Parallax effect for geometric patterns
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const patterns = document.querySelectorAll('.geometric-pattern');
+                
+                patterns.forEach((pattern, index) => {
+                    const speed = 0.1 + (index * 0.05);
+                    pattern.style.transform = `translateY(${scrolled * speed}px)`;
+                });
+            });
+
+            // Dynamic pricing animation
+            document.querySelectorAll('.price').forEach(price => {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animatePrice(entry.target);
+                        }
+                    });
+                });
+                observer.observe(price);
+            });
+
+            function animatePrice(element) {
+                const text = element.textContent;
+                if (text === 'FREE') return;
+                
+                const match = text.match(/₦([\d,]+)/);
+                if (!match) return;
+                
+                const targetValue = parseInt(match[1].replace(',', ''));
+                let currentValue = 0;
+                const increment = targetValue / 50;
+                
+                const animate = () => {
+                    currentValue += increment;
+                    if (currentValue < targetValue) {
+                        element.textContent = `₦${Math.floor(currentValue).toLocaleString()}`;
+                        requestAnimationFrame(animate);
+                    } else {
+                        element.textContent = text;
+                    }
+                };
+                
+                animate();
+            }
+        });
+
+        // Add particle system for premium tickets
+        function createParticles(container) {
+            const particleCount = 15; // Reduced from 20
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'floating-particle';
+                particle.style.cssText = `
+                    position: absolute;
+                    width: 2px;
+                    height: 2px;
+                    background: rgba(255, 255, 255, 0.8);
+                    border-radius: 50%;
+                    left: ${Math.random() * 100}%;
+                    top: ${Math.random() * 100}%;
+                    animation: floatParticle ${3 + Math.random() * 3}s infinite ease-in-out;
+                    animation-delay: ${Math.random() * 2}s;
+                    pointer-events: none;
+                `;
+                container.appendChild(particle);
+            }
+        }
+
+        // Initialize particles for premium tickets
+        document.querySelectorAll('.premium-glow').forEach(ticket => {
+            createParticles(ticket);
+        });
+
+        // Add entrance animations
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.ticket-container');
+            elements.forEach((element, index) => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.animationDelay = `${index * 0.1}s`;
+                    element.classList.add('animate-visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll(); // Run on load
+
+        // Add CSS for entrance animation
+        const style = document.createElement('style');
+        style.textContent = `
+            .animate-visible {
+                animation: slideInUp 0.8s ease-out forwards;
+            }
+            
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+            
+            @keyframes floatParticle {
+                0%, 100% {
+                    transform: translateY(0px) translateX(0px);
+                    opacity: 0;
+                }
+                50% {
+                    transform: translateY(-15px) translateX(8px);
+                    opacity: 1;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
